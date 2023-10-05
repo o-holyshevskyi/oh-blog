@@ -3,11 +3,12 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import React from 'react';
 
 export const name = 'Oleksandr Holyshevskyi';
 export const siteTitle = 'Oleksandr Holyshevskyi';
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home }: {children: React.ReactNode, home?: boolean}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -37,6 +38,7 @@ export default function Layout({ children, home }) {
               alt={name}
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <div className={utilStyles.delimiterL}></div>
           </>
         ) : (
           <>
@@ -55,6 +57,7 @@ export default function Layout({ children, home }) {
                 {name}
               </Link>
             </h2>
+            <div className={utilStyles.delimiterL}></div>
           </>
         )}
       </header>

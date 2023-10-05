@@ -50,3 +50,69 @@
 .lightText {
   color: #666;
 }
+
+.tagsL {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tagL {
+  background-color: #eee1e1;
+  margin-right: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.tagL:hover {
+  transform: scale(1.1);
+}
+
+.tagTextL {
+  margin: 9px;
+  font-weight: bold;
+}
+
+.tagsS {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tagS {
+  background-color: #eee1e1;
+  margin-right: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.tagS:hover {
+  transform: scale(1.1);
+}
+
+.tagTextS {
+  margin: 9px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.delimiterL {
+  width: 30%;
+  height: 3px;
+  background-color: red;
+  border-radius: 50px;
+}
+
+.delimiter {
+  margin-top: 15px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(131, 129, 129);
+  border-radius: 50px;
+}
