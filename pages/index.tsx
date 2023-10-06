@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout, { siteTitle, name } from '../components/layout';
+import Layout, { name } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
@@ -16,10 +16,13 @@ export default function Home({
     id: string;
   }[];
 }) {
+
+  const sortedPostData = allPostsData.slice(0, 5);
+
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{name}</title>
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
@@ -29,9 +32,9 @@ export default function Home({
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>R</span>ecent posts</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, tags }) => (
+          {sortedPostData.map(({ id, date, title, tags }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
@@ -41,7 +44,11 @@ export default function Home({
               <br />
               <div className={utilStyles.tagsS}>{tags.map((tag, i) => (
                   <div className={utilStyles.tagS} key={i}>
-                      <div className={utilStyles.tagTextS}>{tag}</div>
+                      <Link 
+                        href={`/posts/filtered/${tag.replace('#', '').toLowerCase()}`}
+                      >
+                        <div className={utilStyles.tagTextS}>{tag}</div>
+                      </Link>
                   </div>
               ))}</div>
               <div className={utilStyles.delimiter}></div>
@@ -49,6 +56,13 @@ export default function Home({
           ))}
         </ul>
       </section>
+      <div className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.content}`}>
+        <Link href={`/posts/all-posts`}>
+          <button className={utilStyles.morePosts}>
+            <strong>More Posts</strong>
+          </button>
+        </Link>
+      </div>
     </Layout>
   );
 }

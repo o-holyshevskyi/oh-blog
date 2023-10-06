@@ -7,8 +7,8 @@ import html from 'remark-html';
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export function getSortedPostsData() {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = fileNames.map((fileName) => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
 
     const fullPath = path.join(postsDirectory, fileName);
@@ -18,7 +18,7 @@ export function getSortedPostsData() {
 
     return {
       id,
-      ...(matterResult.data as { date: string; title: string }),
+      ...(matterResult.data as { date: string; title: string; }),
     };
   });
   return allPostsData.sort((a, b) => {
@@ -41,6 +41,39 @@ export function getAllPostIds() {
   });
 }
 
+export function getAllTags() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+    const matterResult = matter(fileContents);
+
+    return {
+      ...(matterResult.data as { tags: string[]; }),
+    };
+  });
+
+  let allTags = new Set();
+
+  for (let i = 0; i < allPostsData.length; i++) {
+    const postsData = allPostsData[i];
+    for (let f = 0; f < postsData.tags.length; f++) {
+      const tag = postsData.tags[f];
+      allTags.add(tag);
+    }
+  }
+
+  const uniqueTags = [...allTags] as string[];
+  return uniqueTags.map((tag) => {
+    return {
+      params: {
+        tag: tag.replace('#', '').toLowerCase()
+      }
+    }
+  })
+}
+
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -55,6 +88,39 @@ export async function getPostData(id: string) {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string; tags: string[] }),
+    ...(matterResult.data as { date: string; title: string; tags: string[]; }),
   };
+}
+
+export async function getFilteredPosts(tag: string) {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const filteredPosts = [];
+
+  for (const fileName of fileNames) {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
+    const id = fileName.replace(/\.md$/, '');
+
+    matterResult.data.tags.map((t) => {
+      const tt = t.replace('#', '').toLowerCase();
+      if (tt === tag) {
+        filteredPosts.push({
+          id,
+          tag,
+          ...(matterResult.data as { date: string; title: string; tags: string[]; }),
+        });
+      }
+    });
+  }
+
+  filteredPosts.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
+  return filteredPosts;
 }

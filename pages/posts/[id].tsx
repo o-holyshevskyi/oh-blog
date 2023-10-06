@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Link from 'next/link';
 
 export default function Post({
   postData,
@@ -28,7 +29,11 @@ export default function Post({
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         <div className={utilStyles.tagsL}>{postData.tags.map((tag, i) => (
             <div className={utilStyles.tagL} key={i}>
+              <Link 
+                href={`/posts/filtered/${tag.replace('#', '').toLowerCase()}`}
+              >
                 <div className={utilStyles.tagTextL}>{tag}</div>
+              </Link>
             </div>
         ))}</div>
       </article>

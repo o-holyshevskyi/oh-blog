@@ -1,0 +1,84 @@
+import Head from "next/head";
+import Layout from "../../components/layout";
+import utilStyles from '../../styles/utils.module.css';
+import Link from "next/link";
+import Date from '../../components/date';
+import { GetStaticProps } from "next";
+import { getSortedPostsData } from "../../lib/posts";
+import { useState } from "react";
+
+export default function AllPosts({
+    allPostsData
+}: {
+    allPostsData: {
+        date: string;
+        title: string;
+        tags: string[];
+        id: string;
+    }[];
+}) {
+    const [posts, setPosts] = useState(allPostsData);
+    let allTags = new Set();
+    posts.forEach((postsData) => {
+        postsData.tags.forEach((tag) => {
+            allTags.add(tag);
+        })
+    })
+
+    const uniqueTags = [...allTags] as string[];
+    uniqueTags.push('All');
+
+    const handleFilterTags = (tag: string) =>  {
+        if (tag !== 'All') {
+            const filteredTags = allPostsData.filter((post) => post.tags.includes(tag));
+            if (filteredTags.length > 0) {
+                setPosts(filteredTags);
+            }
+        } else {
+            setPosts(allPostsData);
+        }
+    }
+
+    return (
+        <Layout>
+            <Head>
+                <title>All posts</title>
+            </Head>
+            <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+                <div className={utilStyles.tagsS}>{uniqueTags.map((tag, i) => (
+                    <div className={utilStyles.tagS} key={i}>
+                        <div className={utilStyles.tagTextS} onClick={() => handleFilterTags(tag)}>{tag}</div>
+                    </div>
+                ))}</div>
+                <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>A</span>ll posts ({posts.length})</h2>
+                <ul className={utilStyles.list}>
+                {posts.map(({ id, date, title, tags }) => (
+                    <li className={utilStyles.listItem} key={id}>
+                    <Link href={`/posts/${id}`}>{title}</Link>
+                    <br />
+                    <small className={utilStyles.lightText}>
+                        <Date dateString={date} />
+                    </small>
+                    <br />
+                    <div className={utilStyles.tagsS}>{tags.map((tag, i) => (
+                        <div className={utilStyles.tagS} key={i}>
+                            <div className={utilStyles.tagTextS} onClick={() => handleFilterTags(tag)}>{tag}</div>
+                        </div>
+                    ))}</div>
+                    <div className={utilStyles.delimiter}></div>
+                    </li>
+                ))}
+                </ul>
+            </section>
+        </Layout>
+    )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    const allPostsData = getSortedPostsData();
+    return {
+      props: {
+        allPostsData,
+      },
+    };
+};

@@ -92,6 +92,14 @@
   transition: transform 0.3s ease;
 }
 
+.tag {
+  background-color: #eee1e1;
+  margin-right: 10px;
+  margin-top: 5px;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
 .tagS:hover {
   transform: scale(1.1);
 }
@@ -100,6 +108,7 @@
   margin: 9px;
   font-weight: bold;
   font-size: 12px;
+  text-decoration: none;
 }
 
 .delimiterL {
@@ -115,4 +124,41 @@
   height: 1px;
   background-color: rgb(131, 129, 129);
   border-radius: 50px;
+}
+
+.content {
+  margin: 2rem auto 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.morePosts {
+  background-color: #eee1e1;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  border-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.morePosts:hover {
+  transform: scale(1.1);
+}
+
+.socialMedias {
+  margin: 2rem auto 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.socialMediaImg {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.socialMediaImg:hover {
+  transform: scale(1.1);
 }

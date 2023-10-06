@@ -6,7 +6,26 @@ import Link from 'next/link';
 import React from 'react';
 
 export const name = 'Oleksandr Holyshevskyi';
-export const siteTitle = 'Oleksandr Holyshevskyi';
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/oleksandr-holyshevskyi/',
+    img: '/images/linkedin-50.png',
+    target: '_blank'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/o-holyshevskyi',
+    img: '/images/github-50.png',
+    target: '_blank'
+  },
+  {
+    name: 'About',
+    url: '/about',
+    img: '/images/about-50.png',
+    target: '_self'
+  }
+];
 
 export default function Layout({ children, home }: {children: React.ReactNode, home?: boolean}) {
   return (
@@ -15,29 +34,27 @@ export default function Layout({ children, home }: {children: React.ReactNode, h
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Test Automation Engineer"
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={name} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
         {home ? (
           <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <Link
+              href='/about'
+            >
+              <Image
+                priority
+                src="/images/profile.jpg"
+                className={utilStyles.borderCircle}
+                height={144}
+                width={144}
+                alt={name}
+              />
+            </Link>
+            <h1 className={utilStyles.heading2Xl}><span style={{color: 'red'}}>{name.charAt(0)}</span>{name.slice(1)}</h1>
             <div className={utilStyles.delimiterL}></div>
           </>
         ) : (
@@ -54,7 +71,7 @@ export default function Layout({ children, home }: {children: React.ReactNode, h
             </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/" className={utilStyles.colorInherit}>
-                {name}
+                <span style={{color: 'red'}}>{name.charAt(0)}</span>{name.slice(1)}
               </Link>
             </h2>
             <div className={utilStyles.delimiterL}></div>
@@ -63,10 +80,38 @@ export default function Layout({ children, home }: {children: React.ReactNode, h
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
+        <div>
+          <div className={styles.backToHome}>
+            <Link href="/">← Back to home</Link>
+          </div>
+          <div>
+
+          </div>
         </div>
       )}
+      <div className={utilStyles.content}>
+        <div className={utilStyles.delimiterL}></div>
+      </div>
+      <div className={utilStyles.content}>
+        <div className={utilStyles.socialMedias}>
+          {socialLinks.map((sl, i) => (
+            <Link 
+              href={sl.url}
+              target={sl.target}
+              key={i}
+            >
+              <Image
+                priority
+                src={sl.img}
+                className={`${utilStyles.borderCircle} ${utilStyles.socialMediaImg}`}
+                height={50}
+                width={50}
+                alt={sl.name}
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
