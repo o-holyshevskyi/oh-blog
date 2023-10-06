@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import Layout, { name } from '../components/layout';
+import Layout, { name } from '../components/layout/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
-import Date from '../components/date';
+import Date from '../components/date/date';
 import { GetStaticProps } from 'next';
 
 export default function Home({
@@ -46,6 +46,7 @@ export default function Home({
                   <div className={utilStyles.tagS} key={i}>
                       <Link 
                         href={`/posts/filtered/${tag.replace('#', '').toLowerCase()}`}
+                        className={utilStyles.colorInherit}
                       >
                         <div className={utilStyles.tagTextS}>{tag}</div>
                       </Link>

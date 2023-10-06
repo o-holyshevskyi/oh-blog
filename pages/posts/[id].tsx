@@ -1,7 +1,7 @@
-import Layout from '../../components/layout';
+import Layout from '../../components/layout/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
-import Date from '../../components/date';
+import Date from '../../components/date/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
@@ -39,6 +39,7 @@ export default function Post({
             <div className={utilStyles.tagL} key={i}>
               <Link 
                 href={`/posts/filtered/${tag.replace('#', '').toLowerCase()}`}
+                className={utilStyles.colorInherit}
               >
                 <div className={utilStyles.tagTextL}>{tag}</div>
               </Link>

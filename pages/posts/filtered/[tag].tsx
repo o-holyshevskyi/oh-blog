@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import Layout from "../../../components/layout";
+import Layout from "../../../components/layout/layout";
 import Head from "next/head";
-import Date from '../../../components/date';
+import Date from '../../../components/date/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { getAllTags, getFilteredPosts } from "../../../lib/posts";
 import Link from "next/link";

@@ -1,21 +1,17 @@
 import Head from "next/head";
-import Layout from "../components/layout";
+import Layout from "../components/layout/layout";
 import utilStyles from '../styles/utils.module.css';
-import Date from "../components/date";
+import Date from "../components/date/date";
+import Accordion from "../components/accordions/accordions";
 
 export default function About() {
     return (
         <Layout>
             <Head>
-                <title>About</title>
+                <title>About me</title>
             </Head>
-            <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>A</span>bout</h2>
-            <div>
-                As a Test Automation Engineer I possess a strong passion for both technology and serving my clients.
-                My unwavering energy and dedication to ensuring the best experience for my customers is reflected in my work as a skilled professional who designs, 
-                develops and executes automated tests to enhance software quality. With a focus on delivering top-notch results, I am a valuable asset to any team.
-            </div>
-            <h3><span style={{color: 'red'}}>E</span>xperience</h3>
+            <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>A</span>bout me</h2>
+            <Accordion></Accordion>
             <div>
                 <Date dateString="2022-08-01"></Date> - Current
                 <h4>AdvantISS</h4>
