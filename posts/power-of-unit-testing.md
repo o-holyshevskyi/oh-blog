@@ -1,7 +1,8 @@
 ---
 title: 'Unlocking the Power of Unit Testing: Why, When, and Who Should Care?'
-date: '2023-10-06'
+date: '2023-10-05'
 tags: ['#UnitTesting', '#SoftwareDevelopment', '#QualityAssurance']
+img: '/images/posts/unittesting.png'
 ---
 
 In the fast-paced world of software development, ensuring the reliability and robustness of our code is paramount. That's where Unit Testing comes into play - a practice that can make or break the success of a project. Let's dive into the why, when, and who of Unit Testing!

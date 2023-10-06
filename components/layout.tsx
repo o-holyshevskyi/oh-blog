@@ -27,7 +27,7 @@ const socialLinks = [
   }
 ];
 
-export default function Layout({ children, home }: {children: React.ReactNode, home?: boolean}) {
+export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean }) {
   return (
     <div className={styles.container}>
       <Head>

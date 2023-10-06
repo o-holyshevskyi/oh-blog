@@ -13,3 +13,15 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.zContainer {
+  padding: 0 1rem;
+  margin: 10rem auto 10rem;
+  position: relative;
+  scale: 1.8;
+}
+
+.postImg {
+  width: auto;
+  border-radius: 20px;
+}

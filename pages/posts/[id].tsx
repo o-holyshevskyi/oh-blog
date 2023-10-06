@@ -5,6 +5,8 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import style from '../../components/layout.module.css';
 
 export default function Post({
   postData,
@@ -13,15 +15,21 @@ export default function Post({
     title: string;
     date: string;
     contentHtml: string;
-    tags: string[]
+    tags: string[];
+    img: string;
   };
 }) {
   return (
-    <Layout>
+    <Layout >
       <Head>
         <title>{postData.title}</title>
       </Head>
       <article>
+        <div className={style.zContainer}>
+          {postData.img && (
+            <img src={postData.img} alt={postData.title} className={style.postImg}/>
+          )}
+        </div>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />

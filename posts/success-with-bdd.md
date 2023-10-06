@@ -2,6 +2,7 @@
 title: 'Unlocking Success with Behavior-Driven Development (BDD) 🚀'
 date: '2023-10-06'
 tags: ['#BDD', '#SoftwareDevelopment', '#Agile', '#QualityAssurance', '#Collaboration', '#Innovation']
+img: '/images/posts/bdd-cucumber-large.jpg'
 ---
 
 Today, I want to shed some light on a game-changing approach to software development that has been transforming the way teams work and deliver value to their customers: Behavior-Driven Development (BDD). 🌟

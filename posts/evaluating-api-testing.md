@@ -2,6 +2,7 @@
 title: '🚀Elevating API Testing: Unveiling the Key Why, Challenges, and the Power of Automation!🌐'
 date: '2023-10-02'
 tags: ['#APITesting', '#QualityAssurance', '#AutomationTesting', '#SoftwareDevelopment', '#QA', '#SoftwareTesting']
+img: '/images/posts/api-testing.png'
 ---
 
 🔍 Why Do We Need API Testing? 🔍

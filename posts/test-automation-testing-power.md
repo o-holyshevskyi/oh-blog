@@ -2,6 +2,7 @@
 title: '🔍Unleash the Power of Test Automation in Software Testing💻'
 date: '2023-09-08'
 tags: ['#TestAutomation', '#SoftwareTesting', '#TechInnovation', '#QualityAssurance']
+img: '/images/posts/late-test-automation.png'
 ---
 
 In today's fast-paced tech world, quality and efficiency are non-negotiable. That's where Test Automation steps in as a game-changer. 🚀

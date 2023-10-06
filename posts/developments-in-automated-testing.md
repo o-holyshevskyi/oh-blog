@@ -2,6 +2,7 @@
 title: '🚀Exciting Developments in Automated Testing🚀'
 date: '2023-09-18'
 tags: ['#AutomationTesting', '#QualityAssurance', '#SoftwareDevelopment', '#AI', '#DevOps', '#ContinuousTesting']
+img: '/images/posts/automationTesting.jpg'
 ---
 
 As technology continues to advance, so do our approaches to software development and quality assurance. 🌐🔍 Today, I want to share some insights into the latest trends in writing automation tests that are revolutionizing the industry. 🤖📊
