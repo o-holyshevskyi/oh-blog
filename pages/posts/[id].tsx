@@ -5,8 +5,7 @@ import Date from '../../components/date/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import style from '../../components/layout.module.css';
+import style from '../../components/layout/layout.module.css';
 
 export default function Post({
   postData,
