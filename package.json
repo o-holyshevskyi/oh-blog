@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@nextui-org/popover": "^2.1.9",
     "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
     "next": "latest",

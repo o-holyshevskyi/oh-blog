@@ -1,0 +1,48 @@
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.skill {
+    font-weight: bold;
+    border: 1px solid #eee1e1;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px 5px 5px;
+    transition: transform 0.3s ease;
+    font-size: 16px;
+    min-width: 50px;
+    cursor: pointer;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    background-color: #eee1e1;
+}
+
+.popover {
+    background-color: #f8eeee;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.popoverContent {
+    max-width: 260px;
+}
+
+.popoverHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    margin-right: 10px;
+}
+
+.popoverText {
+    margin-left: 10px;
+}

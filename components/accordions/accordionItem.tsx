@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import style from './accordions.module.css';
 
-export default function AccordionItem({ handleToggle, active, faq }) {
+export default function AccordionItem({ handleToggle, active, faq, contentComponent }) {
     const contentEl = useRef(null);
-    const { header, id, text } = faq;
+    const { header, id } = faq;
 
     return (
         <>
@@ -24,7 +24,7 @@ export default function AccordionItem({ handleToggle, active, faq }) {
                     : { height: '0px' }
                 }
             >
-                <p>{text}</p>
+            {contentComponent}
             </div>
         </>
     )
