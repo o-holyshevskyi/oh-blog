@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "../components/layout/layout";
 import utilStyles from '../styles/utils.module.css';
 import Accordion from "../components/accordions/accordions";
+import DownloadButton from "../components/download/download-button";
 
 export default function About() {
     return (
@@ -11,6 +12,7 @@ export default function About() {
             </Head>
             <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>A</span>bout me</h2>
             <Accordion></Accordion>
+            <DownloadButton />
         </Layout>
     )
 }
