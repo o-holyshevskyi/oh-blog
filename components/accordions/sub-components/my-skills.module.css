@@ -15,6 +15,7 @@
     font-size: 16px;
     min-width: 50px;
     cursor: pointer;
+    text-align: center;
 }
 
 .skill:hover {
@@ -45,4 +46,21 @@
 
 .popoverText {
     margin-left: 10px;
+}
+
+.eduContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.education {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.certificate {
+    margin: 10px;
 }
