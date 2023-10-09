@@ -50,7 +50,7 @@ export default function AllPosts({
                         <div className={utilStyles.tagTextS} onClick={() => handleFilterTags(tag)}>{tag}</div>
                     </div>
                 ))}</div>
-                <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>A</span>ll posts ({posts.length})</h2>
+                <h2 className={utilStyles.headingLg}><span className='cap'>A</span>ll posts ({posts.length})</h2>
                 <ul className={utilStyles.list}>
                 {posts.map(({ id, date, title, tags }) => (
                     <li className={utilStyles.listItem} key={id}>

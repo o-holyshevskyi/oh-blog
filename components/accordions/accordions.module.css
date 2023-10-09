@@ -1,5 +1,5 @@
 .accordionArticle {
-    background: #fcfbfb;
+    background: var(--secondary);
     width: auto;
     padding: 20px;
     border-radius: 10px;
@@ -13,7 +13,7 @@
     padding: 0 10px 0 20px;
     border-radius: 6px;
     cursor: pointer;
-    background: #eee1e1;
+    background: var(--cap-span);
     margin-bottom: 10px;
     transition: transform 0.3s ease;
 }
@@ -23,7 +23,7 @@
 }
 
 .accordionHeader.active {
-    background: #ad9090;
+    background: var(--primary-dim);
 }
 
 .accordionHeader span {

@@ -58,7 +58,7 @@
 .handle {
   width: 5px;
   height: 26px;
-  background-color: #fcfbfb;
+  background-color: var(--primary-bright);
   position: absolute;
   top: 60%;
   left: 340%;
@@ -70,7 +70,7 @@
 .circle {
   width: 40px;
   height: 40px;
-  border: 5px solid #fdfdfd;
+  border: 5px solid var(--primary-bright);
   border-radius: 50%;
   position: absolute;
   top: 60%;
@@ -96,7 +96,7 @@
 }
 
 .lightText {
-  color: #666;
+  color: var(--primary-bright);
 }
 
 .tagsL {
@@ -107,7 +107,7 @@
 }
 
 .tagL {
-  background-color: #eee1e1;
+  background-color: var(--secondary);
   margin-right: 15px;
   margin-top: 10px;
   cursor: pointer;
@@ -132,7 +132,7 @@
 }
 
 .tagS {
-  background-color: #eee1e1;
+  background-color: var(--secondary);
   margin-right: 10px;
   margin-top: 5px;
   cursor: pointer;
@@ -141,7 +141,7 @@
 }
 
 .tag {
-  background-color: #eee1e1;
+  background-color: var(--secondary);
   margin-right: 10px;
   margin-top: 5px;
   border-radius: 15px;
@@ -162,7 +162,7 @@
 .delimiterL {
   width: 30%;
   height: 3px;
-  background-color: red;
+  background-color: var(--cap-span);
   border-radius: 50px;
 }
 
@@ -170,7 +170,7 @@
   margin-top: 15px;
   width: 100%;
   height: 1px;
-  background-color: rgb(131, 129, 129);
+  background-color: var(--primary-dim);
   border-radius: 50px;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .morePosts {
-  background-color: #eee1e1;
+  background-color: var(--secondary);
   border-radius: 10px;
   width: 200px;
   height: 50px;

@@ -10,7 +10,7 @@ export default function About() {
             <Head>
                 <title>About me</title>
             </Head>
-            <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>A</span>bout me</h2>
+            <h2 className={utilStyles.headingLg}><span className='cap'>A</span>bout me</h2>
             <Accordion></Accordion>
             <DownloadButton />
         </Layout>

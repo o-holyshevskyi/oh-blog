@@ -32,7 +32,7 @@ export default function Home({
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>R</span>ecent posts</h2>
+        <h2 className={utilStyles.headingLg}><span className='cap'>R</span>ecent posts</h2>
         <ul className={utilStyles.list}>
           {sortedPostData.map(({ id, date, title, tags }) => (
             <li className={utilStyles.listItem} key={id}>

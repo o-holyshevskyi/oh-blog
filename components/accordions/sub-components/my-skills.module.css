@@ -7,7 +7,7 @@
 
 .skill {
     font-weight: bold;
-    border: 1px solid #eee1e1;
+    border: 1px solid var(--primary-dim);
     border-radius: 15px;
     padding: 5px;
     margin: 5px 5px 5px;
@@ -20,11 +20,11 @@
 
 .skill:hover {
     transform: scale(1.1);
-    background-color: #eee1e1;
+    background-color: var(--primary-dim);
 }
 
 .popover {
-    background-color: #f8eeee;
+    background-color: var(--primary-dim);
     border-radius: 10px;
     padding: 6px;
 }

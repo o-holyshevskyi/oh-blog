@@ -23,7 +23,7 @@ export default function FilteredPosts({
                 <title>All {filteredPosts[0].tag}</title>
             </Head>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-                <h2 className={utilStyles.headingLg}><span style={{color: 'red'}}>P</span>osts filtered by: <span style={{color: "blue"}}>{filteredPosts[0].tag}</span> ({filteredPosts.length})</h2>
+                <h2 className={utilStyles.headingLg}><span className='cap'>P</span>osts filtered by: <span style={{color: "blue"}}>{filteredPosts[0].tag}</span> ({filteredPosts.length})</h2>
                 <ul className={utilStyles.list}>
                 {filteredPosts.map(({ id, date, title, tags }) => (
                     <li className={utilStyles.listItem} key={id}>

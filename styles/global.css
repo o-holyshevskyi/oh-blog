@@ -16,6 +16,7 @@ body {
     sans-serif;
   line-height: 1.6;
   font-size: 18px;
+  background: var(--background);
 }
 
 * {
@@ -23,7 +24,7 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: var(--secondary-bright);
   text-decoration: none;
 }
 
@@ -34,4 +35,67 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+.cap {
+  color: var(--cap-span);
+}
+
+input {display: none;}
+
+.switch {
+  overflow: hidden;
+  display: flex;
+  width: 50px;
+  height: 25px;
+  padding: 3px;
+  border-radius: 15px;
+  background: var(--primary-bright);
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.switch.dark {
+  background: var(--primary-dim);
+}
+
+.handle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  transition: 0.5s;
+}
+
+.handle::before,
+.handle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.handle::before {
+  background: var(--primary-dim);
+}
+
+.handle::after {
+  background: var(--primary-dim);
+  opacity: 0;
+  translate: -7px -7px;
+}
+
+.dark .switch {
+  background: var(--primary-dim);
+}
+
+.dark .handle { translate:  22px; }
+
+.dark .handle::after { opacity: 1; }
+
+.dark .handle::before {
+  background: var(--primary-bright);
 }
