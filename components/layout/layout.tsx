@@ -45,14 +45,22 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
             <Link
               href='/about'
             >
-              <Image
-                priority
-                src="/images/profile.jpg"
-                className={utilStyles.borderCircle}
-                height={144}
-                width={144}
-                alt={name}
-              />
+              <div className={utilStyles.imgContainer}>
+                <Image
+                  priority
+                  src="/images/profile.jpg"
+                  className={utilStyles.borderCircle}
+                  height={144}
+                  width={144}
+                  alt={name}
+                />
+                <div className={utilStyles.semicircleOverlay}>
+                <div className={utilStyles.searchIcon}>
+                  <div className={utilStyles.handle}></div>
+                  <div className={utilStyles.circle}></div>
+                </div>
+                </div>
+              </div>
             </Link>
             <h1 className={utilStyles.heading2Xl}><span style={{color: 'red'}}>{name.charAt(0)}</span>{name.slice(1)}</h1>
             <div className={utilStyles.delimiterL}></div>
