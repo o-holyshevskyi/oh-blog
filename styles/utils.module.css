@@ -53,11 +53,6 @@
   width: 24px;
   height: 24px;
   position: relative;
-  animation: transform 1.3s ease;
-}
-
-.searchIcon:hover {
-  transform: scale(1.03);
 }
 
 .handle {
