@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import Script from "next/script";
 
+declare global {
+    interface HTMLElementDataset {
+      theme: string | undefined;
+    }
+}
+
 export default function SetTheme({ handleTheme }) {
     const [theme, setTheme] = useState('');
 
@@ -24,7 +30,9 @@ export default function SetTheme({ handleTheme }) {
     useEffect( () => {
         if ( ! theme ) return setTheme( defaultTheme() )
 
-        document.querySelector(':root').dataset.theme = ( theme );
+        const rootElement = document.querySelector(':root') as HTMLElement & HTMLElementDataset;
+
+        rootElement.dataset.theme = theme;
         localStorage.setItem('theme', ( theme ));
     
         const useSetTheme = (e) => { setTheme( e.matches ? 'dark' : 'light' ) };
