@@ -35,14 +35,14 @@ export default function MyExperience() {
         <>
             {
                 experience.map((exp, index) => (
-                    <>
-                        <div key={index}>
+                    <div key={index}>
+                        <div>
                             <h2>{exp.companyName}</h2>
                             <Date dateString={exp.startTime}></Date> - <Date dateString={exp.endTime}></Date>
                             <p>{exp.description}</p>
                         </div>
                         <div className={utilStyles.delimiter}></div>
-                    </>
+                    </div>
                 ))
             }
         </>

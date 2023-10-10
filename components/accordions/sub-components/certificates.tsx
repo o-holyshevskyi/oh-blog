@@ -28,8 +28,8 @@ export default function Certificates() {
         <div>
             {
                 certificates.map((cert, i) => (
-                    <>
-                        <div key={i} className={styles.certificate}>
+                    <div key={i}>
+                        <div className={styles.certificate}>
                             <h2><strong>{cert.name}</strong></h2>
                             <Date dateString={cert.date}></Date>
                             <div><strong>Credential ID:</strong> {cert.id}</div>
@@ -44,7 +44,7 @@ export default function Certificates() {
                             </div>
                         </div>
                         <div className={utilStyles.delimiter}></div>
-                    </>
+                    </div>
                 ))
             }
         </div>

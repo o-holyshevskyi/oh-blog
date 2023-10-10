@@ -97,10 +97,10 @@ export default function MySkills() {
         <div className={style.skills}>
             {skills.map((skill, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <Popover showArrow={true} placement="bottom" offset={10}>
                             <PopoverTrigger>
-                                <div key={index} className={style.skill}>
+                                <div className={style.skill}>
                                     {skill.name}
                                 </div>
                             </PopoverTrigger>
