@@ -6,6 +6,10 @@ import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
 import style from '../../components/layout/layout.module.css';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import rehypePrism from 'rehype-prism-plus';
+import rehypeCodeTitles from 'rehype-code-titles';
 
 export default function Post({
   postData,
@@ -13,7 +17,7 @@ export default function Post({
   postData: {
     title: string;
     date: string;
-    contentHtml: string;
+    contentHtml: MDXRemoteSerializeResult;
     tags: string[];
     img: string;
   };
@@ -33,7 +37,9 @@ export default function Post({
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div>
+          <MDXRemote {...postData.contentHtml} />
+        </div>
         <div className={utilStyles.tagsL}>{postData.tags.map((tag, i) => (
             <div className={utilStyles.tagL} key={i}>
               <Link 
@@ -59,9 +65,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params?.id as string);
+
+  const html = await serialize(postData.contentHtml, { mdxOptions: {
+    rehypePlugins: [
+      rehypeCodeTitles,
+      rehypePrism as any,
+      
+    ]
+  }});
+
   return {
     props: {
-      postData,
+      postData: {
+        title: postData.title,
+        date: postData.date,
+        contentHtml: html,
+        tags: postData.tags,
+        img: postData.img
+      }
     },
   };
 };
