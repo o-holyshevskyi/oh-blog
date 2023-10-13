@@ -3,8 +3,9 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import SetTheme from '../theme-util/theme-util';
+import { useTheme } from '../theme-util/theme-context';
 
 export const name = 'Oleksandr Holyshevskyi';
 
@@ -30,11 +31,7 @@ const socialLinks = (theme: string) => [
 ];
 
 export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean }) {
-  const [theme, setTheme] = useState(null);
-  
-  function handleTheme(theme: string) {
-    setTheme(theme);
-  }
+  const {theme, toggleTheme} = useTheme();
   
   return (
     <div className={styles.container}>
@@ -50,7 +47,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
       <header className={styles.header}>
         {home ? (
           <>
-            <SetTheme handleTheme={handleTheme}></SetTheme>
+            <SetTheme handleTheme={toggleTheme}></SetTheme>
             <Link
               href='/about'
             >
@@ -77,7 +74,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         ) : (
           <>
             <div style={{display: 'none'}}>
-              <SetTheme handleTheme={handleTheme}></SetTheme>
+              <SetTheme handleTheme={toggleTheme}></SetTheme>
             </div>
             <Link href="/">
               <Image
