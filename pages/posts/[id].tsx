@@ -10,6 +10,12 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import rehypePrism from 'rehype-prism-plus';
 import rehypeCodeTitles from 'rehype-code-titles';
+import { postProcess, preProcess } from '../../lib/rehype-pre-raw';
+import { Pre } from '../../components/pre/pre-component';
+
+const custom = {
+  pre: (props) => <Pre {...props}/>
+}
 
 export default function Post({
   postData,
@@ -38,7 +44,7 @@ export default function Post({
           <Date dateString={postData.date} />
         </div>
         <div>
-          <MDXRemote {...postData.contentHtml} />
+          <MDXRemote {...postData.contentHtml} components={{ ...custom }}/>
         </div>
         <div className={utilStyles.tagsL}>{postData.tags.map((tag, i) => (
             <div className={utilStyles.tagL} key={i}>
@@ -68,9 +74,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const html = await serialize(postData.contentHtml, { mdxOptions: {
     rehypePlugins: [
+      preProcess,
       rehypeCodeTitles,
       rehypePrism as any,
-      
+      postProcess,
     ]
   }});
 

@@ -18,10 +18,11 @@
   padding: 0 1rem;
   margin: 10rem auto 10rem;
   position: relative;
-  scale: 1.8;
+  scale: 1.5;
 }
 
 .postImg {
+  margin: auto;
   width: auto;
   border-radius: 20px;
 }
