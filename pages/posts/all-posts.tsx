@@ -6,6 +6,9 @@ import Date from '../../components/date/date';
 import { GetStaticProps } from "next";
 import { getSortedPostsData } from "../../lib/posts";
 import { useState } from "react";
+import Pagination from "../../components/pagination/pagination";
+
+const itemsPerPage = 10;
 
 export default function AllPosts({
     allPostsData
@@ -18,6 +21,16 @@ export default function AllPosts({
     }[];
 }) {
     const [posts, setPosts] = useState(allPostsData);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const onPageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const displayedItems = posts.slice(startIndex, endIndex);
+
     let allTags = new Set();
     posts.forEach((postsData) => {
         postsData.tags.forEach((tag) => {
@@ -52,7 +65,7 @@ export default function AllPosts({
                 ))}</div>
                 <h2 className={utilStyles.headingLg}><span className='cap'>A</span>ll posts ({posts.length})</h2>
                 <ul className={utilStyles.list}>
-                {posts.map(({ id, date, title, tags }) => (
+                {displayedItems.map(({ id, date, title, tags }) => (
                     <li className={utilStyles.listItem} key={id}>
                     <Link href={`/posts/${id}`}>{title}</Link>
                     <br />
@@ -70,6 +83,16 @@ export default function AllPosts({
                 ))}
                 </ul>
             </section>
+            <section className={utilStyles.pagination}>
+                {posts.length > itemsPerPage 
+                    ? <Pagination
+                        totalItems={posts.length}
+                        itemsPerPage={itemsPerPage}
+                        onPageChange={onPageChange}
+                        /> 
+                    : <></>}
+            </section>
+            
         </Layout>
     )
 }
