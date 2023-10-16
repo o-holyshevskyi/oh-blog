@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React from 'react';
 import SetTheme from '../theme-util/theme-util';
 import { useTheme } from '../theme-util/theme-context';
+import { Analytics } from '@vercel/analytics/react';
 
 export const name = 'Oleksandr Holyshevskyi';
 
@@ -95,7 +96,10 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
           </>
         )}
       </header>
-      <main>{children}</main>
+      <main>
+        {children}
+        <Analytics />  
+      </main>
       {!home && (
         <div>
           <div className={styles.backToHome}>
