@@ -7,6 +7,7 @@ import React from 'react';
 import SetTheme from '../theme-util/theme-util';
 import { useTheme } from '../theme-util/theme-context';
 import { Analytics } from '@vercel/analytics/react';
+import ScrollToTopButton from '../scroll-to-top/scroll-to-top';
 
 export const name = 'Oleksandr Holyshevskyi';
 
@@ -98,6 +99,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
       </header>
       <main>
         {children}
+        <ScrollToTopButton />
         <Analytics />  
       </main>
       {!home && (
