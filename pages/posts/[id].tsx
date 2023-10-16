@@ -12,6 +12,9 @@ import rehypePrism from 'rehype-prism-plus';
 import rehypeCodeTitles from 'rehype-code-titles';
 import { postProcess, preProcess } from '../../lib/rehype-pre-raw';
 import { Pre } from '../../components/pre/pre-component';
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useEffect } from 'react';
 
 const custom = {
   pre: (props) => <Pre {...props}/>
@@ -28,11 +31,22 @@ export default function Post({
     img: string;
   };
 }) {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('progress', {
+      value: 100,
+      scrollTrigger: {
+        scrub: 0.5,
+      }
+    });
+  }, []);
+
   return (
     <Layout >
       <Head>
         <title>{postData.title}</title>
       </Head>
+      <progress max={100} value={0} className={utilStyles.progress}></progress>
       <article>
         <div className={style.zContainer}>
           {postData.img && (
