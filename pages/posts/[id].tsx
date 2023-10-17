@@ -44,7 +44,7 @@ export default function Post({
   return (
     <Layout >
       <Head>
-        <meta property="og:image" ref={postData.img} />
+        <meta property="og:image" content={postData.img} />
         <title>{postData.title}</title>
       </Head>
       <progress max={100} value={0} className={utilStyles.progress}></progress>
