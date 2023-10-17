@@ -38,10 +38,8 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
   return (
     <div className={styles.container}>
       <Head>
-        <meta
-          name="description"
-          content="Test Automation Engineer at AdvanISS"
-        />
+        <meta name="description" content="Oleksandr Holyshevskyi | Test Automation Engineer" />
+        <meta name="image" ref="/images/profile.jpg" />
       </Head>
       <header className={styles.header}>
         {home ? (
