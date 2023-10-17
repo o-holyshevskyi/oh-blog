@@ -38,13 +38,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Test Automation Engineer"
-        />
         <meta name="og:title" content={name} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
         {home ? (
