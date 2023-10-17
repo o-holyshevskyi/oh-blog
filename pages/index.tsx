@@ -22,10 +22,6 @@ export default function Home({
   return (
     <Layout home>
       <Head>
-        <meta name="description" content="Oleksandr Holyshevskyi | Test Automation Engineer" />
-        <meta property="og:title" content="Oleksandr Holyshevskyi" />
-        <meta property="og:description" content="Oleksandr Holyshevskyi | Test Automation Engineer" />
-        <meta property="og:image" content="/images/profile.jpg" />
         <title>{name}</title>
       </Head>
       <section className={utilStyles.headingMd}>
