@@ -101,9 +101,6 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
           <div className={styles.backToHome}>
             <Link href="/">← Back to home</Link>
           </div>
-          <div>
-
-          </div>
         </div>
       )}
       <div className={utilStyles.content}>

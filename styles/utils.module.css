@@ -202,6 +202,19 @@
   align-items: center;
 }
 
+.topicInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.separator::before {
+  content: '\00B7';
+  font-size: 20px;
+  margin: 0 5px;
+}
+
 .socialMediaImg {
   margin-right: 10px;
   transition: transform 0.3s ease;

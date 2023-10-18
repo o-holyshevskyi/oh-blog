@@ -15,6 +15,7 @@ import { Pre } from '../../components/pre/pre-component';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect } from 'react';
+import { timeToRead } from '../../lib/timeToRead';
 
 const custom = {
   pre: (props) => <Pre {...props}/>
@@ -29,6 +30,7 @@ export default function Post({
     contentHtml: MDXRemoteSerializeResult;
     tags: string[];
     img: string;
+    timeToRead: number;
   };
 }) {
   useEffect(() => {
@@ -55,8 +57,10 @@ export default function Post({
           )}
         </div>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <div className={`${utilStyles.lightText} ${utilStyles.topicInfo}`}>
           <Date dateString={postData.date} />
+          <div className={utilStyles.separator}></div>
+          <div>{postData.timeToRead} min read</div>
         </div>
         <div>
           <MDXRemote {...postData.contentHtml} components={{ ...custom }}/>
@@ -86,7 +90,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params?.id as string);
-
+  const timeToReadArticle = timeToRead(postData.contentHtml);
   const html = await serialize(postData.contentHtml, { mdxOptions: {
     rehypePlugins: [
       preProcess,
@@ -103,7 +107,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         date: postData.date,
         contentHtml: html,
         tags: postData.tags,
-        img: postData.img
+        img: postData.img,
+        timeToRead: timeToReadArticle,
       }
     },
   };

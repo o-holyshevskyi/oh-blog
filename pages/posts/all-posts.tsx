@@ -7,6 +7,7 @@ import { GetStaticProps } from "next";
 import { getSortedPostsData } from "../../lib/posts";
 import { useState } from "react";
 import Pagination from "../../components/pagination/pagination";
+import { timeToRead } from "../../lib/timeToRead";
 
 const itemsPerPage = 10;
 
@@ -18,6 +19,7 @@ export default function AllPosts({
         title: string;
         tags: string[];
         id: string;
+        contentHtml: string;
     }[];
 }) {
     const [posts, setPosts] = useState(allPostsData);
@@ -65,12 +67,14 @@ export default function AllPosts({
                 ))}</div>
                 <h2 className={utilStyles.headingLg}><span className='cap'>A</span>ll posts ({posts.length})</h2>
                 <ul className={utilStyles.list}>
-                {displayedItems.map(({ id, date, title, tags }) => (
+                {displayedItems.map(({ id, date, title, tags, contentHtml }) => (
                     <li className={utilStyles.listItem} key={id}>
                     <Link href={`/posts/${id}`}>{title}</Link>
                     <br />
-                    <small className={utilStyles.lightText}>
+                    <small className={`${utilStyles.lightText} ${utilStyles.topicInfo}`}>
                         <Date dateString={date} />
+                        <div className={utilStyles.separator}></div>
+                        <div>{timeToRead(contentHtml)} min read</div>
                     </small>
                     <br />
                     <div className={utilStyles.tagsS}>{tags.map((tag, i) => (

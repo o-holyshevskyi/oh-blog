@@ -13,9 +13,11 @@ export function getSortedPostsData() {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     const matterResult = matter(fileContents);
+    const contentHtml = matterResult.content;
 
     return {
       id,
+      contentHtml,
       ...(matterResult.data as { date: string; title: string; }),
     };
   });
@@ -96,12 +98,15 @@ export async function getFilteredPosts(tag: string) {
     const matterResult = matter(fileContents);
     const id = fileName.replace(/\.mdx$/, '');
 
+    const contentHtml = matterResult.content;
+
     matterResult.data.tags.map((t) => {
       const tt = t.replace('#', '').toLowerCase();
       if (tt === tag) {
         filteredPosts.push({
           id,
           tag,
+          contentHtml,
           ...(matterResult.data as { date: string; title: string; tags: string[]; }),
         });
       }

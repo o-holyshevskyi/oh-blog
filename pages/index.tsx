@@ -5,6 +5,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date/date';
 import { GetStaticProps } from 'next';
+import { timeToRead } from '../lib/timeToRead';
 
 export default function Home({
   allPostsData,
@@ -14,6 +15,7 @@ export default function Home({
     title: string;
     tags: string[];
     id: string;
+    contentHtml: string;
   }[];
 }) {
 
@@ -34,12 +36,14 @@ export default function Home({
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}><span className='cap'>R</span>ecent posts</h2>
         <ul className={utilStyles.list}>
-          {sortedPostData.map(({ id, date, title, tags }) => (
+          {sortedPostData.map(({ id, date, title, tags, contentHtml }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className={`${utilStyles.lightText} ${utilStyles.topicInfo}`}>
                 <Date dateString={date} />
+                <div className={utilStyles.separator}></div>
+                <div>{timeToRead(contentHtml)} min read</div>
               </small>
               <br />
               <div className={utilStyles.tagsS}>{tags.map((tag, i) => (

@@ -5,6 +5,7 @@ import Date from '../../../components/date/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { getAllTags, getFilteredPosts } from "../../../lib/posts";
 import Link from "next/link";
+import { timeToRead } from "../../../lib/timeToRead";
 
 export default function FilteredPosts({
     filteredPosts
@@ -15,6 +16,7 @@ export default function FilteredPosts({
         tags: string[];
         tag: string;
         id: string;
+        contentHtml: string;
     }[]
 }) {
     return(
@@ -25,12 +27,14 @@ export default function FilteredPosts({
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
                 <h2 className={utilStyles.headingLg}><span className='cap'>P</span>osts filtered by: <span style={{color: "blue"}}>{filteredPosts[0].tag}</span> ({filteredPosts.length})</h2>
                 <ul className={utilStyles.list}>
-                {filteredPosts.map(({ id, date, title, tags }) => (
+                {filteredPosts.map(({ id, date, title, tags, contentHtml }) => (
                     <li className={utilStyles.listItem} key={id}>
                     <Link href={`/posts/${id}`}>{title}</Link>
                     <br />
-                    <small className={utilStyles.lightText}>
+                    <small className={`${utilStyles.lightText} ${utilStyles.topicInfo}`}>
                         <Date dateString={date} />
+                        <div className={utilStyles.separator}></div>
+                        <div>{timeToRead(contentHtml)} min read</div>
                     </small>
                     <br />
                     <div className={utilStyles.tagsS}>{tags.map((tag, i) => (
