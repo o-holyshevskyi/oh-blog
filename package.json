@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "test": "npx playwright test"
   },
   "dependencies": {
     "@nextui-org/popover": "^2.1.9",
@@ -28,6 +29,7 @@
     "node": ">=18"
   },
   "devDependencies": {
+    "@playwright/test": "^1.39.0",
     "@types/node": "20.8.2",
     "@types/react": "18.2.25",
     "typescript": "5.2.2"
