@@ -99,3 +99,11 @@ input {display: none;}
 .dark .handle::before {
   background: var(--primary-bright);
 }
+
+.toc-link {
+  transition: color 0.3s;
+}
+
+.toc-link:hover {
+  color: var(--cap-span)
+}
