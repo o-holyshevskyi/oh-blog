@@ -244,3 +244,8 @@
 .progress::-webkit-progress-value {
   background-color: var(--primary-dim);
 }
+
+.postLink:hover {
+  text-decoration: none;
+  color: var(--primary-dim);
+}

@@ -69,7 +69,7 @@ export default function AllPosts({
                 <ul className={utilStyles.list}>
                 {displayedItems.map(({ id, date, title, tags, contentHtml }) => (
                     <li className={utilStyles.listItem} key={id}>
-                    <Link href={`/posts/${id}`}>{title}</Link>
+                    <Link href={`/posts/${id}`} className={utilStyles.postLink}>{title}</Link>
                     <br />
                     <small className={`${utilStyles.lightText} ${utilStyles.topicInfo}`}>
                         <Date dateString={date} />
