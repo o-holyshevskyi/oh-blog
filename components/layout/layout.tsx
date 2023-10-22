@@ -5,36 +5,12 @@ import utilStyles from '../../styles/utils.module.css';
 import Link from 'next/link';
 import React from 'react';
 import SetTheme from '../theme-util/theme-util';
-import { useTheme } from '../theme-util/theme-context';
 import { Analytics } from '@vercel/analytics/react';
 import ScrollToTopButton from '../scroll-to-top/scroll-to-top';
 
 export const name = 'Oleksandr Holyshevskyi';
 
-const socialLinks = (theme: string) => [
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/oleksandr-holyshevskyi/',
-    img: theme === 'light' ? '/images/linkedin-50l.png' : '/images/linkedin-50d.png',
-    target: '_blank'
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/o-holyshevskyi',
-    img: theme === 'light' ? '/images/github-50l.png' : '/images/github-50d.png',
-    target: '_blank'
-  },
-  {
-    name: 'About',
-    url: '/about',
-    img: theme === 'light' ? '/images/about-50l.png' : '/images/about-50d.png',
-    target: '_self'
-  }
-];
-
 export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean }) {
-  const {theme, toggleTheme} = useTheme();
-  
   return (
     <div className={styles.container}>
       <Head>
@@ -43,7 +19,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
       <header className={styles.header}>
         {home ? (
           <>
-            <SetTheme handleTheme={toggleTheme}></SetTheme>
+            <SetTheme />
             <Link
               href='/about'
             >
@@ -70,7 +46,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         ) : (
           <>
             <div style={{display: 'none'}}>
-              <SetTheme handleTheme={toggleTheme}></SetTheme>
+              <SetTheme />
             </div>
             <Link href="/">
               <Image
@@ -106,26 +82,15 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
       <div className={utilStyles.content}>
         <div className={utilStyles.delimiterL}></div>
       </div>
-      <div className={utilStyles.content}>
-        <div className={utilStyles.socialMedias}>
-          {socialLinks(theme).map((sl, i) => (
-            <Link 
-              href={sl.url}
-              target={sl.target}
-              key={i}
-            >
-              <Image
-                priority
-                src={sl.img}
-                className={`${utilStyles.borderCircle} ${utilStyles.socialMediaImg}`}
-                height={50}
-                width={50}
-                alt={sl.name}
-              />
-            </Link>
-          ))}
-        </div>
-      </div>
+      <footer className={utilStyles.footer}>
+        <a href='/' className={utilStyles.footerItem}><strong>Home</strong></a>
+        <div className={utilStyles.separator}></div>
+        <a href='/about' className={utilStyles.footerItem}><strong>About</strong></a>
+        <div className={utilStyles.separator}></div>
+        <a href='https://github.com/o-holyshevskyi' target='_blank' className={utilStyles.footerItem}><strong>GitHub</strong></a>
+        <div className={utilStyles.separator}></div>
+        <a href='https://www.linkedin.com/in/oleksandr-holyshevskyi/' target='_blank' className={utilStyles.footerItem}><strong>LinkedIn</strong></a>
+      </footer>
     </div>
   );
 }

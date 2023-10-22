@@ -194,12 +194,16 @@
   transform: scale(1.1);
 }
 
-.socialMedias {
-  margin: 2rem auto 1rem;
+.footer {
+  margin: 0 10rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+}
+
+.footerItem:hover {
+  opacity: 0.6;
 }
 
 .topicInfo {
@@ -213,15 +217,6 @@
   content: '\00B7';
   font-size: 20px;
   margin: 0 5px;
-}
-
-.socialMediaImg {
-  margin-right: 10px;
-  transition: transform 0.3s ease;
-}
-
-.socialMediaImg:hover {
-  transform: scale(1.1);
 }
 
 .pagination {

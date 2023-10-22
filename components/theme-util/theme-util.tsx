@@ -7,16 +7,14 @@ declare global {
     }
 }
 
-export default function SetTheme({ handleTheme }) {
+export default function SetTheme() {
     const [theme, setTheme] = useState('');
 
     const toggleTheme = () => {
         if ( theme == 'light') {
             setTheme('dark');
-            handleTheme('dark');
         } else if ( theme == 'dark' ) {
             setTheme('light');
-            handleTheme('light');
         }
     }
 

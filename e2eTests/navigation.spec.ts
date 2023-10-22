@@ -15,10 +15,16 @@ test.describe('Navigation tests', () => {
         await expect(page).toHaveURL(/about/);
     });
 
-    test('open about page by clicking the search icon', async ({ page }) => {
-        await page.locator('a:nth-child(3) > img').click();
+    test('open about page by clicking the About', async ({ page }) => {
+        await page.getByText('About').click();
         await expect(page).toHaveTitle('About me');
         await expect(page).toHaveURL(/about/);
+    });
+
+    test('open about page by clicking the Home', async ({ page }) => {
+        await page.locator('a > div> img').click();
+        await page.getByText('Home').click();
+        await expect(page).toHaveTitle('Oleksandr Holyshevskyi');
     });
 
     test('open home page by clicking the main image', async ({ page }) => {
@@ -58,14 +64,14 @@ test.describe('Navigation tests', () => {
     });
 
     test('verify the linkedIn url', async ({ page }) => {
-        const linkedInNav = page.locator('div:nth-child(4) > div > a:nth-child(1)');
+        const linkedInNav = page.locator('footer > a:nth-child(7)');
         await expect(linkedInNav).toHaveCount(1);
         expect(await linkedInNav.getAttribute('href')).toBe('https://www.linkedin.com/in/oleksandr-holyshevskyi/');
         expect(await linkedInNav.getAttribute('target')).toBe('_blank');
     });
 
     test('verify the github url', async ({ page }) => {
-        const linkedInNav = page.locator('div:nth-child(4) > div > a:nth-child(2)');
+        const linkedInNav = page.locator('footer > a:nth-child(5)');
         await expect(linkedInNav).toHaveCount(1);
         expect(await linkedInNav.getAttribute('href')).toBe('https://github.com/o-holyshevskyi');
         expect(await linkedInNav.getAttribute('target')).toBe('_blank');
