@@ -77,6 +77,13 @@ test.describe('Navigation tests', () => {
         expect(await linkedInNav.getAttribute('target')).toBe('_blank');
     });
 
+    test('verify the dev url', async ({ page }) => {
+        const linkedInNav = page.locator('footer > a:nth-child(9)');
+        await expect(linkedInNav).toHaveCount(1);
+        expect(await linkedInNav.getAttribute('href')).toBe('https://dev.to/oholyshevskyi');
+        expect(await linkedInNav.getAttribute('target')).toBe('_blank');
+    });
+
     test.afterEach(async ({ page }) => {
         await page.close();
     });

@@ -90,6 +90,8 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         <a href='https://github.com/o-holyshevskyi' target='_blank' className={utilStyles.footerItem}><strong>GitHub</strong></a>
         <div className={utilStyles.separator}></div>
         <a href='https://www.linkedin.com/in/oleksandr-holyshevskyi/' target='_blank' className={utilStyles.footerItem}><strong>LinkedIn</strong></a>
+        <div className={utilStyles.separator}></div>
+        <a href='https://dev.to/oholyshevskyi' target='_blank' className={utilStyles.footerItem}><strong>DEV</strong></a>
       </footer>
     </div>
   );
