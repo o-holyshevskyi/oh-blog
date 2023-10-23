@@ -83,15 +83,15 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         <div className={utilStyles.delimiterL}></div>
       </div>
       <footer className={utilStyles.footer}>
-        <a href='/' className={utilStyles.footerItem}><strong>Home</strong></a>
+        <a href='/' className={`${utilStyles.footerItem} ${utilStyles.postLink}`}><strong>Home</strong></a>
         <div className={utilStyles.separator}></div>
-        <a href='/about' className={utilStyles.footerItem}><strong>About</strong></a>
+        <a href='/about' className={`${utilStyles.footerItem} ${utilStyles.postLink}`}><strong>About</strong></a>
         <div className={utilStyles.separator}></div>
-        <a href='https://github.com/o-holyshevskyi' target='_blank' className={utilStyles.footerItem}><strong>GitHub</strong></a>
+        <a href='https://github.com/o-holyshevskyi' target='_blank' className={`${utilStyles.footerItem} ${utilStyles.postLink}`}><strong>GitHub</strong></a>
         <div className={utilStyles.separator}></div>
-        <a href='https://www.linkedin.com/in/oleksandr-holyshevskyi/' target='_blank' className={utilStyles.footerItem}><strong>LinkedIn</strong></a>
+        <a href='https://www.linkedin.com/in/oleksandr-holyshevskyi/' target='_blank' className={`${utilStyles.footerItem} ${utilStyles.postLink}`}><strong>LinkedIn</strong></a>
         <div className={utilStyles.separator}></div>
-        <a href='https://dev.to/oholyshevskyi' target='_blank' className={utilStyles.footerItem}><strong>DEV</strong></a>
+        <a href='https://dev.to/oholyshevskyi' target='_blank' className={`${utilStyles.footerItem} ${utilStyles.postLink}`}><strong>DEV</strong></a>
       </footer>
     </div>
   );

@@ -249,3 +249,29 @@
   text-decoration: none;
   color: var(--primary-dim);
 }
+
+.cardsContainer {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  align-items: center;
+  justify-content: space-between;
+  background: var(--secondary);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 10px;
+  height: fit-content;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.cardAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

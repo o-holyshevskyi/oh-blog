@@ -1,5 +1,5 @@
 import Layout from '../../components/layout/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getAllPostIds, getFilteredPosts, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Date from '../../components/date/date';
 import utilStyles from '../../styles/utils.module.css';
@@ -16,6 +16,7 @@ import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect } from 'react';
 import { timeToRead } from '../../lib/timeToRead';
+import FilteredPosts from './filtered/[tag]';
 
 const custom = {
   pre: (props) => <Pre {...props}/>
@@ -31,6 +32,14 @@ export default function Post({
     tags: string[];
     img: string;
     timeToRead: number;
+    relatedPosts: [
+      {
+        title: string;
+        date: string;
+        id: string;
+        contentHtml: string;
+      }
+    ]
   };
 }) {
   useEffect(() => {
@@ -75,6 +84,28 @@ export default function Post({
               </Link>
             </div>
         ))}</div>
+        {postData.relatedPosts.length > 0 ? (<h3>
+            Related topics
+        </h3>) : <></>}
+        <div className={utilStyles.cardsContainer}>
+          {postData.relatedPosts.map((relatedPost, index) => (
+            <div className={utilStyles.card} key={index}>
+              <Link 
+                href={`/posts/${relatedPost.id}`}
+                className={`${utilStyles.colorInherit} ${utilStyles.postLink}`}
+              >
+                <h4>
+                  {relatedPost.title}
+                </h4>
+              </Link>
+              <div className={`${utilStyles.lightText} ${utilStyles.topicInfo}`}>
+                <Date dateString={relatedPost.date} />
+                <div className={utilStyles.separator}></div>
+                <div>{timeToRead(relatedPost.contentHtml)} min read</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </article>
     </Layout>
   );
@@ -90,6 +121,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params?.id as string);
+  let relatedPosts: any[] = [];
+
+  for (const relatedPostTag of postData.tags.slice(0, 3)) {
+    const relatedPost = await getFilteredPosts(relatedPostTag.replace('#', '').toLowerCase());
+    relatedPosts.push(relatedPost);
+  }
+  let uniquePosts: any = [];
+  Array.from(new Set(relatedPosts.map((post) => post.id))).map((id) => {
+    const post =  relatedPosts.find((post) => post.id === id);
+    uniquePosts = post.map(obj => obj);
+  });
+  uniquePosts = uniquePosts.filter((post) => post.id !== postData.id);
+  const filteredUniquePosts = uniquePosts.slice(0, 3);
+
   const timeToReadArticle = timeToRead(postData.contentHtml);
   const html = await serialize(postData.contentHtml, { mdxOptions: {
     rehypePlugins: [
@@ -109,6 +154,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         tags: postData.tags,
         img: postData.img,
         timeToRead: timeToReadArticle,
+        relatedPosts: filteredUniquePosts
       }
     },
   };
