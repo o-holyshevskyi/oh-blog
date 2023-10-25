@@ -1,7 +1,7 @@
-import { e2eTest, expect } from './fixture/fixture';
-import { createContext } from './context/context';
-import HomePage from './pages/home/home-page';
-import * as testData from './test-data/test-data.json';
+import { e2eTest, expect } from '../fixture/fixture';
+import { createContext } from '../context/context';
+import HomePage from '../pages/home/home-page';
+import * as testData from '../test-data/test-data.json';
 
 const testContext = createContext<{
     homePage: HomePage;

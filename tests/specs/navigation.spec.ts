@@ -1,11 +1,10 @@
-import { test, expect } from '@playwright/test';
-import { createContext } from './context/context';
-import HomePage from './pages/home/home-page';
-import { e2eTest } from './fixture/fixture';
-import * as testData from './test-data/test-data.json';
-import AboutPage from './pages/about/about-page';
-import AllPostsPage from './pages/all-posts/all-posts-page';
-import PostPage from './pages/post/post-page';
+import { createContext } from '../context/context';
+import HomePage from '../pages/home/home-page';
+import { e2eTest, expect } from '../fixture/fixture';
+import * as testData from '../test-data/test-data.json';
+import AboutPage from '../pages/about/about-page';
+import AllPostsPage from '../pages/all-posts/all-posts-page';
+import PostPage from '../pages/post/post-page';
 
 const testContext = createContext<{
     homePage: HomePage;
