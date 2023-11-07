@@ -275,3 +275,28 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.reactionsSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reaction {
+  margin: 20px 20px 10px 20px;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.reactions {
+  border-radius: 20px;
+}
+
+.reactions:hover {
+  opacity: 0.5;
+  background-color: var(--cap-span);
+}
+
+.reactionCount {
+  margin: 0px 20px 10px 35px;
+}

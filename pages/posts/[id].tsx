@@ -14,9 +14,9 @@ import { postProcess, preProcess } from '../../lib/rehype-pre-raw';
 import { Pre } from '../../components/pre/pre-component';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { timeToRead } from '../../lib/timeToRead';
-import FilteredPosts from './filtered/[tag]';
+import clientPromise from '../../lib/mongodb';
 
 const custom = {
   pre: (props) => <Pre {...props}/>
@@ -39,9 +39,62 @@ export default function Post({
         id: string;
         contentHtml: string;
       }
-    ]
+    ],
+    reactions: {
+      _id: string;
+      postId: string;
+      reactions:
+        {
+          like: number;
+          heart: number;
+          fire: number;
+          think: number;
+        }
+    }[]
   };
 }) {
+  const [reactionsData, setReactionsData] = useState(postData.reactions);
+  const [hasUserReacted, setHasUserReacted] = useState({});
+
+  const handleEmojiClick = async (postId: string, emoji: string) => {
+    if (hasUserReacted[postId]) {
+      return;
+    }
+    
+    try {
+      const response = await fetch('/api/updateReactions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId, emoji }),
+      });
+
+      if (response.ok) {
+        setHasUserReacted((prev) => ({ ...prev, [postId]: true }));
+        fetchData(postId);
+      } else {
+        console.error('Failed to update reactions');
+      }
+    } catch (error) {
+      console.error('Error updating reactions:', error);
+    }
+  };
+
+  const fetchData = async (postId: string) => {
+    try {
+      const response = await fetch(`/api/reactions?postId=${postId}`);
+      if (response.ok) {
+        const newData = await response.json();
+        setReactionsData(newData);
+      } else {
+        console.error('Failed to fetch data');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to('progress', {
@@ -50,7 +103,7 @@ export default function Post({
         scrub: 0.5,
       }
     });
-  }, []);
+  }, []);  
 
   return (
     <Layout >
@@ -93,6 +146,7 @@ export default function Post({
               <Link 
                 href={`/posts/${relatedPost.id}`}
                 className={`${utilStyles.colorInherit} ${utilStyles.postLink}`}
+                onClick={() => fetchData(relatedPost.id)}
               >
                 <h4>
                   {relatedPost.title}
@@ -105,6 +159,47 @@ export default function Post({
               </div>
             </div>
           ))}
+        </div>
+        <div>
+          {reactionsData.map((reactionData) => {
+            const { _id, postId, reactions } = reactionData;
+            return (
+              <div key={_id} className={utilStyles.reactionsSection}>
+                <div className={utilStyles.reactions}>
+                  <div className={utilStyles.reaction} onClick={() => handleEmojiClick(postId, 'like')}>
+                    👍
+                  </div>
+                  <div className={utilStyles.reactionCount}>
+                    {reactions.like}
+                  </div>
+                </div>
+                <div className={utilStyles.reactions}>
+                  <div className={utilStyles.reaction} onClick={() => handleEmojiClick(postId, 'heart')}>
+                    ❤️
+                  </div>
+                  <div className={utilStyles.reactionCount}>
+                    {reactions.heart}
+                  </div>
+                </div>
+                <div className={utilStyles.reactions}>
+                  <div className={utilStyles.reaction} onClick={() => handleEmojiClick(postId, 'fire')}>
+                    🔥 
+                  </div>
+                  <div className={utilStyles.reactionCount}>
+                    {reactions.fire}
+                  </div>
+                </div>
+                <div className={utilStyles.reactions}>
+                  <div className={utilStyles.reaction} onClick={() => handleEmojiClick(postId, 'think')}>
+                    🤔 
+                  </div>
+                  <div className={utilStyles.reactionCount}>
+                    {reactions.think}
+                  </div>
+                </div>
+              </div>
+            );
+        })}
         </div>
       </article>
     </Layout>
@@ -145,6 +240,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     ]
   }});
 
+  let reactions: any;
+  try {
+    const client = await clientPromise;
+    const db = client.db('posts');
+
+    const postId = params?.id as string;
+
+    reactions = await db
+      .collection('reactions')
+      .find({ postId })
+      .limit(1)
+      .toArray();
+
+  } catch (error) {
+    console.error(error);
+  }
+
   return {
     props: {
       postData: {
@@ -154,8 +266,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         tags: postData.tags,
         img: postData.img,
         timeToRead: timeToReadArticle,
-        relatedPosts: filteredUniquePosts
+        relatedPosts: filteredUniquePosts,
+        reactions: JSON.parse(JSON.stringify(reactions))
       }
     },
+    revalidate: 10
   };
 };
