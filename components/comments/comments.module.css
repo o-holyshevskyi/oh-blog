@@ -21,3 +21,29 @@
     padding: 10px;
     width: fit-content;
 }
+
+.actions {
+    display: flex;
+    justify-content: left;
+    margin: 10px;
+    width: fit-content;
+    padding: 5px;
+}
+
+.action {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.action:hover {
+    background-color: var(--secondary);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.text{
+    margin-left: 5px;
+}

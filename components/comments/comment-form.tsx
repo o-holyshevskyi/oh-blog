@@ -12,8 +12,6 @@ export default function CommentForm({ postId, addComment, commentsCount }) {
             setCommentText('');
         }
     }
-
-    
     
     return (
         <form onSubmit={handleSubmit}>

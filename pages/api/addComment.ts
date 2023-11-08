@@ -15,6 +15,8 @@ export default async function addComment(req, res) {
                     author,
                     date,
                     insertedTime: new Date().getTime(),
+                    likes: 0,
+                    parentId: '0'
                 }
             );
 

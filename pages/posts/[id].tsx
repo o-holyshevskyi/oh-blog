@@ -63,6 +63,7 @@ export default function Post({
     date: string;
     insertedTime: number;
     _id: string;
+    likes: number;
   }[]
 }) {
   const [reactionsData, setReactionsData] = useState(postData.reactions);
@@ -147,6 +148,25 @@ export default function Post({
       await fetchCommentsData(postId);
     }
   };
+
+  const likeComment = async (id: string, postId: string) => {
+    const response = await fetch('/api/updateCommentLikes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    });
+
+    if (response.ok) {
+      const updatedComments = await response.json();
+      commentList.push(updatedComments.result)
+      setCommentList(commentList);
+      await fetchCommentsData(postId);
+    } else {
+      console.error('Failed to fetch data');
+    }
+  }
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -259,9 +279,14 @@ export default function Post({
           <CommentForm postId={reactionsData[0].postId} addComment={addComment} commentsCount={commentList.length}/>
         </div>
         <div>
-        {commentList.map((comment, index) => (
-            <Comment key={index} {...comment}/>
-          ))
+        {commentList.map((comment, index) => {
+            
+            return (<Comment 
+              comment={comment}
+              likeComment={likeComment}
+              key={index}
+            />);
+        })
         }
         </div>
       </article>
@@ -335,7 +360,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   } catch (error) {
     console.error(error);
-  }
+  }  
 
   return {
     props: {
@@ -349,8 +374,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         relatedPosts: filteredUniquePosts,
         reactions: JSON.parse(JSON.stringify(reactions))
       },
-      comments: JSON.parse(JSON.stringify(comments))
-    },
-    revalidate: 10
+      comments: JSON.parse(JSON.stringify(comments)),
+    }
   };
 };
