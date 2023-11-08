@@ -18,6 +18,7 @@ import Reactions from '../../components/reactions/reactions';
 import RelatedPosts from '../../components/related-posts/related-posts';
 import PostTags from '../../components/post-tags/post-tags';
 import PostBody from '../../components/post-body/post-body';
+import RepliedComments from '../../components/comments/replied-comments';
 
 export default function Post({ postData, relatedPosts, reactions, comments }: PostProps) {
   const [reactionsData, setReactionsData] = useState(reactions);
@@ -63,19 +64,35 @@ export default function Post({ postData, relatedPosts, reactions, comments }: Po
         <CommentForm 
             postId={reactionsData[0].postId} 
             addComment={addComment}
-            commentsCount={commentList.length}
             commentList={commentList}
             setCommentList={setCommentList}
         />
         {
-          commentList.map((comment, index) => {
-            return (<Comment 
-              comment={comment}
-              likeComment={likeComment}
-              commentList={commentList}
-              setCommentList={setCommentList}
-              key={index}
-            />);
+          commentList.map((comment, i) => {
+            return (
+              <div key={i}>
+                <Comment 
+                  comment={comment}
+                  likeComment={likeComment}
+                  commentList={commentList}
+                  setCommentList={setCommentList}
+                  key={comment._id}
+                />
+                {
+                  comment.replies.map((comment) => {
+                    return (
+                      <RepliedComments 
+                        comment={comment}
+                        likeComment={likeComment}
+                        commentList={commentList}
+                        setCommentList={setCommentList}
+                        key={comment._id}
+                      />
+                    );
+                  })
+                }
+              </div>
+            );
           })
         }
       </article>

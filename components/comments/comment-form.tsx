@@ -3,8 +3,7 @@ import styles from './comment-form.module.css';
 
 export default function CommentForm({ 
     postId, 
-    addComment, 
-    commentsCount,
+    addComment,
     commentList,
     setCommentList,
 }) {
@@ -15,7 +14,7 @@ export default function CommentForm({
         if (commentText.trim() !== '') {
             await addComment(
                 postId, 
-                commentText, 
+                commentText,
                 commentList, 
                 setCommentList,
             );
@@ -26,7 +25,7 @@ export default function CommentForm({
     
     return (
         <form onSubmit={handleSubmit}>
-            <h3>Comments ({commentsCount})</h3>
+            <h3>Comments ({commentList.length})</h3>
             <div className={styles.textareaContainer}>
                 <textarea
                     placeholder="Add a comment..."
@@ -39,5 +38,5 @@ export default function CommentForm({
             </div>
             <button type="submit" className={commentText.length > 250 ? `${styles.submitButtonDisabled} ${styles.submitButton}` : styles.submitButton}>Submit</button>
         </form>       
-    )
+    );
 }

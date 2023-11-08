@@ -6,6 +6,8 @@
     border: 2px solid var(--secondary);
     border-radius: 10px;
     margin-top: 20px;
+    margin-left: 50px;
+    position: relative;
 }
 
 .commentWrapper:hover .commentHeader{
@@ -26,6 +28,7 @@
     display: flex;
     justify-content: left;
     margin: 10px;
+    margin-left: 60px;
     width: fit-content;
     padding: 5px;
 }
@@ -47,4 +50,34 @@
 
 .text{
     margin-left: 5px;
+}
+
+.verticalLine {
+    background-color: var(--secondary);
+}
+  
+.verticalLine::before {
+    border-radius: 10px;
+    content: '';
+    width: 4px;
+    background-color: var(--secondary);
+    height: 70%;
+    position: absolute;
+    top: 0;
+    left: -40px;
+}
+
+.horizontalLine {
+    background-color: var(--secondary);
+}
+
+.horizontalLine::before {
+    border-radius: 10px;
+    content: '';
+    position: absolute;
+    bottom: 30%;
+    left: -40px; 
+    width: 40px; 
+    height: 4px;
+    background-color: var(--secondary);
 }

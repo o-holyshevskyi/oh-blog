@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
-import styles from './comments.module.css';
+import { useState } from 'react';
+import styles from './replied-comments.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import DateTime from '../date/date-time';
 import Image from 'next/image';
 import ReplyCommentForm from './reply-comment-form';
 import { replyComment } from '../../controller/comments/comments';
-import Comment from '../../models/comment';
 
-export default function Comment({
-     comment, likeComment, commentList, setCommentList
-    } : { 
-        comment: Comment;
-        likeComment: (id: string, postId: string, commentList: any, setCommentList: any) => Promise<void>;
-        commentList: any;
-        setCommentList: any;
-    }) {
+export default function RepliedComments({
+    comment, likeComment, commentList, setCommentList
+}) {
     const [hasUserReacted, setHasUserReacted] = useState({});
     const [showCommentForm, setShowCommentForm] = useState(false);
 
@@ -29,10 +23,13 @@ export default function Comment({
 
         setHasUserReacted((prev) => ({ ...prev, [id]: true }));
     }
-    
+
     return (
         <div>
             <div className={styles.commentWrapper}>
+                <div className={styles.verticalLine}>
+                    <div className={styles.horizontalLine}></div>
+                </div>
                 <div className={styles.commentHeader}>
                     <div><strong>{author}</strong></div>
                     <div className={utilStyles.separator}></div>

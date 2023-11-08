@@ -1,4 +1,5 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Comment from './comment';
 
 export interface PostProps {
     postData: {
@@ -25,13 +26,5 @@ export interface PostProps {
             think: number;
         }
     }[];
-    comments: {
-        postId: string;
-        text: string;
-        author: string;
-        date: string;
-        insertedTime: number;
-        _id: string;
-        likes: number;
-    }[];
+    comments: Comment[];
 }
