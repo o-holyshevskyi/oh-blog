@@ -17,13 +17,17 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useState } from 'react';
 import { timeToRead } from '../../lib/timeToRead';
 import clientPromise from '../../lib/mongodb';
+import CommentForm from '../../components/comments/comment-form';
+import Comment from '../../components/comments/comments';
+import { v4 as uuidv4 } from 'uuid';
+import createDate from '../../lib/createDate';
 
 const custom = {
   pre: (props) => <Pre {...props}/>
 }
 
 export default function Post({
-  postData,
+  postData, comments
 }: {
   postData: {
     title: string;
@@ -52,9 +56,18 @@ export default function Post({
         }
     }[]
   };
+  comments: {
+    postId: string;
+    text: string;
+    author: string;
+    date: string;
+    insertedTime: number;
+    _id: string;
+  }[]
 }) {
   const [reactionsData, setReactionsData] = useState(postData.reactions);
   const [hasUserReacted, setHasUserReacted] = useState({});
+  const [commentList, setCommentList] = useState(comments);
 
   const handleEmojiClick = async (postId: string, emoji: string) => {
     if (hasUserReacted[postId]) {
@@ -72,7 +85,7 @@ export default function Post({
 
       if (response.ok) {
         setHasUserReacted((prev) => ({ ...prev, [postId]: true }));
-        fetchData(postId);
+        await fetchReactionsData(postId);
       } else {
         console.error('Failed to update reactions');
       }
@@ -81,7 +94,7 @@ export default function Post({
     }
   };
 
-  const fetchData = async (postId: string) => {
+  const fetchReactionsData = async (postId: string) => {
     try {
       const response = await fetch(`/api/reactions?postId=${postId}`);
       if (response.ok) {
@@ -92,6 +105,46 @@ export default function Post({
       }
     } catch (error) {
       console.error('Error fetching data:', error);
+    }
+  };
+
+  const fetchCommentsData = async (postId: string) => {
+    try {
+      const response = await fetch(`/api/comments?postId=${postId}`);
+      if (response.ok) {
+        const newData = await response.json();
+        setCommentList(newData);
+      } else {
+        console.error('Failed to fetch data');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const fetchData = async (postId: string) => {
+    await fetchReactionsData(postId);
+    await fetchCommentsData(postId);
+  }
+
+  const addComment = async (postId: string, text: string) => {
+    const userUUID = uuidv4() as string;
+    const author = `user_${userUUID.substring(0, 8)}`;
+    const date = createDate();
+
+    const response = await fetch('/api/addComment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ postId, text, author, date }),
+    });
+
+    if (response.ok) {
+      const updatedComments = await response.json();
+      commentList.push(updatedComments.result)
+      setCommentList(commentList);
+      await fetchCommentsData(postId);
     }
   };
 
@@ -201,6 +254,16 @@ export default function Post({
             );
         })}
         </div>
+        <div className={utilStyles.delimiter}/>
+        <div>
+          <CommentForm postId={reactionsData[0].postId} addComment={addComment} commentsCount={commentList.length}/>
+        </div>
+        <div>
+        {commentList.map((comment, index) => (
+            <Comment key={index} {...comment}/>
+          ))
+        }
+        </div>
       </article>
     </Layout>
   );
@@ -257,6 +320,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     console.error(error);
   }
 
+  let comments: any;
+  try {
+    const client = await clientPromise;
+    const db = client.db('posts');
+
+    const postId = params?.id as string;
+
+    comments = await db
+      .collection('comments')
+      .find({ postId })
+      .sort({ insertedTime: -1 })
+      .toArray();
+
+  } catch (error) {
+    console.error(error);
+  }
+
   return {
     props: {
       postData: {
@@ -268,7 +348,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         timeToRead: timeToReadArticle,
         relatedPosts: filteredUniquePosts,
         reactions: JSON.parse(JSON.stringify(reactions))
-      }
+      },
+      comments: JSON.parse(JSON.stringify(comments))
     },
     revalidate: 10
   };
