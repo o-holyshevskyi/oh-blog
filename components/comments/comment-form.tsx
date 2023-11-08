@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import styles from './comment-form.module.css';
 
-export default function CommentForm({ postId, addComment, commentsCount }) {
+export default function CommentForm({ 
+    postId, 
+    addComment, 
+    commentsCount,
+    commentList,
+    setCommentList,
+}) {
     const [commentText, setCommentText] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (commentText.trim() !== '') {
-            await addComment(postId, commentText);
+            await addComment(
+                postId, 
+                commentText, 
+                commentList, 
+                setCommentList,
+            );
 
             setCommentText('');
         }

@@ -123,3 +123,27 @@ export async function getFilteredPosts(tag: string) {
 
   return filteredPosts;
 }
+
+export async function getUniqueRelatedPosts(
+  postData: {
+    date: string;
+    title: string;
+    tags: string[];
+    img: string;
+    id: string;
+    contentHtml: string;
+}) {
+  let relatedPosts: any[] = [];
+
+  for (const relatedPostTag of postData.tags.slice(0, 3)) {
+    const relatedPost = await getFilteredPosts(relatedPostTag.replace('#', '').toLowerCase());
+    relatedPosts.push(relatedPost);
+  }
+  let uniquePosts: any = [];
+  Array.from(new Set(relatedPosts.map((post) => post.id))).map((id) => {
+    const post =  relatedPosts.find((post) => post.id === id);
+    uniquePosts = post.map(obj => obj);
+  });
+  uniquePosts = uniquePosts.filter((post) => post.id !== postData.id);
+  return uniquePosts.slice(0, 3);
+}

@@ -5,7 +5,7 @@ import DateTime from '../date/date-time';
 import Image from 'next/image';
 
 export default function Comment({
-     comment, likeComment
+     comment, likeComment, commentList, setCommentList
     } : { 
         comment: {
             text: string;
@@ -15,8 +15,10 @@ export default function Comment({
             _id: string;
             likes: number;
             postId: string;
-        },
-        likeComment: (id: string, postId: string) => Promise<void>
+        };
+        likeComment: (id: string, postId: string, commentList: any, setCommentList: any) => Promise<void>;
+        commentList: any;
+        setCommentList: any
     }) {
     const [hasUserReacted, setHasUserReacted] = useState({});
 
@@ -27,7 +29,7 @@ export default function Comment({
             return;
         }
 
-        await likeComment(id, postId);
+        await likeComment(id, postId, commentList, setCommentList);
 
         setHasUserReacted((prev) => ({ ...prev, [id]: true }));
     }
