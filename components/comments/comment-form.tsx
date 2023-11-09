@@ -65,7 +65,7 @@ export default function CommentForm({
           />
           <div className={commentText.length > 250 ? `${styles.characterCountError} ${styles.characterCount}` : styles.characterCount}>{commentText.length}/250</div>
         </div>
-        <button type="submit" className={commentText.length > 250 ? `${styles.submitButtonDisabled} ${styles.submitButton}` : styles.submitButton}>Submit</button>
+        <button type="submit" className={commentText.length === 0 || commentText.length > 250 ? `${styles.submitButtonDisabled} ${styles.submitButton}` : styles.submitButton}>Submit</button>
         {isPopupOpen && (
             <div>
                 <div className={styles.overlay}></div>

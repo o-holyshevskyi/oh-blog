@@ -73,7 +73,7 @@ export default function ReplyCommentForm({
                 </div>
                 <button 
                     type="submit" 
-                    className={commentText.length > 250 ? `${styles.replyButtonDisabled} ${styles.replyButton}` : styles.replyButton}
+                    className={commentText.length === 0 || commentText.length > 250 ? `${styles.replyButtonDisabled} ${styles.replyButton}` : styles.replyButton}
                 >Reply</button>
                 <button 
                     type="reset" 
