@@ -1,15 +1,12 @@
-
-import { v4 as uuidv4 } from 'uuid';
 import createDate from '../../lib/createDate';
 
 export const addComment = async (
   postId: string, 
   text: string,
+  author: string,
   commentList,
   setCommentList
 ) => {
-  const userUUID = uuidv4() as string;
-  const author = `user_${userUUID.substring(0, 8)}`;
   const date = createDate();
 
   const response = await fetch('/api/addComment', {
@@ -69,13 +66,12 @@ export const likeComment = async (
 export const replyComment = async (
   _id: string,
   postId: string,
+  author: string,
   text: string,
   parentId: string,
   commentList,
   setCommentList
 ) => {
-  const userUUID = uuidv4() as string;
-  const author = `user_${userUUID.substring(0, 8)}`;
   const date = createDate();
 
   const response = await fetch('/api/updateComment', {

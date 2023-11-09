@@ -1,7 +1,7 @@
 .commentWrapper {
     display: block;
     align-items: flex-start;
-    width: 100%;
+    width: 93.5%;
     height: fit-content;
     border: 2px solid var(--secondary);
     border-radius: 10px;
