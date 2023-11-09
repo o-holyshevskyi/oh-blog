@@ -61,9 +61,9 @@
     content: '';
     width: 4px;
     background-color: var(--secondary);
-    height: 70%;
+    height: 190%;
     position: absolute;
-    top: 0;
+    bottom: -5px;
     left: -40px;
 }
 

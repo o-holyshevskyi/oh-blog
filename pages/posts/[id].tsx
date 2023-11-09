@@ -12,7 +12,7 @@ import Comment from '../../components/comments/comments';
 import { getContent } from '../../lib/get-content';
 import { getReactions } from '../../lib/get-reactions';
 import { getComments } from '../../lib/get-comments';
-import { addComment, likeComment } from '../../controller/comments/comments';
+import { addComment, likeComment, updateRepliedCommentsLike } from '../../controller/comments/comments';
 import { PostProps } from '../../models/post';
 import Reactions from '../../components/reactions/reactions';
 import RelatedPosts from '../../components/related-posts/related-posts';
@@ -68,24 +68,25 @@ export default function Post({ postData, relatedPosts, reactions, comments }: Po
             setCommentList={setCommentList}
         />
         {
-          commentList.map((comment, i) => {
+          commentList.map((mainComment, i) => {
             return (
               <div key={i}>
                 <Comment 
-                  comment={comment}
+                  comment={mainComment}
                   likeComment={likeComment}
                   commentList={commentList}
                   setCommentList={setCommentList}
-                  key={comment._id}
+                  key={mainComment._id}
                 />
                 {
-                  comment.replies.map((comment) => {
+                  mainComment.replies.map((comment) => {
                     return (
                       <RepliedComments 
                         comment={comment}
-                        likeComment={likeComment}
+                        updateRepliedCommentsLike={updateRepliedCommentsLike}
                         commentList={commentList}
                         setCommentList={setCommentList}
+                        parentCommentId={mainComment._id}
                         key={comment._id}
                       />
                     );

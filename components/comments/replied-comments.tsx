@@ -3,23 +3,20 @@ import styles from './replied-comments.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import DateTime from '../date/date-time';
 import Image from 'next/image';
-import ReplyCommentForm from './reply-comment-form';
-import { replyComment } from '../../controller/comments/comments';
 
 export default function RepliedComments({
-    comment, likeComment, commentList, setCommentList
+    comment, updateRepliedCommentsLike, commentList, setCommentList, parentCommentId
 }) {
     const [hasUserReacted, setHasUserReacted] = useState({});
-    const [showCommentForm, setShowCommentForm] = useState(false);
 
-    const { text, author, date, _id, likes, postId} = comment;
+    const { text, author, date, _id, likes, postId } = comment;
 
     const handleLikeComment = async (id: string) => {
         if (hasUserReacted[id]) {
             return;
         }
 
-        await likeComment(id, postId, commentList, setCommentList);
+        await updateRepliedCommentsLike(parentCommentId, id, postId, commentList, setCommentList);
 
         setHasUserReacted((prev) => ({ ...prev, [id]: true }));
     }
@@ -47,27 +44,7 @@ export default function RepliedComments({
                     />
                     <div className={styles.text}>{likes} {likes === 0 ? '' : likes > 1 ? 'likes' : 'like'}</div>
                 </div>
-                <div className={styles.action} onClick={() => setShowCommentForm(!showCommentForm)}>
-                    <Image
-                        src='/images/reply-arrow.png'
-                        width={24}
-                        height={24}
-                        alt='like'
-                    />
-                    <div className={styles.text}>Reply</div>
-                </div>
             </div>
-            {showCommentForm && (
-                <ReplyCommentForm
-                    id={_id}
-                    postId={postId}
-                    parentId={_id}
-                    replyComment={replyComment}
-                    commentList={commentList}
-                    setCommentList={setCommentList}
-                    onDismissClick={() => setShowCommentForm(!showCommentForm)}
-                />
-            )}
         </div>
     )
 }

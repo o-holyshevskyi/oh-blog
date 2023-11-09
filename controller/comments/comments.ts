@@ -58,7 +58,7 @@ export const likeComment = async (
 
   if (response.ok) {
     const updatedComments = await response.json();
-    commentList.push(updatedComments.result)
+    //commentList.push(updatedComments.result)
     setCommentList(commentList);
     await fetchCommentsData(postId, setCommentList);
   } else {
@@ -89,6 +89,31 @@ export const replyComment = async (
   if (response.ok) {
     const updatedComments = await response.json();
     commentList.push(updatedComments.result)
+    setCommentList(commentList);
+    await fetchCommentsData(postId, setCommentList);
+  } else {
+    console.error('Failed to fetch data');
+  }
+}
+
+export const  updateRepliedCommentsLike = async (
+  commentId: string,
+  replyId: string,
+  postId: string,
+  commentList,
+  setCommentList
+) => {
+  const response = await fetch('/api/updateRepliedCommentLikes', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ commentId, replyId }),
+  });
+
+  if (response.ok) {
+    const updatedComments = await response.json();
+    //commentList.push(updatedComments.result)
     setCommentList(commentList);
     await fetchCommentsData(postId, setCommentList);
   } else {
