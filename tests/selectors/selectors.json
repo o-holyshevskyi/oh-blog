@@ -25,5 +25,10 @@
     },
     "allPosts": {
         "postSelector": "ul > li:nth-child({0}) > a"
+    },
+    "postPage": {
+        "reactionSelector": "div > div.utils_reaction__mtsb4",
+        "submitButtonSelector": "Submit",
+        "addCommentTextareaPlaceholderSelector": "Add a comment..."
     }
 }

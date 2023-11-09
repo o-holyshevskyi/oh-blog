@@ -21,5 +21,10 @@
     "allPostsPage": {
         "pageTitle": "All posts",
         "pageUrlRegExp": "all-posts"
+    },
+    "postPage": {
+        "reactionsCount": 4,
+        "commentText": "my text",
+        "252commentText": "my textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy textmy text"
     }
 }
