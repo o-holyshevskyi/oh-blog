@@ -3,12 +3,10 @@ import utilStyles from '../../styles/utils.module.css';
 import Date from "../date/date";
 import { timeToRead } from "../../lib/timeToRead";
 import { fetchReactionsData } from "../../controller/reactions/reactions";
-import { fetchCommentsData } from "../../controller/comments/comments";
 
-export default function RelatedPosts({ relatedPosts, setReactionsData, setCommentList }) {
+export default function RelatedPosts({ relatedPosts, setReactionsData }) {
     const fetchData = async (postId: string) => {
         await fetchReactionsData(postId, setReactionsData);
-        await fetchCommentsData(postId, setCommentList);
     }
     
     return (

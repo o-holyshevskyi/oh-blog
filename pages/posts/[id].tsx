@@ -7,23 +7,17 @@ import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useState } from 'react';
 import { timeToRead } from '../../lib/timeToRead';
-import CommentForm from '../../components/comments/comment-form';
-import Comment from '../../components/comments/comments';
 import { getContent } from '../../lib/get-content';
 import { getReactions } from '../../lib/get-reactions';
-import { getComments } from '../../lib/get-comments';
-import { addComment, likeComment, updateRepliedCommentsLike } from '../../controller/comments/comments';
 import { PostProps } from '../../models/post';
 import Reactions from '../../components/reactions/reactions';
 import RelatedPosts from '../../components/related-posts/related-posts';
 import PostTags from '../../components/post-tags/post-tags';
 import PostBody from '../../components/post-body/post-body';
-import RepliedComments from '../../components/comments/replied-comments';
 
-export default function Post({ postData, relatedPosts, reactions, comments }: PostProps) {
+export default function Post({ postData, relatedPosts, reactions }: PostProps) {
   const [reactionsData, setReactionsData] = useState(reactions);
   const [hasUserReacted, setHasUserReacted] = useState({});
-  const [commentList, setCommentList] = useState(comments);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +45,6 @@ export default function Post({ postData, relatedPosts, reactions, comments }: Po
         />
         <RelatedPosts 
           relatedPosts={relatedPosts}
-          setCommentList={setCommentList}
           setReactionsData={setReactionsData}
         />
         <Reactions 
@@ -61,41 +54,6 @@ export default function Post({ postData, relatedPosts, reactions, comments }: Po
           setReactionsData={setReactionsData}
         />
         <div className={utilStyles.delimiter}/>
-        <CommentForm 
-            postId={reactionsData[0].postId} 
-            addComment={addComment}
-            commentList={commentList}
-            setCommentList={setCommentList}
-        />
-        {
-          commentList.map((mainComment, i) => {
-            return (
-              <div key={i}>
-                <Comment 
-                  comment={mainComment}
-                  likeComment={likeComment}
-                  commentList={commentList}
-                  setCommentList={setCommentList}
-                  key={mainComment._id}
-                />
-                {
-                  mainComment.replies.map((comment) => {
-                    return (
-                      <RepliedComments 
-                        comment={comment}
-                        updateRepliedCommentsLike={updateRepliedCommentsLike}
-                        commentList={commentList}
-                        setCommentList={setCommentList}
-                        parentCommentId={mainComment._id}
-                        key={comment._id}
-                      />
-                    );
-                  })
-                }
-              </div>
-            );
-          })
-        }
       </article>
     </Layout>
   );
@@ -115,7 +73,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const timeToReadArticle = timeToRead(postData.contentHtml);
   const html = await getContent(postData);
   const reactions = await  getReactions(params?.id as string);
-  const comments = await getComments(params?.id as string);
 
   return {
     props: {
@@ -129,7 +86,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
       relatedPosts: filteredUniquePosts,
       reactions: JSON.parse(JSON.stringify(reactions)),
-      comments: JSON.parse(JSON.stringify(comments)),
     },
     revalidate: 10
   };
