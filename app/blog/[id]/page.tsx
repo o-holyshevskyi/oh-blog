@@ -7,6 +7,7 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import ScrollToTopButton from "@/components/scroll-to-top";
 import { getHeadings } from "@/app/lib/mdx-headings";
 import ScrollBar from "@/components/blog-items/scroll";
+import Comments from "@/components/comments";
 
 const getPageContent = async (slug: string) => {
   const { meta, content, fileContent } = await getPostBySlug(slug);
@@ -40,6 +41,7 @@ export default async function BlogPost({ params } : { params: { id: string } }) 
       <div className="items-center flex justify-center">
 				<hr className="w-[50%] mt-10" />
 			</div>
+      <Comments />
       <div className="items-center flex justify-center">
         <RelatedPosts
           relatedPosts={relatedPosts}

@@ -154,9 +154,6 @@ export default async function RecentPosts() {
                     </CardFooter>
                 </Card>
             </div>
-            {daysDifference < 7 && (
-                <Bell latestPostId={posts[0].meta.slug}/>
-            )}
         </>
     )
 }
