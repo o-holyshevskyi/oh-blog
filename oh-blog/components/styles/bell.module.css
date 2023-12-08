@@ -1,0 +1,12 @@
+@keyframes ring {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+  
+.animate_ring {
+    animation: ring 3s infinite;
+}
