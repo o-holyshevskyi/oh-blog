@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
-import { DevIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
+import { DevIcon, GithubIcon, LinkedInIcon, RssIcon } from "@/components/icons";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 		apple: "/apple-touch-icon.png",
 	},
 };
+const domain = process.env.DOMAIN;
 
 export default function RootLayout({
 	children,
@@ -60,6 +61,13 @@ export default function RootLayout({
 								</Link>
 								<Link isExternal href={siteConfig.links.dev} aria-label="Dev">
 									<DevIcon size={50} className="text-default-500" />
+								</Link>
+								<Link
+									isExternal
+									href={`${domain}/rss.xml`}
+									className="absolute right-0 m-4 items-center text-center cursor-pointer "
+								>
+									<RssIcon size={50}/>
 								</Link>
 							</div>
 						</footer>
