@@ -40,7 +40,7 @@ export const useScript = (params: any) => {
                 script.removeEventListener("error", setAttributeStatus);
             }
         };
-    }, [url]);
+    }, [url, theme, issueTerm, repo, ref]);
 
     return status;
 };

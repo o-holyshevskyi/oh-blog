@@ -15,7 +15,7 @@ const getDaysDifference = (posts: Post[]): number => {
     return daysDifference;
 }
 
-export const Navbar = async () => {	
+export default async function Navbar() {	
 	const posts = await getAllPostsMeta();
 	const daysDifference = getDaysDifference(posts);
 	
