@@ -55,6 +55,7 @@ export default function Home() {
 			</div>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 				<Suspense key="recent-posts" fallback={<RecentPostSkeleton />}>
+					{/* @ts-expect-error Async Server Component */}
 					<RecentPosts/>
 				</Suspense>
 			</section>

@@ -8,7 +8,7 @@ export function generateMetadata() {
 	return { title: 'Blog' };
 }
 
-export default async function BlogPage({
+export default function BlogPage({
 	searchParams
 } : {
 	searchParams: {
@@ -27,6 +27,7 @@ export default async function BlogPage({
 				<Search />
 			</section>
 			<Suspense key={query} fallback={<RecentPostSkeleton />}>
+				{/* @ts-expect-error Async Server Component */}
 				<BlogItems
 					query={query}
 					page={page}
