@@ -8,6 +8,7 @@ import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
 import { DevIcon, GithubIcon, LinkedInIcon, RssIcon } from "@/components/icons";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
 	title: {
@@ -73,6 +74,7 @@ export default function RootLayout({
 						</footer>
 					</div>
 				</Providers>
+				<Analytics />
 			</body>
 		</html>
 	);
