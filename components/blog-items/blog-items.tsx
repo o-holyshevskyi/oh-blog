@@ -10,7 +10,7 @@ export default async function BlogItems({
     page: number;
 }) {
     const allPosts = await getAllPostsMeta();
-    await generateRssFeed();
+    //await generateRssFeed();
 
     const filterPostsByTitle = (posts: any, title: string) => {
         if (!title) {
