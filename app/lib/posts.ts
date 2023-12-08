@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { load } from 'cheerio'
 
 export interface Post {
   meta: PostMeta;
