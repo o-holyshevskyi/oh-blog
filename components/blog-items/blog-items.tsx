@@ -1,5 +1,6 @@
 import { getAllPostsMeta } from "@/app/lib/posts";
 import BlogTags from "./blog-tags";
+import generateRssFeed from "@/app/lib/generateRSSFeed";
 
 export default async function BlogItems({
     query,
@@ -9,6 +10,7 @@ export default async function BlogItems({
     page: number;
 }) {
     const allPosts = await getAllPostsMeta();
+    await generateRssFeed();
 
     const filterPostsByTitle = (posts: any, title: string) => {
         if (!title) {

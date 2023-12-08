@@ -75,20 +75,15 @@ export const getPostsByTag = async (postTag: string) => {
 }
 
 export const getRelatedPosts = async (slug: string, numberOfRelatedPosts: number = 3) => {
-  // Get the post by slug
   const { meta: currentPostMeta } = await getPostBySlug(slug);
 
-  // Get all posts meta
   const allPostsMeta = await getAllPostsMeta();
 
-  // Find related posts based on common tags
   const relatedPosts = allPostsMeta.filter((postMeta) => {
-    // Exclude the current post
     if (postMeta.meta.slug === slug) {
       return false;
     }
 
-    // Check for common tags
     const commonTags = postMeta.meta.tags.filter((tag) =>
       currentPostMeta.tags.includes(tag)
     );
@@ -96,7 +91,6 @@ export const getRelatedPosts = async (slug: string, numberOfRelatedPosts: number
     return commonTags.length > 0;
   });
 
-  // Sort related posts by date (you can customize the sorting logic)
   relatedPosts.sort((a, b) => {
     if (a.meta.date < b.meta.date) {
       return 1;
@@ -104,8 +98,7 @@ export const getRelatedPosts = async (slug: string, numberOfRelatedPosts: number
       return -1;
     }
   });
-
-  // Take the specified number of related posts
+  
   const limitedRelatedPosts = relatedPosts.slice(0, numberOfRelatedPosts);
 
   return limitedRelatedPosts;
