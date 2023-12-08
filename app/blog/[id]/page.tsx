@@ -6,6 +6,7 @@ import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import ScrollToTopButton from "@/components/scroll-to-top";
 import { getHeadings } from "@/app/lib/mdx-headings";
+import ScrollBar from "@/components/blog-items/scroll";
 
 const getPageContent = async (slug: string) => {
   const { meta, content, fileContent } = await getPostBySlug(slug);
@@ -23,9 +24,10 @@ export default async function BlogPost({ params } : { params: { id: string } }) 
   const { meta, content, fileContent } = await getPageContent(params.id);
   const relatedPosts = await getRelatedPosts(params.id);
   const headings = await getHeadings(params.id);
-
+  
   return (
     <article>
+      <ScrollBar />
       <PostBody 
         meta={meta}
         content={content}
