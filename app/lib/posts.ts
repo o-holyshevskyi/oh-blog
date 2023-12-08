@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { load } from 'cheerio'
 
 export interface Post {
   meta: PostMeta;
   fileContent: string;
+  description: string;
 }
 
 export interface PostMeta {
@@ -28,7 +30,9 @@ export const getPostBySlug = async (slug: string) => {
     options: { parseFrontmatter: true }
   });
 
-  return { meta: { ...frontmatter as { date: string; title: string; tags: string[]; img: string }, slug: realSlug }, content, fileContent };
+  const description = getDescription(fileContent)
+
+  return { meta: { ...frontmatter as { date: string; title: string; tags: string[]; img: string }, slug: realSlug }, content, fileContent, description };
 }
 
 export const getAllPostsMeta = async () => {
@@ -37,10 +41,11 @@ export const getAllPostsMeta = async () => {
   let posts = [];
 
   for (const file of files) {
-    const { meta, fileContent } = await getPostBySlug(file);
+    const { meta, fileContent, description } = await getPostBySlug(file);
     const postsMeta = {
       meta,
-      fileContent
+      fileContent,
+      description
     }
     posts.push(postsMeta);
   }
@@ -103,3 +108,21 @@ export const getRelatedPosts = async (slug: string, numberOfRelatedPosts: number
 
   return limitedRelatedPosts;
 };
+
+const getDescription = (fileContent: string) => {
+  const startIndex = fileContent.indexOf('---', fileContent.indexOf('---') + 3);
+  const descriptionWithHtml = fileContent
+    .substring(startIndex)
+    .split('\n')
+    .filter(line => !line.trim().startsWith('#') && !line.trim().startsWith('---'))
+    .join(' ')
+    .trim()
+    .replace(/<[^>]*>/g, '')
+    .replace('**', '')
+    .replace('**', '')
+    .substring(0, 300); 
+  
+  const descriptionWithoutHtml = descriptionWithHtml.replace(/<[^>]*>/g, '');
+
+  return descriptionWithoutHtml + '...';
+}
