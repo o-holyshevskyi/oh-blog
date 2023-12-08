@@ -13,19 +13,10 @@ import { siteConfig } from "@/config/site";
 import { Button, Modal, ModalBody, ModalContent, useDisclosure } from "@nextui-org/react";
 import { useDebouncedCallback } from "use-debounce";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Post } from "@/app/lib/posts";
+import { BookIcon } from "../icons";
 
-export default function BlogTags({ allPosts, page } : { allPosts: {
-    meta: {
-        slug: string;
-        date: string;
-        title: string;
-        tags: string[];
-        img: string;
-    };
-    fileContent: string;
-}[];
-page: number;
-}) {  
+export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: number; }) {  
     const [filteredTag, setFilteredTag] = useState('');  
     const [posts, setPosts] = useState(allPosts);
     const [currentPage, setCurrentPage] = useState(page);
@@ -165,32 +156,30 @@ page: number;
             </div>
             {allPosts.length > 0 ? (
                 <div>
-                    <div className="flex justify-center">
-                        <ul>
+                    <div className="flex justify-center items-center">
+                        <ul className="mx-auto">
                             {displayedItems.map((post, index) => (
-                                <Card 
-                                    isFooterBlurred 
-                                    radius="lg"
-                                    className="border-none mb-10 h-[30rem]"
-                                    key={index}
-                                >
+                                <Card className="py-4 md:w-[50%] md:ml-[25%] mb-10" key={index}>
                                     <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                                        <h4 className="font-bold text-large text-left">{post.meta.title}</h4>
-                                    </CardHeader>
-                                    <CardBody>
-                                        <Image
-                                            alt={`post-image-${index}`}
-                                            className="object-cover"
-                                            height={400}
-                                            src={post.meta.img}
-                                            width={400}
-                                        />
-                                    </CardBody>
-                                    <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-                                        <div>
-                                            <p className="text-black text-tiny">{post.meta.date}</p>
-                                            <p className="text-black text-tiny">{timeToRead(post.fileContent)} min read</p>
+                                        <div className="flex items-start items-center">
+                                            <BookIcon/>
+                                            <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} min read</p>
                                         </div>
+                                        <small className="text-default-500">{post.meta.date}</small>
+                                        <h4 className="font-bold text-large">{post.meta.title}</h4>
+                                    </CardHeader>
+                                    <CardBody className="overflow-visible py-2">
+                                        <Image
+                                            alt="Card background"
+                                            className="object-cover rounded-xl w-full"
+                                            src={post.meta.img}
+                                        />
+                                        <div className="mt-2 flex-col items-start">
+                                            <small className="text-default-500">In the post</small>
+                                            <p>{post.description}</p>
+                                        </div>
+                                    </CardBody>
+                                    <CardFooter className="bottom-0 z-10 justify-end">
                                         <Link 
                                             href={`/blog/${post.meta.slug}`}
                                             className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}

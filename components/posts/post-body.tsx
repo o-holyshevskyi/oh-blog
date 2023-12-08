@@ -8,6 +8,7 @@ import { ReactElement, JSXElementConstructor } from 'react';
 import { PostMeta } from '@/app/lib/posts';
 import { Image } from '@nextui-org/image';
 import TOCComponent from './table-of-contents';
+import { BookIcon } from '../icons';
 
 export default function PostBody({ 
     content, 
@@ -28,7 +29,13 @@ export default function PostBody({
                 <h1 className={title({ size: "lg" })}>{meta.title}</h1>
                 <div className='mt-5 mb-5 flex gap-3'>
                     <Chip color="primary" variant="flat"><Date dateString={meta.date} /></Chip>
-                    <Chip color="primary" variant="flat">{timeToReadValue} min read</Chip>
+                    <Chip 
+                        color="primary" 
+                        variant="flat" 
+                        startContent={
+                            <BookIcon />
+                        }
+                    >{timeToReadValue} min read</Chip>
                 </div>
             </div>
             <div className='flex justify-center w-full mt-10 mb-10'>
