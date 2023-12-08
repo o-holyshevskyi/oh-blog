@@ -19,7 +19,7 @@ export default function Home() {
 					<h1 className={title({ size: "sm" })}>Hi, my name is Oleksandr Holyshevskyi.&nbsp;</h1>
 					<br />
 					<h2 className={subtitle({ class: "mt-4" })}>
-						I'm a certificated Test Automation Engineer based in Ukraine. I am dedicated to improving the experiences of both people and customers alike, using my skills to deliver top-notch results that drive success.
+						I&apos;m a certificated Test Automation Engineer based in Ukraine. I am dedicated to improving the experiences of both people and customers alike, using my skills to deliver top-notch results that drive success.
 					</h2>
 				</div>
 

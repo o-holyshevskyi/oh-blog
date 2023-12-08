@@ -12,7 +12,7 @@ export default function Education() {
                         <Date dateString='2016-09-01' /> - <Date dateString='2018-03-31' />
                     </div>
                     <Divider orientation="vertical" />
-                    <p>Master's degree, Material science</p>
+                    <p>Master&apos;s degree, Material science</p>
                 </div>
             </div>
             <div>
@@ -22,7 +22,7 @@ export default function Education() {
                         <Date dateString='2012-09-01' /> - <Date dateString='2016-05-31' />
                     </div>
                     <Divider orientation="vertical" />
-                    <p>Bachelor's degree, Material science</p>
+                    <p>Bachelor&apos;s degree, Material science</p>
                 </div>
             </div>
         </>

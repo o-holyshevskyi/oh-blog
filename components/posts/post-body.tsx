@@ -34,6 +34,7 @@ export default function PostBody({
             <div className='flex justify-center w-full mt-10 mb-10'>
                 <Image
                     src={meta.img}
+                    alt='Post Image'
                 />
             </div>
             <div className='flex justify-start w-full'>

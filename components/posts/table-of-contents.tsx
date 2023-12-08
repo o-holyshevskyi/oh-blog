@@ -1,6 +1,5 @@
 import { Divider } from '@nextui-org/divider';
-import React, { useEffect, useState } from 'react';
-import styles from './table-of-contents.module.css';
+import React, { useCallback, useEffect, useState } from 'react';
 
 interface Heading {
   value: string;
@@ -21,7 +20,7 @@ interface TOCComponentProps {
 const TOCComponent: React.FC<TOCComponentProps> = ({ headings }) => {
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY;
   
     let currentHeading = null;
@@ -56,7 +55,7 @@ const TOCComponent: React.FC<TOCComponentProps> = ({ headings }) => {
     if (currentHeading) {
       setActiveHeading(currentHeading.data.hProperties.id);
     }
-  };
+  }, [headings]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -64,7 +63,7 @@ const TOCComponent: React.FC<TOCComponentProps> = ({ headings }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   const renderHeadings = (headings: Heading[]) => {
   return headings.map((heading) => (

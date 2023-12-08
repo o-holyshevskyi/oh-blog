@@ -7,6 +7,7 @@ export default function Tags({ tags } : { tags: string[] }) {
         <div className="flex-col items-center justify-center mt-10 w-full">
             {tags.map((tag, index) => (
                 <Link 
+                    key={index}
                     href={`/blog/filtered/${tag.replace('#', '').toLowerCase()}`}
                 >
                     <Chip 
