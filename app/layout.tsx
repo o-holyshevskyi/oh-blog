@@ -7,7 +7,7 @@ import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
 import { DevIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
-import { Button } from "@nextui-org/button";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
 	title: {
@@ -43,8 +43,10 @@ export default function RootLayout({
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div className="relative flex flex-col h-screen">
 						<Navbar />
+
 						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
 							{children}
+							<SpeedInsights />
 						</main>
 						
 						<footer className="w-full flex flex-col items-center justify-center py-3 gap-4">
