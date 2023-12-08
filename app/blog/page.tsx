@@ -8,7 +8,7 @@ export function generateMetadata() {
 	return { title: 'Blog' };
 }
 
-export default function BlogPage({
+export default async function BlogPage({
 	searchParams
 } : {
 	searchParams: {
