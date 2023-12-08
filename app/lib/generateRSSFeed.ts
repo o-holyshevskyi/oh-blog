@@ -4,15 +4,15 @@ import { getAllPostsMeta } from './posts';
 
 export default async function generateRssFeed() {
     const allPosts = await getAllPostsMeta();
-    const site_url = process.env.DOMAIN as string;
+    const site_url = 'https://oholsyhevskyi.com';
 
     const feedOptions = {
         title: 'Blog posts | RSS Feed',
-        description: 'Welcome to this blog posts!',
+        description: 'Welcome to my blog posts',
         id: site_url,
         link: site_url,
-        image: `${site_url}/logo.png`,
-        favicon: `${site_url}/favicon.png`,
+        image: `https://o-holyshevskyi.github.io/blog-pic/images/posts/api-testing.png`,
+        favicon: `/vercel.svg`,
         copyright: `All rights reserved ${new Date().getFullYear()}, Oleksandr Holyshevskyi`,
         generator: 'Feed for Node.js',
         feedLinks: {
@@ -34,7 +34,7 @@ export default async function generateRssFeed() {
             title: post.meta.title,
             id: `${site_url}/blog/${post.meta.slug}`,
             link: `${site_url}/blog/${post.meta.slug}`,
-            description,
+            description: description,
             date: new Date(post.meta.date),
         })
     });
