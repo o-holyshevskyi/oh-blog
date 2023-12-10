@@ -9,6 +9,8 @@ import { clsx } from "clsx";
 import { DevIcon, GithubIcon, LinkedInIcon, RssIcon } from "@/components/icons";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+import { Icon } from "@iconify/react";
+import FooterStack from "@/components/footer-stack";
 
 export const metadata: Metadata = {
 	title: {
@@ -54,6 +56,7 @@ export default function RootLayout({
 						
 						<footer className="w-full flex flex-col items-center justify-center py-3 gap-4">
 							<p>© 2023 Holyshevskyi</p>
+							<FooterStack />
 							<div className="flex gap-4">
 								<Link isExternal href={siteConfig.links.linkedIn} aria-label="LinkedIn">
 									<LinkedInIcon size={50} className="text-default-500" />

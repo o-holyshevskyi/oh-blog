@@ -35,8 +35,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
     
     return (
 		<NextUINavbar 
-			maxWidth="xl" 
-			shouldHideOnScroll
+			maxWidth="xl"
 			isMenuOpen={isMenuOpen}
       		onMenuOpenChange={setIsMenuOpen}
 		>
