@@ -63,6 +63,7 @@ export const getPostsByTag = async (postTag: string) => {
   const postsByTag: {
     meta: PostMeta;
     fileContent: string;
+    description: string;
   }[] = [];
 
   for (const postMeta of allPostsMeta) {

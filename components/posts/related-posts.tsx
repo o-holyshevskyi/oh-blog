@@ -22,37 +22,37 @@ export default function RelatedPosts({ relatedPosts } : {
                     <p className={title({ size: 'sm' })}>elated topics</p>
                 </div>
                 <div>
-                    <ul className="mt-10 flex justify-between gap-6 text-start">
+                    <ul className="mt-10 md:flex justify-between gap-6 text-start">
                         {relatedPosts.map((post, index) => (
                             <Card className="py-4 md:w-[50%] mb-10" key={index}>
-                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                                <div className="flex items-start items-center">
-                                    <BookIcon/>
-                                    <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} min read</p>
-                                </div>
-                                <small className="text-default-500">{post.meta.date}</small>
-                                <h4 className="font-bold text-large">{post.meta.title}</h4>
-                            </CardHeader>
-                            <CardBody className="overflow-visible py-2">
-                                <Image
-                                    alt="Card background"
-                                    className="object-cover rounded-xl w-full"
-                                    src={post.meta.img}
-                                />
-                                <div className="mt-2 flex-col items-start">
-                                    <small className="text-default-500">In the post</small>
-                                    <p>{post.description}</p>
-                                </div>
-                            </CardBody>
-                            <CardFooter className="bottom-0 z-10 justify-end">
-                                <Link 
-                                    href={`/blog/${post.meta.slug}`}
-                                    className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
-                                >
-                                    Read More
-                                </Link>
-                            </CardFooter>
-                        </Card>
+                                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                    <div className="flex items-start items-center">
+                                        <BookIcon/>
+                                        <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} min read</p>
+                                    </div>
+                                    <small className="text-default-500">{post.meta.date}</small>
+                                    <h4 className="font-bold text-large">{post.meta.title}</h4>
+                                </CardHeader>
+                                <CardBody className="overflow-visible py-2">
+                                    <Image
+                                        alt="Card background"
+                                        className="object-cover rounded-xl w-full"
+                                        src={post.meta.img}
+                                    />
+                                    <div className="mt-2 flex-col items-start">
+                                        <small className="text-default-500">In the post</small>
+                                        <p>{post.description}</p>
+                                    </div>
+                                </CardBody>
+                                <CardFooter className="bottom-0 z-10 justify-end">
+                                    <Link 
+                                        href={`/blog/${post.meta.slug}`}
+                                        className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                                    >
+                                        Read More
+                                    </Link>
+                                </CardFooter>
+                            </Card>
                         ))}
                     </ul>
                 </div>
