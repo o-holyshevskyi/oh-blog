@@ -9,10 +9,13 @@ import { getHeadings } from "@/app/lib/mdx-headings";
 import ScrollBar from "@/components/blog-items/scroll";
 import Comments from "@/components/comments";
 import LikePost from "@/components/like-post";
+import dynamic from "next/dynamic";
+
+const domain = process.env.DOMAIN as string;
 
 const getPageContent = async (slug: string) => {
-  const { meta, content, fileContent } = await getPostBySlug(slug);
-  return { meta, content, fileContent };
+  const { meta, content, fileContent, description } = await getPostBySlug(slug);
+  return { meta, content, fileContent, description };
 }
 
 const getRelatedPosts = async (slug: string) => getRelatedPostsById(slug);
@@ -22,8 +25,10 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
   return { title: meta.title };
 }
 
+const NoSSR = dynamic(() => import('../../../components/share-social-links'), { ssr: false })
+
 export default async function BlogPost({ params } : { params: { id: string } }) {
-  const { meta, content, fileContent } = await getPageContent(params.id);
+  const { meta, content, fileContent, description } = await getPageContent(params.id);
   const relatedPosts = await getRelatedPosts(params.id);
   const headings = await getHeadings(params.id);
   
@@ -42,9 +47,17 @@ export default async function BlogPost({ params } : { params: { id: string } }) 
       <div className="items-center flex justify-center">
 				<hr className="w-[50%] mt-10" />
 			</div>
-      <LikePost 
-        postId={meta.slug}
-      />
+      <div className="md:flex md:justify-between justify-center m-10">
+        <LikePost 
+          postId={meta.slug}
+        />
+        <NoSSR 
+          slug={meta.slug}
+          title={meta.title}
+          domain={domain}
+          description={description}
+        />
+      </div>
       <Comments />
       <div className="items-center flex justify-center">
         <RelatedPosts
