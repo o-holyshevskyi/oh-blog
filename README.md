@@ -2,4 +2,4 @@
 
 https://oholsyhevskyi.com/
 
-<img src="blob:https://vercel.com/69d4b34b-6f7a-48d7-ac1a-74d97a2fba04">
+<img src="/ea3a9db8-9923-4f06-9a63-4b5f0cca9b0f.png">
