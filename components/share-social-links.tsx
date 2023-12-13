@@ -2,7 +2,8 @@
 
 import { Icon } from '@iconify/react';
 import { Button } from '@nextui-org/button';
-import { Tooltip } from '@nextui-org/react';
+import { Link, Tooltip } from '@nextui-org/react';
+import { useState } from 'react';
 
 const TwitterShareButton = ({ title, url, children } : { title: string; url: string; children: JSX.Element }) => {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
@@ -53,6 +54,20 @@ const sharedLinks = [
 
 export default function ShareSocialLinks({ slug, title, domain, description } : { slug: string; title: string; domain: string; description: string }) {    
     const url = `${domain}/blog/${slug}` + '\n';
+
+    const [copySuccess, setCopySuccess] = useState(false);
+
+    const copyToClipboard = async () => {
+        try {
+          await navigator.clipboard.writeText(url);
+          setCopySuccess(true);
+
+          setTimeout(() => setCopySuccess(false), 1000);
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+          setCopySuccess(false);
+        }
+    };
     
     return (
         <div className='flex justify-center items-center gap-2'>
@@ -72,26 +87,19 @@ export default function ShareSocialLinks({ slug, title, domain, description } : 
                     </Button>
                 </Tooltip>
             ))}
-        </div>
-    )
-
-    /*return (
-        <div className='flex justify-center items-center gap-2'>
-            {sharedLinks.map((link, index) => (
-                <Tooltip content={`Share with ${link.provider}`} key={index}>
+            <Tooltip content='Copy link'>
                     <Button
                         isIconOnly
-                        variant='faded'
+                        variant={copySuccess ? 'solid' : 'faded'}
+                        color={copySuccess ? 'success' : 'default'}
+                        onClick={copyToClipboard}
                     >
-                        <link.shareButton
-                            url={url}
-                            title={title}
-                        >
-                            <Icon icon={link.icon} fontSize={28} />
-                        </link.shareButton>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                        </svg>
                     </Button>
-                </Tooltip>
-            ))}
+            </Tooltip>
+            
         </div>
-    );*/
+    );
 }
