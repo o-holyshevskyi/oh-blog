@@ -1,5 +1,5 @@
 import PostBody from "@/components/posts/post-body";
-import { getPostBySlug, getRelatedPosts as getRelatedPostsById } from "../../lib/posts";
+import { getPostBySlug, getRelatedPosts as getRelatedPostsById } from "../../../lib/posts";
 import Tags from "@/components/posts/tags";
 import RelatedPosts from "@/components/posts/related-posts";
 import { Link } from "@nextui-org/link";
@@ -25,7 +25,7 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
   return { title: meta.title };
 }
 
-const NoSSR = dynamic(() => import('../../../components/share-social-links'), { ssr: false })
+const NoSSR = dynamic(() => import('../../../../components/share-social-links'), { ssr: false })
 
 export default async function BlogPost({ params } : { params: { id: string } }) {
   const { meta, content, fileContent, description } = await getPageContent(params.id);

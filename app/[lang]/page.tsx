@@ -6,20 +6,23 @@ import { DevIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 import RecentPosts from "@/components/recent-posts/recent-posts";
 import { Suspense } from "react";
 import RecentPostSkeleton from "@/components/skeleton/recent-posts-skeleton/recent-posts-skeleton";
+import { useTranslations } from "next-intl";
 
 export async function generateMetadata() {
 	return { title: 'Oleksandr Holyshevskyi' };
 }
 
 export default function Home() {
+    const t = useTranslations("homePage");
+	
 	return (
 		<>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 				<div className="inline-block max-w-2xl text-center justify-center">
-					<h1 className={title({ size: "sm" })}>Hi, my name is Oleksandr Holyshevskyi.&nbsp;</h1>
+					<h1 className={title({ size: "sm" })}>{t("name")}.&nbsp;</h1>
 					<br />
 					<h2 className={subtitle({ class: "mt-4" })}>
-						I&apos;m a certificated Test Automation Engineer based in Ukraine. I am dedicated to improving the experiences of both people and customers alike, using my skills to deliver top-notch results that drive success.
+                        {t("about")}
 					</h2>
 				</div>
 

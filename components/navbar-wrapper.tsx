@@ -24,6 +24,7 @@ import {
 import React from "react";
 import Bell from "./bell";
 import { Post } from "@/app/lib/posts";
+import LanguageSwitch from "./language-switch";
 
 interface NavbarWrapperProps {
     daysDifference: number;
@@ -79,6 +80,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 						<DevIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
+					<LanguageSwitch />
 					{daysDifference < 7 && (
 						<Bell latestPostId={posts[0].meta.slug}/>
 					)}
@@ -90,6 +92,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 					<LinkedInIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch />
+				<LanguageSwitch />
                 {daysDifference < 7 && (
                     <Bell latestPostId={posts[0].meta.slug}/>
                 )}

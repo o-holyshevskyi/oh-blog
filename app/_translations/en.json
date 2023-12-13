@@ -1,0 +1,11 @@
+{
+  "id": "en",
+  "homePage": {
+    "name": "Hi, my name is Oleksandr Holyshevskyi",
+    "about": "I'm a certificated Test Automation Engineer based in Ukraine. I am dedicated to improving the experiences of both people and customers alike, using my skills to deliver top-notch results that drive success."
+  },
+  "blogPage": {
+    "later_1": "B",
+    "title": "log"
+  }
+}
