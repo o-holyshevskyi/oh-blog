@@ -55,18 +55,9 @@ export default function RootLayout({
 						</main>
 						
 						<footer className="w-full flex flex-col items-center justify-center py-3 gap-4">
-							<p>© 2023 Holyshevskyi</p>
 							<FooterStack />
-							<div className="flex gap-4">
-								<Link isExternal href={siteConfig.links.linkedIn} aria-label="LinkedIn">
-									<LinkedInIcon size={50} className="text-default-500" />
-								</Link>
-								<Link isExternal href={siteConfig.links.github} aria-label="Github">
-									<GithubIcon size={50} className="text-default-500" />
-								</Link>
-								<Link isExternal href={siteConfig.links.dev} aria-label="Dev">
-									<DevIcon size={50} className="text-default-500" />
-								</Link>
+							<div className="flex gap-4 items-center">
+								<p>© 2023 Holyshevskyi</p>
 								<Link
 									isExternal
 									href={`${domain}/rss.xml`}

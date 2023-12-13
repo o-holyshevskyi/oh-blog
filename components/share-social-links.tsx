@@ -25,7 +25,7 @@ const TelegramShareButton = ({ title, url, children } : { title: string; url: st
 };
 
 const LinkedInShareButton = ({ title, summary, url, children } : { title: string; url: string; children: JSX.Element; summary: string }) => {
-    const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${summary}&source=LinkedIn`;
+    const linkedInUrl = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(url)}\n\r${encodeURIComponent(title)}\n\r${summary}`;
     return (
       <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
         {children}
