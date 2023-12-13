@@ -5,18 +5,18 @@ import { usePathname, useRouter } from "next-intl/client";
 import { localeNames, locales } from "../i18nconfig";
 
 export default function LanguageSwitch() {
-    //const locale = useLocale();
-    //const router = useRouter();
-    //const pathName = usePathname();
+    const locale = useLocale();
+    const router = useRouter();
+    const pathName = usePathname();
 
     const switchLocale = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        //router.push(pathName, { locale: e.target.value });
+        router.push(pathName, { locale: e.target.value });
     };
 
     return (
         <div>
             <select
-                //value={locale}
+                value={locale}
                 onChange={switchLocale}
             >
                 {locales.map((loc) => (

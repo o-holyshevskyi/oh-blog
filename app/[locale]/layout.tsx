@@ -38,20 +38,20 @@ const domain = process.env.DOMAIN;
 
 export  default async function RootLayout({
 	children,
-	params
+	params: { locale }
 }: {
 	children: React.ReactNode;
 	params: any;
 }) {
 	let messages;
 	try {
-		messages = (await import(`../_translations/${params.locale}.json`)).default;
+		messages = (await import(`../_translations/${locale}.json`)).default;
 	} catch (error) {
 		console.error(error);
 	}
 
 	return (
-		<html lang={params.locale} suppressHydrationWarning className="scroll-smooth">
+		<html lang={locale} suppressHydrationWarning className="scroll-smooth">
 			<head />
 			<body
 				className={clsx(
@@ -59,7 +59,7 @@ export  default async function RootLayout({
 					lusitana.variable
 				)}
 			>
-				<NextIntlClientProvider messages={messages}>
+				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 						<div className="relative flex flex-col h-screen">
 							{/* @ts-expect-error Async Server Component */}
