@@ -5,29 +5,29 @@ export const siteConfig = {
 	description: "OH | Test Automation Engineer based in Ukraine",
 	navItems: [
 		{
-			label: "Home",
+			label: "home",
 			href: "/",
 		},
 		{
-		label: "About",
+		label: "about",
 		href: "/about",
 		},
 		{
-		label: "Blog",
+		label: "blog",
 		href: "/blog",
 		},
 	],
 	navMenuItems: [
 		{
-			label: "Home",
+			label: "home",
 			href: "/",
 		},
 		{
-			label: "About",
+			label: "about",
 			href: "/about",
 		},
 		{
-			label: "Blog",
+			label: "blog",
 			href: "/blog",
 		},
 	],

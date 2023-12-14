@@ -14,7 +14,6 @@ import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
-
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
 	DevIcon,
@@ -25,6 +24,7 @@ import React from "react";
 import Bell from "./bell";
 import { Post } from "@/app/lib/posts";
 import LanguageSwitch from "./language-switch";
+import { useTranslations } from "next-intl";
 
 interface NavbarWrapperProps {
     daysDifference: number;
@@ -33,6 +33,7 @@ interface NavbarWrapperProps {
 
 export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperProps) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	const t = useTranslations("header");
     
     return (
 		<NextUINavbar 
@@ -44,7 +45,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<p className="font-bold text-inherit">Oleksandr Holyshevskyi</p>
+						<p className="font-bold text-inherit">{t("name")}</p>
 					</NextLink>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -58,7 +59,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 								color="foreground"
 								href={item.href}
 							>
-								{item.label}
+								{t(`navItems.${item.label}`)}
 							</NextLink>
 						</NavbarItem>
 					))}
@@ -115,7 +116,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 								size="lg"
 								onClick={() => setIsMenuOpen(false)}
 							>
-								{item.label}
+								{t(`navItems.${item.label}`)}
 							</Link>
 						</NavbarMenuItem>
 					))}

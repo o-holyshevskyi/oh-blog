@@ -2,9 +2,7 @@ import PostBody from "@/components/posts/post-body";
 import { getPostBySlug, getRelatedPosts as getRelatedPostsById } from "../../../lib/posts";
 import Tags from "@/components/posts/tags";
 import RelatedPosts from "@/components/posts/related-posts";
-import { Link } from "@nextui-org/link";
-import { button as buttonStyles } from "@nextui-org/theme";
-import ScrollToTopButton from "@/components/scroll-to-top";
+import NavigationButtons from "@/components/scroll-to-top";
 import { getHeadings } from "@/app/lib/mdx-headings";
 import ScrollBar from "@/components/blog-items/scroll";
 import Comments from "@/components/comments";
@@ -64,15 +62,7 @@ export default async function BlogPost({ params } : { params: { id: string } }) 
           relatedPosts={relatedPosts}
         />
       </div>
-      <div className="items-center flex justify-center gap-5">
-        <Link 
-          className={buttonStyles({ variant: "ghost", radius: "full", className: "w-40" })}
-          href="/"
-        >
-          Back to Home
-        </Link>
-        <ScrollToTopButton />
-      </div>
+      <NavigationButtons />
       <div className="items-center flex justify-center mt-10">
 				<hr className="w-[50%]" />
 			</div>
