@@ -3,9 +3,8 @@ import { Feed } from 'feed';
 import { getAllPostsMetaWithLang } from './posts';
 import { useLocale } from 'next-intl';
 
-export default async function generateRssFeed() {
-    const allPosts = await getAllPostsMetaWithLang();
-    const locale = useLocale();
+export default async function generateRssFeed(locale: string) {
+    const allPosts = await getAllPostsMetaWithLang(locale);
     const site_url = `https://oholsyhevskyi.com/${locale}`;
 
     const feedOptions = {

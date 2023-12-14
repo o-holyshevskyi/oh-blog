@@ -17,9 +17,8 @@ export interface PostMeta {
   img: string;
 }
 
-export const getPostBySlug = async (slug: string) => {
+export const getPostBySlug = async (slug: string, locale: string) => {
   const realSlug = slug.replace(/\.mdx$/, '');
-  const locale = useLocale();
   const postsDirectory = path.join(process.cwd(), 'app', 'posts', locale);
 
   const filePath = path.join(postsDirectory, `${realSlug}.mdx`);
@@ -50,15 +49,14 @@ export const getPostBySlug = async (slug: string) => {
   };
 }
 
-export const getAllPostsMetaWithLang = async () => {
-  const locale = useLocale();
+export const getAllPostsMetaWithLang = async (locale: string) => {
   const postsDirectory = path.join(process.cwd(), 'app', 'posts', locale);
   const files = fs.readdirSync(postsDirectory);
 
   let posts = [];
 
   for (const file of files) {
-    const { meta, fileContent, description } = await getPostBySlug(file);
+    const { meta, fileContent, description } = await getPostBySlug(file, locale);
     const postsMeta = {
       meta,
       fileContent,
@@ -79,8 +77,8 @@ export const getAllPostsMetaWithLang = async () => {
   });
 }
 
-export const getPostsByTag = async (postTag: string) => {
-  const allPostsMeta = await getAllPostsMetaWithLang();
+export const getPostsByTag = async (postTag: string, locale: string) => {
+  const allPostsMeta = await getAllPostsMetaWithLang(locale);
   const postsByTag: {
     meta: PostMeta;
     fileContent: string;
@@ -102,10 +100,11 @@ export const getPostsByTag = async (postTag: string) => {
 
 export const getRelatedPosts = async (
   slug: string,
+  locale: string,
   numberOfRelatedPosts: number = 3) => {
-  const { meta: currentPostMeta } = await getPostBySlug(slug);
+  const { meta: currentPostMeta } = await getPostBySlug(slug, locale);
 
-  const allPostsMeta = await getAllPostsMetaWithLang();
+  const allPostsMeta = await getAllPostsMetaWithLang(locale);
 
   const relatedPosts = allPostsMeta.filter((postMeta) => {
     if (postMeta.meta.slug === slug) {
