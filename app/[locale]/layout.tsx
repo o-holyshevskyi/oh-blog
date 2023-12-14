@@ -76,7 +76,7 @@ export  default async function RootLayout({
 									<p>© 2023 Holyshevskyi</p>
 									<Link
 										isExternal
-										href={`${domain}/rss.xml`}
+										href={`${domain}/rss_${locale}.xml`}
 										className="absolute right-0 m-4 items-center text-center cursor-pointer "
 									>
 										<RssIcon size={50}/>

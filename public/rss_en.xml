@@ -2,21 +2,21 @@
 <rss version="2.0">
     <channel>
         <title>Blog posts | RSS Feed</title>
-        <link>https://oholsyhevskyi.com</link>
+        <link>https://oholsyhevskyi.com/en</link>
         <description>Welcome to my blog posts</description>
-        <lastBuildDate>Fri, 08 Dec 2023 14:09:39 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Dec 2023 14:24:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
             <title>Blog posts | RSS Feed</title>
             <url>https://o-holyshevskyi.github.io/blog-pic/images/posts/api-testing.png</url>
-            <link>https://oholsyhevskyi.com</link>
+            <link>https://oholsyhevskyi.com/en</link>
         </image>
         <copyright>All rights reserved 2023, Oleksandr Holyshevskyi</copyright>
         <item>
             <title><![CDATA[Demystifying the Testing Pyramid: A Blueprint for Effective Software Testing]]></title>
-            <link>https://oholsyhevskyi.com/blog/demystifying-testing-pyramid</link>
-            <guid>https://oholsyhevskyi.com/blog/demystifying-testing-pyramid</guid>
+            <link>https://oholsyhevskyi.com/en/blog/demystifying-testing-pyramid</link>
+            <guid>https://oholsyhevskyi.com/en/blog/demystifying-testing-pyramid</guid>
             <pubDate>Thu, 07 Dec 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -115,13 +115,13 @@ Embrace the Testing Pyramid, and elevate your software testing to new heights, e
         </item>
         <item>
             <title><![CDATA[🌟 Functional Programming in Automation Testing with TypeScript and Playwright 🤖🚀 Part II]]></title>
-            <link>https://oholsyhevskyi.com/blog/functional-programming-in-automation-testing-partII</link>
-            <guid>https://oholsyhevskyi.com/blog/functional-programming-in-automation-testing-partII</guid>
+            <link>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partII</link>
+            <guid>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partII</guid>
             <pubDate>Wed, 25 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
 Welcome to the second part of our exploration into functional programming in automation testing. In this continuation, we will delve deeper into the practical implementation of the concepts we've 
-<a href="https://oholsyhevskyi.com/posts/functional-programming-in-automation-testing-partI">**discussed so far**</a>. 
+<a href="https://oholsyhevskyi.com/blog/functional-programming-in-automation-testing-partI">**discussed so far**</a>. 
 Here's what you can expect in this part:
 
 <a name="installing-required-libraries" id="installing-required-libraries" />
@@ -289,7 +289,7 @@ To open last HTML report run:
   npx playwright show-report
 ```
 
-To simplify running tests, just add this 'npx playwright test' command into our package.json file in the 'scripts' sectionЖ
+To simplify running tests, just add this 'npx playwright test' command into our package.json file in the 'scripts' section:
 ```json:./package.json
 {
   "name": "my-playwright-project-fp",
@@ -830,8 +830,8 @@ Here are some additional resources, books, and websites where you can further ex
         </item>
         <item>
             <title><![CDATA[🌟 Functional Programming in Automation Testing with TypeScript and Playwright 🤖🚀 Part I]]></title>
-            <link>https://oholsyhevskyi.com/blog/functional-programming-in-automation-testing-partI</link>
-            <guid>https://oholsyhevskyi.com/blog/functional-programming-in-automation-testing-partI</guid>
+            <link>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partI</link>
+            <guid>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partI</guid>
             <pubDate>Sun, 22 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1026,8 +1026,8 @@ With a solid understanding of these concepts, you're now better equipped to emba
         </item>
         <item>
             <title><![CDATA[🚀 Embracing Functional Programming for Automation Testing: Unleashing New Possibilities 🚀]]></title>
-            <link>https://oholsyhevskyi.com/blog/functional-programming-for-automation-testing</link>
-            <guid>https://oholsyhevskyi.com/blog/functional-programming-for-automation-testing</guid>
+            <link>https://oholsyhevskyi.com/en/blog/functional-programming-for-automation-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/functional-programming-for-automation-testing</guid>
             <pubDate>Tue, 17 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1069,8 +1069,8 @@ modularity, concurrency, and scalability make it a compelling option. As the wor
         </item>
         <item>
             <title><![CDATA[🤖 Using Chained Functions for Automation Testing with Playwright and TypeScript 🚀]]></title>
-            <link>https://oholsyhevskyi.com/blog/chained-functions-in-test</link>
-            <guid>https://oholsyhevskyi.com/blog/chained-functions-in-test</guid>
+            <link>https://oholsyhevskyi.com/en/blog/chained-functions-in-test</link>
+            <guid>https://oholsyhevskyi.com/en/blog/chained-functions-in-test</guid>
             <pubDate>Mon, 16 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1081,7 +1081,7 @@ As an extension of the previously explored PageObject pattern, this topic offers
 In this comprehensive guide, we'll dive into the concept of chaining functions, building upon the foundation of modular and maintainable automation tests. 
 This approach, in combination with the PageObject pattern, will not only make your tests more readable but also considerably enhance their efficiency.
 
-<a href="https://oholsyhevskyi.com/posts/page-object-pattern">See the previous topic</a>
+<a href="https://oholsyhevskyi.com/blog/page-object-pattern">See the previous topic</a>
 
 In our earlier exploration, we learned how the PageObject pattern can transform the structure and organization 
 of automation tests by abstracting user interfaces into separate classes, leading to cleaner and more modular test code.
@@ -1273,8 +1273,8 @@ In the next topic, we will explore how to use the pipe approach from fp-ts to co
         </item>
         <item>
             <title><![CDATA[🔍 Exploring the PageObject Pattern for Automation Testing 🤖]]></title>
-            <link>https://oholsyhevskyi.com/blog/page-object-pattern</link>
-            <guid>https://oholsyhevskyi.com/blog/page-object-pattern</guid>
+            <link>https://oholsyhevskyi.com/en/blog/page-object-pattern</link>
+            <guid>https://oholsyhevskyi.com/en/blog/page-object-pattern</guid>
             <pubDate>Fri, 13 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1827,8 +1827,8 @@ It highlights best practices and provides a clear path for implementing the Page
         </item>
         <item>
             <title><![CDATA[Unlocking Success with Behavior-Driven Development (BDD) 🚀]]></title>
-            <link>https://oholsyhevskyi.com/blog/success-with-bdd</link>
-            <guid>https://oholsyhevskyi.com/blog/success-with-bdd</guid>
+            <link>https://oholsyhevskyi.com/en/blog/success-with-bdd</link>
+            <guid>https://oholsyhevskyi.com/en/blog/success-with-bdd</guid>
             <pubDate>Fri, 06 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1860,8 +1860,8 @@ If you have experience with BDD or thoughts to share, please do so in the commen
         </item>
         <item>
             <title><![CDATA[Unlocking the Power of Unit Testing: Why, When, and Who Should Care?]]></title>
-            <link>https://oholsyhevskyi.com/blog/power-of-unit-testing</link>
-            <guid>https://oholsyhevskyi.com/blog/power-of-unit-testing</guid>
+            <link>https://oholsyhevskyi.com/en/blog/power-of-unit-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/power-of-unit-testing</guid>
             <pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1901,8 +1901,8 @@ In conclusion, unit testing is a crucial practice in modern software development
         </item>
         <item>
             <title><![CDATA[🚀Elevating API Testing: Unveiling the Key Why, Challenges, and the Power of Automation!🌐]]></title>
-            <link>https://oholsyhevskyi.com/blog/evaluating-api-testing</link>
-            <guid>https://oholsyhevskyi.com/blog/evaluating-api-testing</guid>
+            <link>https://oholsyhevskyi.com/en/blog/evaluating-api-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/evaluating-api-testing</guid>
             <pubDate>Mon, 02 Oct 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1949,8 +1949,8 @@ In conclusion, API testing is not just a necessity; it's a strategic imperative 
         </item>
         <item>
             <title><![CDATA[🌱Cultivating a Healthy Development Environment: The Vital Role of QAs🌱]]></title>
-            <link>https://oholsyhevskyi.com/blog/healthy-development-environment</link>
-            <guid>https://oholsyhevskyi.com/blog/healthy-development-environment</guid>
+            <link>https://oholsyhevskyi.com/en/blog/healthy-development-environment</link>
+            <guid>https://oholsyhevskyi.com/en/blog/healthy-development-environment</guid>
             <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -1978,8 +1978,8 @@ How do you see the role of QAs in your development team? Share your thoughts and
         </item>
         <item>
             <title><![CDATA[🚀Exciting Developments in Automated Testing🚀]]></title>
-            <link>https://oholsyhevskyi.com/blog/developments-in-automated-testing</link>
-            <guid>https://oholsyhevskyi.com/blog/developments-in-automated-testing</guid>
+            <link>https://oholsyhevskyi.com/en/blog/developments-in-automated-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/developments-in-automated-testing</guid>
             <pubDate>Mon, 18 Sep 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 
@@ -2003,8 +2003,8 @@ These trends are shaping the future of automated testing, making it more efficie
         </item>
         <item>
             <title><![CDATA[🔍Unleash the Power of Test Automation in Software Testing💻]]></title>
-            <link>https://oholsyhevskyi.com/blog/test-automation-testing-power</link>
-            <guid>https://oholsyhevskyi.com/blog/test-automation-testing-power</guid>
+            <link>https://oholsyhevskyi.com/en/blog/test-automation-testing-power</link>
+            <guid>https://oholsyhevskyi.com/en/blog/test-automation-testing-power</guid>
             <pubDate>Fri, 08 Sep 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[
 

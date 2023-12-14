@@ -13,7 +13,7 @@ export default async function BlogItems({
     const t = useTranslations("blogPage");
     const locale = useLocale();
     const allPosts = await getAllPostsMetaWithLang(locale);
-    //await generateRssFeed();
+    //await generateRssFeed(locale);
 
     const filterPostsByTitle = (posts: any, title: string) => {
         if (!title) {
