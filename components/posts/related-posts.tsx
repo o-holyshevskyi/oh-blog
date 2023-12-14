@@ -6,6 +6,8 @@ import { Link } from "@nextui-org/link";
 import { title } from "../primitives";
 import { Image } from '@nextui-org/image';
 import { BookIcon } from "../icons";
+import { useTranslations } from "next-intl";
+import Date from "../date/date";
 
 export default function RelatedPosts({ relatedPosts } : { 
     relatedPosts: {
@@ -14,12 +16,15 @@ export default function RelatedPosts({ relatedPosts } : {
         description: string;
     }[];
 }) {
+    const t = useTranslations("postPage");
+    const tr = useTranslations("postCards");
+    
     return (
         <section>
             <div className="inline-block md:max-w-6xl text-center justify-center">
                 <div className="mt-8">
-                    <p className={title({ color: "blue", size: 'sm' })}>R</p>
-                    <p className={title({ size: 'sm' })}>elated topics</p>
+                    <p className={title({ color: "blue", size: 'sm' })}>{t("later_1")}</p>
+                    <p className={title({ size: 'sm' })}>{t("relatedPosts")}</p>
                 </div>
                 <div>
                     <ul className="mt-10 md:flex justify-between gap-6 text-start">
@@ -28,9 +33,13 @@ export default function RelatedPosts({ relatedPosts } : {
                                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                                     <div className="flex items-start items-center">
                                         <BookIcon/>
-                                        <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} min read</p>
+                                        <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} {tr("minRead")}</p>
                                     </div>
-                                    <small className="text-default-500">{post.meta.date}</small>
+                                    <Date 
+                                        dateString={post.meta.date} 
+                                        className="text-default-500"   
+                                        formatDate="LLLL d, yyyy"
+                                    />
                                     <h4 className="font-bold text-large">{post.meta.title}</h4>
                                 </CardHeader>
                                 <CardBody className="overflow-visible py-2">
@@ -40,7 +49,7 @@ export default function RelatedPosts({ relatedPosts } : {
                                         src={post.meta.img}
                                     />
                                     <div className="mt-2 flex-col items-start">
-                                        <small className="text-default-500">In the post</small>
+                                        <small className="text-default-500">{tr("inThePost")}</small>
                                         <p>{post.description}</p>
                                     </div>
                                 </CardBody>
@@ -49,7 +58,7 @@ export default function RelatedPosts({ relatedPosts } : {
                                         href={`/blog/${post.meta.slug}`}
                                         className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
                                     >
-                                        Read More
+                                        {tr("readMore")}
                                     </Link>
                                 </CardFooter>
                             </Card>

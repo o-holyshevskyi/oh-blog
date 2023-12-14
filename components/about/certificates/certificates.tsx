@@ -1,5 +1,6 @@
 import Date from "@/components/date/date";
 import { Divider } from "@nextui-org/divider";
+import { useTranslations } from "next-intl";
 
 const certificates = [
     {
@@ -23,6 +24,8 @@ const certificates = [
 ];
 
 export default function Certificates() {
+    const t = useTranslations("about.aboutAccordion.certificates");
+    
     return (
         <div>
             {
@@ -34,9 +37,9 @@ export default function Certificates() {
                                 <Divider orientation="vertical" />
                                 <Date dateString={cert.date}></Date>
                             </div>
-                            <div className="mt-5"><strong>Credential ID:</strong> {cert.id}</div>
+                            <div className="mt-5"><strong>{t("id")}:</strong> {cert.id}</div>
                             <div className="flex wrap justify-start items-center">
-                                <strong className="mr-1">Skills:</strong> {
+                                <strong className="mr-1">{t("skills")}:</strong> {
                                     cert.skills.map((skill, index) => (
                                         <div key={index} className="mr-1">
                                             {skill}

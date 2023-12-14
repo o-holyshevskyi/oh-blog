@@ -1,0 +1,2034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Blog posts | RSS Feed</title>
+        <link>https://oholsyhevskyi.com/en</link>
+        <description>Welcome to my blog posts</description>
+        <lastBuildDate>Thu, 14 Dec 2023 14:24:34 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Blog posts | RSS Feed</title>
+            <url>https://o-holyshevskyi.github.io/blog-pic/images/posts/api-testing.png</url>
+            <link>https://oholsyhevskyi.com/en</link>
+        </image>
+        <copyright>All rights reserved 2023, Oleksandr Holyshevskyi</copyright>
+        <item>
+            <title><![CDATA[Demystifying the Testing Pyramid: A Blueprint for Effective Software Testing]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/demystifying-testing-pyramid</link>
+            <guid>https://oholsyhevskyi.com/en/blog/demystifying-testing-pyramid</guid>
+            <pubDate>Thu, 07 Dec 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+<a name="introduction" id="introduction" />
+
+In the ever-evolving landscape of software development, ensuring the reliability and functionality of applications is paramount. 
+Enter the Testing Pyramid, a paradigm that guides developers and QA professionals in structuring their testing strategy for optimal efficiency and effectiveness. 
+In this blog post, we'll delve into the intricacies of the Testing Pyramid, exploring its layers, strengths, weaknesses, and how to leverage it in the development process.
+
+<a name="the-testing-pyramid-overview" id="the-testing-pyramid-overview" />
+
+The Testing Pyramid is a visual representation that categorizes tests into three main layers: Unit Tests at the base, 
+followed by Integration Tests in the middle, and UI (User Interface) Tests at the top. Each layer serves a distinct purpose, and the pyramid 
+shape emphasizes the distribution of tests to maintain a healthy balance.
+
+<a name="unit-tests" id="unit-tests" />
+<img src="https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramidUnit.png" className="rounded-lg" />
+
+**Strengths**:
+
+- **Granularity**: Unit tests focus on the smallest units of code, ensuring that individual functions or methods perform as intended.
+- **Speed**: These tests are quick to execute, facilitating rapid feedback during development.
+- **Isolation**: Unit tests are isolated, allowing developers to pinpoint and fix issues in specific components without affecting the entire system.
+
+**Weaknesses**:
+
+- **Limited Coverage**: While thorough, unit tests may not capture interactions between components, potentially missing integration issues.
+- **Isolation Overkill**: Overreliance on isolated tests may lead to a false sense of security, as real-world scenarios involve the interaction of multiple components.
+
+**Example**:
+
+For a web application, a unit test might validate the functionality of a login service by checking if user credentials are verified correctly.
+
+<a name="integration-tests" id="integration-tests" />
+<img src="https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramidIntegration.png" className="rounded-lg" />
+
+**Strengths**:
+
+- **Interaction Coverage**: Integration tests focus on verifying the collaboration between different components or services, uncovering issues that unit tests might miss.
+- **Real-world Scenarios**: These tests simulate more realistic user scenarios, providing a broader perspective on system behavior.
+- **Early Issue Detection**: Integration tests catch issues that arise when components interact, preventing them from snowballing into more significant problems.
+
+**Weaknesses**:
+
+- **Slower Execution**: Compared to unit tests, integration tests take longer to execute due to their broader scope.
+- **Complexity**: Designing effective integration tests can be challenging, especially when dealing with interconnected systems.
+
+**Example**:
+
+In a banking application, an integration test might validate the end-to-end process of transferring funds, ensuring that various components 
+(such as account validation, transaction processing, and notifications) work seamlessly together.
+
+<a name="ui-tests" id="ui-tests" />
+<img src="https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramid.png" className="rounded-lg" />
+
+**Strengths**:
+
+- **User-Centric Validation**: UI tests ensure that the application's user interface behaves as expected, providing a comprehensive view of the user experience.
+- **End-to-End Validation**: These tests cover the entire application stack, including backend services and frontend interactions.
+- **Real User Interaction**: UI tests emulate user actions, offering insights into how users interact with the application.
+
+**Weaknesses**:
+
+- **Brittleness**: UI tests can be sensitive to changes in the UI layout, leading to frequent test failures that are not indicative of actual defects.
+- **Execution Time**: UI tests are typically slower than both unit and integration tests, potentially slowing down the feedback loop.
+
+**Example**:
+
+For an e-commerce platform, a UI test might simulate a user journey, from selecting products and adding them to the cart 
+to completing the checkout process, ensuring a seamless experience.
+
+<a name="using-the-testing-pyramid-in-development" id="using-the-testing-pyramid-in-development" />
+
+**Early Detection of Issues**:
+
+- **Unit tests**: Developers can catch and fix bugs at the earliest stage of development, ensuring code quality from the outset.
+- **Integration tests**: Issues arising from the interaction between components are identified in the development phase, preventing them from progressing to later stages.
+
+**Optimizing Test Execution**:
+
+- **Prioritize Unit Tests**: Since unit tests are faster, they should be the first line of defense during development, providing quick feedback to developers.
+- **Selective Integration and UI Tests**: Run integration and UI tests less frequently, such as during nightly builds or before major releases, to balance thorough testing with efficient development cycles.
+
+**Maintaining a Healthy Test Suite**:
+
+- **Regular Refactoring**: Periodically review and refactor tests to ensure they remain relevant as the codebase evolves.
+- **Avoiding Redundancy**: Eliminate duplicate tests across layers to streamline the testing process and reduce maintenance overhead.
+
+<a name="conclusion" id="conclusion" />
+
+The Testing Pyramid is a powerful framework that empowers development teams to create a robust testing strategy. 
+By understanding the strengths and weaknesses of each layer and strategically incorporating them into the development process, 
+teams can strike a balance between thorough testing and efficient development cycles. 
+Embrace the Testing Pyramid, and elevate your software testing to new heights, ensuring the delivery of high-quality, reliable applications to end-users.
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🌟 Functional Programming in Automation Testing with TypeScript and Playwright 🤖🚀 Part II]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partII</link>
+            <guid>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partII</guid>
+            <pubDate>Wed, 25 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+Welcome to the second part of our exploration into functional programming in automation testing. In this continuation, we will delve deeper into the practical implementation of the concepts we've 
+<a href="https://oholsyhevskyi.com/blog/functional-programming-in-automation-testing-partI">**discussed so far**</a>. 
+Here's what you can expect in this part:
+
+<a name="installing-required-libraries" id="installing-required-libraries" />
+
+Here are step-by-step instructions for installing TypeScript, Playwright, and fp-ts. We'll also include code snippets and commands to help you through the installation process. 
+Please note that you need Node.js installed before proceeding with these installations. If you haven't already installed Node.js, you can download it from the official website: <a href="https://nodejs.org">**Node.js**</a>
+
+<div name="step-1-install-typescript" id="step-1-install-typescript" />
+
+1. Open your command-line interface (CLI) or terminal.
+2. Use Node Package Manager (npm) to install TypeScript globally:
+```bash:cli
+npm install -g typescript
+```
+3. Verify the TypeScript installation by running the following command:
+```bash:cli
+tsc --version
+```
+This command should display the installed TypeScript version.
+
+<a name="step-2-install-playwright" id="step-2-install-playwright" />
+
+1. Open your CLI or terminal.
+2. Create a new directory for your Playwright project, if you haven't already:
+```bash:cli
+mkdir my-playwright-project-fp
+cd my-playwright-project-fp
+```
+3. Initialize a new Node.js project in your directory:
+```bash:cli
+npm init -y
+```
+4. Install Playwright by running the following command:
+```bash:cli
+npm init playwright@latest
+```
+5. Once Playwright is installed, you can use it with JavaScript or TypeScript for your automation testing. TypeScript is recommended for type safety.
+
+<a name="step-3-install-fp-ts-functional-programming-in-typescript" id="step-3-install-fp-ts-functional-programming-in-typescript"/>
+
+1. Open your CLI or terminal.
+2. Navigate to your project directory (e.g., my-playwright-project-fp).
+3. Install fp-ts as a dependency for your project:
+```bash:cli
+npm install fp-ts
+```
+4. You can now start using fp-ts in your TypeScript code. Make sure to import the necessary modules as needed in your TypeScript files.
+
+<a name="common-issues-and-troubleshooting" id="common-issues-and-troubleshooting" />
+
+1. **Permissions Issue**: If you encounter a permissions issue when installing packages, you may need to use sudo or set up proper permissions for your npm installation.
+2. **Node Version**: Ensure that you have a compatible version of Node.js installed. You can check your Node.js version using node -v, and make sure it's up to date.
+3. **Project Directory**: Make sure you are in the correct directory when running npm commands. You should be inside your project directory when installing Playwright and fp-ts.
+4. **TypeScript Configuration**: If you intend to use TypeScript with Playwright, you may need to set up a TypeScript configuration file (tsconfig.json) in your project directory to specify how TypeScript should compile your code. 
+You can initialize a TypeScript configuration file using 'tsc --init' and customize it as needed.
+
+With these installations and some common troubleshooting steps in mind, you should be well on your way to building a functional programming-based automation testing framework using TypeScript, Playwright, and fp-ts.
+
+<a name="setting-up-the-project" id="setting-up-the-project" />
+
+<a name="project-file-structure" id="project-file-structure" />
+
+After installing the required libraries like TypeScript, Playwright, and fp-ts for your automation testing project, it's essential to have a well-structured project directory to maintain your code efficiently. 
+Here's a typical project file structure after installing the required libraries:
+
+```css:my-playwright-project-fp/
+│
+├── node_modules/
+├── tests/
+│   ├── example.spec.ts
+├── tests-examples/
+│   ├── demo-todo-app.spec.ts
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── playwright.config.ts
+├── tsconfig.json
+```
+Here's a breakdown of the project structure:
+
+- **node_modules/**: This directory contains the libraries and dependencies installed for your project. You don't need to manage this directory manually; npm takes care of it.
+- **tests/**: This directory is for your general test scripts. The example.spec.ts file is an illustration of a typical test script.
+- **tests-examples/**: This directory appears to be reserved for specific test examples. The demo-todo-app.spec.ts file contains test cases related to a demonstration of a todo application.
+- **.gitignore**: This file specifies which files or directories should be ignored by Git when you commit your project to a version control system. It's crucial for managing your project in a version-controlled environment.
+```git:.gitignore
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+```
+- **package-lock.json**: This file contains information about the exact versions of packages installed in your project, ensuring consistency among team members or on different machines.
+- **package.json**: This file holds metadata about your project and lists the project's dependencies. It also includes npm scripts for running tests, among other things.
+```json:./package.json
+{
+  "name": "my-playwright-project-fp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.7"
+  },
+  "dependencies": {
+    "fp-ts": "^2.16.1"
+  }
+}
+```
+- **playwright.config.ts**: This configuration file is essential for configuring Playwright settings, such as browsers to use, device emulation, and more.
+```ts:./playwright.config.ts
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests',
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: 'html',
+  use: {
+    trace: 'on-first-retry',
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
+});
+```
+We can simplify our Playwright configuration to remove the extra projects (firefox and webkit)
+- **tsconfig.json**: The TypeScript configuration file dictates how TypeScript should compile your code. You can customize various options to tailor the compilation process to your project's requirements.
+```json:./tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
+```
+
+Your project structure is organized to house your test scripts and relevant configurations neatly.
+You can create additional directories for utility functions, page objects, or any other supporting code as your project expands. 
+This structure provides a good foundation for automation testing with Playwright and TypeScript.
+
+Let's try to run our first tests 😊:
+
+1. Open your CLI or terminal.
+2. Navigate to your project directory (e.g., my-playwright-project-fp).
+3. Run first tests:
+```bash:cli
+npx playwright test
+```
+4. The output is:
+```bash:cli
+2 passed (6.3s)
+To open last HTML report run:
+  npx playwright show-report
+```
+
+To simplify running tests, just add this 'npx playwright test' command into our package.json file in the 'scripts' section:
+```json:./package.json
+{
+  "name": "my-playwright-project-fp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.7"
+  },
+  "dependencies": {
+    "fp-ts": "^2.16.1"
+  }
+}
+```
+Now we can use simple command
+```bash:cli
+npm test
+```
+The output is:
+```bash:cli
+2 passed (6.3s)
+To open last HTML report run:
+  npx playwright show-report
+```
+
+<a name="writing-functional-tests" id="writing-functional-tests" />
+
+<a name="review-normal-playwright-tests" id="review-normal-playwright-tests" />
+
+The provided Playwright tests are simple, imperative-style tests for checking web page elements and interactions. 
+They serve as a good starting point for understanding Playwright's capabilities but have some weaknesses when viewed through a functional programming lens:
+
+1. **Imperative Style**:
+- The tests follow an imperative style, where actions are specified in a step-by-step manner, which can make the code harder to reason about and maintain.
+2. **Side Effects**:
+- The tests include side effects like interactions with the page (e.g., clicks), which are generally discouraged in functional programming, as they can introduce unpredictability and affect the test's purity.
+3. **Lack of Reusability**:
+- The tests are not highly reusable. If you need to perform a similar action on a different page or in multiple tests, you might end up duplicating code, leading to maintenance challenges.
+4. **Test Data Handling**:
+- Data used in the tests (e.g., URLs, element names) is hardcoded within the test functions, making it less flexible and harder to update if there are changes in the application.
+
+<a name="explore-how-to-transform-tests-into-functional-programming-approach" id="explore-how-to-transform-tests-into-functional-programming-approach" />
+
+Now, let's explore how you can transform these tests into a functional programming approach using fp-ts and TypeScript. 
+We'll focus on creating more modular, reusable, and pure functions.
+
+The transformed tests are excellent examples of how to apply functional programming principles to automation testing using TypeScript, Playwright, and fp-ts (Functional Programming in TypeScript). 
+These tests focus on composing pure functions and handling errors with TaskEither.
+
+Here's a breakdown of the functional programming approach and a detailed description of each test:
+
+**Functional Approach**:
+
+In this approach, we've created pure functions that return TaskEither monads. Each function represents a specific action and is composed using the fp-ts library's pipe function to create test scenarios.
+
+- **goto** Function:
+```ts:./tests/example.spec.ts
+const goto = (page: Page) => (url: string): TE.TaskEither<void, Page> =>
+  TE.tryCatch<void, Page>(
+    async () => {
+      await page.goto(url);
+      return page;
+    },
+    (error) => {
+      throw new Error(error as string);
+    }
+  );
+```
+The goto function takes a Playwright page object and returns a function that accepts a URL to navigate to. It encapsulates the logic for navigating to a specified URL. It returns a TaskEither that can handle errors.
+
+- **clickGetStarted** Function:
+```ts:./tests/example.spec.ts
+const clickGetStarted = (page: Page): TE.TaskEither<void, Page> =>
+  TE.tryCatch<void, Page>(
+    async () => {
+      await page.getByRole('link', { name: 'Get started' }).click();
+      return page;
+    },
+    (error) => {
+      throw new Error(error as string);
+    }
+  );
+```
+The clickGetStarted function takes a Playwright page object and returns a function that clicks the "Get started" link on the page. It also returns a TaskEither to manage any potential errors during the action.
+
+- **verifyTitle**  Function:
+```ts:./tests/example.spec.ts
+const verifyTitle = (page: Page) => (expectTitle: RegExp | string): TE.TaskEither<void, void> =>
+  TE.tryCatch<void, void>(
+    async () => await expect(page).toHaveTitle(expectTitle),
+    (error) => {
+      throw new Error(error as string);
+    }
+  );
+```
+The verifyTitle function takes a Playwright page object and an expected title (as a regular expression or string) and returns a function that verifies whether the page's title matches the expected value. It returns a TaskEither.
+
+- **verifyIfHeadingInstallationElementIsVisible** Function:
+```ts:./tests/example.spec.ts
+const verifyIfHeadingInstallationElementIsVisible = (page: Page): TE.TaskEither<void, void> =>
+  TE.tryCatch<void, void>(
+    async () => {
+      await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+    },
+    (error) => {
+      throw new Error(error as string);
+    }
+  );
+```
+This function checks if the "Installation" heading element is visible on the page. It takes a Playwright page object and returns a TaskEither.
+
+**Test Cases**:
+
+The tests use the pipe function from fp-ts to compose the actions sequentially. Here's a detailed description of each test case:
+
+- '**has title fp**' Test:
+```ts:./tests/example.spec.ts
+test('has title fp', async ({ page }) => {
+  await F.pipe(
+    goto(page)('https://playwright.dev/'),
+    TE.chain((page) => verifyTitle(page)(/Playwright/))
+  )();
+});
+```
+- The test navigates to the 'https://playwright.dev/' URL using the goto function.
+- It then verifies that the page title contains the string 'Playwright' using the verifyTitle function with a regular expression.
+- All actions are composed using TE.chain to handle errors and ensure the test's purity and predictability.
+
+- '**get started link fp**' Test:
+```ts:./tests/example.spec.ts
+test('get started link fp', async ({ page }) => {
+  await F.pipe(
+    goto(page)('https://playwright.dev/'),
+    TE.chain((page) => clickGetStarted(page)),
+    TE.chain((page) => verifyIfHeadingInstallationElementIsVisible(page))
+  )();
+});
+```
+- This test also begins by navigating to 'https://playwright.dev/' using the goto function.
+- It then clicks the "Get started" link using the clickGetStarted function.
+- Finally, it checks if the "Installation" heading element is visible with the verifyIfHeadingInstallationElementIsVisible function.
+- Like the first test, it uses TE.chain to sequence the actions and handle errors.
+
+**Error Handling**:
+
+Each function includes error handling with TE.tryCatch. In case of errors, it throws an error with a descriptive message, ensuring that errors are handled in a controlled manner.
+
+This functional approach aligns well with the principles of functional programming, emphasizing the use of pure functions, composition, and error management. It results in more maintainable and predictable test code, making it easier to write and debug complex test scenarios. 
+Additionally, it provides the flexibility to handle errors gracefully and deliver meaningful error messages.
+
+<a name="advanced-techniques" id="advanced-techniques"/>
+
+Advanced techniques in functional programming can greatly enhance automation testing, making your test code more robust, maintainable, and efficient. 
+Here are some advanced techniques and concepts that can be applied to automation testing within a functional programming paradigm:
+
+1. **Higher-Order Functions (HOFs)**:
+- HOFs are functions that take other functions as arguments or return functions as results. In automation testing, you can create higher-order functions to encapsulate common test patterns. 
+For example, you could create a higher-order function to handle authentication, data setup, or page navigation, making your tests more modular and DRY (Don't Repeat Yourself).
+2. **Functional Composition**:
+- Functional composition is the act of combining two or more functions to produce a new function. In testing, you can compose functions to create complex test scenarios. 
+This allows you to reuse and combine smaller, pure functions to build comprehensive tests efficiently.
+3. **Monads and Functors**:
+- Monads and functors are advanced concepts in functional programming that can be applied to handle sequencing and error handling in tests. 
+Libraries like fp-ts provide monads like Task and TaskEither to manage async actions and errors gracefully.
+4. **Immutability**:
+- Immutability is a core functional programming principle. Immutable data structures, like persistent data structures, can be used to represent and manipulate test data. 
+This ensures that test data remains consistent throughout test execution, enhancing reliability.
+5. **Partial Application and Currying**:
+- Partial application and currying enable you to create functions with multiple parameters step by step, making it easier to pass configurations and dependencies into your test functions. 
+This enhances test data handling and flexibility.
+6. **Type Safety and Static Analysis**:
+- Leverage TypeScript or other statically typed languages for your testing code. Static typing ensures that your code adheres to expected data types, reducing type-related bugs and making your tests more reliable.
+7. **Pure Functions**:
+- Functional programming encourages the use of pure functions that produce the same output for the same input. Writing pure functions for your test actions ensures predictability, easy testing, and robust test setups.
+
+By incorporating these advanced functional programming techniques into your automation testing, you can create test code that is more reliable, maintainable, and adaptable. 
+It also helps streamline test case development, improve code reuse, and enhance the overall quality of your testing framework.
+
+<a name="how-to-enhance-existing-tests-with-fixtures" id="how-to-enhance-existing-tests-with-fixtures"/>
+
+The current problem with having these functions (i.e., **goto**, **clickGetStarted**, **verifyTitle**, and **verifyIfHeadingInstallationElementIsVisible**) defined in the same test file is that it violates the principles of modularity, reusability, and separation of concerns. 
+Here's why you should consider using fixtures and moving these functions to separate modules:
+
+1. **Violation of Separation of Concerns**: Keeping these functions within the test file makes it challenging to separate the concerns of setting up and interacting with the page from the actual test logic. 
+This violates the principle of separation of concerns, which can lead to less maintainable and more complex code.
+2. **Code Duplication**: If you have multiple test files that need to perform the same actions (e.g., navigating to a page, clicking a link), you'll end up duplicating these functions in multiple test files. 
+This not only increases code redundancy but also makes it harder to maintain and update your code when changes are needed.
+3. **Lack of Reusability**: Functions like goto, clickGetStarted, and verifyTitle are generic actions that could be reused across multiple test files. By centralizing these actions, you promote reusability and maintainability.
+4. **Test Fixture**: Using a fixture in Playwright provides a dedicated and structured environment for setting up and managing browser instances and pages. 
+By moving these functions into a fixture, you can ensure that each test starts from a clean and predictable state. It also enhances the isolation of your tests, making them more reliable.
+5. **Code Organization**: Moving these functions to separate modules allows you to organize your code more efficiently. 
+You can create a dedicated module for actions, a module for test fixtures, and another for actual test cases. This separation enhances the readability and maintainability of your codebase.
+6. **Collaboration**: When working in a team, having a standardized approach to test setup and actions, as provided by fixtures and centralized modules, ensures that everyone follows the same practices. 
+This improves collaboration and makes it easier to understand and extend the test suite.
+
+To improve your approach, consider the following steps:
+
+1. Create a dedicated fixture for setting up your test environment, which includes launching a browser and creating a page.
+2. Define separate modules for the actions you want to perform (e.g., navigation, interaction, verification).
+3. Use the fixture in your test files to set up the environment before each test.
+4. Compose actions from your action modules within your test functions.
+
+By adopting this approach, you'll have more modular, reusable, and maintainable code that adheres to best practices for test automation. 
+It promotes code organization, code sharing, and standardization, ultimately making your testing efforts more efficient and reliable.
+
+<a name="create-a-dedicated-fixture" id="create-a-dedicated-fixture"/>
+
+Let's establish a dedicated fixture for configuring your test environment, which includes creating an instance of the landing page.
+Creae a new folder **fixtures** under the **tests** folder with the **fixture.ts** file: The project structure now is:
+```css:my-playwright-project-fp/
+│
+├── node_modules/
+├── tests/
+│   ├── fixtures/
+│   │   ├── fixture.ts
+│   ├── example.spec.ts
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── playwright.config.ts
+├── tsconfig.json
+```
+
+To create our fixture, let's start by importing the required dependencies:
+```ts:./tests/fixtures/fixture.ts
+import { test as base } from '@playwright/test';
+```
+Define a Fixture type that represents the structure of the fixture. In this case, it includes a property landingPage of type LandingPage, which is the type associated with your application's landing page.
+```ts:./tests/fixtures/fixture.ts
+import { test as base } from '@playwright/test';
+
+type Fixture = {
+  landingPage: LandingPage;
+};
+```
+Create the test fixture using base.extend. This method extends the base test suite with additional functionality. Here, you are extending it with a fixture that will set up your landing page.
+```ts:./tests/fixtures/fixture.ts
+import { test as base } from '@playwright/test';
+
+type Fixture = {
+  landingPage: LandingPage;
+};
+export const test = base.extend<Fixture>({
+  landingPage: async ({ page }, use) => {
+    const landing = landingPage(page);
+    await use(landing);
+    await page.close();
+  }
+});
+```
+Within the fixture definition:
+- You provide a callback function that takes two arguments: **page** and **use**. **page** is a Playwright **Page** object, and **use** is a function that allows you to pass the setup data 
+(in this case, the **landingPage** object) to the test cases that use this fixture.
+- You create an instance of the **LandingPage** using the **landingPage** function, passing in the **page** object.
+- You pass the **landing** object to the **use** function. This allows the test cases that use this fixture to access the **landingPage** object.
+- Finally, you close the **page** to clean up after the test. This is important for maintaining a clean and isolated test environment.
+
+Export the expect function from the @playwright/test library. This function allows you to make assertions in your test cases.
+
+```ts:./tests/fixtures/fixture.ts
+import { test as base } from '@playwright/test';
+
+type Fixture = {
+  landingPage: LandingPage;
+};
+export const test = base.extend<Fixture>({
+  landingPage: async ({ page }, use) => {
+    const landing = landingPage(page);
+    await use(landing);
+    await page.close();
+  }
+});
+
+export { expect } from '@playwright/test';
+```
+Now you may have some errors because we do not implement the **LandingPage** and **landingPage**.
+
+<a name="define-separate-modules-for-actions" id="define-separate-modules-for-the-actions"/>
+
+Let's define separate modules for the actions you want to perform, such as navigation, interaction, and verification.
+Creae a new folder **src** in root. Then create a **pages** folder that means we place all pages we have in one folder.
+
+Then creae a file **landing-page.ts** under the **pages** folder.
+```css:my-playwright-project-fp/
+│
+├── node_modules/
+├── src/
+│   ├── pages/
+│   │   ├── landing-page.ts
+├── tests/
+│   ├── fixtures/
+│   │   ├── fixture.ts
+│   ├── example.spec.ts
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── playwright.config.ts
+├── tsconfig.json
+```
+To create our separate modules, let's start by importing the required dependencies:
+```ts:./src/pages/landing-page.ts
+import { PageOf } from "./pages";
+```
+Import Statement:
+This line imports a type or interface named **PageOf** from a module located in the relative file path **./pages**.
+
+Now we have to create one additional type **PageOf**.
+Creae a file **pages.ts** under the **pages** folder.
+```css:my-playwright-project-fp/
+│
+├── node_modules/
+├── src/
+│   ├── pages/
+│   │   ├── landing-page.ts
+│   │   ├── pages.ts
+├── tests/
+│   ├── fixtures/
+│   │   ├── fixture.ts
+│   ├── example.spec.ts
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── playwright.config.ts
+├── tsconfig.json
+```
+To create our type, we define the next code:
+```ts:./src/pages/pages.ts
+import { Page } from '@playwright/test';
+
+export type PageOf<T> = (page: Page) => T;
+```
+The **pages.ts** module is focused on defining a type **{'PageOf<T>'}**, which is a generic type. Let's dive deeper into this module:
+1. **Imports**:
+- The module imports the Page type from the Playwright framework. This type represents a Playwright page object.
+2. **Type Definition**:
+- The **{'PageOf<T>'}** type definition is a generic type that accepts a type **T**. This type represents a function that takes a Playwright **Page** and returns an object of type **T**. 
+This pattern is commonly used for defining page objects or elements' interfaces.
+
+By creating this type, you establish a contract that enforces that any function of type **{'PageOf<T>'}** should return an object conforming to type **T**, which helps ensure consistency in your Page Object Models.
+
+Let's back to the implementation of our actions module for landing page in the **landing-page.ts** file.
+```ts:./src/pages/landing-page.ts
+import { PageOf } from "./pages";
+
+export interface LandingPage {
+
+}
+```
+Interfaces and Types:
+The **LandingPage** interface appears to be a placeholder for defining the elements and actions specific to the landing page. It's common in Page Object Models to create such interfaces to define the structure of the page.
+
+```ts:./src/pages/landing-page.ts
+import { PageOf } from "./pages";
+
+export interface LandingPage {
+
+}
+
+export const landingPage: PageOf<LandingPage> = (page) => {
+    return {
+
+    };
+}
+```
+**landingPage** Function:
+The **landingPage** function is exported from this module. It takes a Playwright **Page** as its argument and returns an object that conforms to the **LandingPage** interface. 
+This function is essentially a factory function for creating instances of the landing page POM.
+
+The landingPage function, when invoked with a Page, should return an object that provides methods and properties for interacting with elements on the landing page. 
+These methods could include actions like clicking buttons, filling forms, and verifying elements.
+
+In summary, the **landingPage** module is designed to encapsulate the structure and actions associated with a specific page (the landing page in this case). 
+It uses the **landingPage** function to create instances of this page with methods for interacting with elements. 
+The **pages.ts** module defines a type (**{'PageOf<T>'}**) to enforce the contract for page objects and maintain type safety.
+
+With this approach, you can create similar modules for other pages in your application, resulting in a well-structured and modular test suite. 
+These modules help keep your test logic and page interactions separate, making your automation tests more organized and easier to maintain.
+
+<a name="use-the-fixture-in-test-files" id="use-the-fixture-in-test-files"/>
+
+To use our fixture with created modules in our tests let's move the defined methods in the **example.spec.ts** file into our **landing-page.ts** file.
+```ts:./src/pages/landing-page.ts
+import { expect } from "../../tests/fixtures/fixture";
+import { PageOf } from "./pages";
+import * as TE from 'fp-ts/TaskEither';
+
+export interface LandingPage {
+  goto: (url: string) => TE.TaskEither<void, void>;
+  clickGetStarted: () => TE.TaskEither<void, void>;
+  verifyTitle: (title: RegExp | string) => TE.TaskEither<void, void>;
+}
+
+export const landingPage: PageOf<LandingPage> = (page) => {
+  return {
+    goto: (url): TE.TaskEither<void, void> => 
+      TE.tryCatch(
+        async () => { await page.goto(url) },
+        (error) => { throw new Error(error as string) }
+      ),
+    clickGetStarted: (): TE.TaskEither<void, void> => 
+      TE.tryCatch(
+        async () => page.getByRole('link', { name: 'Get started' }).click(),
+        (error) => {
+        throw new Error(error as string);
+        }
+      ),
+    verifyTitle: (title): TE.TaskEither<void, void> => 
+      TE.tryCatch(
+        async () => await expect(page).toHaveTitle(title),
+        (error) => {
+          throw new Error(error as string);
+        }
+      ),
+  };
+}
+```
+We created a separate module named landing-pages.ts to encapsulate the actions and functionality related to the landing page of your application.
+This approach promotes modularity and reusability, which align with the principles of functional programming. Let's break down your module and its components:
+
+1. **Import Dependencies and Types**:
+- You begin by importing the necessary dependencies and types that your module relies on. 
+This includes importing **expect** for assertions, **PageOf** from the **pages** module, and the **TE** (TaskEither) monad from **fp-ts** for handling asynchronous actions and potential errors.
+2. **Define the LandingPage Interface**:
+- You define an interface named **LandingPage**, which specifies the structure of the landing page actions. This interface outlines the three key actions for the landing page: **goto**, **clickGetStarted**, and **verifyTitle**.
+3. **Create the landingPage Function**:
+This function serves as a factory function that constructs a **LandingPage** object. It takes a **page** object as a parameter, which represents the Playwright page where these actions will be performed. 
+This function returns an object with the defined actions.
+4. **Action Definitions**:
+- Within the **landingPage** function, you define three actions:
+  - **goto**: This function navigates to a specified URL and returns a **TaskEither** for error handling.
+  - **clickGetStarted**: This function clicks the "Get started" link and also returns a TaskEither.
+  - **verifyTitle**: This function checks if the page's title matches the provided regular expression or string and returns a **TaskEither**.
+
+Each of these action functions uses TE.tryCatch to handle errors gracefully and ensure that any errors are captured and reported. This approach is aligned with functional 
+programming principles by keeping the actions pure, separating concerns, and encapsulating functionality in a modular manner.
+
+By structuring your code in this way, you promote reusability, maintainability, and test isolation. This module can now be easily imported and used in various test files to interact with the landing page consistently and reliably. 
+It also fosters collaboration and code consistency when multiple team members work on the same project. So let's import our module in the test file.
+
+```ts:./tests/example.spec.ts
+import { test } from './fixtures/fixture';
+import * as TE from 'fp-ts/TaskEither';
+import * as F from 'fp-ts/function';
+
+test('has title fp', async ({ landingPage }) => {
+  await F.pipe(
+    landingPage.goto('https://playwright.dev/'),
+    TE.chain(() => landingPage.verifyTitle(/Playwright/))
+  )();
+});
+```
+In your test file, you've successfully imported the landingPage module and integrated it into your test cases, following a functional programming paradigm. Here's a detailed explanation of the test code:
+
+1. **Test Import**:
+- You start by importing the **test** function from your test fixture, which provides the Playwright test environment and **landingPage** fixture.
+2. **Functional Composition**:
+- You use the **F.pipe** function to compose a sequence of actions. The **pipe** function allows you to execute functions in a pipeline, where the output of one function is passed as input to the next function.
+3. **landingPage.goto('https://playwright.dev/')**:
+- This action is composed first. It uses the **landingPage** fixture to navigate to the 'https://playwright.dev/' URL. The **goto** function returns a **TaskEither** representing the navigation action.
+4. **TE.chain(() => landingPage.verifyTitle(/Playwright/))**:
+- The **TE.chain** function is used to chain the next action. In this case, it's the **verifyTitle** function. The **verifyTitle** function checks if the page title matches the regular expression **/Playwright/**. 
+If the title check succeeds, it returns a **TaskEither** indicating success.
+5. **()(); - Execute the Composed Actions**:
+- The final **()();** at the end of the composition is used to execute the composed actions. This pattern is often seen in functional programming with asynchronous operations. 
+It's a way to trigger the execution of the composed functions and ensure that any errors are appropriately handled by the **TaskEither** monad.
+
+By structuring your test this way, you've achieved the following benefits:
+
+- **Modularity**: The actions for navigating to a URL and verifying the title are encapsulated within the **landingPage** fixture, promoting code modularity and reusability.
+- **Functional Composition**: You've used functional composition to create a sequence of actions, making your test code more declarative and easier to read.
+- **Error Handling**: Errors are handled gracefully using the **TaskEither** monad, ensuring that any errors during the test are captured and can be managed in a predictable manner.
+- **Test Isolation**: By using fixtures and a modular approach, each test can start from a clean state, promoting test isolation and reducing the likelihood of interference between tests.
+
+This approach aligns well with functional programming principles and provides a structured and organized way to write maintainable and reliable tests.
+
+But wait, there is one thing we have not done yet. The second test requires another module for the "Get Started" page,  try to implement it by yourself
+
+<a name="conclusion" id="conclusion"/>
+
+Key Takeaways from these two posts:
+
+1. **Functional Programming Principles**:
+- Functional programming promotes the use of pure functions, immutability, and composability, which lead to more robust and maintainable automation test code.
+2. **Modular Test Structure**:
+- Structuring your test code with modular components, such as fixtures and separate action modules, enhances code organization and reusability.
+3. **fp-ts for Error Handling**:
+- Leveraging the fp-ts library, particularly TaskEither, for error handling ensures consistent and predictable error management in your test scripts.
+4. **Fixture and Fixture Parameters**:
+- Playwright's fixture mechanism allows you to create a standardized test setup, and fixture parameters enable passing reusable actions and configurations to your tests.
+5. **Separation of Concerns**:
+- Separating concerns in your test code, such as isolating test actions from test logic, simplifies debugging and promotes collaboration in larger projects.
+6. **Static Typing with TypeScript**:
+- TypeScript provides static typing, which enhances code quality, prevents type-related errors, and improves the overall reliability of your tests.
+7. **Reuse and Maintainability**:
+- Functional programming and modular code structures facilitate test reuse, making it easier to maintain and extend your test suite as your application evolves.
+8. **Functional Test Composition**:
+- Composing pure functions for test actions ensures that your test scenarios are constructed from smaller, reusable components, leading to more readable and efficient tests.
+9. **Error Handling and Reporting**:
+- Functional programming techniques allow for structured error handling and reporting, ensuring that test failures are clear and informative.
+10. **Test Isolation**:
+- Using fixtures and a modular approach helps achieve test isolation, where each test starts from a clean state, reducing interference between test cases.
+
+In summary, embracing functional programming concepts, modular code organization, and the use of TypeScript and Playwright in automation testing leads to tests that are more reliable, maintainable, and efficient. 
+These practices promote collaboration and code consistency in team environments, resulting in a high-quality test suite for your web applications.
+
+<a name="additional-resources" id="additional-resources"/>
+
+Here are some additional resources, books, and websites where you can further expand your knowledge of functional programming, TypeScript, fp-ts, and Playwright:
+
+**Functional Programming**:
+- **"Functional Programming in JavaScript" by Luis Atencio**: This [**book**](https://medium.com/@luijar/functional-programming-in-javascript-d7cc3d78d463) explores functional programming concepts in JavaScript, which are highly relevant to TypeScript as well.
+- **"Functional Programming in Scala" by Paul Chiusano and Rúnar Bjarnason**: While the [**book**](https://books.google.com.ua/books/about/Functional_Programming_in_Scala.html?id=GjszEAAAQBAJ&redir_esc=y) focuses on Scala, it provides a deep dive into functional programming concepts that can be applied to TypeScript.
+- **Functional Programming with TypeScript**: This is [**online course**](https://www.youtube.com/playlist?list=PLuPevXgCPUIMbCxBEnc1dNwboH6e2ImQo) covers the principles of functional programming.
+
+**TypeScript**:
+- **Official TypeScript Handbook**: The [**official handbook**](https://www.typescriptlang.org/docs/handbook/intro.html) provides comprehensive documentation on TypeScript, including key concepts and practical examples.
+- **"Programming TypeScript" by Boris Cherny**: This [**book**](https://books.google.com.ua/books?id=Y-mUDwAAQBAJ&printsec=copyright&redir_esc=y#v=onepage&q&f=false) is a valuable resource for learning TypeScript, covering both basic and advanced topics.
+- **TypeScript Deep Dive (Online Book)**: An [**in-depth guide**](https://react-etc.net/files/typescript-book/typescript.pdf) to TypeScript, available online for free, covering advanced TypeScript features and best practices.
+
+**fp-ts (Functional Programming in TypeScript)**:
+- **fp-ts GitHub Repository**: The [**official repository**](https://github.com/gcanti/fp-ts) provides documentation, code examples, and resources for fp-ts.
+- **"Functional Programming in TypeScript" on Medium**: A [**series of articles**](https://medium.com/search?q=Functional+Programming+in+TypeScript) by the creator of fp-ts, Giulio Canti, explaining various concepts and techniques in fp-ts.
+
+**Playwright**:
+- **Official Playwright Documentation**: The [**official documentation**](https://playwright.dev/docs/intro) is a comprehensive resource for getting started with Playwright, including tutorials and API references.
+- **Playwright with TypeScript on Dev.to**: [**Articles and tutorials**](https://dev.to/search?q=Playwright%20with%20TypeScript) on using Playwright with TypeScript, including advanced testing techniques.
+
+**GitHub repo**
+- The [**semple**](https://github.com/o-holyshevskyi/my-playwright-project-fp) of the project we built in this post;
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🌟 Functional Programming in Automation Testing with TypeScript and Playwright 🤖🚀 Part I]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partI</link>
+            <guid>https://oholsyhevskyi.com/en/blog/functional-programming-in-automation-testing-partI</guid>
+            <pubDate>Sun, 22 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+<a name="introduction" id="introduction" />
+
+<a name="functional-programming-in-automation-testing" id="functional-programming-in-automation-testing" />
+
+Functional programming in automation testing is a paradigm that leverages the principles of functional programming to design and write test scripts.
+Unlike traditional imperative testing approaches, functional programming focuses on creating test cases as pure functions, emphasizing immutability and composability.
+By using technologies like TypeScript and Playwright, testers can build robust, maintainable, and highly readable test frameworks.
+This approach offers numerous advantages, including improved code quality, enhanced test coverage, and increased test automation efficiency.
+In this post, we will delve deeper into the world of functional programming for automation testing, exploring its benefits and practical implementation.
+
+<a name="why-typescript-and-playwright" id="why-typescript-and-playwright" />
+
+Using TypeScript and Playwright for creating a test framework holds significant advantages in the context of automation testing:
+
+1. TypeScript's Strong Typing: TypeScript provides static typing, which means that you catch errors at compile-time rather than runtime. 
+This reduces the chances of introducing bugs in your test code and enhances code quality. It also offers code completion and better code documentation, making it easier to write and maintain test scripts.
+2. Maintainability: TypeScript enforces strict coding standards and best practices, which results in more maintainable code. As automation tests are often long-lived, this is crucial for the longevity of your test framework.
+3. Code Readability: TypeScript's strong typing and cleaner syntax improve code readability. This is particularly important in testing where clear and understandable 
+test scripts can save time and reduce the learning curve for new team members.
+4. Playwright's Cross-Browser Support: Playwright is a powerful automation library that supports multiple browsers (Chromium, Firefox, and WebKit). 
+This cross-browser compatibility allows you to run the same tests across different browsers, ensuring the reliability of your tests on various platforms.
+5. Performance and Reliability: Playwright is known for its speed and reliability in test execution. 
+It offers a headless mode for faster testing and has built-in error handling, making it more robust in handling dynamic web applications.
+6. Unified API: Playwright provides a unified API for automating different browsers. This means you can write tests once and run them on multiple browsers, reducing the effort required for cross-browser testing.
+7. Accessibility Testing: Playwright includes features for accessibility testing, which is crucial for ensuring that web applications are usable by all users, including those with disabilities.
+8. Ecosystem and Community: TypeScript and Playwright are backed by strong developer communities and have extensive documentation, making it easier to find support, resources, and plugins/extensions for various testing needs.
+9. Integration with CI/CD: TypeScript and Playwright can be seamlessly integrated into Continuous Integration/Continuous Deployment (CI/CD) pipelines, enabling automated testing in the software development lifecycle.
+
+In conclusion, TypeScript and Playwright together provide a robust, maintainable, and efficient solution for creating a test framework. 
+They enhance code quality, cross-browser compatibility, and overall testing effectiveness, making them valuable tools for automation testing.
+
+<a name="what-does-this-post-cover" id="what-does-this-post-cover" />
+
+In this post, we will cover the essentials of functional programming in the context of automation testing. We will begin by explaining the core principles of functional programming and how they can be applied to testing.
+
+We will then guide you through the installation of the required libraries, including TypeScript and Playwright, providing step-by-step instructions and code snippets to make the setup process straightforward.
+
+Next, we'll delve into setting up the project for your test framework. We'll discuss the project structure, file organization, and the essential components needed to get your testing environment up and running. 
+You can expect to see practical code examples that demonstrate each step, making it easy to follow along and implement the concepts in your own projects.
+
+By the end of this post, you'll have a solid understanding of functional programming principles in automation testing, a fully configured testing environment with TypeScript and Playwright, 
+and the knowledge to begin writing efficient and maintainable test scripts.
+
+<a name="what-is-functional-programming" id="what-is-functional-programming" />
+
+Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state or mutable data. 
+It emphasizes the use of pure functions, immutability, and higher-order functions to structure and solve problems. 
+In functional programming, programs are constructed by composing functions, which promotes code that is more predictable, maintainable, and easier to reason about.
+
+<a name="core-principles-of-functional-programming" id="core-principles-of-functional-programming" />
+
+Here are explanations of the core principles of functional programming:
+
+1. Immutability:
+- Immutability refers to the concept that data, once created, cannot be modified. Instead of changing existing data, you create new data structures.
+- In functional programming, immutability ensures that functions do not have side effects, making it easier to reason about and debug code.
+- Immutable data is thread-safe, which is particularly important in concurrent or parallel programming.
+2. Pure Functions:
+- Pure functions are functions that, given the same input, always produce the same output without modifying any external state or variables.
+- They have no side effects, meaning they don't change any data outside the function's scope.
+- Pure functions are predictable and testable, making debugging and testing easier.
+3. Higher-Order Functions:
+- Higher-order functions are functions that can take other functions as arguments or return functions as results.
+- They enable abstraction and code reuse. Common examples of higher-order functions include map, filter, and reduce, which work with arrays and allow you to apply a given function to each element.
+- Callback functions and closures are often used with higher-order functions to encapsulate behavior.
+
+These core principles of functional programming collectively aim to make code more reliable, maintainable, and easier to understand. 
+By embracing immutability, pure functions, and higher-order functions, functional programming encourages a declarative and concise coding style that is well-suited for tasks like automation testing.
+
+<a name="how-functional-programming-concepts-can-improve-automation-testing" id="how-functional-programming-concepts-can-improve-automation-testing" />
+
+Functional programming concepts can significantly enhance automation testing in the following ways:
+
+1. Predictability and Testability:
+- Pure functions in functional programming produce consistent and predictable outputs for the same inputs, making it easier to write test cases and assert expected results.
+- This predictability simplifies the process of identifying and addressing bugs.
+2. Maintainability:
+- Immutability discourages the modification of data after it's created. In testing, this means that once a test setup is defined, it won't accidentally change during test execution, leading to more maintainable and reliable tests.
+3. Readability:
+- Functional programming encourages a declarative and expressive coding style. Test scripts become more readable and self-explanatory, aiding both developers and testers in understanding the test logic.
+4. Scalability:
+- Functional programming makes it easier to scale your automation testing efforts. The use of pure functions and immutable data structures reduces the likelihood of introducing bugs as your test suite grows.
+5. Composability:
+- Higher-order functions and functional composition enable the creation of reusable test components. Test cases can be built by composing these components, promoting code reusability, and reducing duplication.
+6. Parallel and Concurrent Testing:
+- Functional programming principles align well with parallel and concurrent testing scenarios. Immutability and pure functions eliminate data races and ensure thread safety, allowing tests to run concurrently without conflicts.
+7. Error Handling:
+- Functional programming promotes proper error handling techniques, making it easier to catch and handle exceptions during test execution. This leads to more robust and fault-tolerant tests.
+8. Abstraction:
+- Higher-order functions and functional composition allow for the abstraction of common testing patterns, making it possible to create more generic and flexible testing frameworks.
+9. Cross-Browser Testing:
+- Functional programming can be beneficial when dealing with cross-browser testing. The consistent and predictable nature of functional code aids in writing tests that are browser-agnostic, 
+allowing you to execute the same tests across different browsers without code changes.
+
+Incorporating functional programming concepts into automation testing can lead to more efficient, maintainable, and reliable testing frameworks. 
+It helps address common testing challenges and encourages a structured, disciplined approach to writing tests, ultimately improving the quality of your software products.
+
+<a name="benefits-of-using-typescript-and-playwright" id="benefits-of-using-typescript-and-playwright" />
+
+Using TypeScript in automation testing offers several advantages, including static typing and enhanced code quality:
+
+1. Static Typing:
+- TypeScript provides a robust type system that allows you to define the types of variables, and function parameters, and return values explicitly.
+- This static typing helps catch type-related errors at compile-time rather than runtime. It reduces the likelihood of unexpected type-related bugs, enhancing the reliability of your test scripts.
+2. Code Quality:
+- TypeScript enforces coding standards and best practices, leading to cleaner, more organized, and well-documented code. This improves code quality and readability, making it easier to understand and maintain.
+3. Intellisense and Autocompletion:
+- TypeScript offers powerful code editors with features like intellisense and autocompletion. These features assist developers and testers by providing context-aware suggestions, reducing the chances of syntax errors, and speeding up code development.
+4. Error Detection and Prevention:
+- The TypeScript compiler detects and reports errors and warnings during development. This early feedback prevents many common coding mistakes and inconsistencies, resulting in more reliable test scripts.
+5. Refactoring and Code Consistency:
+- TypeScript facilitates code refactoring. You can confidently make changes to your codebase, knowing that the type system will help identify and update all related code segments, ensuring consistency.
+6. Enhanced Tooling:
+- TypeScript is well-supported by a range of development tools, including IDEs like Visual Studio Code. These tools provide features like debugging, version control integration, and powerful extensions that streamline the testing process.
+7. Documentation and Self-Explanatory Code:
+- The type annotations in TypeScript act as self-documenting code. Test scripts become more understandable, reducing the learning curve for team members and making the codebase more accessible.
+8. Testing Framework Compatibility:
+- TypeScript can be easily integrated with popular testing frameworks such as Playwright, Jest, Mocha, and Jasmine. This compatibility allows you to write and execute tests seamlessly while benefiting from TypeScript's advantages.
+9. Integration with TypeScript Projects:
+- If your application code is also written in TypeScript, it's seamless to integrate your testing code within the same project. You can share typings and benefit from a unified codebase.
+
+In summary, TypeScript's static typing and code quality enhancements lead to more robust, maintainable, and efficient automation testing scripts. 
+By preventing common errors, improving code readability, and offering powerful tooling support, TypeScript can significantly elevate the quality of your testing framework.
+
+Playwright offers a range of benefits that make it an excellent choice for automation testing, including:
+
+1. Cross-Browser Support:
+- Playwright provides support for multiple browsers, including Chromium (Google Chrome), Firefox, and WebKit (Safari).
+- This cross-browser compatibility allows you to run the same test scripts across different browsers, ensuring the reliability and consistency of your tests on various platforms and catering to a broader user base.
+2. Fast Execution:
+- Playwright is designed for high-performance test automation. It offers faster test execution compared to other automation libraries.
+- Its speed is especially valuable when running extensive test suites or when focusing on rapid feedback during the development process, helping you save valuable time.
+3. Unified API:
+- Playwright provides a unified API for automating different browsers. This means you can write test scripts once and execute them across multiple browsers without having to rewrite or adapt your code for each one.
+- This unified approach streamlines test development and maintenance, reducing the effort required for cross-browser testing.
+4. Automatic Waiting:
+- Playwright includes built-in mechanisms for automatically waiting for web elements to appear, become clickable, or reach a specific state. This feature reduces the need for manual waiting code and improves the reliability of your tests, especially when dealing with dynamic web applications.
+5. Error Handling and Debugging:
+- Playwright offers comprehensive error handling, providing detailed error messages and information about the state of the web page at the time of the error.
+- Its debugging capabilities help testers identify and diagnose issues more effectively, speeding up the debugging process.
+6. Headless and Headful Mode:
+- Playwright supports both headless (invisible) and headful (visible) browser modes. You can choose the mode that suits your specific testing needs.
+- Headless mode is useful for running tests in the background, while headful mode allows you to observe the test execution in the browser, aiding in debugging and test development.
+7. Mobile Device Emulation:
+- Playwright enables emulation of mobile devices, making it possible to test the responsiveness of web applications on various screen sizes and orientations.
+- This is essential for ensuring that your web applications are mobile-friendly.
+8. Access to Browser APIs:
+- Playwright allows access to browser APIs and offers methods for interacting with features like geolocation, permissions, and more. This facilitates testing scenarios that involve complex interactions with the browser.
+
+In summary, Playwright's cross-browser support, fast execution, unified API, and additional features for error handling, debugging, and emulation make it a powerful choice for automation testing. 
+Its versatility and performance improvements contribute to the efficiency and reliability of your test automation efforts.
+
+TypeScript and Playwright can seamlessly complement the functional programming paradigm in automation testing, enhancing the benefits of functional programming:
+
+1. TypeScript and Strong Typing:
+- TypeScript enforces strong static typing, which aligns well with the functional programming concept of type safety.
+- Strong typing ensures that data and functions are used consistently and correctly, reducing the risk of type-related errors in test scripts.
+- This aligns with the functional programming principle of predictability and reliability.
+2. Pure Functions and Immutability:
+- TypeScript encourages the use of pure functions and immutability. By explicitly defining function types and embracing immutability, TypeScript reinforces these core functional programming concepts.
+- Test scripts written in TypeScript are more likely to be pure functions, which have no side effects and produce predictable results for a given set of inputs.
+3. Functional Composition:
+- TypeScript's support for functional composition allows testers to combine and chain functions together to create complex test scenarios.
+- This aligns with the functional programming principle of composing smaller, pure functions to build more complex and robust systems.
+4. Readability and Maintainability:
+- The strong typing, clear syntax, and expressive code that TypeScript encourages lead to more readable and maintainable test scripts.
+- In functional programming, code readability is crucial, and TypeScript's features promote self-documenting, clear, and concise code.
+5. Testing Framework Integration:
+- TypeScript integrates seamlessly with popular testing frameworks. You can write test cases using functional programming principles and take advantage of TypeScript's strong typing within your testing framework.
+- This integration ensures that your test scripts are not only functional but also well-integrated into your overall testing workflow.
+6. Type Annotations and Documentation:
+- TypeScript uses type annotations, which act as documentation within your test scripts. This is especially valuable when following functional programming practices, as it makes the code more understandable and self-explanatory.
+- Good documentation is a crucial element of functional programming, helping to communicate the intent of the code.
+7. Parallel and Concurrent Testing:
+- Functional programming concepts, such as immutability and pure functions, make it easier to write concurrent and parallel code.
+- TypeScript's type system provides additional safety when dealing with concurrent code, reducing the risk of race conditions and data inconsistencies.
+8. Error Handling:
+- Both TypeScript and functional programming emphasize proper error-handling. Combining these concepts ensures that errors are well-managed, leading to more robust and reliable tests.
+
+In conclusion, TypeScript and Playwright provide a strong foundation for embracing functional programming in automation testing. 
+They reinforce core functional programming principles, enhance code quality and readability, and improve the overall reliability and maintainability of test scripts. By adopting these technologies, testers can build a more efficient and robust testing framework aligned with the functional programming paradigm.
+
+<a name="conclusion" id="conclusion" />
+
+In the first part of this post, we embarked on a journey into the world of functional programming in automation testing. 
+We explored the core principles of functional programming, discussed the advantages of using TypeScript and Playwright in this context, and highlighted how these technologies complement the functional programming paradigm. 
+With a solid understanding of these concepts, you're now better equipped to embark on the practical aspects of building a robust testing framework that leverages these principles.
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🚀 Embracing Functional Programming for Automation Testing: Unleashing New Possibilities 🚀]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/functional-programming-for-automation-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/functional-programming-for-automation-testing</guid>
+            <pubDate>Tue, 17 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+As Quality Assurance professionals, our mission is to ensure the reliability and performance of software applications. Automation testing is a cornerstone of this process, 
+and the way we approach it can make all the difference. Today, let's delve into the world of functional programming and how it impacts our automation testing efforts.
+
+🌟 Strong Sides of Functional Programming in Automation Testing 🌟
+
+1. **Reproducibility**: Functional programming emphasizes immutability, ensuring that test scenarios remain consistent across runs. This is invaluable in detecting regressions early.
+2. **Modularity**: Functions are the building blocks of functional programming. They can be easily reused, making test code more maintainable and adaptable.
+3. **Concurrency**: Functional programming's focus on pure functions allows for efficient parallel test execution, improving overall testing speed.
+4. **Error Handling**: With built-in error-handling mechanisms like Try-Catch, functional programming simplifies debugging, making it easier to identify issues in tests.
+5. **Scalability**: Functional languages are designed for scalability, which is essential as applications grow and evolve.
+
+👎 Weak Sides of Functional Programming in Automation Testing 👎
+
+1. **Steep Learning Curve**: For QA teams not familiar with functional programming, there's a learning curve. Training and adjustment periods might be necessary.
+2. **Tool and Library Limitations**: Some automation testing tools might not fully support functional programming paradigms, limiting your choices.
+3. **Complexity**: While functional code is often more concise, it can be more abstract and complex, making it challenging for newcomers to understand.
+4. **Integration Challenges**: Integrating functional code with existing test frameworks and environments can be a complex task.
+
+⚙️ Challenges for QAs in Adopting Functional Programming ⚙️
+
+1. **Cultural Shift**: Moving from traditional imperative programming to functional programming can require a cultural shift within QA teams.
+2. **Tool Selection**: Choosing the right tools and frameworks that support functional programming for automation testing is crucial.
+3. **Maintenance**: Ensuring that functional test code remains readable and maintainable as the application evolves is an ongoing challenge.
+
+🔄 Comparing Functional Programming with Traditional Approaches 🔄
+
+Traditional automation testing relies on procedural and object-oriented programming. While these approaches are tried 
+and tested, they can sometimes be more rigid and less adaptable than functional programming.
+
+Functional programming brings agility and scalability to the testing process. It excels in dynamic and ever-changing environments where adaptability is key. 
+However, it's essential to evaluate your team's readiness, the tools at your disposal, and the specific needs of your project before making the transition.
+
+In conclusion, functional programming offers a promising path for QA professionals in automation testing. While there are challenges, the benefits of reproducibility, 
+modularity, concurrency, and scalability make it a compelling option. As the world of software development evolves, so must our testing methodologies.
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🤖 Using Chained Functions for Automation Testing with Playwright and TypeScript 🚀]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/chained-functions-in-test</link>
+            <guid>https://oholsyhevskyi.com/en/blog/chained-functions-in-test</guid>
+            <pubDate>Mon, 16 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+<a name="introducing" id="introducing" />
+
+Introducing the world of "Using Chained Functions for Automation Testing with Playwright and TypeScript," we embark on a journey to further enhance your automation testing skills. 
+As an extension of the previously explored PageObject pattern, this topic offers a powerful and efficient way to streamline your testing processes. 
+In this comprehensive guide, we'll dive into the concept of chaining functions, building upon the foundation of modular and maintainable automation tests. 
+This approach, in combination with the PageObject pattern, will not only make your tests more readable but also considerably enhance their efficiency.
+
+<a href="https://oholsyhevskyi.com/blog/page-object-pattern">See the previous topic</a>
+
+In our earlier exploration, we learned how the PageObject pattern can transform the structure and organization 
+of automation tests by abstracting user interfaces into separate classes, leading to cleaner and more modular test code.
+Now, let's take the next step by introducing the concept of "chained functions." Chained functions provide a means to perform 
+multiple actions on web elements in a sequence, simplifying interactions and optimizing the readability of your test scripts. 
+It offers a dynamic way to navigate through the various actions required to test your application.
+
+In this guide, we'll learn how to create a Control class that allows for the chaining of functions to interact with web elements efficiently. 
+We'll walk through its implementation, exploring how it simplifies the testing process and enhances the organization of your automation tests.
+
+Let's seamlessly transition from the PageObject pattern into the world of chained functions, building upon the foundation laid in our previous discussion. 
+Together, we'll master the art of creating efficient and well-structured automated tests using Playwright and TypeScript. 🚀
+
+<a name="step-1-create-the-control-class" id="step-1-create-the-control-class" />
+
+In your Playwright project, create a Control class in a new file, ./src/control/control.ts.
+
+```ts
+import { Locator, Page } from '@playwright/test';
+
+class Control {
+    private readonly locator: Locator;
+
+    constructor (private readonly selector: string, private readonly page: Page) {
+        this.locator = this.page.locator(this.selector);
+    }
+}
+
+export default Control;
+```
+
+This class will encapsulate methods for interacting with web elements using Playwright's Locator and Page objects.
+
+You can perform actions such as clicking, filling input fields, clearing input fields, and pressing keys within this class, as well as many other actions you need. Let's add some of them to our Control class:
+
+```ts
+import { Locator, Page } from '@playwright/test';
+
+class Control {
+    private readonly locator: Locator;
+
+    constructor (private readonly selector: string, private readonly page: Page) {
+        this.locator = this.page.locator(this.selector);
+    }
+
+    click = async (): Promise<Control> => {
+        await this.locator.click();
+        return this;
+    }
+
+    fill = async (value: string): Promise<Control> => {
+        await this.locator.fill(value);
+        return this;
+    }
+
+    clear = async (): Promise<Control> => {
+        await this.locator.clear();
+        return this;
+    }
+
+    press = async (key: string): Promise<Control> => {
+        await this.locator.press(key);
+        return this
+    }
+
+    getInputValue = (): Promise<string> => this.locator.inputValue();
+}
+
+export default Control;
+```
+
+In this class, you define methods for common actions like click, fill, clear, and press. Each method returns an instance of the Control class, allowing you to chain actions together.
+
+<a name="step-2-use-control-in-your-pageobject-class" id="step-2-use-control-in-your-pageobject-class" />
+
+Now, integrate the Control class into your PageObject class, which represents a specific element or part of your web application. 
+In your PageObject class, create instances of the Control class for the elements you want to interact with.
+
+```ts
+import { Page } from "@playwright/test";
+import Control from "../../../control/control";
+
+export class TodoApp {
+    public readonly newTodoInput: Control = new Control('header > input', this.page);
+
+    constructor (private readonly page: Page) {}
+}
+
+export default TodoApp;
+```
+
+In this example, we create a newTodoInput property in the TodoApp class using the Control class for the input field where new tasks can be added. 
+This allows you to easily interact with this element in your tests.
+
+<a name="step-3-write-a-test-using-chained-functions" id="step-3-write-a-test-using-chained-functions" />
+
+Create a test file in your test suite where you want to use the chained functions approach. 
+In your test, you can now use the Control instances to chain actions together for interacting with elements.
+
+```ts
+import test, { expect } from './fixtures/fixture';
+
+test.describe('add todo item with chained approach', () => {  
+    test('add todo item with chained functions', async ({ todoPage }) => {
+        const newTodoItem = 'chainedTodoItem';
+        const todo = todoPage.todoApp.newTodoInput;
+
+        await todo
+            .fill(newTodoItem)
+            .then(() => todo.clear())
+            .then(() => todo.fill(newTodoItem))
+            .then(() => todo.press('Enter'));
+
+        const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+        expect(leftTodoItems).toBe(1);
+    });
+});
+```
+
+In this test, you create an instance of the Control class for the input field. 
+Using this instance, you can chain actions like filling the input field, clearing it, filling it again, and finally pressing the Enter key. 
+This approach simplifies the test code and makes it more readable.
+
+<a name="step-4-run-the-test" id="step-4-run-the-test" />
+
+You can now run your test using Playwright's testing framework. 
+The chained functions approach allows you to perform a series of actions in a more concise and organized manner, making your tests more maintainable.
+
+Now you can run your first tests using the following command:
+
+```bash:cmd
+npx playwright test
+```
+
+This command will execute your Playwright tests based on the configuration you've set up in the playwright.config.ts file.
+
+```bash:output
+Running 5 tests using 1 worker
+5 passed (12.5s)
+```
+
+By following these steps, you have effectively implemented the chained functions approach in your Playwright automation tests, improving code readability and maintainability. 
+This approach is particularly useful when you need to perform multiple actions on the same element within a test scenario.
+
+<a name="conclusion" id="conclusion" />
+
+The chained functions approach in Playwright automation testing offers both strengths and weaknesses that can impact the efficiency and maintainability of your test code. 
+Below is a summary of the strong and weak sides of this approach:
+
+<a name="strengths" id="strengths" />
+
+1. Improved Code Readability: Chaining functions allows you to express a sequence of actions on a web element in a more intuitive and readable manner. 
+Test steps are presented in a clear and organized fashion.
+2. Code Reduction: By chaining actions on the same element, you can significantly reduce code duplication. This makes your test scripts shorter and more concise.
+3. Modularity: Chained functions make it easier to encapsulate and reuse interaction logic. 
+You can build reusable methods or Page Object classes that provide fluent and easily maintainable interfaces for web elements.
+4. Easy Debugging: When a test fails, pinpointing the issue becomes more straightforward because the error is usually associated with a specific chained function. 
+This speeds up debugging and troubleshooting.
+5. Reduced Indentation: Chained functions often lead to shallower indentation in your test code, which can enhance code legibility.
+
+<a name="weaknesses" id="weaknesses" />
+
+1. Limited Parallel Execution: Chaining functions on the same element may not work well when you need to perform simultaneous actions on different elements or parallel interactions. 
+In such cases, you might need to break the chain and write separate lines of code.
+2. Complex Scenarios: For complex test scenarios with multiple elements and interdependent actions, chaining can become convoluted. 
+It might be more beneficial to separate actions and provide clarity through distinct lines of code.
+3. Limited Error Handling: Error handling within chained functions can be challenging. If an action within a chain fails, it might be difficult to handle that specific error gracefully.
+4. Learning Curve: The chained functions approach may require a learning curve for team members who are new to this style of test scripting. 
+Proper training and documentation are important to ensure its effective use.
+5. Maintenance Challenges: Overusing chaining for every interaction can lead to overly complex code that becomes challenging to maintain and update as the application evolves. 
+It's essential to strike a balance between readability and maintainability.
+
+In conclusion, the chained functions approach in Playwright automation testing offers significant advantages in terms of code readability, modularity, and reduced duplication. 
+However, its effectiveness depends on the nature of the test scenarios and the specific use case. 
+Testers and automation engineers should carefully consider when and how to apply this approach to ensure that it aligns with the goals of their testing efforts and the complexity o
+f the web application being tested.
+
+<a name="resources" id="resources" />
+
+* [1] full repo with [code](https://github.com/o-holyshevskyi/my-playwright-project);
+* [2] page object [pattern](https://oholsyhevskyi.com/posts/page-object-pattern);
+* [3] playwright [documentation](https://playwright.dev/docs/intro);
+
+
+
+In the next topic, we will explore how to use the pipe approach from fp-ts to compose functions and improve the maintainability and readability of Playwright automation tests.
+
+[fp-ts](https://gcanti.github.io/fp-ts/), or Functional Programming for TypeScript, is a library that brings functional programming principles to TypeScript. It offers tools for writing code that is more predictable, composable, and concise.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🔍 Exploring the PageObject Pattern for Automation Testing 🤖]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/page-object-pattern</link>
+            <guid>https://oholsyhevskyi.com/en/blog/page-object-pattern</guid>
+            <pubDate>Fri, 13 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+Are you a software tester looking to optimize your automation tests and make them more maintainable and readable? If so, then the PageObject pattern might be your secret weapon! 🛠️
+
+The PageObject pattern is a design pattern that enhances the organization and structure of your automation tests. It abstracts the user interface into separate classes or objects, making your test code cleaner, more modular, and easier to maintain. Let's delve into this pattern with a simple example using [**Playwright**](https://playwright.dev/) and [**TypeScript**](https://www.typescriptlang.org/).
+
+In this post, I will guide you step by step, starting from scratch, on how to set up your first Playwright project. I'll show you how to create a Page Object-oriented pattern and how to write your first test using the Page Object. Let's begin with the basic setup.
+
+<a name="step-1-basic-setup" id="step-1-basic-setup" />
+
+<a name="nodejs" id="nodejs" />
+
+First of all, ensure that you have Node.js installed on your workstation. Open the command prompt and execute the following command:
+
+```bash:cmd
+node -v
+```
+
+The result should display the version of Node.js installed on your local machine. If it doesn't, please make sure to [**install**](https://nodejs.org/en/download) Node.js on your computer.
+
+<a name="playwright" id="playwright" />
+
+For more detailed information on various methods to install Playwright on your local machine, you can refer to the [**documentation**](https://playwright.dev/docs/intro#installing-playwright). However, I'll demonstrate the basic approach using npm packages.
+
+<a name="create-a-directory" id="create-a-directory" />
+
+To create a root directory for your project using the command prompt, follow these steps:
+
+1. Open the command prompt.
+2. Navigate to the location where you want to create the project directory. You can use the cd command to change your current working directory.
+3. Create a new directory using the mkdir command. For example, to create a directory named "my-playwright-project," you can use:
+
+```bash:cmd
+mkdir my-playwright-project
+```
+
+This will create a directory with the specified name in your current location. You can then navigate into this directory using 
+the cd command to start setting up your Playwright project within it.
+
+```bash:cmd
+cd .\my-playwright-project\
+```
+
+<a name="install-the-playwright" id="install-the-playwright" />
+
+You can install Playwright using the npm command. Run the following command in your command prompt:
+
+```bash:cmd
+npm init playwright@latest
+```
+
+Follow the instructions that appear during the execution of this command to complete the installation process.
+If you chose the false option for installing browsers and want to install Chromium, please run the following command:
+
+```bash:cmd
+npx playwright install chromium
+```
+
+This will install the Chromium browser for your Playwright project.
+
+<a name="config-the-playwright-project" id="config-the-playwright-project" />
+
+Let's perform a simple configuration for our Playwright project. Navigate to the **playwright.config.ts** file and make the following changes:
+
+```ts:playwright.config.ts
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests',
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : 1,
+  reporter: 'html',
+  use: {
+    trace: 'on-first-retry',
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
+});
+```
+
+In this updated configuration file, we have simplified it by removing comments, setting just one worker for now (we'll enable parallel running later), 
+and removing unnecessary projects that we won't be using. These changes should make your Playwright configuration more straightforward.
+
+Now you can run your first tests using the following command:
+
+```bash:cmd
+npx playwright test
+```
+
+This command will execute your Playwright tests based on the configuration you've set up in the **playwright.config.ts** file.
+
+```bash:output
+Running 2 tests using 1 worker
+  2 passed (10.2s)
+```
+
+<a name="step-2-page-object-pattern" id="step-2-page-object-pattern" />
+
+Let's examine the default structure that Playwright provides out of the box. Open the **./tests/example.spec.ts** file to see how a 
+typical Playwright test is structured.
+
+```ts:./tests/example.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test('get started link', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Click the get started link.
+  await page.getByRole('link', { name: 'Get started' }).click();
+
+  // Expects page to have a heading with the name of Installation.
+  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+});
+```
+
+The default test structure in Playwright may have some weaknesses:
+
+1. Code Duplication: It's common to see duplicate code for interacting with the same elements across multiple tests, which can lead to maintenance challenges.
+2. Fragile Tests: If an element's locator or behavior changes, you need to update it in multiple places, making the tests more fragile and prone to breaking.
+3. Limited Reusability: There's limited reusability of code for interacting with elements, making it difficult to share interaction logic across different tests.
+
+This is where the Page Object Pattern comes in to address these issues. The Page Object Pattern provides several benefits:
+
+1. Abstraction: It abstracts the UI interactions and locators into separate classes, making the tests more readable and maintainable.
+2. Code Reusability: You can reuse these Page Object classes across multiple tests, reducing duplication and improving consistency.
+3. Easy Maintenance: If an element's locator or behavior changes, you only need to update it in one place, the Page Object class, which will automatically propagate 
+the change to all tests using that Page Object.
+4. Improved Collaboration: Teams can work more effectively by separating the responsibilities between test code and Page Object code, enabling parallel development.
+
+In the next steps, we will explore how to implement the Page Object Pattern in your Playwright tests to realize these benefits.
+
+<a name="page-object-realization" id="page-object-realization" />
+
+To implement the Page Object Pattern effectively, it's crucial to first understand the web application you'll be automating. Let's review the demo website you 
+intend to cover with your automation tests, which is https://demo.playwright.dev/todomvc/#/.
+
+Upon visiting the website, it appears to be a TodoMVC application, a common example for web automation testing. Here are some of the elements and functionalities 
+you might consider testing:
+
+* Todo Input Field: This is where you can enter new tasks.
+* Add Button: Clicking this button should add the entered task to the list.
+* Task List: This is a list of tasks where you can mark tasks as complete or delete them.
+* Checkbox: You can check/uncheck a task to mark it as complete or incomplete.
+* Clear Completed Button: This button allows you to clear all completed tasks from the list.
+* Counter: It shows the number of tasks in the list.
+* Filters: The website offers filters to view All, Active, or Completed tasks.
+
+To implement the Page Object Pattern, you'll create separate Page Object classes for each of these elements or functionalities. Each Page Object class 
+should encapsulate the interactions and methods related to that specific part of the page.
+
+This structured approach will make your tests more modular, maintainable, and reusable. In the next steps, we can look at how to create Page Object 
+classes for these elements and write tests using the Page Object Pattern.
+
+<a name="create-the-basepage" id="create-the-basepage" />
+
+Creating a base page class is a good practice when implementing the Page Object Pattern. This base page class will contain common methods and elements 
+that are shared across multiple pages in your web application. Let's start by creating a base page for your TodoMVC application.
+
+```ts:./src/pages/base-page.ts
+import { Page, Response } from '@playwright/test';
+
+class BasePage {
+    private readonly url: string = 'https://demo.playwright.dev/todomvc/#/'
+    constructor(protected readonly page: Page) {}
+
+    get title(): Promise<string> {
+        return this.page.title();
+    }
+
+    get pageUrl(): string {
+        return this.page.url();
+    }
+
+    goto = (): Promise<Response | null> => this.page.goto(this.url);
+    
+}
+
+export default BasePage;
+```
+
+Now that we have a basic page that contains an action method for opening our page via a URL, as well as two properties to retrieve the page's title and the current URL, 
+let's create tests to verify the title and the URL. We're going to implement two tests because we're verifying different criteria.
+
+```ts:./tests/example.spec.ts
+import { test, expect } from '@playwright/test';
+import BasePage from '../src/pages/base-page';
+
+test('has title', async ({ page }) => {
+  const basePage = new BasePage(page);
+  await basePage.goto();
+  
+  expect(await basePage.title).toBe('React • TodoMVC');
+});
+
+test('get current url', async ({ page }) => {
+  const basePage = new BasePage(page);
+  await basePage.goto();
+  
+  expect(basePage.pageUrl).toContain('demo.playwright.dev');
+});
+```
+
+To run these tests, use the command prompt and check whether they pass or fail. Hopefully, they will pass. 
+
+However, we still have some duplications here. Let's simplify the tests to avoid redundancy.
+Let's utilize the beforeEach hook provided by Playwright under the hood.
+
+```ts:./tests/example.spec.ts
+import { test, expect } from '@playwright/test';
+import BasePage from '../src/pages/base-page';
+
+var basePage: BasePage;
+
+test.describe('my first page object pattern tests', () => {
+  test.beforeEach(async ({ page }) => {
+    basePage = new BasePage(page);
+    await basePage.goto();
+  });
+  
+  test('has title', async () => expect(await basePage.title).toBe('React • TodoMVC'));
+  test('get current url', async () => expect(basePage.pageUrl).toContain('demo.playwright.dev'));  
+});
+```
+
+As you can see, our tests are now written in a more concise format with just one line for each test, which is an improvement over what we had before.
+
+<a name="create-todopage" id="create-todopage" />
+
+Let's consider a scenario where our web application consists of multiple pages. To manage this complexity, each page should be represented by a different class. 
+The code provided below demonstrates the Page Object for the main todo page.
+
+```ts:./src/pages/todo-page/todo-page.ts
+import { Page } from "@playwright/test";
+import BasePage from "../base-page";
+
+class TodoPage extends BasePage {
+    constructor(page: Page) {
+        super(page);
+    }
+}
+
+export default TodoPage;
+```
+
+In this code snippet, we're extending the Page Object Pattern to create a dedicated Page Object class for the main todo page in our web application.
+This helps organize our code and provides a clean separation of concerns.
+
+Here's what's happening in the code:
+
+1. We import the necessary modules and dependencies, including the Page class and your BasePage class.
+2. We create a new class TodoPage that extends the BasePage. This allows TodoPage to inherit common methods and elements from the BasePage class.
+3. In the constructor, we pass a Page instance to the super() method to initialize the BasePage.
+4. By extending BasePage, we can add specific methods and elements related to the main todo page, making it easier to write tests for this specific part of our web application.
+
+This approach promotes code reusability and maintainability as we can create separate Page Object classes for different pages in our application, 
+keeping our test code clean and organized.
+
+<a name="create-todo-page-elements" id="create-todo-page-elements" />
+
+As mentioned earlier, it's a good practice to create separate Page Object classes for each element or functionality in your web application.
+Let's start by creating the Page Object class for the "TodoApp" element.
+
+```ts:./src/pages/todo-page/page-elements/todo-app.ts
+import { Locator, Page } from "@playwright/test";
+
+export class TodoApp {
+    private readonly newTodoItem: Locator = this.page.locator('header > input');
+    private readonly leftTodoItems: Locator = this.page.locator('//*[@data-testid="todo-count"]/strong');
+
+    constructor (private readonly page: Page) {}
+
+    addNewItem = async (newItem: string): Promise<void> => {
+        await this.newTodoItem.fill(newItem);
+        return this.page.keyboard.press('Enter');
+    }
+
+    addNewItems = async (newItems: string[]): Promise<void> => {
+        for (let i = 0; i < newItems.length; i++) {
+            const newItem = newItems[i];
+            await this.addNewItem(newItem);
+        }
+    }
+
+    getLeftTodoItems = async (): Promise<number> => {
+        return Number(await this.leftTodoItems.innerText());
+    }
+}
+
+export default TodoApp;
+```
+
+We've created a Page Object class for the "TodoApp" element in our web application, which is a great way to encapsulate the interactions and methods 
+related to this specific element. Let's recap the key points in the code:
+
+1. We've defined the TodoApp class, which represents the "TodoApp" element.
+2. Inside the constructor, we've initialized two Locators, newTodoItem and leftTodoItems, which are used to locate specific elements within the "TodoApp."
+3. We've created methods for interacting with the "TodoApp" element:
+* addNewItem allows us to add a new item to the todo list by filling in the input field and pressing Enter.
+* addNewItems is a utility method for adding multiple items by calling addNewItem iteratively.
+* getLeftTodoItems retrieves the count of remaining todo items, which is useful for checking if items are being added and marked as complete.
+
+This Page Object class effectively encapsulates the interactions with the "TodoApp" element and provides a clean and modular way to write 
+tests for this part of your web application. It's a good practice for maintaining readable and maintainable automation tests.
+
+Let's include this "TodoApp" into our "TodoPage", follow the below code:
+
+```ts:/src/pages/todo-page/todo-page.ts
+import { Locator, Page } from "@playwright/test";
+import BasePage from "../base-page";
+import TodoApp from "./page-elements/todo-app";
+
+class TodoPage extends BasePage {
+    public pageHeader: Locator = this.page.locator('h1');
+    public todoApp: TodoApp = new TodoApp(this.page);
+
+    constructor(page: Page) {
+        super(page);
+    }
+}
+
+export default TodoPage;
+```
+
+We've successfully included the "TodoApp" Page Object into our "TodoPage." Here's a summary of the changes in the code:
+
+1. We've imported the TodoApp Page Object class.
+2. We've created a public property todoApp and initialized it with a new instance of the TodoApp Page Object in the constructor.
+
+With these changes, we now have access to the methods and elements defined in the TodoApp class from within our TodoPage. 
+This makes our code more organized and follows the Page Object Pattern, allowing us to interact with the "TodoApp" element within the context of the main todo page.
+
+<a name="write-a-test-after-changes" id="write-a-test-after-changes" />
+
+To write a new test after the changes, you can create a new test file with a name that ends in .spec.ts to indicate that it's a test file. 
+Here's an example of how to create a test for your "TodoPage" using Playwright:
+
+```ts:./tests/add-new-todo-items.spec.ts
+import { test, expect } from '@playwright/test';
+import TodoPage from '../src/pages/todo-page/todo-page';
+
+var todoPage: TodoPage;
+
+test.describe('my first page object pattern tests', () => {
+  test.beforeEach(async ({ page }) => {
+    todoPage = new TodoPage(page);
+    await todoPage.goto();
+  });
+  
+  test('add single todo item', async () => {
+    await todoPage.todoApp.addNewItem('newTodoItem');
+    const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+    expect(leftTodoItems).toBe(1);
+  });
+
+  test('add multiple todo items', async () => {
+    const newItems: string[] = ['newTodoItem1', 'newTodoItem2'];
+    await todoPage.todoApp.addNewItems(newItems);
+    const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+    expect(leftTodoItems).toBe(newItems.length);
+  });  
+});
+```
+
+We've created a test file using the .spec.ts naming convention and organized our tests using the describe and test.beforeEach hooks. 
+This structure is following the Page Object Pattern and makes our tests more organized and modular.
+
+Here's a summary of our test code:
+
+1. We import the necessary modules, including test and expect from Playwright, as well as the describe function.
+2. We create a TodoPage instance to use in our tests, and we use the test.beforeEach hook to navigate to the page before each test.
+3. We've organized our tests into a describe block, which helps group related tests together.
+4. In the first test, we add a single todo item, verify that it's added, and check the count of remaining todo items.
+5. In the second test, we add multiple todo items, verify that they are added, and check the count of remaining todo items.
+
+This structure is an excellent way to implement the Page Object Pattern and ensures our tests are maintainable and modular.
+
+Hold on! We still have some duplicated code here through two our tests files:
+
+```ts:example.spec.ts
+var basePage: BasePage;
+
+test.beforeEach(async ({ page }) => {
+    basePage = new BasePage(page);
+    await basePage.goto();
+});
+```
+and
+```ts:add-new-todo-items.spec.ts
+var todoPage: TodoPage;
+
+test.beforeEach(async ({ page }) => {
+    todoPage = new TodoPage(page);
+    await todoPage.goto();
+});
+```
+
+We still can simplify it to use the [**fixtures**](https://playwright.dev/docs/test-fixtures#introduction).
+
+Test fixtures are used to establish environment for each test, giving the test everything it needs and nothing else. Therefore, how we can simplify our two files with fixtures.
+
+Let's create a new file **./tests/fixtures/fixture.ts** in our **tests** folder:
+
+```ts:./tests/fixtures/fixture.ts
+import { test as base } from '@playwright/test';
+import TodoPage from '../../src/pages/todo-page/todo-page';
+
+type Fixture = {
+    todoPage: TodoPage;
+}
+
+const test = base.extend<Fixture>({
+    todoPage: async ({ page }, use) => {
+      const todoPage = new TodoPage(page);
+      await todoPage.goto();
+      await use(todoPage);
+    },
+});
+
+export default test;
+export { expect } from '@playwright/test';
+```
+
+We've created a fixture file to simplify our test setup, which is a great approach to eliminate duplication. Let's go through the changes:
+
+In our ./tests/fixtures/fixture.ts file:
+
+1. We import test from Playwright to define our test.
+2. We define a Fixture type to specify what the fixture provides. In this case, it provides a todoPage instance of TodoPage.
+3. We create a test extension function that sets up the todoPage and passes it to the test.
+4. The use function is used to provide the todoPage instance to the test.
+5. We export the test fixture and the expect function from Playwright for use in our tests.
+
+With this setup, our test code is simplified. This approach adheres to best practices and improves the maintainability of your test code.
+Let's see how it works.
+
+then
+```ts:example.spec.ts
+import { test, expect } from '@playwright/test';
+import BasePage from '../src/pages/base-page';
+
+var basePage: BasePage;
+
+test.describe('my first page object pattern tests', () => {
+  test.beforeEach(async ({ page }) => {
+    basePage = new BasePage(page);
+    await basePage.goto();
+  });
+  
+  test('has title', async () => expect(await basePage.title).toBe('React • TodoMVC'));
+  test('get current url', async () => expect(basePage.pageUrl).toContain('demo.playwright.dev'));  
+});
+```
+now
+```ts:example.spec.ts
+import test, { expect } from './fixtures/fixture';
+
+test.describe('my first page object pattern tests', () => {
+  test('has title', async ({ todoPage }) => expect(await todoPage.title).toBe('React • TodoMVC'));
+  test('get current url', async ({ todoPage }) => expect(todoPage.pageUrl).toContain('demo.playwright.dev'));  
+});
+```
+then
+```ts:add-new-todo-items.spec.ts
+import { test, expect } from '@playwright/test';
+import TodoPage from '../src/pages/todo-page/todo-page';
+
+var todoPage: TodoPage;
+
+test.describe('my first page object pattern tests', () => {
+  test.beforeEach(async ({ page }) => {
+    todoPage = new TodoPage(page);
+    await todoPage.goto();
+  });
+  
+  test('add single todo item', async () => {
+    await todoPage.todoApp.addNewItem('newTodoItem');
+    const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+    expect(leftTodoItems).toBe(1);
+  });
+
+  test('add multiple todo items', async () => {
+    const newItems: string[] = ['newTodoItem1', 'newTodoItem2'];
+    await todoPage.todoApp.addNewItems(newItems);
+    const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+    expect(leftTodoItems).toBe(newItems.length);
+  });  
+});
+```
+now
+```ts:add-new-todo-items.spec.ts
+import test, { expect } from './fixtures/fixture';
+
+test.describe('my first page object pattern tests', () => {  
+  test('add single todo item', async ({ todoPage }) => {
+    await todoPage.todoApp.addNewItem('newTodoItem');
+    const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+    expect(leftTodoItems).toBe(1);
+  });
+
+  test('add multiple todo items', async ({ todoPage }) => {
+    const newItems: string[] = ['newTodoItem1', 'newTodoItem2'];
+    await todoPage.todoApp.addNewItems(newItems);
+    const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+    expect(leftTodoItems).toBe(newItems.length);
+  });  
+});
+```
+
+We've made significant improvements by using fixtures to simplify our test setup. Here's how it works:
+
+1. We've created a fixture that sets up the todoPage instance, eliminating the need to create it within each test and thus reducing duplication.
+2. We've used the test function from our fixture in our test files, and the todoPage is automatically provided to each test.
+3. We test files have become cleaner and more focused on the actual test scenarios, making them more readable and maintainable.
+
+By applying these changes, we've improved the structure of our tests, adhered to best practices, and made our test code more maintainable. 
+This is a great example of how to effectively implement the Page Object Pattern and streamline your testing process.
+
+<a name="conclusion" id="conclusion" />
+
+I've provided a detailed guide on implementing the Page Object Pattern in automation testing using Playwright and TypeScript. 
+This pattern is indeed a valuable tool for improving test code organization, reusability, and maintainability. 
+This step-by-step instructions make it easy for testers, especially those new to the concept, to understand and apply the Page Object Pattern effectively.
+
+The addition of fixtures is an excellent improvement, reducing code duplication and simplifying test setup. 
+This approach enhances the clarity and maintainability of test files.
+
+This guide is a valuable resource for those looking to create efficient and well-structured automated tests using Playwright and TypeScript. 
+It highlights best practices and provides a clear path for implementing the Page Object Pattern successfully. Great job!
+
+<a name="resources" id="resources" />
+
+* [1] full repo with [**code**](https://github.com/o-holyshevskyi/my-playwright-project);
+* [2] typescript [**documentation**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html);
+* [3] playwright [**documentation**](https://playwright.dev/docs/intro);
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Unlocking Success with Behavior-Driven Development (BDD) 🚀]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/success-with-bdd</link>
+            <guid>https://oholsyhevskyi.com/en/blog/success-with-bdd</guid>
+            <pubDate>Fri, 06 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+Today, I want to shed some light on a game-changing approach to software development that has been transforming the way teams work and deliver value to their customers: Behavior-Driven Development (BDD). 🌟
+
+🔍 What is BDD?
+
+Behavior-Driven Development is not just a buzzword; it's a collaborative methodology that bridges the communication gap between developers, testers, and business stakeholders. At its core, BDD focuses on understanding and defining the desired behavior of a software system from an end-user's perspective.
+
+🌐 Why BDD Matters:
+
+- Clarity and Collaboration: BDD encourages clear and concise communication between team members. It allows stakeholders to express their expectations using natural language, ensuring everyone is on the same page.
+- Early Detection of Issues: With BDD, tests are created based on these behavior specifications before development begins. This early feedback loop catches potential issues, leading to higher-quality code.
+- Customer-Centric: BDD prioritizes the customer experience by focusing on what the software should do rather than just what it can do. This approach results in software that aligns better with user needs.
+- Sustainable Maintenance: BDD scenarios serve as living documentation, making it easier to maintain and update software as requirements evolve over time.
+
+💼 Embracing BDD in Your Organization:
+
+- Education: Invest in training and workshops to ensure your team understands BDD principles and practices.
+- Tooling: Utilize BDD-friendly tools like Cucumber, SpecFlow, or Behave to automate tests and collaborate effectively.
+- Culture: Foster a culture of collaboration and open communication within your development team, emphasizing shared ownership of product quality.
+
+📈 The Future of BDD:
+Behavior-Driven Development is not just a trend; it's a proven methodology that can help your organization deliver better software faster. As we continue to embrace agile practices and DevOps, BDD becomes even more relevant in ensuring software aligns with business objectives.
+
+I encourage you all to explore BDD and see how it can transform your development process. Let's continue to innovate and deliver exceptional products that delight our customers!
+
+If you have experience with BDD or thoughts to share, please do so in the comments. Let's keep the conversation going.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Unlocking the Power of Unit Testing: Why, When, and Who Should Care?]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/power-of-unit-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/power-of-unit-testing</guid>
+            <pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+In the fast-paced world of software development, ensuring the reliability and robustness of our code is paramount. That's where Unit Testing comes into play - a practice that can make or break the success of a project. Let's dive into the why, when, and who of Unit Testing!
+
+*Why Do We Need Unit Testing?*
+
+Unit testing is all about breaking down your code into its smallest components, or units, and rigorously testing them in isolation. The primary reason behind unit testing is to identify and fix issues early in the development cycle. By catching bugs and regressions at their inception, you save time, reduce costs, and ultimately deliver a more stable and higher-quality product to your users.
+
+*Who Should Care About Unit Testing?*
+
+Unit testing isn't just the responsibility of QA engineers or dedicated testers. It's a collective effort that involves every member of the development team. Developers, in particular, have a crucial role to play in writing and maintaining unit tests for the code they produce. By embracing unit testing, developers can take ownership of the quality of their code and reduce the chances of introducing defects.
+
+Additionally, project managers, product owners, and stakeholders should also care about unit testing. It directly impacts the project's success by reducing the risk of costly late-stage defects and ensuring that the software meets its functional requirements.
+
+*When Should We Start Performing Unit Tests?*
+
+Unit testing should be an integral part of the development process from the very beginning. As soon as you start writing code, you should also be writing corresponding unit tests. This iterative approach ensures that you catch issues as soon as they arise, rather than letting them accumulate and become more complex to resolve.
+
+Unit tests can also serve as documentation for your code, helping new team members understand its behavior and providing a safety net when making changes or refactoring.
+
+*The Strong Sides of Unit Testing:*
+
+- Early Bug Detection: Identifying and fixing bugs during development saves time and resources compared to discovering them later in the testing or production phases.
+- Improved Code Quality: Writing unit tests encourages developers to write cleaner, more modular, and maintainable code.
+- Regression Prevention: Unit tests act as a safety net, preventing the reintroduction of known issues when making changes to the codebase.
+- Documentation: Unit tests provide living documentation for your code, helping developers understand how it's supposed to work.
+
+*The Weak Sides of Unit Testing:*
+
+- Time-Consuming: Writing unit tests can be time-consuming, especially for complex systems, which might discourage some developers.
+- Incomplete Coverage: Achieving 100% code coverage with unit tests can be challenging, and there may still be untested edge cases.
+- Maintenance Overhead: As the codebase evolves, unit tests may require updates, and failing tests can become a bottleneck.
+- False Sense of Security: Passing unit tests don't guarantee a bug-free application; integration and end-to-end testing are also essential.
+
+In conclusion, unit testing is a crucial practice in modern software development. Its benefits, such as early bug detection, improved code quality, and regression prevention, far outweigh its drawbacks. It should be a shared responsibility among developers, testers, and stakeholders, starting from day one of your project. By embracing unit testing, you're not just writing code; you're building confidence in your software's reliability and quality. 🚀 ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🚀Elevating API Testing: Unveiling the Key Why, Challenges, and the Power of Automation!🌐]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/evaluating-api-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/evaluating-api-testing</guid>
+            <pubDate>Mon, 02 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+🔍 Why Do We Need API Testing? 🔍
+APIs (Application Programming Interfaces) serve as the lifeblood of modern software applications, facilitating data exchange between different components. Here's why API testing is indispensable:
+
+1️⃣ Reliability: APIs must function consistently to ensure the seamless operation of applications. Testing helps us verify that they do.
+
+2️⃣ Integration Assurance: With applications relying on multiple APIs, testing ensures smooth interaction between various components.
+
+3️⃣ Security: API vulnerabilities can lead to data breaches. Testing helps identify and rectify security flaws.
+
+4️⃣ Performance: APIs need to handle heavy loads efficiently. Testing helps gauge their performance under stress.
+
+5️⃣ Error Handling: API testing uncovers how APIs handle errors and exceptions, ensuring graceful degradation.
+
+🤔 Challenges for QA in API Testing 🤔
+API testing comes with its unique set of challenges for Quality Assurance professionals:
+
+1️⃣ Documentation: APIs often lack comprehensive documentation, making it challenging to understand their functionalities.
+
+2️⃣ Data Formats: Handling different data formats (JSON, XML, etc.) can be tricky and requires specialized knowledge.
+
+3️⃣ Dependency Management: APIs rely on external services, making test environments complex to set up.
+
+4️⃣ Versioning: Changes in API versions can disrupt testing, requiring constant adaptation.
+
+5️⃣ Testing Non-Functional Aspects: Beyond functional testing, QA must assess non-functional aspects like performance, security, and scalability.
+
+💡 The Power of Automation in API Testing 💡
+Automation testing plays a pivotal role in enhancing API testing efficiency and effectiveness:
+
+1️⃣ Reusability: Automated tests can be reused across different builds, saving time and effort.
+
+2️⃣ Consistency: Automation ensures consistent testing, reducing human error.
+
+3️⃣ Early Detection: Automated tests can be integrated into the CI/CD pipeline, catching issues early in the development cycle.
+
+4️⃣ Regression Testing: APIs evolve; automation allows for quick regression testing to ensure existing functionalities remain intact.
+
+5️⃣ Performance Testing: Automation enables running load tests to assess API performance under various conditions.
+
+In conclusion, API testing is not just a necessity; it's a strategic imperative in today's software development landscape. Quality Assurance teams, armed with the right tools and automation techniques, can navigate the challenges and contribute significantly to building robust and reliable APIs.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🌱Cultivating a Healthy Development Environment: The Vital Role of QAs🌱]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/healthy-development-environment</link>
+            <guid>https://oholsyhevskyi.com/en/blog/healthy-development-environment</guid>
+            <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+In the dynamic world of software development, a healthy team environment isn't just a nice-to-have; it's a must-have for success. Today, let's explore how fostering a positive atmosphere benefits development teams and the integral role Quality Assurance professionals play in maintaining it. 🤝💼
+
+1️⃣ Collaboration, Not Confrontation: In a healthy team, collaboration thrives. QAs bridge the gap between developers and end-users, ensuring smooth communication and understanding. 🤝🔄
+
+2️⃣ Quality Advocates: QA engineers are champions of quality. They advocate for robust testing practices, helping the team produce software that not only works but exceeds expectations. 🏆📈
+
+3️⃣ Continuous Improvement: Healthy teams embrace a culture of continuous improvement. QAs identify bottlenecks, process inefficiencies, and areas for enhancement in testing strategies. 📊🔄
+
+4️⃣ Early Issue Detection: QAs' keen eyes for detail catch bugs before they reach production. This minimizes the need for rushed fixes, reducing stress for developers. 👀🦠
+
+5️⃣ Knowledge Sharing: QA professionals often possess a diverse skill set. They contribute to the team's growth by sharing testing best practices and domain knowledge. 🧠🔄
+
+6️⃣ Supportive Feedback: QAs provide constructive feedback without blame, fostering a culture of improvement rather than defensiveness. 📣👂
+
+7️⃣ User-Centric Focus: QA's role extends beyond functionality to user experience. They ensure that the end product aligns with user expectations, enhancing customer satisfaction. 🎯👩‍💻👨‍💻
+
+8️⃣ Reducing Burnout: By identifying and mitigating risks early, QAs help prevent late-night firefighting sessions, reducing developer burnout and stress. 🚒🌃
+
+Creating and maintaining a healthy environment in your development team is a collective effort. QAs are an essential piece of the puzzle, contributing their expertise and dedication to ensure that the team thrives and produces exceptional software. 🌟🚀
+
+How do you see the role of QAs in your development team? Share your thoughts and experiences in the comments below! Let's continue to prioritize team well-being and quality in our work. 🤗👩‍💻👨‍💻]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🚀Exciting Developments in Automated Testing🚀]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/developments-in-automated-testing</link>
+            <guid>https://oholsyhevskyi.com/en/blog/developments-in-automated-testing</guid>
+            <pubDate>Mon, 18 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+As technology continues to advance, so do our approaches to software development and quality assurance. 🌐🔍 Today, I want to share some insights into the latest trends in writing automation tests that are revolutionizing the industry. 🤖📊
+
+1️⃣ Shift Left Testing: Companies are increasingly embracing the idea of shifting testing left in the development cycle. This means that testing is no longer just the QA team’s responsibility; it starts early in the development process. 🔄👩‍💻
+
+2️⃣ AI and Machine Learning: Automation is getting smarter with the integration of AI and machine learning. These technologies can analyze vast amounts of data, identify patterns, and help create more robust test cases. 🤖📈
+
+3️⃣ Codeless Test Automation: The demand for codeless test automation tools is rising. They allow testers and non-technical team members to create and maintain automated tests without deep coding knowledge. 🧩🚫💻
+
+4️⃣ Continuous Testing: With the adoption of DevOps and Continuous Integration/Continuous Deployment (CI/CD) pipelines, continuous testing is vital. Automation tests need to keep pace with frequent code changes. ⏩🔄
+
+5️⃣ Visual Testing: Visual testing tools are gaining popularity, ensuring that the user interface remains consistent across various platforms and browsers. 🖥️👀
+
+6️⃣ Test Data Management: Managing test data is critical for automation. Tools and practices for efficient test data management are becoming essential. 📊🗄️
+
+7️⃣ Shift Right Testing: Beyond just shifting left, organizations are now focusing on shifting right, which means monitoring applications in production to catch issues before users do. 🎯🔍
+
+These trends are shaping the future of automated testing, making it more efficient, accurate, and adaptable to the ever-changing software landscape. 🌟💡]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🔍Unleash the Power of Test Automation in Software Testing💻]]></title>
+            <link>https://oholsyhevskyi.com/en/blog/test-automation-testing-power</link>
+            <guid>https://oholsyhevskyi.com/en/blog/test-automation-testing-power</guid>
+            <pubDate>Fri, 08 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[
+
+In today's fast-paced tech world, quality and efficiency are non-negotiable. That's where Test Automation steps in as a game-changer. 🚀
+
+🤖 What is Test Automation?
+It's the strategic use of automated scripts and tools to perform repetitive tests, ensuring software quality without the mundane manual effort.
+
+✨ Benefits of Test Automation:
+
+1️⃣ Speed: Accelerate testing cycles.
+
+2️⃣ Precision: Minimize human errors.
+
+3️⃣ Efficiency: Focus on complex scenarios.
+
+4️⃣ Continuous Testing: Seamlessly integrate with DevOps.
+
+🌟 Ready to Elevate Your Testing Game?
+Invest in Test Automation tools, create robust test suites, and watch your software shine!
+
+💡 Tip: Keep an eye on emerging trends like AI-driven testing and test script maintenance.
+
+Let's make your profile stand out in the competitive tech landscape! 📈💪]]></description>
+        </item>
+    </channel>
+</rss>

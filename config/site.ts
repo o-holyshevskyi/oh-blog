@@ -5,29 +5,29 @@ export const siteConfig = {
 	description: "OH | Test Automation Engineer based in Ukraine",
 	navItems: [
 		{
-			label: "Home",
+			label: "home",
 			href: "/",
 		},
 		{
-		label: "About",
+		label: "about",
 		href: "/about",
 		},
 		{
-		label: "Blog",
+		label: "blog",
 		href: "/blog",
 		},
 	],
 	navMenuItems: [
 		{
-			label: "Home",
+			label: "home",
 			href: "/",
 		},
 		{
-			label: "About",
+			label: "about",
 			href: "/about",
 		},
 		{
-			label: "Blog",
+			label: "blog",
 			href: "/blog",
 		},
 	],
@@ -37,6 +37,6 @@ export const siteConfig = {
     	dev: "https://dev.to/oholyshevskyi",
 	},
 	images: {
-		noPosts: "https://app.requestly.io/delay/1000/https://o-holyshevskyi.github.io/blog-pic/images/sapiens.png"
+		noPosts: "https://o-holyshevskyi.github.io/blog-pic/images/sapiens.png"
 	}
 };
