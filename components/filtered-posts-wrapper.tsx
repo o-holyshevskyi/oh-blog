@@ -9,7 +9,7 @@ import { BookIcon } from "@/components/icons";
 import { useTranslations } from "next-intl";
 import Date from "./date/date";
 
-export default function FilteredPostsWrapper({ filteredPosts, tag } : { filteredPosts: Post[]; tag: string }) {
+export default function FilteredPostsWrapper({ filteredPosts, tag, locale } : { filteredPosts: Post[]; tag: string; locale: string; }) {
     const t = useTranslations("filteredPosts");
     const tr = useTranslations("postCards");
     
@@ -33,6 +33,7 @@ export default function FilteredPostsWrapper({ filteredPosts, tag } : { filtered
                                     dateString={post.meta.date} 
                                     className="text-default-500"   
                                     formatDate="LLLL d, yyyy"
+                                    locale={locale}
                                 />
                                 <h4 className="font-bold text-large">{post.meta.title}</h4>
                             </CardHeader>

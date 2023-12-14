@@ -28,7 +28,7 @@ const getMyExperienceTranslation = (t: any) => {
     ];
 }
 
-export default function MyExperience() {
+export default function MyExperience({ locale } : { locale: string; }) {
     const t = useTranslations("about.aboutAccordion.experience");
     const myExperience = getMyExperienceTranslation(t);
 
@@ -47,13 +47,20 @@ export default function MyExperience() {
                         <div className="flex h-5 items-center space-x-4 text-small mb-5">
                             <h1 className={title({ size: 'xs' })}>{exp.companyName}</h1>
                             <Divider orientation="vertical" />
-                            <Date dateString={exp.startTime} />
+                            <Date 
+                                dateString={exp.startTime} 
+                                locale={locale}
+                            />
                             <p>-</p>
-                            <Date dateString={exp.endTime} />
+                            <Date 
+                                dateString={exp.endTime} 
+                                locale={locale}
+                            />
                             <Divider orientation="vertical" />
                             <DateDifference 
                                 dateFromString={exp.startTime}
                                 dateToString={exp.endTime}
+                                locale={locale}
                             />
                         </div>
                     <p>{exp.description}</p>

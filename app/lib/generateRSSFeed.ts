@@ -1,7 +1,6 @@
 import fs from 'fs';
 import { Feed } from 'feed';
 import { getAllPostsMetaWithLang } from './posts';
-import { useLocale } from 'next-intl';
 
 export default async function generateRssFeed(locale: string) {
     const allPosts = await getAllPostsMetaWithLang(locale);

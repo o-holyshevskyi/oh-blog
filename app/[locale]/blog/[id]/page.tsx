@@ -8,14 +8,11 @@ import ScrollBar from "@/components/blog-items/scroll";
 import Comments from "@/components/comments";
 import LikePost from "@/components/like-post";
 import dynamic from "next/dynamic";
-import { useLocale } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 const domain = process.env.DOMAIN as string;
 
-const getPageContent = async (slug: string) => {
-  /**react-hooks/rules-of-hooks */
-  const locale = useLocale();
+const getPageContent = async (slug: string, locale: string) => {
   const { meta, content, fileContent, description } = await getPostBySlug(slug, locale);
   return { meta, content, fileContent, description };
 }
@@ -24,8 +21,8 @@ const getRelatedPosts = async (slug: string, locale: string) => {
   return getRelatedPostsById(slug, locale);
 }
 
-export async function generateMetadata({ params } : { params: { id: string } }) {
-  const { meta } = await getPageContent(params.id);
+export async function generateMetadata({ params } : { params: { id: string; locale: string; } }) {
+  const { meta } = await getPageContent(params.id, params.locale);
   return { title: meta.title };
 }
 
@@ -33,7 +30,7 @@ const NoSSR = dynamic(() => import('../../../../components/share-social-links'),
 
 export default async function BlogPost({ params } : { params: { id: string; locale: string; } }) {
   unstable_setRequestLocale(params.locale);
-  const { meta, content, fileContent, description } = await getPageContent(params.id);
+  const { meta, content, fileContent, description } = await getPageContent(params.id, params.locale);
   const relatedPosts = await getRelatedPosts(params.id, params.locale);
   const headings = await getHeadings(params.id, params.locale);
   
@@ -45,6 +42,7 @@ export default async function BlogPost({ params } : { params: { id: string; loca
         content={content}
         fileContent={fileContent}
         nodes={headings}
+        locale={params.locale}
       />
       <Tags
         tags={meta.tags}
@@ -61,12 +59,14 @@ export default async function BlogPost({ params } : { params: { id: string; loca
           title={meta.title}
           domain={domain}
           description={description}
+          locale={params.locale}
         />
       </div>
       <Comments />
       <div className="items-center flex justify-center">
         <RelatedPosts
           relatedPosts={relatedPosts}
+          locale={params.locale}
         />
       </div>
       <NavigationButtons />

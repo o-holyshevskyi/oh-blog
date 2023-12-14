@@ -23,7 +23,7 @@ const certificates = [
     },
 ];
 
-export default function Certificates() {
+export default function Certificates({ locale } : { locale: string }) {
     const t = useTranslations("about.aboutAccordion.certificates");
     
     return (
@@ -35,7 +35,10 @@ export default function Certificates() {
                             <div className="flex h-5 items-center space-x-4">
                                 <h2><strong>{cert.name}</strong></h2>
                                 <Divider orientation="vertical" />
-                                <Date dateString={cert.date}></Date>
+                                <Date 
+                                    dateString={cert.date}
+                                    locale={locale}
+                                />
                             </div>
                             <div className="mt-5"><strong>{t("id")}:</strong> {cert.id}</div>
                             <div className="flex wrap justify-start items-center">

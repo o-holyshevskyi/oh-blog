@@ -13,7 +13,7 @@ import { Post } from "@/app/lib/posts";
 import { useTranslations } from "next-intl";
 import PostCards from "../cards";
 
-export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: number; }) {  
+export default function BlogTags({ allPosts, page, locale } : { allPosts: Post[]; page: number; locale: string; }) {  
     const t = useTranslations("blogPage");
     
     const [filteredTag, setFilteredTag] = useState('');  
@@ -155,7 +155,10 @@ export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: 
             </div>
             {allPosts.length > 0 ? (
                 <div>
-                    <PostCards displayedItems={displayedItems}/>
+                    <PostCards 
+                        displayedItems={displayedItems}
+                        locale={locale}
+                    />
                     <div className="flex justify-center m-5">
                         <div className="flex flex-col gap-5 bottom-1">
                             <Pagination

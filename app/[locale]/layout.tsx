@@ -27,14 +27,11 @@ export const metadata: Metadata = {
 	],
 	icons: {
 		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
 	},
 };
 
 export function generateStaticParams() {
 	return locales.map((locale) => ({locale}));
-	//return [{ lang: 'en-US' }, { lang: 'uk' }]
 }
 
 const domain = process.env.DOMAIN;
@@ -70,7 +67,7 @@ export  default async function RootLayout({
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 						<div className="relative flex flex-col h-screen">
 							{/* @ts-ignore Async Server Component */}
-							<Navbar />
+							<Navbar locale={locale}/>
 
 							<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
 								{children}

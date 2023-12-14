@@ -4,7 +4,7 @@ import Search from "@/components/blog-items/search";
 import { Suspense } from "react";
 import RecentPostSkeleton from "@/components/skeleton/recent-posts-skeleton/recent-posts-skeleton";
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslator, unstable_setRequestLocale } from "next-intl/server";
 
 interface BlogPageProps {
 	searchParams: {
@@ -16,8 +16,10 @@ interface BlogPageProps {
 	}
 }
 
-export function generateMetadata() {
-	return { title: 'Blog' };
+export async function generateMetadata({ params: { locale } } : { params: { locale: string; } }) {
+	const t = await getTranslator(locale, "metadata");
+	
+	return { title: t("blogPage") };
 }
 
 export default function BlogPage(props: BlogPageProps) {
@@ -40,6 +42,7 @@ export default function BlogPage(props: BlogPageProps) {
 				<BlogItems
 					query={query}
 					page={page}
+					locale={props.params.locale}
 				/>
         	</Suspense>
 		</div>

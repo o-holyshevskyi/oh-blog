@@ -1,7 +1,6 @@
 import React from "react";
 import { Post, getAllPostsMetaWithLang } from "@/app/lib/posts";
 import NavbarWrapper from "./navbar-wrapper";
-import { useLocale } from "next-intl";
 
 const getDaysDifference = (posts: Post[]): number => {
     const latestPost = posts.reduce((prev, current) =>
@@ -16,15 +15,15 @@ const getDaysDifference = (posts: Post[]): number => {
     return daysDifference;
 }
 
-export default async function Navbar() {
-    const locale = useLocale();
-	const posts = await getAllPostsMetaWithLang(locale);
+export default async function Navbar({ locale } : { locale: string }) {
+    const posts = await getAllPostsMetaWithLang(locale);
 	const daysDifference = getDaysDifference(posts);
 	
 	return (
 		<NavbarWrapper 
 			daysDifference={daysDifference}
 			posts={posts}
+            locale={locale}
 		/>
 	)
 };

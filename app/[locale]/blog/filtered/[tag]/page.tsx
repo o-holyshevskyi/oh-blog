@@ -1,9 +1,10 @@
 import { getPostsByTag } from "@/app/lib/posts";
 import FilteredPostsWrapper from "@/components/filtered-posts-wrapper";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslator, unstable_setRequestLocale } from "next-intl/server";
 
-export async function generateMetadata({ params } : { params: { tag: string } }) {
-	return { title: `All by - '${params.tag}'` };
+export async function generateMetadata({ params } : { params: { tag: string; locale: string; } }) {
+	const t = await getTranslator(params.locale, "metadata");
+    return { title: t("filteredPage", { tag: params.tag }) };
 }
 
 export default async function FilteredPostsByTag({ params } : { params: { tag: string; locale: string } }) {
@@ -14,6 +15,7 @@ export default async function FilteredPostsByTag({ params } : { params: { tag: s
         <FilteredPostsWrapper 
             filteredPosts={filteredPosts}
             tag={params.tag}
+            locale={params.locale}
         />
     );
 }

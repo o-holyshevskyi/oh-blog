@@ -9,9 +9,11 @@ import { Link } from "@nextui-org/link";
 import { useTranslations } from "next-intl";
 import { Post } from "@/app/lib/posts";
 import Date from '../date/date';
+import { useRouter } from "next-intl/client";
 
-export default function RecentPostsWrapper({ posts }: { posts: Post[] }) {
+export default function RecentPostsWrapper({ posts, locale }: { posts: Post[]; locale: string }) {
     const t = useTranslations("homePage");
+    const router = useRouter();
 
     return (
         <>
@@ -39,12 +41,13 @@ export default function RecentPostsWrapper({ posts }: { posts: Post[] }) {
                                 dateString={posts[0].meta.date} 
                                 className="text-black text-tiny" 
                                 formatDate="LLLL d, yyyy"
+                                locale={locale}
                             />
                             <p className="text-black text-tiny">{timeToRead(posts[0].fileContent)} {t('recentPosts.minRead')}</p>
                         </div>
                         <Link 
-                            href={`/blog/${posts[0].meta.slug}`}
-                            className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                            onClick={() => router.push(`/blog/${posts[0].meta.slug}`)}
+                            className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
                         >
                             {t('recentPosts.readMore')}
                         </Link>
@@ -67,12 +70,13 @@ export default function RecentPostsWrapper({ posts }: { posts: Post[] }) {
                                 dateString={posts[1].meta.date} 
                                 className="text-black text-tiny"  
                                 formatDate="LLLL d, yyyy"
+                                locale={locale}
                             />
                             <p className="text-black text-tiny">{timeToRead(posts[1].fileContent)} {t('recentPosts.minRead')}</p>
                         </div>
                         <Link 
-                            href={`/blog/${posts[1].meta.slug}`}
-                            className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                            onClick={() => router.push(`/blog/${posts[1].meta.slug}`)}
+                            className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
                         >
                             {t('recentPosts.readMore')}
                         </Link>
@@ -95,12 +99,13 @@ export default function RecentPostsWrapper({ posts }: { posts: Post[] }) {
                                 dateString={posts[2].meta.date} 
                                 className="text-black text-tiny"  
                                 formatDate="LLLL d, yyyy"
+                                locale={locale}
                             />
                             <p className="text-black text-tiny">{timeToRead(posts[2].fileContent)} {t('recentPosts.minRead')}</p>
                         </div>
                         <Link 
-                            href={`/blog/${posts[2].meta.slug}`}
-                            className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                            onClick={() => router.push(`/blog/${posts[2].meta.slug}`)}
+                            className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
                         >
                             {t('recentPosts.readMore')}
                         </Link>
@@ -123,12 +128,13 @@ export default function RecentPostsWrapper({ posts }: { posts: Post[] }) {
                                 dateString={posts[3].meta.date} 
                                 className="text-black text-tiny"  
                                 formatDate="LLLL d, yyyy"
+                                locale={locale}
                             />
                             <p className="text-black text-tiny">{timeToRead(posts[3].fileContent)} {t('recentPosts.minRead')}</p>
                         </div>
                         <Link 
-                            href={`/blog/${posts[3].meta.slug}`}
-                            className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                            onClick={() => router.push(`/blog/${posts[3].meta.slug}`)}
+                            className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
                         >
                             {t('recentPosts.readMore')}
                         </Link>
@@ -151,12 +157,13 @@ export default function RecentPostsWrapper({ posts }: { posts: Post[] }) {
                                 dateString={posts[4].meta.date} 
                                 className="text-black text-tiny"  
                                 formatDate="LLLL d, yyyy"
+                                locale={locale}
                             />
                             <p className="text-black text-tiny">{timeToRead(posts[4].fileContent)} {t('recentPosts.minRead')}</p>
                         </div>
                         <Link 
-                            href={`/blog/${posts[4].meta.slug}`}
-                            className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                            onClick={() => router.push(`/blog/${posts[4].meta.slug}`)}
+                            className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
                         >
                             {t('recentPosts.readMore')}
                         </Link>
