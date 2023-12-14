@@ -108,5 +108,11 @@
   "filteredPosts": {
     "later_1": "P",
     "title": "osts filtered by: "
+  },
+  "metadata": {
+    "homePage": "Oleksandr Holyshevskyi",
+    "aboutPage": "About",
+    "blogPage": "Blog",
+    "filteredPage": "All by - {tag}"
   }
 }

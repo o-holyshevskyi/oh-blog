@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { useLocale } from "next-intl";
 
 export interface Post {
   meta: PostMeta;

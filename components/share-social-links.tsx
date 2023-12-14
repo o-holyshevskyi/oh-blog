@@ -3,7 +3,7 @@
 import { Icon } from '@iconify/react';
 import { Button } from '@nextui-org/button';
 import { Tooltip } from '@nextui-org/react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 const TwitterShareButton = ({ title, url, children } : { title: string; url: string; children: JSX.Element }) => {
@@ -58,13 +58,14 @@ export default function ShareSocialLinks({
     title, 
     domain, 
     description,
+    locale,
 } : { 
     slug: string; 
     title: string; 
     domain: string; 
     description: string;
+    locale: string;
 }) {    
-    const locale = useLocale();
     const url = `${domain}/${locale}/blog/${slug}` + '\n';
     
     const t = useTranslations("postPage");

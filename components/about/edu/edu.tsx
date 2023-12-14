@@ -3,7 +3,7 @@ import { Divider } from "@nextui-org/divider";
 import { title } from "@/components/primitives";
 import { useTranslations } from "next-intl";
 
-export default function Education() {
+export default function Education({ locale } : { locale: string }) {
     const t = useTranslations("about.aboutAccordion.education");
 
     return (
@@ -12,7 +12,13 @@ export default function Education() {
                 <h1 className={title({ size: 'xs' })}>{t("university")}</h1>
                 <div className="flex h-5 items-center space-x-4 text-small mb-5 mt-5">
                     <div>
-                        <Date dateString='2016-09-01' /> - <Date dateString='2018-03-31' />
+                        <Date 
+                            dateString='2016-09-01' 
+                            locale={locale}
+                        /> - <Date 
+                            dateString='2018-03-31' 
+                            locale={locale}
+                        />
                     </div>
                     <Divider orientation="vertical" />
                     <p>{t("masterDegree")}</p>
@@ -22,7 +28,13 @@ export default function Education() {
                 <h1 className={title({ size: 'xs' })}>{t("university")}</h1>
                 <div className="flex h-5 items-center space-x-4 text-small mb-5 mt-5">
                     <div>
-                        <Date dateString='2012-09-01' /> - <Date dateString='2016-05-31' />
+                        <Date 
+                            dateString='2012-09-01' 
+                            locale={locale}
+                        /> - <Date 
+                            dateString='2016-05-31' 
+                            locale={locale}
+                        />
                     </div>
                     <Divider orientation="vertical" />
                     <p>{t("bachelorDegree")}</p>

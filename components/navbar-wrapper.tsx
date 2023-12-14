@@ -29,9 +29,10 @@ import { useRouter } from "next-intl/client";
 interface NavbarWrapperProps {
     daysDifference: number;
     posts: Post[];
+	locale: string;
 }
 
-export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperProps) {
+export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarWrapperProps) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 	const t = useTranslations("header");
 	const router = useRouter();
@@ -85,7 +86,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 						<DevIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
-					<LanguageSwitch />
+					<LanguageSwitch locale={locale}/>
 					{daysDifference < 7 && (
 						<Bell latestPostId={posts[0].meta.slug}/>
 					)}
@@ -97,7 +98,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 					<LinkedInIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch />
-				<LanguageSwitch />
+				<LanguageSwitch locale={locale} />
                 {daysDifference < 7 && (
                     <Bell latestPostId={posts[0].meta.slug}/>
                 )}

@@ -108,5 +108,11 @@
   "filteredPosts": {
     "later_1": "В",
     "title": "ідфільтровані публікації по: "
+  },
+  "metadata": {
+    "homePage": "Олександр Голишевський",
+    "aboutPage": "Про мене",
+    "blogPage": "Блог",
+    "filteredPage": "Всe по - {tag}"
   }
 }

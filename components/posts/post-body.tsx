@@ -15,12 +15,14 @@ export default function PostBody({
     content, 
     meta,
     fileContent,
-    nodes
+    nodes,
+    locale,
 } : { 
     content: ReactElement<any, string | JSXElementConstructor<any>>; 
     meta: PostMeta;
     fileContent: string;
     nodes: any;
+    locale: string;
 }) {
     const t = useTranslations("postCards");
     
@@ -31,7 +33,13 @@ export default function PostBody({
             <div>
                 <h1 className={title({ size: "lg" })}>{meta.title}</h1>
                 <div className='mt-5 mb-5 flex gap-3'>
-                    <Chip color="primary" variant="flat"><Date dateString={meta.date} formatDate='LLLL d, yyyy'/></Chip>
+                    <Chip color="primary" variant="flat">
+                        <Date 
+                            dateString={meta.date} 
+                            formatDate='LLLL d, yyyy'
+                            locale={locale}
+                        />
+                    </Chip>
                     <Chip 
                         color="primary" 
                         variant="flat" 

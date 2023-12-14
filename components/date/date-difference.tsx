@@ -1,18 +1,17 @@
 import { parseISO, formatDuration } from 'date-fns';
 import { enUS as en, uk } from 'date-fns/locale';
-import { useLocale } from 'next-intl';
 
 const locales: { [key: string]: Locale } = { en, uk }
 
 export default function DateDifference({ 
     dateFromString, 
-    dateToString
+    dateToString,
+    locale
 } : { 
     dateFromString: string; 
     dateToString: string;
-    className?: string 
+    locale: string;
 }) {
-    const locale = useLocale();
     const dateFrom = parseISO(dateFromString);
     const dateTo = parseISO(dateToString);
 

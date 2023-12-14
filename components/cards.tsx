@@ -7,13 +7,17 @@ import { Link } from "@nextui-org/link";
 import { timeToRead } from "@/app/lib/time-to-read";
 import { useTranslations } from "next-intl";
 import Date from "./date/date";
+import { useRouter } from "next-intl/client";
 
 export default function PostCards({ 
     displayedItems,
+    locale
 } : { 
     displayedItems: Post[];
+    locale: string;
 }) {
     const t = useTranslations("postCards");
+    const router = useRouter();
     
     return (
         <div className="flex justify-center items-center">
@@ -29,6 +33,7 @@ export default function PostCards({
                                 dateString={post.meta.date} 
                                 className="text-default-500"   
                                 formatDate="LLLL d, yyyy"
+                                locale={locale}
                             />
                             <h4 className="font-bold text-large">{post.meta.title}</h4>
                         </CardHeader>
@@ -45,8 +50,8 @@ export default function PostCards({
                         </CardBody>
                         <CardFooter className="bottom-0 z-10 justify-end">
                             <Link 
-                                href={`/blog/${post.meta.slug}`}
-                                className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                                onClick={() => router.push(`/blog/${post.meta.slug}`)}
+                                className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
                             >
                                 {t("readMore")}
                             </Link>

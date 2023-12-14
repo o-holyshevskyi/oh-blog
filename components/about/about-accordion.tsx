@@ -7,7 +7,7 @@ import MySkills from "./skills/skills";
 import Certificates from "./certificates/certificates";
 import { useTranslations } from "next-intl";
 
-export default function AboutAccordion() {
+export default function AboutAccordion({ locale } : { locale: string; }) {
     const t = useTranslations("about.aboutAccordion");
     
     return (
@@ -15,12 +15,12 @@ export default function AboutAccordion() {
 				<Accordion variant="splitted">
                     <AccordionItem key="1" aria-label="My experience" title={t("experience.title")}>
                         <div className="flex-col justify-start">
-                            <MyExperience />
+                            <MyExperience locale={locale}/>
                         </div>
                     </AccordionItem>
                     <AccordionItem key="2" aria-label="Education" title={t("education.title")}>
                         <div className="flex-col justify-start">
-                            <Education />
+                            <Education locale={locale} />
                         </div>
                     </AccordionItem>
                     <AccordionItem key="3" aria-label="Skills" title={t("skills.title")}>
@@ -30,7 +30,7 @@ export default function AboutAccordion() {
                     </AccordionItem>
                     <AccordionItem key="4" aria-label="Certificates" title={t("certificates.title")}>
                         <div className="flex-col justify-start">
-                            <Certificates />
+                            <Certificates locale={locale} />
                         </div>
                     </AccordionItem>
 				</Accordion>
