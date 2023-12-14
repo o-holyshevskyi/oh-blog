@@ -10,8 +10,10 @@ import { RssIcon } from "@/components/icons";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import FooterStack from "@/components/footer-stack";
-import {notFound} from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
+import { locales } from "@/i18nconfig";
+import { notFound } from "next/navigation";
+import {unstable_setRequestLocale} from 'next-intl/server';
 
 export const metadata: Metadata = {
 	title: {
@@ -30,8 +32,9 @@ export const metadata: Metadata = {
 	},
 };
 
-export async function generateStaticParams() {
-	return [{ lang: 'en-US' }, { lang: 'uk' }]
+export function generateStaticParams() {
+	return locales.map((locale) => ({locale}));
+	//return [{ lang: 'en-US' }, { lang: 'uk' }]
 }
 
 const domain = process.env.DOMAIN;
@@ -43,6 +46,10 @@ export  default async function RootLayout({
 	children: React.ReactNode;
 	params: any;
 }) {
+	if (!locales.includes(locale as any)) notFound();
+
+	unstable_setRequestLocale(locale);
+
 	let messages;
 	try {
 		messages = (await import(`../_translations/${locale}.json`)).default;
@@ -62,7 +69,7 @@ export  default async function RootLayout({
 				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 						<div className="relative flex flex-col h-screen">
-							{/* @ts-expect-error Async Server Component */}
+							{/* @ts-ignore Async Server Component */}
 							<Navbar />
 
 							<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">

@@ -7,14 +7,20 @@ import RecentPosts from "@/components/recent-posts/recent-posts";
 import { Suspense } from "react";
 import RecentPostSkeleton from "@/components/skeleton/recent-posts-skeleton/recent-posts-skeleton";
 import { useTranslations } from "next-intl";
+import {unstable_setRequestLocale} from 'next-intl/server';
 
 export async function generateMetadata() {
 	return { title: 'Oleksandr Holyshevskyi' };
 }
 
-export default function Home() {
+export default function Home({
+	params: { locale }
+  } : {
+	params: { locale: string; }
+  }) {
     const t = useTranslations("homePage");
-	
+	unstable_setRequestLocale(locale);
+
 	return (
 		<>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -58,7 +64,7 @@ export default function Home() {
 			</div>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 				<Suspense key="recent-posts" fallback={<RecentPostSkeleton />}>
-					{/* @ts-expect-error Async Server Component */}
+					{/* @ts-ignore Async Server Component */}
 					<RecentPosts/>
 				</Suspense>
 			</section>
