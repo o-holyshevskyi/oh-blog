@@ -1,11 +1,12 @@
 'use client';
 
-import { useLocale } from "next-intl";
+import { useLocale,  } from "next-intl";
 import { usePathname, useRouter } from "next-intl/client";
 import { localeNames, locales } from "../i18nconfig";
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import React from "react";
 import { Icon } from "@iconify/react";
+import { revalidatePath } from "next/cache";
 
 export default function LanguageSwitch() {
     const locale = useLocale();

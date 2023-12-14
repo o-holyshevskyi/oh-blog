@@ -3,8 +3,10 @@ import { remark } from "remark";
 import { headingTree } from "./mdx-extension";
 import path from "path";
 import fs from "fs";
+import { useLocale } from "next-intl";
 
-export async function getHeadings(id: string, locale: string) {
+export async function getHeadings(id: string) {
+  const locale = useLocale();
   const postsDirectory = path.join(process.cwd(), 'app', 'posts', locale);
 
   const fullPath = path.join(postsDirectory, `${id}.mdx`);

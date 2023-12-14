@@ -8,32 +8,29 @@ import ScrollBar from "@/components/blog-items/scroll";
 import Comments from "@/components/comments";
 import LikePost from "@/components/like-post";
 import dynamic from "next/dynamic";
-import { useLocale } from "next-intl";
 
 const domain = process.env.DOMAIN as string;
 
-const getPageContent = async (slug: string, locale: string) => {
-  const { meta, content, fileContent, description } = await getPostBySlug(slug, locale);
+const getPageContent = async (slug: string) => {
+  const { meta, content, fileContent, description } = await getPostBySlug(slug);
   return { meta, content, fileContent, description };
 }
 
-const getRelatedPosts = async (slug: string, locale: string) => {
-  return getRelatedPostsById(slug, locale);
+const getRelatedPosts = async (slug: string) => {
+  return getRelatedPostsById(slug);
 }
 
 export async function generateMetadata({ params } : { params: { id: string } }) {
-  const locale = useLocale();
-  const { meta } = await getPageContent(params.id, locale);
+  const { meta } = await getPageContent(params.id);
   return { title: meta.title };
 }
 
 const NoSSR = dynamic(() => import('../../../../components/share-social-links'), { ssr: false })
 
 export default async function BlogPost({ params } : { params: { id: string } }) {
-  const locale = useLocale();
-  const { meta, content, fileContent, description } = await getPageContent(params.id, locale);
-  const relatedPosts = await getRelatedPosts(params.id, locale);
-  const headings = await getHeadings(params.id, locale);
+  const { meta, content, fileContent, description } = await getPageContent(params.id);
+  const relatedPosts = await getRelatedPosts(params.id);
+  const headings = await getHeadings(params.id);
   
   return (
     <article>
@@ -59,7 +56,6 @@ export default async function BlogPost({ params } : { params: { id: string } }) 
           title={meta.title}
           domain={domain}
           description={description}
-          locale={locale}
         />
       </div>
       <Comments />

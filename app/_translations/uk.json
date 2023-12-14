@@ -7,7 +7,7 @@
       "later_1": "О",
       "title": "станні публікації",
       "minRead": "хв читання",
-      "readMore": "Більше"
+      "readMore": "Читати"
     }
   },
   "about": {
@@ -94,7 +94,7 @@
   "postCards": {
     "minRead": "хв читання",
     "inThePost": "В публікації",
-    "readMore": "Більше"
+    "readMore": "Читати"
   },
   "postPage": {
     "tocHeader": "Зміст",
