@@ -48,7 +48,6 @@
     "intl-messageformat": "^10.5.0",
     "mdast-util-to-string": "^4.0.0",
     "next": "14.0.2",
-    "next-intl": "^3.0.0-beta.19",
     "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",
     "postcss": "8.4.31",
@@ -69,10 +68,5 @@
     "@iconify/react": "^4.1.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/rss": "^0.0.32"
-  },
-  "overrides": {
-    "next-intl": {
-      "next": "^14.0.0"
-    }
   }
 }

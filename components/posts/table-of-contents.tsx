@@ -1,5 +1,4 @@
 import { Divider } from '@nextui-org/divider';
-import { useTranslations } from 'next-intl';
 import React, { useCallback, useEffect, useState } from 'react';
 
 interface Heading {
@@ -19,8 +18,6 @@ interface TOCComponentProps {
 }
 
 const TOCComponent: React.FC<TOCComponentProps> = ({ headings }) => {
-  const t = useTranslations("postPage");
-  
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
 
   const handleScroll = useCallback(() => {
@@ -96,7 +93,7 @@ const TOCComponent: React.FC<TOCComponentProps> = ({ headings }) => {
 
   return (
     <div className="py-4 toc ml-5">
-      <h3 className="mb-4">{t("tocHeader")}</h3>
+      <h3 className="mb-4">In this article</h3>
       <Divider orientation="horizontal" className="my-4 w-[50%]" />
       <ul>{renderHeadings(headings)}</ul>
     </div>

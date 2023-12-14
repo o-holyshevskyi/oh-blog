@@ -1,6 +1,5 @@
 import nextMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
-import withNextIntl from 'next-intl/plugin';
 
 const withMDX = nextMDX({
     extension: /\.mdx?$/,
@@ -10,7 +9,7 @@ const withMDX = nextMDX({
     }
 });
 
-const withIntl = withNextIntl('./i18n.ts');
+
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -20,4 +19,4 @@ const nextConfig = {
     },
 }
 
-export default withIntl(withMDX(nextConfig));
+export default withMDX(nextConfig)
