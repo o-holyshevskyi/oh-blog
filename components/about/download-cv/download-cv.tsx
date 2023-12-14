@@ -1,9 +1,12 @@
 'use client';
 
 import { Button } from "@nextui-org/button";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function DownloadCv() {
+    const t = useTranslations("about.downloadCV");
+    
     const [isDownloading, setIsDownloading] = useState(false);
     const [isDownloaded, setIsDownloaded] = useState(false);
 
@@ -40,10 +43,10 @@ export default function DownloadCv() {
                 }
             >
                 {isDownloading
-                    ? "Downloading..."
+                    ? t("downloading")
                     : isDownloaded
-                        ? "Downloaded"
-                        : "Download CV"
+                        ? t("downloaded")
+                        : t("download")
                 }
             </Button>
         </section>

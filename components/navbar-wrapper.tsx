@@ -12,9 +12,7 @@ import {
 import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
-import NextLink from "next/link";
 import clsx from "clsx";
-
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
 	DevIcon,
@@ -24,6 +22,9 @@ import {
 import React from "react";
 import Bell from "./bell";
 import { Post } from "@/app/lib/posts";
+import LanguageSwitch from "./language-switch";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next-intl/client";
 
 interface NavbarWrapperProps {
     daysDifference: number;
@@ -32,6 +33,8 @@ interface NavbarWrapperProps {
 
 export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperProps) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	const t = useTranslations("header");
+	const router = useRouter();
     
     return (
 		<NextUINavbar 
@@ -42,23 +45,26 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 		>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
-					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<p className="font-bold text-inherit">Oleksandr Holyshevskyi</p>
-					</NextLink>
+					<Link className={clsx(
+									linkStyles({ color: "foreground" }),
+									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
+								)} onClick={() => router.push('/')}>
+						<p className="font-bold text-inherit">{t("name")}</p>
+					</Link>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
-							<NextLink
+							<Link
 								className={clsx(
 									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
+									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
 								)}
 								color="foreground"
-								href={item.href}
+								onClick={() => router.push(item.href)}
 							>
-								{item.label}
-							</NextLink>
+								{t(`navItems.${item.label}`)}
+							</Link>
 						</NavbarItem>
 					))}
 				</ul>
@@ -79,6 +85,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 						<DevIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
+					<LanguageSwitch />
 					{daysDifference < 7 && (
 						<Bell latestPostId={posts[0].meta.slug}/>
 					)}
@@ -90,6 +97,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 					<LinkedInIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch />
+				<LanguageSwitch />
                 {daysDifference < 7 && (
                     <Bell latestPostId={posts[0].meta.slug}/>
                 )}
@@ -112,7 +120,7 @@ export default function NavbarWrapper({ daysDifference, posts }: NavbarWrapperPr
 								size="lg"
 								onClick={() => setIsMenuOpen(false)}
 							>
-								{item.label}
+								{t(`navItems.${item.label}`)}
 							</Link>
 						</NavbarMenuItem>
 					))}
