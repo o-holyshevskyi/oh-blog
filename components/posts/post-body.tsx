@@ -9,6 +9,7 @@ import { PostMeta } from '@/app/lib/posts';
 import { Image } from '@nextui-org/image';
 import TOCComponent from './table-of-contents';
 import { BookIcon } from '../icons';
+import { useTranslations } from 'next-intl';
 
 export default function PostBody({ 
     content, 
@@ -21,6 +22,8 @@ export default function PostBody({
     fileContent: string;
     nodes: any;
 }) {
+    const t = useTranslations("postCards");
+    
     const timeToReadValue = timeToRead(fileContent);
 
     return (
@@ -28,14 +31,14 @@ export default function PostBody({
             <div>
                 <h1 className={title({ size: "lg" })}>{meta.title}</h1>
                 <div className='mt-5 mb-5 flex gap-3'>
-                    <Chip color="primary" variant="flat"><Date dateString={meta.date} /></Chip>
+                    <Chip color="primary" variant="flat"><Date dateString={meta.date} formatDate='LLLL d, yyyy'/></Chip>
                     <Chip 
                         color="primary" 
                         variant="flat" 
                         startContent={
                             <BookIcon />
                         }
-                    >{timeToReadValue} min read</Chip>
+                    >{timeToReadValue} {t("minRead")}</Chip>
                 </div>
             </div>
             <div className='flex justify-center w-full mt-10 mb-10'>

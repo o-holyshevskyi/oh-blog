@@ -25,7 +25,7 @@ function addID(node: any, nodes: any) {
     node.data = node.data || {
       hProperties: {
         id: `${id}${nodes[id] > 1 ? ` ${nodes[id] - 1}` : ""}`
-          .replace(/[^a-zA-Z\d\s-]/g, "")
+          .replace(/[^a-zA-ZіІїЇєЄґҐаА-яЯ\d\s-]/g, "")
           .split(" ")
           .join("-")
           .toLowerCase(),
