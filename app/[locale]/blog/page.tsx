@@ -4,6 +4,7 @@ import Search from "@/components/blog-items/search";
 import { Suspense } from "react";
 import RecentPostSkeleton from "@/components/skeleton/recent-posts-skeleton/recent-posts-skeleton";
 import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 interface BlogPageProps {
 	searchParams: {
@@ -11,7 +12,7 @@ interface BlogPageProps {
 		page: number;
 	},
 	params: {
-		lang: string;
+		locale: string;
 	}
 }
 
@@ -23,6 +24,8 @@ export default function BlogPage(props: BlogPageProps) {
 	const query = props.searchParams?.query || '';
 	const page = props.searchParams.page || 1;
 
+	unstable_setRequestLocale(props.params.locale);
+
 	const t = useTranslations("blogPage");
 
 	return (
@@ -33,7 +36,7 @@ export default function BlogPage(props: BlogPageProps) {
 				<Search />
 			</section>
 			<Suspense key={query} fallback={<RecentPostSkeleton />}>
-				{/* @ts-expect-error Async Server Component */}
+				{/* @ts-ignore Async Server Component */}
 				<BlogItems
 					query={query}
 					page={page}

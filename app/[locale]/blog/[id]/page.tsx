@@ -9,6 +9,7 @@ import Comments from "@/components/comments";
 import LikePost from "@/components/like-post";
 import dynamic from "next/dynamic";
 import { useLocale } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const domain = process.env.DOMAIN as string;
 
@@ -30,11 +31,11 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
 
 const NoSSR = dynamic(() => import('../../../../components/share-social-links'), { ssr: false })
 
-export default async function BlogPost({ params } : { params: { id: string } }) {
-  const locale = useLocale();
+export default async function BlogPost({ params } : { params: { id: string; locale: string; } }) {
+  unstable_setRequestLocale(params.locale);
   const { meta, content, fileContent, description } = await getPageContent(params.id);
-  const relatedPosts = await getRelatedPosts(params.id, locale);
-  const headings = await getHeadings(params.id, locale);
+  const relatedPosts = await getRelatedPosts(params.id, params.locale);
+  const headings = await getHeadings(params.id, params.locale);
   
   return (
     <article>
