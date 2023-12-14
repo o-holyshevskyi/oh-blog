@@ -53,8 +53,20 @@ const sharedLinks = [
     },
 ]
 
-export default function ShareSocialLinks({ slug, title, domain, description } : { slug: string; title: string; domain: string; description: string }) {    
-    const url = `${domain}/blog/${slug}` + '\n';
+export default function ShareSocialLinks({ 
+    slug, 
+    title, 
+    domain, 
+    description,
+    locale
+} : { 
+    slug: string; 
+    title: string; 
+    domain: string; 
+    description: string;
+    locale: string;
+}) {    
+    const url = `${domain}/${locale}/blog/${slug}` + '\n';
     
     const t = useTranslations("postPage");
 

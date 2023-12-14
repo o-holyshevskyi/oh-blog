@@ -37,6 +37,6 @@ export const siteConfig = {
     	dev: "https://dev.to/oholyshevskyi",
 	},
 	images: {
-		noPosts: "https://app.requestly.io/delay/1000/https://o-holyshevskyi.github.io/blog-pic/images/sapiens.png"
+		noPosts: "https://o-holyshevskyi.github.io/blog-pic/images/sapiens.png"
 	}
 };

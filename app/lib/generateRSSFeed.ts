@@ -1,9 +1,9 @@
 import fs from 'fs';
 import { Feed } from 'feed';
-import { getAllPostsMeta } from './posts';
+import { getAllPostsMetaWithLang } from './posts';
 
-export default async function generateRssFeed() {
-    const allPosts = await getAllPostsMeta();
+export default async function generateRssFeed(locale: string) {
+    const allPosts = await getAllPostsMetaWithLang(locale);
     const site_url = 'https://oholsyhevskyi.com';
 
     const feedOptions = {

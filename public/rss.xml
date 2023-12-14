@@ -33,7 +33,7 @@ followed by Integration Tests in the middle, and UI (User Interface) Tests at th
 shape emphasizes the distribution of tests to maintain a healthy balance.
 
 <a name="unit-tests" id="unit-tests" />
-<img src="https://app.requestly.io/delay/1000/https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramidUnit.png" className="rounded-lg" />
+<img src="https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramidUnit.png" className="rounded-lg" />
 
 **Strengths**:
 
@@ -51,7 +51,7 @@ shape emphasizes the distribution of tests to maintain a healthy balance.
 For a web application, a unit test might validate the functionality of a login service by checking if user credentials are verified correctly.
 
 <a name="integration-tests" id="integration-tests" />
-<img src="https://app.requestly.io/delay/1000/https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramidIntegration.png" className="rounded-lg" />
+<img src="https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramidIntegration.png" className="rounded-lg" />
 
 **Strengths**:
 
@@ -70,7 +70,7 @@ In a banking application, an integration test might validate the end-to-end proc
 (such as account validation, transaction processing, and notifications) work seamlessly together.
 
 <a name="ui-tests" id="ui-tests" />
-<img src="https://app.requestly.io/delay/1000/https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramid.png" className="rounded-lg" />
+<img src="https://o-holyshevskyi.github.io/blog-pic/images/posts/TestingPyramid.png" className="rounded-lg" />
 
 **Strengths**:
 

@@ -16,10 +16,10 @@ export interface PostMeta {
   img: string;
 }
 
-const postsDirectory = path.join(process.cwd(), 'app', 'posts');
-
-export const getPostBySlug = async (slug: string) => {
+export const getPostBySlug = async (slug: string, locale: string) => {
   const realSlug = slug.replace(/\.mdx$/, '');
+  const postsDirectory = path.join(process.cwd(), 'app', 'posts', locale);
+
   const filePath = path.join(postsDirectory, `${realSlug}.mdx`);
 
   const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
@@ -31,22 +31,40 @@ export const getPostBySlug = async (slug: string) => {
 
   const description = getDescription(fileContent)
 
-  return { meta: { ...frontmatter as { date: string; title: string; tags: string[]; img: string }, slug: realSlug }, content, fileContent, description };
+  return { 
+    meta: { 
+      ...frontmatter as { 
+        date: string; 
+        title: string; 
+        tags: string[]; 
+        img: string;
+        locale: string;
+      }, 
+      slug: realSlug 
+    }, 
+    content, 
+    fileContent, 
+    description 
+  };
 }
 
-export const getAllPostsMeta = async () => {
+export const getAllPostsMetaWithLang = async (locale: string) => {
+  const postsDirectory = path.join(process.cwd(), 'app', 'posts', locale);
   const files = fs.readdirSync(postsDirectory);
 
   let posts = [];
 
   for (const file of files) {
-    const { meta, fileContent, description } = await getPostBySlug(file);
+    const { meta, fileContent, description } = await getPostBySlug(file, locale);
     const postsMeta = {
       meta,
       fileContent,
       description
     }
-    posts.push(postsMeta);
+
+    if (postsMeta.meta.locale === locale) {
+      posts.push(postsMeta);
+    }
   }
 
   return posts.sort((a, b) => {
@@ -58,8 +76,8 @@ export const getAllPostsMeta = async () => {
   });
 }
 
-export const getPostsByTag = async (postTag: string) => {
-  const allPostsMeta = await getAllPostsMeta();
+export const getPostsByTag = async (postTag: string, locale: string) => {
+  const allPostsMeta = await getAllPostsMetaWithLang(locale);
   const postsByTag: {
     meta: PostMeta;
     fileContent: string;
@@ -79,10 +97,13 @@ export const getPostsByTag = async (postTag: string) => {
   return postsByTag;
 }
 
-export const getRelatedPosts = async (slug: string, numberOfRelatedPosts: number = 3) => {
-  const { meta: currentPostMeta } = await getPostBySlug(slug);
+export const getRelatedPosts = async (
+  slug: string,
+  locale: string,
+  numberOfRelatedPosts: number = 3) => {
+  const { meta: currentPostMeta } = await getPostBySlug(slug, locale);
 
-  const allPostsMeta = await getAllPostsMeta();
+  const allPostsMeta = await getAllPostsMetaWithLang(locale);
 
   const relatedPosts = allPostsMeta.filter((postMeta) => {
     if (postMeta.meta.slug === slug) {
