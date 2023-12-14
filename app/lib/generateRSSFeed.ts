@@ -1,15 +1,14 @@
 import fs from 'fs';
 import { Feed } from 'feed';
-import { getAllPostsMetaWithLang } from './posts';
-import { useLocale } from 'next-intl';
+import { getAllPostsMeta } from './posts';
 
-export default async function generateRssFeed(locale: string) {
-    const allPosts = await getAllPostsMetaWithLang(locale);
-    const site_url = `https://oholsyhevskyi.com/${locale}`;
+export default async function generateRssFeed() {
+    const allPosts = await getAllPostsMeta();
+    const site_url = 'https://oholsyhevskyi.com';
 
     const feedOptions = {
-        title: locale === 'en' ? 'Blog posts | RSS Feed' : 'Повідомлення в блозі | RSS-канал',
-        description: locale === 'en' ? 'Welcome to my blog posts' : 'Ласкаво прошу до публікацій мого блогу',
+        title: 'Blog posts | RSS Feed',
+        description: 'Welcome to my blog posts',
         id: site_url,
         link: site_url,
         image: `https://o-holyshevskyi.github.io/blog-pic/images/posts/api-testing.png`,
@@ -17,7 +16,7 @@ export default async function generateRssFeed(locale: string) {
         copyright: `All rights reserved ${new Date().getFullYear()}, Oleksandr Holyshevskyi`,
         generator: 'Feed for Node.js',
         feedLinks: {
-            rss2: `${site_url}/rss_${locale}.xml`,
+            rss2: `${site_url}/rss.xml`,
         },
     };
 
@@ -40,5 +39,5 @@ export default async function generateRssFeed(locale: string) {
         })
     });
 
-    fs.writeFileSync(`./public/rss_${locale}.xml`, feed.rss2());
+    fs.writeFileSync('./public/rss.xml', feed.rss2());
 }

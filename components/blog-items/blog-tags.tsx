@@ -2,7 +2,11 @@
 
 import { Chip } from "@nextui-org/chip";
 import { useState } from "react";
+import { Link } from "@nextui-org/link";
+import { timeToRead } from "@/app/lib/time-to-read";
 import { title } from "../primitives";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { button as buttonStyles } from "@nextui-org/theme";
 import { Image } from '@nextui-org/image';
 import { Pagination } from '@nextui-org/pagination';
 import { siteConfig } from "@/config/site";
@@ -10,12 +14,9 @@ import { Button, Modal, ModalBody, ModalContent, useDisclosure } from "@nextui-o
 import { useDebouncedCallback } from "use-debounce";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Post } from "@/app/lib/posts";
-import { useTranslations } from "next-intl";
-import PostCards from "../cards";
+import { BookIcon } from "../icons";
 
 export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: number; }) {  
-    const t = useTranslations("blogPage");
-    
     const [filteredTag, setFilteredTag] = useState('');  
     const [posts, setPosts] = useState(allPosts);
     const [currentPage, setCurrentPage] = useState(page);
@@ -31,10 +32,10 @@ export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: 
     });
 
     const uniqueTags = [...allTags] as string[];
-    uniqueTags.push(t("all"));
+    uniqueTags.push('All');
 
     const handleFilterTags = (tag: string) =>  {
-        if (tag !== t("all")) {
+        if (tag !== 'All') {
             const filteredTags = allPosts.filter((post) => post.meta.tags.includes(tag));
             if (filteredTags.length > 0) {
                 setPosts(filteredTags);
@@ -90,12 +91,12 @@ export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: 
                         }
                         variant="ghost"
                     > 
-                        {t("filterByTags")}
+                        Filter by tags
                     </Button>
                     {posts.length !== allPosts.length && (
                         <Button 
                             onPress={() => {
-                                handleFilterTags(t("all"));
+                                handleFilterTags('All');
                                 setFilteredTag('');
                             }}
                             startContent={
@@ -105,7 +106,7 @@ export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: 
                             }
                             variant="ghost"
                         >
-                            {t("resetFilter")}
+                            Reset filter
                         </Button>)
                     }
                 </div>
@@ -151,11 +152,45 @@ export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: 
                 </Modal>
             </div>
             <div className="mt-5 mb-5">
-                <p className={title({ size: 'sm' })}>{t("allPosts")} ({posts.length})</p>
+                <p className={title({ size: 'sm' })}>All posts ({posts.length})</p>
             </div>
             {allPosts.length > 0 ? (
                 <div>
-                    <PostCards displayedItems={displayedItems}/>
+                    <div className="flex justify-center items-center">
+                        <ul className="mx-auto">
+                            {displayedItems.map((post, index) => (
+                                <Card className="py-4 md:w-[50%] md:ml-[25%] mb-10" key={index}>
+                                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                        <div className="flex items-start items-center">
+                                            <BookIcon/>
+                                            <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} min read</p>
+                                        </div>
+                                        <small className="text-default-500">{post.meta.date}</small>
+                                        <h4 className="font-bold text-large">{post.meta.title}</h4>
+                                    </CardHeader>
+                                    <CardBody className="overflow-visible py-2">
+                                        <Image
+                                            alt="Card background"
+                                            className="object-cover rounded-xl w-full"
+                                            src={post.meta.img}
+                                        />
+                                        <div className="mt-2 flex-col items-start">
+                                            <small className="text-default-500">In the post</small>
+                                            <p>{post.description}</p>
+                                        </div>
+                                    </CardBody>
+                                    <CardFooter className="bottom-0 z-10 justify-end">
+                                        <Link 
+                                            href={`/blog/${post.meta.slug}`}
+                                            className={buttonStyles({ radius: "full", color: "primary", size: 'sm' })}
+                                        >
+                                            Read More
+                                        </Link>
+                                    </CardFooter>
+                                </Card>
+                            ))}
+                        </ul>
+                    </div>
                     <div className="flex justify-center m-5">
                         <div className="flex flex-col gap-5 bottom-1">
                             <Pagination
@@ -176,7 +211,7 @@ export default function BlogTags({ allPosts, page } : { allPosts: Post[]; page: 
                         className="mb-5 rounded-full"
                         width={400}
                     />
-                    <p className={title({ size: 'sm' })}>{t("noPosts")}</p>
+                    <p className={title({ size: 'sm' })}>No posts found.</p>
                 </div>
             )}
         </section>

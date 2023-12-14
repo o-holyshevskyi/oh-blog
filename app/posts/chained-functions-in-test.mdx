@@ -1,0 +1,212 @@
+---
+title: '🤖 Using Chained Functions for Automation Testing with Playwright and TypeScript 🚀'
+date: '2023-10-16'
+tags: ['#AutomationTesting', '#Playwright', '#ChainedFunctions', '#CodeExamples', '#QualityAssurance', '#TypeScript']
+img: 'https://app.requestly.io/delay/1000/https://o-holyshevskyi.github.io/blog-pic/images/posts/PlaywrightChainedfunctions.png'
+---
+
+# Introducing
+<a name="introducing" id="introducing" />
+
+Introducing the world of "Using Chained Functions for Automation Testing with Playwright and TypeScript," we embark on a journey to further enhance your automation testing skills. 
+As an extension of the previously explored PageObject pattern, this topic offers a powerful and efficient way to streamline your testing processes. 
+In this comprehensive guide, we'll dive into the concept of chaining functions, building upon the foundation of modular and maintainable automation tests. 
+This approach, in combination with the PageObject pattern, will not only make your tests more readable but also considerably enhance their efficiency.
+
+<a href="https://oholsyhevskyi.com/posts/page-object-pattern">See the previous topic</a>
+
+In our earlier exploration, we learned how the PageObject pattern can transform the structure and organization 
+of automation tests by abstracting user interfaces into separate classes, leading to cleaner and more modular test code.
+Now, let's take the next step by introducing the concept of "chained functions." Chained functions provide a means to perform 
+multiple actions on web elements in a sequence, simplifying interactions and optimizing the readability of your test scripts. 
+It offers a dynamic way to navigate through the various actions required to test your application.
+
+In this guide, we'll learn how to create a Control class that allows for the chaining of functions to interact with web elements efficiently. 
+We'll walk through its implementation, exploring how it simplifies the testing process and enhances the organization of your automation tests.
+
+Let's seamlessly transition from the PageObject pattern into the world of chained functions, building upon the foundation laid in our previous discussion. 
+Together, we'll master the art of creating efficient and well-structured automated tests using Playwright and TypeScript. 🚀
+
+# Step 1: Create the Control class
+<a name="step-1-create-the-control-class" id="step-1-create-the-control-class" />
+
+In your Playwright project, create a Control class in a new file, ./src/control/control.ts.
+
+```ts
+import { Locator, Page } from '@playwright/test';
+
+class Control {
+    private readonly locator: Locator;
+
+    constructor (private readonly selector: string, private readonly page: Page) {
+        this.locator = this.page.locator(this.selector);
+    }
+}
+
+export default Control;
+```
+
+This class will encapsulate methods for interacting with web elements using Playwright's Locator and Page objects.
+
+You can perform actions such as clicking, filling input fields, clearing input fields, and pressing keys within this class, as well as many other actions you need. Let's add some of them to our Control class:
+
+```ts
+import { Locator, Page } from '@playwright/test';
+
+class Control {
+    private readonly locator: Locator;
+
+    constructor (private readonly selector: string, private readonly page: Page) {
+        this.locator = this.page.locator(this.selector);
+    }
+
+    click = async (): Promise<Control> => {
+        await this.locator.click();
+        return this;
+    }
+
+    fill = async (value: string): Promise<Control> => {
+        await this.locator.fill(value);
+        return this;
+    }
+
+    clear = async (): Promise<Control> => {
+        await this.locator.clear();
+        return this;
+    }
+
+    press = async (key: string): Promise<Control> => {
+        await this.locator.press(key);
+        return this
+    }
+
+    getInputValue = (): Promise<string> => this.locator.inputValue();
+}
+
+export default Control;
+```
+
+In this class, you define methods for common actions like click, fill, clear, and press. Each method returns an instance of the Control class, allowing you to chain actions together.
+
+# Step 2: Use Control in Your PageObject Class
+<a name="step-2-use-control-in-your-pageobject-class" id="step-2-use-control-in-your-pageobject-class" />
+
+Now, integrate the Control class into your PageObject class, which represents a specific element or part of your web application. 
+In your PageObject class, create instances of the Control class for the elements you want to interact with.
+
+```ts
+import { Page } from "@playwright/test";
+import Control from "../../../control/control";
+
+export class TodoApp {
+    public readonly newTodoInput: Control = new Control('header > input', this.page);
+
+    constructor (private readonly page: Page) {}
+}
+
+export default TodoApp;
+```
+
+In this example, we create a newTodoInput property in the TodoApp class using the Control class for the input field where new tasks can be added. 
+This allows you to easily interact with this element in your tests.
+
+# Step 3: Write a Test Using Chained Functions
+<a name="step-3-write-a-test-using-chained-functions" id="step-3-write-a-test-using-chained-functions" />
+
+Create a test file in your test suite where you want to use the chained functions approach. 
+In your test, you can now use the Control instances to chain actions together for interacting with elements.
+
+```ts
+import test, { expect } from './fixtures/fixture';
+
+test.describe('add todo item with chained approach', () => {  
+    test('add todo item with chained functions', async ({ todoPage }) => {
+        const newTodoItem = 'chainedTodoItem';
+        const todo = todoPage.todoApp.newTodoInput;
+
+        await todo
+            .fill(newTodoItem)
+            .then(() => todo.clear())
+            .then(() => todo.fill(newTodoItem))
+            .then(() => todo.press('Enter'));
+
+        const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
+        expect(leftTodoItems).toBe(1);
+    });
+});
+```
+
+In this test, you create an instance of the Control class for the input field. 
+Using this instance, you can chain actions like filling the input field, clearing it, filling it again, and finally pressing the Enter key. 
+This approach simplifies the test code and makes it more readable.
+
+# Step 4: Run the Test
+<a name="step-4-run-the-test" id="step-4-run-the-test" />
+
+You can now run your test using Playwright's testing framework. 
+The chained functions approach allows you to perform a series of actions in a more concise and organized manner, making your tests more maintainable.
+
+Now you can run your first tests using the following command:
+
+```bash:cmd
+npx playwright test
+```
+
+This command will execute your Playwright tests based on the configuration you've set up in the playwright.config.ts file.
+
+```bash:output
+Running 5 tests using 1 worker
+5 passed (12.5s)
+```
+
+By following these steps, you have effectively implemented the chained functions approach in your Playwright automation tests, improving code readability and maintainability. 
+This approach is particularly useful when you need to perform multiple actions on the same element within a test scenario.
+
+# Conclusion
+<a name="conclusion" id="conclusion" />
+
+The chained functions approach in Playwright automation testing offers both strengths and weaknesses that can impact the efficiency and maintainability of your test code. 
+Below is a summary of the strong and weak sides of this approach:
+
+## Strengths
+<a name="strengths" id="strengths" />
+
+1. Improved Code Readability: Chaining functions allows you to express a sequence of actions on a web element in a more intuitive and readable manner. 
+Test steps are presented in a clear and organized fashion.
+2. Code Reduction: By chaining actions on the same element, you can significantly reduce code duplication. This makes your test scripts shorter and more concise.
+3. Modularity: Chained functions make it easier to encapsulate and reuse interaction logic. 
+You can build reusable methods or Page Object classes that provide fluent and easily maintainable interfaces for web elements.
+4. Easy Debugging: When a test fails, pinpointing the issue becomes more straightforward because the error is usually associated with a specific chained function. 
+This speeds up debugging and troubleshooting.
+5. Reduced Indentation: Chained functions often lead to shallower indentation in your test code, which can enhance code legibility.
+
+## Weaknesses
+<a name="weaknesses" id="weaknesses" />
+
+1. Limited Parallel Execution: Chaining functions on the same element may not work well when you need to perform simultaneous actions on different elements or parallel interactions. 
+In such cases, you might need to break the chain and write separate lines of code.
+2. Complex Scenarios: For complex test scenarios with multiple elements and interdependent actions, chaining can become convoluted. 
+It might be more beneficial to separate actions and provide clarity through distinct lines of code.
+3. Limited Error Handling: Error handling within chained functions can be challenging. If an action within a chain fails, it might be difficult to handle that specific error gracefully.
+4. Learning Curve: The chained functions approach may require a learning curve for team members who are new to this style of test scripting. 
+Proper training and documentation are important to ensure its effective use.
+5. Maintenance Challenges: Overusing chaining for every interaction can lead to overly complex code that becomes challenging to maintain and update as the application evolves. 
+It's essential to strike a balance between readability and maintainability.
+
+In conclusion, the chained functions approach in Playwright automation testing offers significant advantages in terms of code readability, modularity, and reduced duplication. 
+However, its effectiveness depends on the nature of the test scenarios and the specific use case. 
+Testers and automation engineers should carefully consider when and how to apply this approach to ensure that it aligns with the goals of their testing efforts and the complexity o
+f the web application being tested.
+
+# Resources
+<a name="resources" id="resources" />
+
+* [1] full repo with [code](https://github.com/o-holyshevskyi/my-playwright-project);
+* [2] page object [pattern](https://oholsyhevskyi.com/posts/page-object-pattern);
+* [3] playwright [documentation](https://playwright.dev/docs/intro);
+
+---
+
+In the next topic, we will explore how to use the pipe approach from fp-ts to compose functions and improve the maintainability and readability of Playwright automation tests.
+
+[fp-ts](https://gcanti.github.io/fp-ts/), or Functional Programming for TypeScript, is a library that brings functional programming principles to TypeScript. It offers tools for writing code that is more predictable, composable, and concise.

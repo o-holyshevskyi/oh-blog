@@ -1,7 +1,6 @@
-import { getAllPostsMetaWithLang } from "@/app/lib/posts";
+import { getAllPostsMeta } from "@/app/lib/posts";
 import BlogTags from "./blog-tags";
 import generateRssFeed from "@/app/lib/generateRSSFeed";
-import { useLocale, useTranslations } from "next-intl";
 
 export default async function BlogItems({
     query,
@@ -10,11 +9,8 @@ export default async function BlogItems({
     query: string;
     page: number;
 }) {
-    const t = useTranslations("blogPage");
-    const locale = useLocale();
-    const allPosts = await getAllPostsMetaWithLang(locale);
-    
-    //await generateRssFeed(locale);
+    const allPosts = await getAllPostsMeta();
+    //await generateRssFeed();
 
     const filterPostsByTitle = (posts: any, title: string) => {
         if (!title) {
@@ -37,7 +33,7 @@ export default async function BlogItems({
     });
 
     const uniqueTags = [...allTags] as string[];
-    uniqueTags.push(t("all"));
+    uniqueTags.push('All');
     
     return (
         <div>

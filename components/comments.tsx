@@ -10,7 +10,7 @@ export default function Comments() {
         url: "https://utteranc.es/client.js",
         theme: 'dark-blue',
         issueTerm: "url",
-        repo: "o-holyshevskyi/oh-blog",
+        repo: "o-holyshevskyi/nextjs-blog",
         ref: comment
     });
 

@@ -2,8 +2,7 @@
 
 import { Icon } from '@iconify/react';
 import { Button } from '@nextui-org/button';
-import { Tooltip } from '@nextui-org/react';
-import { useLocale, useTranslations } from 'next-intl';
+import { Link, Tooltip } from '@nextui-org/react';
 import { useState } from 'react';
 
 const TwitterShareButton = ({ title, url, children } : { title: string; url: string; children: JSX.Element }) => {
@@ -53,21 +52,8 @@ const sharedLinks = [
     },
 ]
 
-export default function ShareSocialLinks({ 
-    slug, 
-    title, 
-    domain, 
-    description,
-} : { 
-    slug: string; 
-    title: string; 
-    domain: string; 
-    description: string;
-}) {    
-    const locale = useLocale();
-    const url = `${domain}/${locale}/blog/${slug}` + '\n';
-    
-    const t = useTranslations("postPage");
+export default function ShareSocialLinks({ slug, title, domain, description } : { slug: string; title: string; domain: string; description: string }) {    
+    const url = `${domain}/blog/${slug}` + '\n';
 
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -86,7 +72,7 @@ export default function ShareSocialLinks({
     return (
         <div className='flex justify-center items-center gap-2'>
             {sharedLinks.map((link, index) => (
-                <Tooltip content={`${t("sharedLinks")} ${link.provider}`} key={index}>
+                <Tooltip content={`Share with ${link.provider}`} key={index}>
                     <Button
                         isIconOnly
                         variant='faded'
@@ -101,7 +87,7 @@ export default function ShareSocialLinks({
                     </Button>
                 </Tooltip>
             ))}
-            <Tooltip content={t("copyLink")}>
+            <Tooltip content='Copy link'>
                     <Button
                         isIconOnly
                         variant={copySuccess ? 'solid' : 'faded'}
