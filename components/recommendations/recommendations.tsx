@@ -56,7 +56,7 @@ const getRecommendationsTranslation = (t: any): RecommendationTranslations => {
             },
             {
                 name: t("2nd.name"),
-                date: '2023-11-06',
+                date: '2020-01-16',
                 position: t("2nd.position"),
                 img: '/avatars/avatar-2.png',
                 description: <div>
