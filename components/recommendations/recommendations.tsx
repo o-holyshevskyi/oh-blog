@@ -38,11 +38,11 @@ const getRecommendationsTranslation = (t: any): RecommendationTranslations => {
                     </p>
                     <br />
                     <p>
-                        Sasha's expertise in creating and executing test scripts, as well as his proficiency in various testing tools and frameworks, has been instrumental in improving our software development processes. He consistently demonstrates a deep understanding of test automation best practices and a strong commitment to delivering high-quality software products.
+                        Sasha&apos;s expertise in creating and executing test scripts, as well as his proficiency in various testing tools and frameworks, has been instrumental in improving our software development processes. He consistently demonstrates a deep understanding of test automation best practices and a strong commitment to delivering high-quality software products.
                     </p>
                     <br />
                     <p>
-                        Sasha's attention to detail and problem-solving abilities are truly commendable. He has a knack for identifying potential issues and addressing them proactively, which has helped us catch and resolve critical defects before they impact our end-users. His thorough and methodical approach to testing ensures that our software is not only functional but also reliable.
+                        Sasha&apos;s attention to detail and problem-solving abilities are truly commendable. He has a knack for identifying potential issues and addressing them proactively, which has helped us catch and resolve critical defects before they impact our end-users. His thorough and methodical approach to testing ensures that our software is not only functional but also reliable.
                     </p>
                     <br />
                     <p>
@@ -61,7 +61,7 @@ const getRecommendationsTranslation = (t: any): RecommendationTranslations => {
                 img: '/avatars/avatar-2.png',
                 description: <div>
                     <p>
-                        Alex is highly skilled as a QA and eager to learn new areas and acquire new tools. He's good at keeping the product on the descent level and is really meticulous to detail, which is essential for a QA guy.
+                        Alex is highly skilled as a QA and eager to learn new areas and acquire new tools. He&apos;s good at keeping the product on the descent level and is really meticulous to detail, which is essential for a QA guy.
                     </p>
                 </div>
             }
