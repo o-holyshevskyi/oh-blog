@@ -114,5 +114,16 @@
     "aboutPage": "About",
     "blogPage": "Blog",
     "filteredPage": "All by - {tag}"
+  },
+  "recommendations": {
+    "title": "Recommendations",
+    "1st": {
+      "name": "Denys Hannych",
+      "position": "Denys worked with me on the same team"
+    },
+    "2nd": {
+      "name": "Yana Kyrychenko",
+      "position": "Yana managed me directly"
+    }
   }
 }

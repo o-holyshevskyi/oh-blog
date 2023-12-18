@@ -18,6 +18,7 @@ import {
 	DevIcon,
 	GithubIcon,
 	LinkedInIcon,
+	Logo,
 } from "@/components/icons";
 import React from "react";
 import Bell from "./bell";
@@ -50,7 +51,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 									linkStyles({ color: "foreground" }),
 									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
 								)} onClick={() => router.push('/')}>
-						<p className="font-bold text-inherit">{t("name")}</p>
+						<Logo size={42}/>
 					</Link>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
