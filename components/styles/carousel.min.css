@@ -4,7 +4,7 @@
   
 .carousel .control-dots .dot {
   box-shadow: none;
-  background: #9455D3;
+  background: var(--secondary);
   width: 16px;
   height: 16px;
 }
