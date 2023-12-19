@@ -44,8 +44,8 @@ export default async function incr(req: NextRequest): Promise<NextResponse> {
       nx: true,
       ex: 24 * 60 * 60,
     });
-    if (isNew) {
-      new NextResponse(null, { status: 202 });
+    if (isNew === null) {
+      return new NextResponse(null, { status: 202 });
     }
   }
   
