@@ -20,12 +20,12 @@ import {
 	LinkedInIcon,
 	Logo,
 } from "@/components/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import Bell from "./bell";
 import { Post } from "@/app/lib/posts";
 import LanguageSwitch from "./language-switch";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next-intl/client";
+import { useRouter, usePathname } from "next-intl/client";
 
 interface NavbarWrapperProps {
     daysDifference: number;
@@ -38,11 +38,18 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 	const [activeNavItem, setActiveNavItem] = React.useState<string>("home");
 	const t = useTranslations("header");
 	const router = useRouter();
+	const pathname = usePathname();
 
-	const handleNavItemClick = (label: string, href: string) => {
-		setActiveNavItem(label);
-		router.push(href);
-	};
+	useEffect(() => {
+		const activeLabel = pathname?.replace('/', '');
+		if (activeLabel.includes(activeNavItem)) {
+			setActiveNavItem(activeLabel === '' ? 'home' : activeNavItem);
+		} else if (activeLabel.includes('/')) {
+			setActiveNavItem('home');
+		} else {
+			setActiveNavItem(activeLabel === '' ? 'home' : activeLabel);
+		}
+	}, [pathname]);
     
     return (
 		<NextUINavbar 
@@ -74,7 +81,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 					<Link className={clsx(
 									linkStyles({ color: "foreground" }),
 									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
-								)} onClick={() => handleNavItemClick('home', '/')}>
+								)} onClick={() => router.push('/')}>
 						<Logo size={42}/>
 					</Link>
 				</NavbarBrand>
@@ -87,7 +94,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
 								)}
 								color="foreground"
-								onClick={() => handleNavItemClick(item.label, item.href)}
+								onClick={() => router.push(item.href)}
 								aria-current="page"
 							>
 								{t(`navItems.${item.label}`)}
