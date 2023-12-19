@@ -56,7 +56,7 @@ export default function PostBody({
                         startContent={
                             <Icon icon="carbon:view" fontSize={24}/>
                         }
-                    >{views} {views <= 1 ? 'view' : 'views'}</Chip>
+                    >{views} {views <= 1 ? t("views.single") : `${t("views.plural")}`}</Chip>
                 </div>
             </div>
             <div className='flex justify-center w-full mt-10 mb-10'>
