@@ -47,7 +47,7 @@ export default function BlogTags({ allPosts, page, locale } : { allPosts: Post[]
     const handlePagination = useDebouncedCallback((page: number) => {
         setCurrentPage(page);
         if (searchParams === null) {
-            console.error('Search params is null')
+            console.error('Search params is null');
         } else {
             const params = new URLSearchParams(searchParams);
             params.set('page', page.toString());
