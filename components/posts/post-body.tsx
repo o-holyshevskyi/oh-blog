@@ -10,6 +10,7 @@ import { Image } from '@nextui-org/image';
 import TOCComponent from './table-of-contents';
 import { BookIcon } from '../icons';
 import { useTranslations } from 'next-intl';
+import { Icon } from '@iconify/react';
 
 export default function PostBody({ 
     content, 
@@ -53,9 +54,9 @@ export default function PostBody({
                         color="primary" 
                         variant="flat" 
                         startContent={
-                            <BookIcon />
+                            <Icon icon="carbon:view" fontSize={24}/>
                         }
-                    >{views}</Chip>
+                    >{views} {views <= 1 ? 'view' : 'views'}</Chip>
                 </div>
             </div>
             <div className='flex justify-center w-full mt-10 mb-10'>
