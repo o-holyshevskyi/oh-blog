@@ -17,12 +17,14 @@ export default function PostBody({
     fileContent,
     nodes,
     locale,
+    views
 } : { 
     content: ReactElement<any, string | JSXElementConstructor<any>>; 
     meta: PostMeta;
     fileContent: string;
     nodes: any;
     locale: string;
+    views: number;
 }) {
     const t = useTranslations("postCards");
     
@@ -47,6 +49,13 @@ export default function PostBody({
                             <BookIcon />
                         }
                     >{timeToReadValue} {t("minRead")}</Chip>
+                    <Chip 
+                        color="primary" 
+                        variant="flat" 
+                        startContent={
+                            <BookIcon />
+                        }
+                    >{views}</Chip>
                 </div>
             </div>
             <div className='flex justify-center w-full mt-10 mb-10'>

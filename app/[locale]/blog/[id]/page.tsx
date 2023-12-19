@@ -9,6 +9,8 @@ import Comments from "@/components/comments";
 import LikePost from "@/components/like-post";
 import dynamic from "next/dynamic";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { ReportView } from "./view";
+import { redis } from "@/pages/api/incr";
 
 const domain = process.env.DOMAIN as string;
 
@@ -33,6 +35,7 @@ export default async function BlogPost({ params } : { params: { id: string; loca
   const { meta, content, fileContent, description } = await getPageContent(params.id, params.locale);
   const relatedPosts = await getRelatedPosts(params.id, params.locale);
   const headings = await getHeadings(params.id, params.locale);
+  const views = await redis.get<number>(["pageviews", "projects", params.id].join(":")) ?? 0
   
   return (
     <article>
@@ -43,6 +46,7 @@ export default async function BlogPost({ params } : { params: { id: string; loca
         fileContent={fileContent}
         nodes={headings}
         locale={params.locale}
+        views={views}
       />
       <Tags
         tags={meta.tags}
@@ -73,6 +77,7 @@ export default async function BlogPost({ params } : { params: { id: string; loca
       <div className="items-center flex justify-center mt-10">
 				<hr className="w-[50%]" />
 			</div>
+      <ReportView slug={params.id} />
     </article>      
   );
 }
