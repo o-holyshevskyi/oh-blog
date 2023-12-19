@@ -35,35 +35,60 @@ interface NavbarWrapperProps {
 
 export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarWrapperProps) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	const [activeNavItem, setActiveNavItem] = React.useState<string>("home");
 	const t = useTranslations("header");
 	const router = useRouter();
+
+	const handleNavItemClick = (label: string, href: string) => {
+		setActiveNavItem(label);
+		router.push(href);
+	};
     
     return (
 		<NextUINavbar 
 			maxWidth="xl"
 			isMenuOpen={isMenuOpen}
       		onMenuOpenChange={setIsMenuOpen}
-			shouldHideOnScroll={false}
+			isBordered
+			position="sticky"
+			classNames={{
+				item: [
+				  "flex",
+				  "relative",
+				  "h-full",
+				  "items-center",
+				  "data-[active=true]:after:content-['']",
+				  "data-[active=true]:after:absolute",
+				  "data-[active=true]:after:left-0",
+				  "data-[active=true]:after:right-0",
+				  "data-[active=true]:after:h-[2px]",
+				  "data-[active=true]:after:rounded-[2px]",
+				  "data-[active=true]:after:bg-primary",
+				  "data-[active=true]:after:mt-[50px]",
+				  "data-[active=true]:opacity-70",
+				],
+			}}
 		>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<Link className={clsx(
 									linkStyles({ color: "foreground" }),
 									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
-								)} onClick={() => router.push('/')}>
+								)} onClick={() => handleNavItemClick('home', '/')}>
 						<Logo size={42}/>
 					</Link>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
-						<NavbarItem key={item.href}>
+						<NavbarItem key={item.href} isActive={item.label === activeNavItem}>
 							<Link
 								className={clsx(
 									linkStyles({ color: "foreground" }),
 									"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
 								)}
 								color="foreground"
-								onClick={() => router.push(item.href)}
+								onClick={() => handleNavItemClick(item.label, item.href)}
+								aria-current="page"
 							>
 								{t(`navItems.${item.label}`)}
 							</Link>
