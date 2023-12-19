@@ -35,7 +35,13 @@ export default async function BlogPost({ params } : { params: { id: string; loca
   const { meta, content, fileContent, description } = await getPageContent(params.id, params.locale);
   const relatedPosts = await getRelatedPosts(params.id, params.locale);
   const headings = await getHeadings(params.id, params.locale);
-  const views = await redis.get<number>(["pageviews", "projects", params.id].join(":")) ?? 0
+
+  let views = 0;
+  try {
+    views = await redis.get<number>(["pageviews", "projects", params.id].join(":")) ?? 0;
+  } catch (error) {
+    console.error(error);
+  }
   
   return (
     <article>

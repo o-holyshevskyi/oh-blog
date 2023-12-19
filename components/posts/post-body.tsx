@@ -36,7 +36,13 @@ export default function PostBody({
             <div>
                 <h1 className={title({ size: "lg" })}>{meta.title}</h1>
                 <div className='mt-5 mb-5 flex gap-3'>
-                    <Chip color="primary" variant="flat">
+                    <Chip 
+                        color="primary" 
+                        variant="flat"
+                        startContent={
+                            <Icon icon="material-symbols:date-range-outline" fontSize={24}/>
+                        }
+                    >
                         <Date 
                             dateString={meta.date} 
                             formatDate='LLLL d, yyyy'
@@ -56,7 +62,7 @@ export default function PostBody({
                         startContent={
                             <Icon icon="carbon:view" fontSize={24}/>
                         }
-                    >{views} {views <= 1 ? t("views.single") : `${t("views.plural")}`}</Chip>
+                    >{views} {views === 1 ? t("views.single") : `${t("views.plural")}`}</Chip>
                 </div>
             </div>
             <div className='flex justify-center w-full mt-10 mb-10'>
