@@ -94,7 +94,11 @@
   "postCards": {
     "minRead": "min read",
     "inThePost": "In the post",
-    "readMore": "Read more"
+    "readMore": "Read more",
+    "views": {
+      "single": "view",
+      "plural": "views"
+    }
   },
   "postPage": {
     "tocHeader": "In this article",

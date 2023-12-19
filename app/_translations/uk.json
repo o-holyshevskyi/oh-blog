@@ -94,7 +94,11 @@
   "postCards": {
     "minRead": "хв читання",
     "inThePost": "В публікації",
-    "readMore": "Читати"
+    "readMore": "Читати",
+    "views": {
+      "single": "перегляд",
+      "plural": "переглядів"
+    }
   },
   "postPage": {
     "tocHeader": "Зміст",

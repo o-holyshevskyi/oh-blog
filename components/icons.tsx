@@ -88,7 +88,6 @@ export const BookIcon: React.FC<IconSvgProps> = ({
 	);
 };
 
-
 export const DevIcon: React.FC<IconSvgProps> = ({
 	size = 24,
 	width,
