@@ -167,14 +167,14 @@ export default function AnnualStatistic() {
 
     const annualStatistic = () => {
         return (
-            <div className="flex justify-between gap-4">
+            <div className="md:flex md:justify-between flex flex-col items-center gap-4">
                 <Tabs 
                     aria-label="options" 
                     size="lg" 
                     radius="lg" 
                     classNames={{ 
-                        tabList: ['flex-col'],
-                        base: ['right-[calc(30%-10px)]', 'absolute', 'mt-10']
+                        tabList: ['md:flex-col'],
+                        base: ['md:right-[calc(30%-10px)]', 'md:absolute', 'md:mt-10']
                     }}
                 >
                     {annualStatisticTranslations.annualStatistic.map((annualStatisticTranslation) => {
@@ -183,10 +183,10 @@ export default function AnnualStatistic() {
                                 key={annualStatisticTranslation.year.toString()} 
                                 title={annualStatisticTranslation.year.toString()}
                             >
-                                <div className="grid grid-cols-2 gap-10 mt-5">
+                                <div className="md:grid md:grid-cols-2 gap-10 mt-5">
                                     {annualStatisticTranslation.statistics.map((statistic, index) => {
                                         return (
-                                            <Card key={index} className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-900 to-blue-500">
+                                            <Card key={index} className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-900 to-blue-500 m-2">
                                                 <CardBody className="justify-center items-center pb-0">
                                                     <CircularProgress
                                                         classNames={{
