@@ -109,7 +109,7 @@ export default function Recommendations({ locale } : RecommendationsProps) {
             <div className="text-center mt-5">
                 <p className={title({size: 'sm' })}>{recommendationTranslations.title}</p>
             </div>
-            <div className="flex justify-center m-5">
+            <div className="flex justify-center ">
                 <Carousel>
                     {recommendationCards}
                 </Carousel>
