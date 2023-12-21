@@ -9,20 +9,9 @@
   width: 16px;
   height: 16px;
 }
-  
-.carousel .slide img {
-  width: 100%;
-  height: 100%;
-}
-  
-.image-wrapper {
-  width: 160px;
-  height: 160px;
-  margin-bottom: 10px;
-}
 
 .react-carousel {
-  flex: 1 1 auto;
+  flex: 0.5 1 auto;
 }
   
 .react-carousel-slide {
@@ -30,7 +19,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 0 0;
 }
 
 .card {
@@ -39,7 +27,5 @@
   width: auto;
   max-width: 540px;
   height: 380px;
-  padding: 20px 20px 40px;
   border-radius: 10px;
-  margin: 10px;
 }

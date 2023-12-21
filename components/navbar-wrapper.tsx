@@ -150,9 +150,11 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 										? "danger"
 										: "foreground"
 								}
-								href={item.href}
 								size="lg"
-								onClick={() => setIsMenuOpen(false)}
+								onClick={() => {
+									router.push(item.href);
+									setIsMenuOpen(false);
+								}}
 							>
 								{t(`navItems.${item.label}`)}
 							</Link>

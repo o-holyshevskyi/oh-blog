@@ -129,5 +129,24 @@
       "name": "Yana Kyrychenko",
       "position": "Yana managed me directly"
     }
+  },
+  "statistic": {
+    "title": "Annual statistic",
+    "bugReports": {
+      "title": "Total bug reports created", 
+      "tooltip": "Deployed bugs with fixed defects"
+    },
+    "tasks": {
+      "title": "Total tasks completed", 
+      "tooltip": "Tasks tested/verified/delivered"
+    },
+    "commits": {
+      "title": "Total commits", 
+      "tooltip": "Commit messages in test frameworks"
+    },
+    "tests": {
+      "title": "Total tests created", 
+      "tooltip": "Completed e2e/integration tests"
+    }
   }
 }
