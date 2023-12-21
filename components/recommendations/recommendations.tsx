@@ -110,9 +110,9 @@ export default function Recommendations({ locale } : RecommendationsProps) {
                 <p className={title({size: 'sm' })}>{recommendationTranslations.title}</p>
             </div>
             <div className="flex justify-center m-5">
-            <Carousel>
-                {recommendationCards}
-            </Carousel>
+                <Carousel>
+                    {recommendationCards}
+                </Carousel>
             </div>
         </div>
         

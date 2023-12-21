@@ -1,5 +1,6 @@
 import AboutAccordion from "@/components/about/about-accordion";
 import DownloadCv from "@/components/about/download-cv/download-cv";
+import AnnualStatistic from "@/components/annual-statistic/annual-statistic";
 import { title } from "@/components/primitives";
 import Recommendations from "@/components/recommendations/recommendations";
 import { useTranslations } from "next-intl";
@@ -30,6 +31,7 @@ export default function AboutPage({ params: { locale } } : { params: { locale: s
 			<AboutAccordion locale={locale}/>
 			<DownloadCv />
 			<Recommendations locale={locale}/>
+			<AnnualStatistic />
 		</div>
 	);
 }
