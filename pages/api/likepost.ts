@@ -40,7 +40,7 @@ export default async function likePost(req: NextRequest): Promise<NextResponse> 
         .join("");
   
       // deduplicate the ip for each slug
-      const isNew = await redis.set(["deduplicate", hash, slug].join(":"), true, {
+      const isNew = await redis.set(["deduplicatePostsLikes", hash, slug].join(":"), true, {
         nx: true,
         ex: 24 * 60 * 60,
       });
