@@ -45,7 +45,7 @@ export default async function likePost(req: NextRequest): Promise<NextResponse> 
         ex: 24 * 60 * 60,
       });
       if (isNew === null) {
-        return new NextResponse(null, { status: 202 });
+        return new NextResponse(null, { status: 204 });
       }
     }
     

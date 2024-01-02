@@ -2,7 +2,6 @@
 
 import { Button } from "@nextui-org/button";
 import { Icon } from '@iconify/react';
-import { redis } from "@/pages/api/incr";
 import { useState } from "react";
 
 export default function LikePost({ slug, likes } : { slug: string; likes: number }) {
@@ -19,7 +18,7 @@ export default function LikePost({ slug, likes } : { slug: string; likes: number
                 body: JSON.stringify({ slug }),
             });
 
-            if (response.ok) {
+            if (response.status === 202) {
                 setLikesCount(likesCount + 1);
             }
         } catch (error) {
