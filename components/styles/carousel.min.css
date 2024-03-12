@@ -26,6 +26,7 @@
   flex-direction: column;
   width: auto;
   max-width: 540px;
+  min-width: 100px;
   height: 550px;
   border-radius: 10px;
 }
