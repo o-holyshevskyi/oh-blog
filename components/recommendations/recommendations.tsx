@@ -28,6 +28,51 @@ const getRecommendationsTranslation = (t: any): RecommendationTranslations => {
         title: t("title"),
         recommendations: [
             {
+                name: t("3rd.name"),
+                date: '2024-01-31',
+                position: t("3rd.position"),
+                img: '/avatars/avatar-3.jfif',
+                description: <div>
+                    <p>
+                        I am delighted to provide a strong recommendation for Oleksandr Holyshevskyi as a mentor in the realms of manual and automated testing. During our mentor-mentee collaboration, Oleksandr showcased exemplary proficiency, dedication, and a deep understanding of testing methodologies.
+                    </p>
+                    <br />
+                    <p>
+                        Oleksandr mentored me through the intricacies of both manual and automated testing, demonstrating an unparalleled combination of technical expertise and a supportive mentorship approach. Here are some key aspects that underscore his capabilities:
+                    </p>
+                    <br />
+                    <ul>
+                        <li>
+                            <strong>Testing Expertise</strong>: Oleksandr exhibits a comprehensive grasp of various testing techniques, strategies, and tools. His ability to articulate intricate concepts clearly showcases his proficiency in both manual and automated testing.
+                        </li>
+                        <br />
+                        <li>
+                            <strong>Effective Communication</strong>: As a mentor, Oleksandr excels in fostering clear communication. He ensured my understanding of challenging concepts by breaking them down into digestible components. His patient response to queries and constructive feedback significantly enriched my learning journey.
+                        </li>
+                        <br />
+                        <li>
+                            <strong>Automation Guidance</strong>: Oleksandr&apos;s prowess in test automation is commendable. He introduced me to industry-standard automation tools, elucidated best practices, and guided me in implementing automated testing frameworks. This practical exposure has been invaluable in enhancing testing efficiency.
+                        </li>
+                        <br />
+                        <li>
+                            <strong>Commitment to Professional Growth</strong>: Throughout our mentorship, Oleksandr consistently exhibited a sincere commitment to my professional advancement. He actively shared relevant resources, encouraged participation in pertinent forums, and provided insights into industry trends. This holistic approach significantly contributed to my development as a testing professional.
+                        </li>
+                        <br />
+                        <li>
+                            <strong>Problem-Solving Acumen</strong>: Oleksandr&apos;s mentorship extended beyond theoretical knowledge to practical problem-solving. He encouraged me to grapple with real-world testing scenarios, fostering critical thinking and analytical skills.
+                        </li>
+                        <br />
+                    </ul>
+                    <p>
+                        In conclusion, I wholeheartedly recommend Oleksandr Holyshevskyi as a mentor in manual and automated testing. His technical proficiency, unwavering dedication, and effective communication make him an exceptional mentor poised to make a significant impact on the professional development of his mentees.
+                    </p>
+                    <br />
+                    <p>
+                        Should you require further information or have any inquiries, please feel free to contact me.
+                    </p>
+                </div>
+            },
+            {
                 name: t("1st.name"),
                 date: '2023-11-06',
                 position: t("1st.position"),
@@ -76,7 +121,7 @@ export default function Recommendations({ locale } : RecommendationsProps) {
     const recommendationCards: JSX.Element[] = recommendationTranslations.recommendations.map((recommendation, index) => {
         return (
             <div key={index}>
-                <Card className="max-w-[540px] max-h-[240px] m-5">
+                <Card className="max-w-[540px] max-h-[450px] m-5">
                     <CardHeader className="justify-between">
                     <div className="flex gap-5">
                     <Avatar isBordered color="secondary" radius="lg" size="lg" src={recommendation.img} />
