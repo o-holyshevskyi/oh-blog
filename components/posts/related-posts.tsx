@@ -27,10 +27,12 @@ export default function RelatedPosts({ relatedPosts, locale } : {
     return (
         <section>
             <div className="inline-block md:max-w-6xl text-center justify-center">
-                <div className="mt-8">
+                {
+                relatedPosts.length > 0 && <div className="mt-8">
                     <p className={title({ color: "blue", size: 'sm' })}>{t("later_1")}</p>
                     <p className={title({ size: 'sm' })}>{t("relatedPosts")}</p>
                 </div>
+                }
                 <div>
                     <ul className="mt-10 md:flex justify-between gap-6 text-start">
                         {relatedPosts.map((post, index) => (
