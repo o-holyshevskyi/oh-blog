@@ -52,7 +52,7 @@ export default function Home({
 
 	return (
 		<section className="flex justify-center items-center h-screen">
-			<div className="relative w-[800px] h-[500px]">
+			<div className="relative w-[800px] h-[500px] ">
 				<Card
 					className="w-[790px] h-[500px] absolute top-3 left-1 opacity-90 z-10"
 				/>
@@ -60,20 +60,21 @@ export default function Home({
 					className="w-[780px] h-[500px] absolute top-4 left-2 opacity-80 rotate-[2deg] z-00"
 				/>
 				<Card
-					isPressable={true}
-					isHoverable={true}
 					isFooterBlurred 
+					isPressable
 					className="w-[800px] h-[500px] z-10"
 					id="hero"
 				>
 					<CardHeader
-						className="text-xl"
+						className="text-xl relative w-[max-content]
+							before:absolute before:inset-0 before:animate-typewriter before:bg-content1
+							after:absolute after:inset-0 after:w-[0.225em] after:m-3 after:h-[1.5em] after:animate-caret after:bg-default"
 						id="hero-card-header"
 					>
 						{t('name')}&nbsp;|&nbsp;{t('position')}
 					</CardHeader>
 					<CardBody 
-						className="px-3 py-0 text-default-500 mb-6" 
+						className="px-3 py-0 text-default-500 mb-6 " 
 						id="hero-card-body"
 					>
 						<div 
