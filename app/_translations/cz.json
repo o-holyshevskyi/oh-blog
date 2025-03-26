@@ -1,49 +1,49 @@
 {
-  "id": "uk",
+  "id": "cz",
   "hero": {
-    "name": "Олександр Голишевський",
-    "position": "Старший QA Інженер",
+    "name": "Oleksandr Holyshevskyi",
+    "position": "Senior QA Engineer",
     "personalInfo": {
-      "location": "Прага, Прага, Чехія",
+      "location": "Praha, Praha, Česko",
       "phoneNumber": "+420 775 161 467",
       "email": "holyshevskyi.a@gmail.com"
     },
     "educationInfo": {
-      "title": "ОСВІТА",
-      "university": "Сумський державний університет",
-      "universityLocation": "Суми, Україна",
-      "degree": "Магістр, Матеріалознавство",
-      "graduatedYear": "Випуск:"
+      "title": "VZDĚLÁNÍ",
+      "university": "Sumy State University",
+      "universityLocation": "Sumy, Ukrajina",
+      "degree": "Magisterský titul, Materiálové vědy",
+      "graduatedYear": "Absolvoval:"
     },
     "experienceInfo": {
-      "title": "РОБОТА ТА ДОСВІД ЛІДЕРСТВА",
+      "title": "PRACOVNÍ A VEDOUCÍ ZKUŠENOSTI",
       "SII": {
         "company": "SII",
-        "companyLocation": "Прага, Чехія",
-        "position": "Старший QA Інженер",
-        "type": "Гібридний",
-        "description": "Як старший QA інженер, я спеціалізуюся на процесах інтеграції, верифікації, валідації та кваліфікації (IVVQ) для настільних продуктів, забезпечуючи, щоб кожен випуск відповідав найвищим стандартам функціональності, продуктивності та користувацького досвіду."
+        "companyLocation": "Praha, Česko",
+        "position": "Senior QA Engineer",
+        "type": "Hybridní",
+        "description": "Jako Senior QA Engineer se specializuji na procesy Integrace, Verifikace, Validace a Kvalifikace (IVVQ) pro desktopové produkty, což zajišťuje, že každé vydání splňuje nejvyšší standardy funkčnosti, výkonu a uživatelského zážitku."
       },
       "AddvantISS": {
         "company": "AddvantISS",
-        "companyLocation": "Суми, Україна",
-        "position": "Інженер з автоматизації тестування",
-        "type": "Офіс",
-        "description": "Як інженер з автоматизації тестування, я спеціалізуюся на C# та TypeScript для створення автоматизованих тестових сценаріїв, використовуючи бібліотеки Playwright і Selenium. Мої сильні сторони включають розробку спеціалізованих тестових фреймворків, адаптованих до потреб проєкту. Я працював над різноманітними проєктами, що допомогло мені набути гнучкості та глибокого розуміння процесів розробки ПЗ. Також я наставляв молодших членів команди, передаючи знання та забезпечуючи високоякісні результати. Мої основні компетенції включають проєктування та виконання тест-кейсів, що сприяє успіху проєктів завдяки технічній експертизі та увазі до деталей."
+        "companyLocation": "Sumy, Ukrajina",
+        "position": "Test Automation Engineer",
+        "type": "Na místě",
+        "description": "Jako Test Automation Engineer se specializuji na C# a TypeScript pro vytváření automatizovaných testovacích skriptů pomocí knihoven Playwright a Selenium. Moje silné stránky zahrnují budování přizpůsobených testovacích rámců šitých na míru potřebám projektu. Pracoval jsem na různých projektech, což mi umožnilo získat flexibilitu a hluboké znalosti procesů vývoje softwaru. Navíc jsem mentoroval juniory v týmu, sdílel znalosti a zajistil kvalitní výsledky. Vynikám v důležitých úkolech, jako je návrh a provádění testovacích případů, což přispívá k úspěchu projektu díky technickým dovednostem a pozornosti k detailu."
       },
       "PasynSoft": {
         "company": "PasynSoft LLC",
-        "companyLocation": "Суми, Україна",
-        "position": "Інженер з автоматизації тестування",
-        "type": "Офіс",
-        "description": "Маючи значний досвід роботи з веб-застосунками, я володію глибокими технічними знаннями. Моя компетентність у використанні C# і TypeScript для написання автоматизованих тестів дозволяє ефективно перевіряти та валідувати функціональність ПЗ. Крім того, мій досвід роботи з Selenium і Playwright надав мені інструменти та навички, необхідні для створення комплексних тестових наборів та забезпечення найвищої якості ПЗ. Окрім знань у C# та TypeScript, я добре знайомий з іншими технологіями, такими як JavaScript, NodeJS, SQL, Git і Azure DevOps. Завдяки цим технічним навичкам я можу ефективно проєктувати, розробляти та виконувати автоматизовані тести для веб-застосунків, а також інтегрувати свої тести у загальний процес розробки."
+        "companyLocation": "Sumy, Ukrajina",
+        "position": "Test Automation Engineer",
+        "type": "Na místě",
+        "description": "S rozsáhlými zkušenostmi na projektech webových aplikací přináším silné technické znalosti. Moje dovednosti v používání C# a TypeScript pro psaní automatizovaných testů mi umožnily efektivně testovat a validovat funkčnost softwaru. Moje zkušenosti s knihovnami Selenium a Playwright mi poskytly nástroje a dovednosti potřebné pro tvorbu komplexních testovacích sad a zajištění nejvyšší úrovně kvality softwaru. Kromě silných dovedností v C# a TypeScript jsem také dobře obeznámen s řadou dalších technologií, včetně JavaScriptu, NodeJS, SQL, Gitu a Azure DevOps. Tyto technické dovednosti mi umožnily efektivně navrhovat, vyvíjet a provádět automatizované testy pro webové aplikace a integraci testů do širšího vývojového workflow."
       },
       "TechStudio": {
         "company": "TechStudio",
-        "companyLocation": "Нью-Йорк, США",
-        "position": "Інженер із забезпечення якості",
-        "type": "Віддалено",
-        "description": "Як QA інженер на проєкті IPTV для мобільних платформ iOS та Android, я вдосконалив свої навички у сфері забезпечення якості та тестування. Я створював тест-кейси та інші тестові артефакти, а також відповідав за тестування як фронтенду, так і бекенду застосунку. Крім того, я покращував ефективність тестування, почавши розробку автоматизованих API-тестів на C#. Мій досвід у цій ролі також дозволив мені ділитися знаннями та наставляти нових членів команди, сприяючи зростанню та успіху компанії."
+        "companyLocation": "New York, USA",
+        "position": "Quality Assurance Engineer",
+        "type": "Remote",
+        "description": "Jako QA Engineer na projektu IPTV pro mobilní platformy iOS a Android jsem zdokonalil své dovednosti v oblasti zajištění kvality a testování. Vytvářel jsem testovací případy a další testovací artefakty a měl jsem na starosti testování jak frontendové, tak backendové části aplikace. Dále jsem začal vyvíjet automatizované testy pro API pomocí C#, čímž jsem zlepšil efektivitu našich testovacích procesů. Moje zkušenosti v této roli mi také umožnily sdílet své znalosti a mentorovat nové členy týmu, čímž jsem přispěl k růstu a úspěchu společnosti."
       }
     }
   },
@@ -62,9 +62,9 @@
     "title": "ро мене",
     "aboutMe": "Як інженер з автоматизації випробувань я маю сильну пристрасть як до технологій, так і до обслуговування своїх клієнтів. Моя непохитна енергія та відданість справі забезпечення найкращого досвіду для моїх клієнтів відображена в моїй роботі як кваліфікованого професіонала, який проектує, розробляє та виконує автоматизовані тести для підвищення якості програмного забезпечення. Оскільки я зосереджений на досягненні найвищих результатів, я є цінним активом для будь-якої команди.",
     "downloadCV": {
-      "download": "Завантажити CV",
-      "downloading": "Завантаження...",
-      "downloaded": "Завантажено"
+      "download": "Stáhnout CV",
+      "downloading": "Stahování...",
+      "downloaded": "Staženo"
     },
     "aboutAccordion": {
       "experience": {

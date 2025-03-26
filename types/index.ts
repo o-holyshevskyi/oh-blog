@@ -4,4 +4,4 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
-export type Locale = "en" | "uk";
+export type Locale = "en" | "uk" | "cz";
