@@ -74,7 +74,7 @@ export default function Home({
 						<CardHeader className="text-lg md:text-xl text-center" id="hero-card-header">
 							{t("name")}&nbsp;|&nbsp;{t("position")}
 						</CardHeader>
-						<CardBody className="px-2 py-0 text-default-500 mb-6 text-sm md:text-base" id="hero-card-body">
+						<CardBody className="px-2 py-0 h-[600px] text-default-500 mb-6 text-sm md:text-base" id="hero-card-body">
 							<div className="flex flex-col md:flex-row text-sm md:text-large mb-5 items-center md:items-start text-center md:text-left">
 								<p id="location">{t("personalInfo.location")}&nbsp;|&nbsp;</p>
 								<p id="phoneNumber">{t("personalInfo.phoneNumber")}&nbsp;|&nbsp;</p>
