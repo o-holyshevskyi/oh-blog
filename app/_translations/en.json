@@ -8,44 +8,7 @@
       "phoneNumber": "+420 775 161 467",
       "email": "holyshevskyi.a@gmail.com"
     },
-    "educationInfo": {
-      "title": "EDUCATION",
-      "university": "Sumy State University",
-      "universityLocation": "Sumy, Ukraine",
-      "degree": "Master's degree, Material science",
-      "graduatedYear": "Graduated:"
-    },
-    "experienceInfo": {
-      "title": "WORK & LEADERSHIP EXPERIENCE",
-      "SII": {
-        "company": "SII",
-        "companyLocation": "Prague, Czechia",
-        "position": "Senior QA Engineer",
-        "type": "Hybrid",
-        "description": "As a Senior QA Engineer, I specialize in Integration, Verification, Validation, and Qualification (IVVQ) processes for desktop products, ensuring that every release meets the highest standards of functionality, performance, and user experience."
-      },
-      "AddvantISS": {
-        "company": "AddvantISS",
-        "companyLocation": "Sumy, Ukraine",
-        "position": "Test Automation Engineer",
-        "type": "On-site",
-        "description": "As a Test Automation Engineer, I specialize in C# and TypeScript to create automated test scripts using Playwright and Selenium libraries. My strengths include building customized test frameworks tailored to project needs. I've worked on diverse projects, gaining adaptability and in-depth knowledge of software development processes. Additionally, I've mentored junior team members, sharing knowledge and ensuring high-quality results. I excel in essential tasks such as test case design and execution, contributing to project success through technical expertise and attention to detail."
-      },
-      "PasynSoft": {
-        "company": "PasynSoft LLC",
-        "companyLocation": "Sumy, Ukraine",
-        "position": "Test Automation Engineer",
-        "type": "On-site",
-        "description": "Extensive experience on web application projects, I bring a strong technical knowledge to the table. My proficiency in using C# and TypeScript for writing automated tests has allowed me to effectively test and validate software functionality. Additionally, my experience with Selenium and the Playwright library has equipped me with the tools and skills necessary to create comprehensive test suites and ensure the highest level of software quality. In addition to my strong skills in C# and TypeScript, I am also wellversed in a range of other technologies, including JavaScript, NodeJS, SQL, Git, and Azure DevOps. These technical proficiencies have allowed me to effectively design, develop, and execute automated tests for web applications, and have equipped me with the ability to integrate my tests into a larger development workflow."
-      },
-      "TechStudio": {
-        "company": "TechStudio",
-        "companyLocation": "New York, USA",
-        "position": "Quality Assurance Engineer",
-        "type": "Remote",
-        "description": "As a QA Engineer on the IPTV project for mobile platforms iOS and Android, I have honed my skills in quality assurance and testing. I have created test cases and other testing artifacts, and have been responsible for testing both the frontend and backend of the application. Additionally, I have taken steps to improve the efficiency of our testing processes by starting to develop automated tests for the API using C#. My experience in this role has also allowed me to share my knowledge and mentor newcomers in the team, contributing to the growth and success of the company."
-      }
-    }
+    "description": "As a dedicated QA Engineer, I am passionate about leveraging technology to deliver exceptional results for my clients. My expertise lies in designing, developing, and executing automated tests to ensure the highest standards of software quality. My commitment to excellence is evident in my work, where I strive to enhance user experiences through meticulous testing and continuous improvement. I bring unwavering energy and a collaborative spirit to every project, making me a reliable and valuable asset to any team. By focusing on precision and efficiency, I help organizations achieve their goals and deliver outstanding products."
   },
   "homePage": {
     "name": "Hi, my name is Oleksandr Holyshevskyi",

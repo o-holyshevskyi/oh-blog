@@ -8,44 +8,7 @@
       "phoneNumber": "+420 775 161 467",
       "email": "holyshevskyi.a@gmail.com"
     },
-    "educationInfo": {
-      "title": "VZDĚLÁNÍ",
-      "university": "Sumy State University",
-      "universityLocation": "Sumy, Ukrajina",
-      "degree": "Magisterský titul, Materiálové vědy",
-      "graduatedYear": "Absolvoval:"
-    },
-    "experienceInfo": {
-      "title": "PRACOVNÍ A VEDOUCÍ ZKUŠENOSTI",
-      "SII": {
-        "company": "SII",
-        "companyLocation": "Praha, Česko",
-        "position": "Senior QA Engineer",
-        "type": "Hybridní",
-        "description": "Jako Senior QA Engineer se specializuji na procesy Integrace, Verifikace, Validace a Kvalifikace (IVVQ) pro desktopové produkty, což zajišťuje, že každé vydání splňuje nejvyšší standardy funkčnosti, výkonu a uživatelského zážitku."
-      },
-      "AddvantISS": {
-        "company": "AddvantISS",
-        "companyLocation": "Sumy, Ukrajina",
-        "position": "Test Automation Engineer",
-        "type": "Na místě",
-        "description": "Jako Test Automation Engineer se specializuji na C# a TypeScript pro vytváření automatizovaných testovacích skriptů pomocí knihoven Playwright a Selenium. Moje silné stránky zahrnují budování přizpůsobených testovacích rámců šitých na míru potřebám projektu. Pracoval jsem na různých projektech, což mi umožnilo získat flexibilitu a hluboké znalosti procesů vývoje softwaru. Navíc jsem mentoroval juniory v týmu, sdílel znalosti a zajistil kvalitní výsledky. Vynikám v důležitých úkolech, jako je návrh a provádění testovacích případů, což přispívá k úspěchu projektu díky technickým dovednostem a pozornosti k detailu."
-      },
-      "PasynSoft": {
-        "company": "PasynSoft LLC",
-        "companyLocation": "Sumy, Ukrajina",
-        "position": "Test Automation Engineer",
-        "type": "Na místě",
-        "description": "S rozsáhlými zkušenostmi na projektech webových aplikací přináším silné technické znalosti. Moje dovednosti v používání C# a TypeScript pro psaní automatizovaných testů mi umožnily efektivně testovat a validovat funkčnost softwaru. Moje zkušenosti s knihovnami Selenium a Playwright mi poskytly nástroje a dovednosti potřebné pro tvorbu komplexních testovacích sad a zajištění nejvyšší úrovně kvality softwaru. Kromě silných dovedností v C# a TypeScript jsem také dobře obeznámen s řadou dalších technologií, včetně JavaScriptu, NodeJS, SQL, Gitu a Azure DevOps. Tyto technické dovednosti mi umožnily efektivně navrhovat, vyvíjet a provádět automatizované testy pro webové aplikace a integraci testů do širšího vývojového workflow."
-      },
-      "TechStudio": {
-        "company": "TechStudio",
-        "companyLocation": "New York, USA",
-        "position": "Quality Assurance Engineer",
-        "type": "Remote",
-        "description": "Jako QA Engineer na projektu IPTV pro mobilní platformy iOS a Android jsem zdokonalil své dovednosti v oblasti zajištění kvality a testování. Vytvářel jsem testovací případy a další testovací artefakty a měl jsem na starosti testování jak frontendové, tak backendové části aplikace. Dále jsem začal vyvíjet automatizované testy pro API pomocí C#, čímž jsem zlepšil efektivitu našich testovacích procesů. Moje zkušenosti v této roli mi také umožnily sdílet své znalosti a mentorovat nové členy týmu, čímž jsem přispěl k růstu a úspěchu společnosti."
-      }
-    }
+    "description": "Jako oddaný QA inženýr jsem nadšený využíváním technologií k dosažení vynikajících výsledků pro své klienty. Moje odbornost spočívá v navrhování, vývoji a provádění automatizovaných testů k zajištění nejvyšších standardů kvality softwaru. Mé odhodlání k dokonalosti se odráží v mé práci, kde se snažím zlepšovat uživatelské zkušenosti prostřednictvím pečlivého testování a neustálého zlepšování. Do každého projektu přináším neochvějnou energii a týmového ducha, díky čemuž jsem spolehlivým a cenným členem týmu. Zaměřením na přesnost a efektivitu pomáhám organizacím dosahovat jejich cílů a dodávat vynikající produkty."
   },
   "homePage": {
     "name": "Вітаю, мене звати Олександр Голишевський",
