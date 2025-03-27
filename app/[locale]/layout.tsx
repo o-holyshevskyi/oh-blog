@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import { lusitana,  } from "@/config/fonts";
 import { Providers } from "./providers";
 import { clsx } from "clsx";
 import { Analytics } from '@vercel/analytics/react';
@@ -11,7 +10,7 @@ import { notFound } from "next/navigation";
 import {unstable_setRequestLocale} from 'next-intl/server';
 import { Roboto_Mono } from "next/font/google";
 
-export const robotoMono = Roboto_Mono({
+const robotoMono = Roboto_Mono({
 	subsets: ["latin", "cyrillic"],
 	variable: "--font-roboto-mono",
 	weight: ['400', '700'],
