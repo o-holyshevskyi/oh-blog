@@ -1,5 +1,6 @@
 'use client';
 
+import { MotionWhileHover } from "@/app/[locale]/motion";
 import { Link } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 
@@ -7,17 +8,20 @@ export default function DownloadCv() {
     const t = useTranslations("about.downloadCV");
 
     return (
-        <Link
-            size="sm"
-            isBlock 
-            isExternal
-            color="foreground"
-            href="https://o-holyshevskyi.github.io/blog-pic/files/Profile.pdf"
-        >
-            <div className="flex flex-row gap-1">
-                {downloadIcon()}{t("download")}
-            </div>
-        </Link>
+        <MotionWhileHover>
+            <Link
+                size="sm"
+                isBlock 
+                isExternal
+                color="foreground"
+                href="https://o-holyshevskyi.github.io/blog-pic/files/Profile.pdf"
+            >
+                <div className="flex flex-row gap-1">
+                    {downloadIcon()}{t("download")}
+                </div>
+            </Link>
+        </MotionWhileHover>
+        
     );
 }
 
