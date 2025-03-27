@@ -25,12 +25,12 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
         <div className="relative items-center justify-start w-full"> {/* Added w-full */}
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
-                <motion.div className={`absolute bottom-4 left-1/2`}
+                <motion.div className={`absolute z-30 bottom-4 left-1/2`}
                     animate={{
                             top: isOpen ? "-100px" : "auto",       
                             bottom: isOpen ? "auto" : 10,        
                             right: isOpen ? "3%" : "40%",  
-                            translateX: isOpen ? "0%" : "-50%",    
+                            translateX: isOpen ? "40%" : "-50%",    
                             rotate: isOpen ? 360 : 0  
                         }}
                     transition={{ type: "spring", duration: 100, stiffness: 30,  }}
@@ -49,10 +49,8 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
 
             {/* Footer Content with Transition and Animation */}
             <motion.div
-                className={`w-full shadow-small rounded-large transition-all duration-300 ease-in-out ${
-                    isOpen ? 'opacity-100 translate-y-0 h-auto bottom-0' : 'opacity-0 translate-y-10 h-0 pointer-events-none'
-                }`} // Removed absolute, added w-full, adjusted bottom
-                style={{ position: isMobile ? 'relative' : 'absolute', bottom: isMobile ? '0' : '1rem' }} // Conditional positioning
+                className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large`} // Removed absolute, added w-full, adjusted bottom
+                // style={{ position: isMobile ? 'relative' : 'absolute', bottom: isMobile ? '0' : '1rem' }} // Conditional positioning
                 transition={{ duration: 0.3 }}
                 animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
                 initial={false}
