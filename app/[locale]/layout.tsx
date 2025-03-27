@@ -55,7 +55,8 @@ export  default async function RootLayout({
 
 	return (
 		<html lang={locale} suppressHydrationWarning className="scroll-smooth">
-			<head />
+			<head  />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 			<body
 				className={clsx(
 					"min-h-screen bg-background font-mono antialiased",
