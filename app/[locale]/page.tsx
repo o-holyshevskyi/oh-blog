@@ -62,7 +62,7 @@ export default function Home({
 					<Card className="w-full md:w-[790px] h-auto md:h-[500px] absolute top-3 left-1 opacity-90 z-10" />
 				</Motion>
 				<Motion>
-					<Card className="w-full md:w-[780px] h-auto md:h-[500px] absolute top-4 left-2 opacity-80 rotate-[2deg] z-00" />
+					<Card className="w-full md:w-[780px] h-auto md:h-[500px] absolute top-4 left-2 opacity-80 rotate-[2deg] z-0" />
 				</Motion>
 				<Motion>
 					<Card

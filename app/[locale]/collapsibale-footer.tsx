@@ -22,7 +22,7 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
     }, []);
 
     return (
-        <div className="relative">
+        <div className="relative z-20">
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
                 <motion.div
