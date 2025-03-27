@@ -21,11 +21,12 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
     }, []);
 
     return (
-        <div className="relative items-center justify-start">
+        <div className="relative items-center justify-start w-full"> {/* Added w-full */}
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
-                <div className={`absolute bottom-4 left-[45%] z-20 transition-all duration-300 ease-in-out 
-                    ${isOpen ? 'rotate-[360deg] translate-y-[-220%] translate-x-[460%]' : ''}`}>
+                <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-300 ease-in-out ${
+                    isOpen ? 'rotate-[180deg]' : ''
+                }`}>
                     <Button
                         className="md:hidden"
                         onClick={() => setIsOpen(!isOpen)}
@@ -40,8 +41,10 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
 
             {/* Footer Content with Transition and Animation */}
             <div
-                className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large transition-all duration-300 ease-in-out 
-                ${isOpen ? 'opacity-100 translate-y-0 h-auto' : 'opacity-0 translate-y-10 h-0 pointer-events-none'}`} // Transition added for opacity and translate
+                className={`w-full shadow-small rounded-large transition-all duration-300 ease-in-out ${
+                    isOpen ? 'opacity-100 translate-y-0 h-auto bottom-0' : 'opacity-0 translate-y-10 h-0 pointer-events-none'
+                }`} // Removed absolute, added w-full, adjusted bottom
+                style={{ position: isMobile ? 'relative' : 'absolute', bottom: isMobile ? '0' : '1rem' }} // Conditional positioning
             >
                 <CardFooter className="flex flex-col md:flex-row justify-between items-center border-white/20 border-1 py-2 md:py-1">
                     {children}
@@ -60,12 +63,12 @@ const ChevronUp = () => {
             width={20}
             className="text-default-500"
         >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
                 <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z"
                     fill="currentColor"
                 ></path>
@@ -80,12 +83,12 @@ const ChevronDown = () => {
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 52 52"
-            enable-background="new 0 0 52 52"
+            enableBackground="new 0 0 52 52"
             className="text-default-500"
             width={20}
         >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
                 <path d="M47.6,17.8L27.1,38.5c-0.6,0.6-1.6,0.6-2.2,0L4.4,17.8c-0.6-0.6-0.6-1.6,0-2.2l2.2-2.2 c0.6-0.6,1.6-0.6,2.2,0l16.1,16.3c0.6,0.6,1.6,0.6,2.2,0l16.1-16.2c0.6-0.6,1.6-0.6,2.2,0l2.2,2.2C48.1,16.3,48.1,17.2,47.6,17.8z"></path>
             </g>
