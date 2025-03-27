@@ -53,7 +53,7 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
                 transition={{ duration: 0.9 }}
                 animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
                 initial={false}
-                style={{ backgroundColor: "inherit", willChange: "transform, opacity, height" }}
+                style={{ backgroundColor: "inherit" }}
             >
                 <CardFooter className="flex flex-col md:flex-row justify-between items-center rounded-large border-default-500 border-1 py-2 md:py-1">
                     {children}
