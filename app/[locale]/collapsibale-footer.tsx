@@ -25,7 +25,7 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
                 <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-300 ease-in-out ${
-                    isOpen ? 'rotate-[180deg]' : ''
+                    isOpen ? 'translate-y-[-220%] translate-x-[460%] rotate-[180deg]' : ''
                 }`}>
                     <Button
                         className="md:hidden"
