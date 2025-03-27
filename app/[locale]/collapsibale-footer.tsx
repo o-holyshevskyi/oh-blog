@@ -25,15 +25,15 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
         <div className="relative items-center justify-start w-full"> {/* Added w-full */}
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
-                <motion.div className={`absolute z-30 bottom-4 left-1/2`}
+                <motion.button className={`absolute z-30 bottom-4 left-1/2`}
                     animate={{
-                            top: isOpen ? "-100px" : "auto",       
-                            bottom: isOpen ? "auto" : 10,        
+                            top: isOpen ? "-160px" : "-45px",       
+                            bottom: isOpen ? "10px" : 0,        
                             right: isOpen ? "3%" : "40%",  
                             translateX: isOpen ? "40%" : "-50%",    
-                            rotate: isOpen ? 360 : 0  
+                            rotate: isOpen ? 180 : 180  
                         }}
-                    transition={{ type: "spring", duration: 100, stiffness: 30,  }}
+                    transition={{ type: "spring", duration: 5, stiffness: 100,  }}
                 >
                     <Button
                         className="md:hidden"
@@ -44,18 +44,17 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
                     >
                         {isOpen ? <ChevronUp /> : <ChevronDown />}
                     </Button>
-                </motion.div>
+                </motion.button>
             )}
 
             {/* Footer Content with Transition and Animation */}
             <motion.div
-                className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large`} // Removed absolute, added w-full, adjusted bottom
-                // style={{ position: isMobile ? 'relative' : 'absolute', bottom: isMobile ? '0' : '1rem' }} // Conditional positioning
-                transition={{ duration: 0.3 }}
+                className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large`}
+                transition={{ duration: 0.9 }}
                 animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
                 initial={false}
             >
-                <CardFooter className="flex flex-col md:flex-row justify-between items-center border-white/20 border-1 py-2 md:py-1">
+                <CardFooter className="flex flex-col md:flex-row justify-between items-center rounded-large border-default-500 border-1 py-2 md:py-1">
                     {children}
                 </CardFooter>
             </motion.div>
