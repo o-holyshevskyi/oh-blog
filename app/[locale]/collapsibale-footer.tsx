@@ -49,11 +49,14 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
 
             {/* Footer Content with Transition and Animation */}
             <motion.div
-                className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large`}
+                className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large bg-default-100`} // Add explicit background
                 transition={{ duration: 0.9 }}
-                animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
+                animate={{ 
+                    opacity: isOpen ? 1 : 0, 
+                    height: isOpen ? "auto" : 0 
+                }}
                 initial={false}
-                style={{ backgroundColor: "inherit" }}
+                // Remove inline style backgroundColor
             >
                 <CardFooter className="flex flex-col md:flex-row justify-between items-center rounded-large border-default-500 border-1 py-2 md:py-1">
                     {children}
