@@ -22,18 +22,18 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
     }, []);
 
     return (
-        <div className="relative z-20">
+        <div className="relative items-center justify-start">
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
-                <motion.div
-                    animate={{
-                        top: isOpen ? "-100px" : "auto",       
-                        bottom: isOpen ? "auto" : 10,        
-                        right: isOpen ? "3%" : "40%",  
-                        translateX: isOpen ? "0%" : "-50%",    
-                        rotate: isOpen ? 360 : 0  
-                    }}
-                    transition={{ type: "spring", duration: 100, stiffness: 30,  }} // Smooth transition
+                <div
+                    // animate={{
+                    //     top: isOpen ? "-100px" : "auto",       
+                    //     bottom: isOpen ? "auto" : 10,        
+                    //     right: isOpen ? "3%" : "40%",  
+                    //     translateX: isOpen ? "0%" : "-50%",    
+                    //     rotate: isOpen ? 360 : 0  
+                    // }}
+                    // transition={{ type: "spring", duration: 100, stiffness: 30,  }} // Smooth transition
                     className="absolute z-20"
                 >
                     <Button
@@ -45,20 +45,20 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
                     >
                         {isOpen ? <ChevronUp /> : <ChevronDown />}
                     </Button>
-                </motion.div>
+                </div>
             )}
 
             {/* Footer Content */}
-            <motion.div
+            <div
                 className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[calc(100%-16px)] shadow-small rounded-large`}
-                initial={false} // Avoid hydration mismatch
-                animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
-                transition={{ duration: 0.3 }}
+                // initial={false} // Avoid hydration mismatch
+                // animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
+                // transition={{ duration: 0.3 }}
             >
                 <CardFooter className="flex flex-col md:flex-row justify-between items-center border-white/20 border-1 py-2 md:py-1">
                     {children}
                 </CardFooter>
-            </motion.div>
+            </div>
         </div>
     );
 }
