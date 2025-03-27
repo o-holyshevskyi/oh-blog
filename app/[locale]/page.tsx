@@ -68,7 +68,7 @@ export default function Home({
 					<Card
 						isFooterBlurred
 						isPressable
-						className="w-full md:w-[800px] h-auto md:h-[500px] z-10 p-4"
+						className="w-full max-w-[800px] h-auto md:h-[500px] z-10 p-4 mx-auto"
 						id="hero"
 					>
 						<CardHeader className="text-lg md:text-xl text-center" id="hero-card-header">
