@@ -65,7 +65,7 @@ export  default async function RootLayout({
 			>
 				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-						<main className="">
+						<main>
 							{children}
 						</main>
 					</Providers>

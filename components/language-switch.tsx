@@ -5,6 +5,7 @@ import { localeNames, locales } from "../i18nconfig";
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import React from "react";
 import { Icon } from "@iconify/react";
+import { MotionWhileHover } from "@/app/[locale]/motion";
 
 export default function LanguageSwitch({ locale } : { locale: string; }) {
     const router = useRouter();
@@ -22,9 +23,11 @@ export default function LanguageSwitch({ locale } : { locale: string; }) {
 
     return (
         <Dropdown backdrop="blur">
-            <DropdownTrigger>
-                <Icon icon="ion:language" fontSize={24} className="text-default-500 cursor-pointer" />
-            </DropdownTrigger>
+            <MotionWhileHover>
+                <DropdownTrigger>
+                    <Icon icon="ion:language" fontSize={20} className="text-default-500 cursor-pointer" />
+                </DropdownTrigger>
+            </MotionWhileHover>
             <DropdownMenu 
                 aria-label="Single selection example"
                 variant="flat"

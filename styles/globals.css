@@ -34,3 +34,43 @@
     width: 0.6em; /* Adjust cursor width */
     animation: blink 0.75s steps(1) infinite;
 }
+
+@media (max-width: 768px) {
+    /* Adjust the card layout for smaller screens */
+    #hero {
+        width: 90% !important; /* Make the card responsive */
+        height: auto !important;
+    }
+
+    #hero-card-header {
+        font-size: 1.25rem; /* Adjust the text size for smaller screens */
+        text-align: center;
+    }
+
+    #hero-card-body {
+        font-size: 0.9rem; /* Reduce text size for better readability */
+        padding: 10px;
+    }
+
+    #hero-personal-info {
+        flex-direction: column; /* Stack personal info on mobile */
+        align-items: center;
+        text-align: center;
+    }
+
+    #hero-description {
+        font-size: 0.9rem; /* Slightly smaller text for mobile */
+        text-align: center;
+    }
+
+    #hero-card-footer {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    #hero-card-footer div {
+        justify-content: center;
+        text-align: center;
+    }
+}
