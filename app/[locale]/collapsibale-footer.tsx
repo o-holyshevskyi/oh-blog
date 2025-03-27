@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { CardFooter } from "@nextui-org/card";
 import { Button } from "@nextui-org/react";
+import { motion } from "framer-motion";
 
 export default function CollapsibleFooter({ children }: { children: React.ReactNode }) {
     const [isMobile, setIsMobile] = useState(false);
@@ -24,9 +25,16 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
         <div className="relative items-center justify-start w-full"> {/* Added w-full */}
             {/* Toggle Button - Only Visible on Mobile */}
             {isMobile && (
-                <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-300 ease-in-out ${
-                    isOpen ? 'translate-y-[-220%] translate-x-[460%] rotate-[180deg]' : ''
-                }`}>
+                <motion.div className={`absolute bottom-4 left-1/2`}
+                    animate={{
+                            top: isOpen ? "-100px" : "auto",       
+                            bottom: isOpen ? "auto" : 10,        
+                            right: isOpen ? "3%" : "40%",  
+                            translateX: isOpen ? "0%" : "-50%",    
+                            rotate: isOpen ? 360 : 0  
+                        }}
+                    transition={{ type: "spring", duration: 100, stiffness: 30,  }}
+                >
                     <Button
                         className="md:hidden"
                         onClick={() => setIsOpen(!isOpen)}
@@ -36,20 +44,23 @@ export default function CollapsibleFooter({ children }: { children: React.ReactN
                     >
                         {isOpen ? <ChevronUp /> : <ChevronDown />}
                     </Button>
-                </div>
+                </motion.div>
             )}
 
             {/* Footer Content with Transition and Animation */}
-            <div
+            <motion.div
                 className={`w-full shadow-small rounded-large transition-all duration-300 ease-in-out ${
                     isOpen ? 'opacity-100 translate-y-0 h-auto bottom-0' : 'opacity-0 translate-y-10 h-0 pointer-events-none'
                 }`} // Removed absolute, added w-full, adjusted bottom
                 style={{ position: isMobile ? 'relative' : 'absolute', bottom: isMobile ? '0' : '1rem' }} // Conditional positioning
+                transition={{ duration: 0.3 }}
+                animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
+                initial={false}
             >
                 <CardFooter className="flex flex-col md:flex-row justify-between items-center border-white/20 border-1 py-2 md:py-1">
                     {children}
                 </CardFooter>
-            </div>
+            </motion.div>
         </div>
     );
 }
