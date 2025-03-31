@@ -7,20 +7,23 @@ import { Modal, ModalBody, ModalContent, ModalFooter, useDisclosure } from "@nex
 import { useTranslations } from "next-intl";
 import ChatBot from "./socket";
 import getDomain from "./domain";
+import { useEffect, useState } from "react";
 
 export default function AskAI() {
+    const [isMobile, setIsMobile] = useState(false);
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const t = useTranslations("chatBot");
     
-	const handleClick = async () => {
-        const domain = await getDomain();
-		await fetch(`${domain}/api/socket`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
-	}
+    useEffect(() => {
+            const checkScreenSize = () => {
+                const mobile = window.innerWidth < 768; // Mobile width threshold
+                setIsMobile(mobile);
+            };
+    
+            checkScreenSize(); // Check on mount
+            window.addEventListener("resize", checkScreenSize);
+            return () => window.removeEventListener("resize", checkScreenSize);
+    }, []);
 
 	return (
         <div>
@@ -30,7 +33,6 @@ export default function AskAI() {
                     isBlock
                     isExternal={false}
                     color="foreground"
-                    onClick={handleClick}
                     onPress={onOpen}
                 >
                     <AIICon size={20}/> {t("askAi")}
@@ -53,13 +55,12 @@ export default function AskAI() {
                             <ModalBody>
                                 <ChatBot />
                             </ModalBody>
-                            <ModalFooter className="md:absolute relative bottom-14 md:bottom-0">
+                            {!isMobile && <ModalFooter className="md:absolute relative bottom-14 md:bottom-0">
                                 <p className="text-tiny text-default-400">{t("askAiFooter")}</p>
-                            </ModalFooter>
+                            </ModalFooter>}
                         </div>  
                     )}
                 </ModalContent>
-                
             </Modal>
         </div>
 	)

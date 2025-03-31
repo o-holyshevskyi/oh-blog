@@ -10,6 +10,7 @@ import getDomain from './domain';
 
 export default function ChatBot() {
     const t = useTranslations("chatBot");
+    const [isMobile, setIsMobile] = useState(false);
     const [message, setMessage] = useState("");
     const [promptMessage, setPromptMessage] = useState("");
     const [messages, setMessages] = useState([{ sender: "bot", text: t("aiFirstMessage") }]);
@@ -109,36 +110,50 @@ export default function ChatBot() {
         setMessage("");
     };
 
+    useEffect(() => {
+        const checkScreenSize = () => {
+            const mobile = window.innerWidth < 768; // Mobile width threshold
+            setIsMobile(mobile);
+        };
+
+        checkScreenSize(); // Check on mount
+        window.addEventListener("resize", checkScreenSize);
+        return () => window.removeEventListener("resize", checkScreenSize);
+    }, []);
+
     const renderPrompts = () => {
         return (
             <div className='mt-3 px-2'> {/* Removed md:mt-5 for mobile */}
-                <div className='flex md:flex-row gap-2 sm:flex-col'> {/* Added flex-wrap for mobile */}
-                    {predefinedPrompts.map((prompt, index) => (
-                        <div key={index} className="w-full sm:w-auto"> {/* Adjusted width for mobile */}
-                            <MotionWhileHover scale={1.04}>
-                                <div
-                                    key={index}
-                                    role='button'
-                                    onClick={() => handlePromptClick(prompt.label)}
-                                    className='w-full text-left p-2 text-default-500 border-2 rounded-lg mb-2' // Added mb-2 for spacing
-                                >
-                                    <div className='flex items-center flex-row gap-3'>
-                                        {prompt.icon}
-                                        {prompt.label}
+                {!isMobile ? 
+                    <div className='grid h-[200px] grid-flow-col grid-rows-2 md:flex md:w-full w-[50%] gap-2'> {/* Added flex-wrap for mobile */}
+                        {predefinedPrompts.map((prompt, index) => (
+                            <div key={index} className="w-full sm:w-auto"> {/* Adjusted width for mobile */}
+                                <MotionWhileHover scale={1.04}>
+                                    <div
+                                        key={index}
+                                        role='button'
+                                        onClick={() => handlePromptClick(prompt.label)}
+                                        className='w-full text-left p-2 text-default-500 border-2 rounded-lg mb-2' // Added mb-2 for spacing
+                                    >
+                                        <div className='flex items-center flex-row gap-3'>
+                                            {prompt.icon}
+                                            {prompt.label}
+                                        </div>
                                     </div>
-                                </div>
-                            </MotionWhileHover>
-                        </div>
-                    ))}
-                </div>
+                                </MotionWhileHover>
+                            </div>
+                        ))}
+                    </div> :
+                    <div></div>
+                }
             </div>
         );
     }
 
     return (
-        <div className='flex flex-col items-center justify-between'>
+        <div className='flex flex-col items-center justify-between gap-8 md:gap-0'>
             <h1 className="text-xl text-default-500 font-bold mb-2">{t("askAiTitle")}</h1>
-            <div ref={chatboxRef} className="chatbox h-[50vh] md:h-[550px] md:max-h-[750px] border-default-500 border-2 w-full px-3 py-3 rounded-lg overflow-y-auto"> {/* Adjusted chatbox height for mobile */}
+            <div ref={chatboxRef} className="chatbox h-[400px] md:h-[550px] md:max-h-[750px] border-default-500 border-2 w-full px-3 py-3 rounded-lg overflow-y-auto"> {/* Adjusted chatbox height for mobile */}
                 {messages.map((msg, index) => (
                     <div key={index} className="w-full flex flex-col mb-8">
                         {msg.sender !== "user" && <div className="text-sm text-gray-500">{t("aiAssistant")}</div>}
@@ -162,7 +177,7 @@ export default function ChatBot() {
                 )}
             </div>
             <div>{renderPrompts()}</div>
-            <div className='w-[95%] items-center gap-3 mt-4 md:absolute md:bottom-20'> {/* Added mt-4 for mobile spacing */}
+            <div className='w-[95%] relative bottom-20 items-center gap-3 mt-4 md:absolute md:bottom-20'> {/* Added mt-4 for mobile spacing */}
                 <Textarea
                     classNames={{
                         base: "max-w",
