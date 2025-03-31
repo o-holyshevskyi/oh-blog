@@ -16,10 +16,10 @@ export default function Motion({ children }: { children: React.ReactNode }) {
     );
 }
 
-export function MotionWhileHover({ children, className }: { children: React.ReactNode, className?: string }) {
+export function MotionWhileHover({ children, className, scale }: { children: React.ReactNode, className?: string, scale?: number }) {
     return (
         <motion.div
-            whileHover={{ scale: 0.9 }}
+            whileHover={{ scale: scale || 0.9}}
             whileTap={{ scale: 0.8 }}
             className={className}
         >

@@ -29,10 +29,15 @@ module.exports = {
           '50%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        typingDots: {
+          '0%, 80%, 100%': { opacity: 0 },
+          '40%': { opacity: 1 },
+        },
       },
       animation: {
         typewriter: 'typewriter 3.5s steps(40, end) forwards',
         caret: 'blink 1s steps(1) infinite',
+        typingDots: 'typingDots 1.5s infinite ease-in-out',
       },
     },
   },

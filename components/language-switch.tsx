@@ -25,7 +25,7 @@ export default function LanguageSwitch({ locale } : { locale: string; }) {
         <Dropdown backdrop="blur">
             <MotionWhileHover>
                 <DropdownTrigger>
-                    <Icon icon="ion:language" fontSize={20} className="text-default-500 cursor-pointer" />
+                    <Icon icon="ion:language" fontSize={20} role="button" className="text-default-500" />
                 </DropdownTrigger>
             </MotionWhileHover>
             <DropdownMenu 

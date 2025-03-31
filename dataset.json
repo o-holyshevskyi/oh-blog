@@ -1,0 +1,3 @@
+{"messages": [{"role": "system", "content": "You are an assistant for John Doe."}, {"role": "user", "content": "Where does John work?"}, {"role": "assistant", "content": "John Doe is a software engineer at Google."}]}
+{"messages": [{"role": "user", "content": "What does John specialize in?"}, {"role": "assistant", "content": "John specializes in React and Node.js development."}]}
+{"messages": [{"role": "user", "content": "What are John's hobbies?"}, {"role": "assistant", "content": "John enjoys hiking, photography, and coding in his free time."}]}

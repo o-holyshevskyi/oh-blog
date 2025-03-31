@@ -10,6 +10,20 @@
     },
     "description": "As a dedicated QA Engineer, I am passionate about leveraging technology to deliver exceptional results for my clients. My expertise lies in designing, developing, and executing automated tests to ensure the highest standards of software quality. My commitment to excellence is evident in my work, where I strive to enhance user experiences through meticulous testing and continuous improvement. I bring unwavering energy and a collaborative spirit to every project, making me a reliable and valuable asset to any team. By focusing on precision and efficiency, I help organizations achieve their goals and deliver outstanding products."
   },
+  "chatBot": {
+    "askAi": "Ask me",
+    "askAiTitle": "Chat with my AI Assistant",
+    "aiAssistant": "AI Assistant:",
+    "askMeAnythingPlaceholder": "Ask me anything...",
+    "aiFirstMessage": "Hi there! I'm Oleksandr's AI assistant. How can I assist you today?",
+    "prompts": {
+      "prompt_1": "What technologies does he use?",
+      "prompt_2": "How can I contact him?",
+      "prompt_3": "What are his skills?",
+      "prompt_4": "Tell me more about his experience"
+    },
+    "askAiFooter": "Please note that while I strive to provide accurate and helpful information, I may occasionally make mistakes. If you notice any errors or have doubts about my responses, feel free to ask for clarification or double-check with other sources."
+  },
   "homePage": {
     "name": "Hi, my name is Oleksandr Holyshevskyi",
     "about": "I'm a certificated Test Automation Engineer based in Ukraine. I am dedicated to improving the experiences of both people and customers alike, using my skills to deliver top-notch results that drive success.",

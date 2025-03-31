@@ -31,7 +31,7 @@ export default function Typeriter({ text }: { text: string }) {
   }, [lineIndex]); // Runs when lineIndex changes
 
   return (
-    <div className="py-2 px-3 mb-5" id="hero-description">
+    <div className="py-2 px-3" id="hero-description">
       {visibleLines.map((line, index) => (
         <p key={index} className="typewriter">{line}</p>
       ))}

@@ -1,22 +1,24 @@
 import { useTranslations } from "next-intl";
 import { getTranslator, unstable_setRequestLocale} from 'next-intl/server';
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
-import { Link } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import DownloadCv from "@/components/about/download-cv/download-cv";
-import { GithubIcon, LinkedInIcon } from "@/components/icons";
+import { AIICon, GithubIcon, LinkedInIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import LanguageSwitch from "@/components/language-switch";
 import Typeriter from "./typewriter";
 import Motion, { MotionWhileHover } from "./motion";
 import CollapsibleFooter from "./collapsibale-footer";
+import Cursor from "./cursor";
+import AskAI from "./askAi";
 
 export async function generateMetadata({ params: { locale } } : { params: { locale: string; } }) {
 	const t = await getTranslator(locale, "metadata");
 	return { title: t("homePage") };
 }
 
-const socialLinks = () => {
+const SocialLinks = () => {
 	return (
 		<div className="flex">
 			<MotionWhileHover>
@@ -56,7 +58,8 @@ export default function Home({
 	unstable_setRequestLocale(locale);
 
 	return (
-		<section className="flex justify-center items-center h-screen px-4 md:px-0">
+		<section className="flex justify-center items-center h-screen px-4 md:px-0">                            
+			<Cursor />
 			<div className="relative w-full max-w-[800px] h-auto md:h-[500px]">
 				<Motion>
 					<Card className="w-full md:w-[790px] h-auto md:h-[500px] absolute top-3 left-1 opacity-90 z-10" />
@@ -85,8 +88,11 @@ export default function Home({
 							<Typeriter text={t("description")} />
 						</CardBody>
 						<CollapsibleFooter>
-							<DownloadCv />
-							<div>{socialLinks()}</div>
+							<div className="flex gap-2">
+								<DownloadCv />
+								<AskAI />
+							</div>
+							<SocialLinks />
 							<div className="flex gap-2">
 								<ThemeSwitch />
 								<LanguageSwitch locale={locale}/>

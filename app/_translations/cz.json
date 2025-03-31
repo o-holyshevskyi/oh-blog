@@ -10,6 +10,19 @@
     },
     "description": "Jako oddaný QA inženýr jsem nadšený využíváním technologií k dosažení vynikajících výsledků pro své klienty. Moje odbornost spočívá v navrhování, vývoji a provádění automatizovaných testů k zajištění nejvyšších standardů kvality softwaru. Mé odhodlání k dokonalosti se odráží v mé práci, kde se snažím zlepšovat uživatelské zkušenosti prostřednictvím pečlivého testování a neustálého zlepšování. Do každého projektu přináším neochvějnou energii a týmového ducha, díky čemuž jsem spolehlivým a cenným členem týmu. Zaměřením na přesnost a efektivitu pomáhám organizacím dosahovat jejich cílů a dodávat vynikající produkty."
   },
+  "chatBot": {
+    "askAi": "Zeptej se mě",
+    "askAiTitle": "Chat s mým AI asistentem",
+    "aiAssistant": "AI asistent:",
+    "askMeAnythingPlaceholder": "Zeptejte se na cokoli...",
+    "aiFirstMessage": "Ahoj! Jsem AI asistent Oleksandra. Jak vám mohu pomoci?",
+    "prompts": {
+      "prompt_1": "Jaké technologie používá?",
+      "prompt_2": "Jak ho mohu kontaktovat?",
+      "prompt_3": "Jaké má dovednosti?",
+      "prompt_4": "Povězte mi více o jeho zkušenostech"
+    }
+  },
   "homePage": {
     "name": "Вітаю, мене звати Олександр Голишевський",
     "about": "Я - сертифікований інженер з автоматизації тестування, проживаю в Україні. Я відданий справі покращення досвіду як людей, так і клієнтів, використовуючи свої навички для досягнення першокласних результатів, які сприяють успіху.",
