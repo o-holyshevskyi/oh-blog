@@ -33,27 +33,6 @@ export default function ChatBot() {
         }
     ]);
 
-    useEffect(() => {
-        const fetchMessages = async () => {
-            try {
-                const domain = await getDomain();
-                const response = await fetch(`${domain}/api/socket`);
-                const data = await response.json();
-
-                if (data.message) {
-                    setMessages((prev) => [...prev, { sender: "bot", text: data.message }]);
-                    setIsThinking(false);
-                }
-            } catch (error) {
-                console.error("Error fetching messages:", error);
-            }
-        };
-
-        const interval = setInterval(fetchMessages, 60 * 1000); // Run every minute
-
-        return () => clearInterval(interval); // Cleanup on unmount
-    }, []);
-
     const chatboxRef = useRef(null);
     const [isAtBottom, setIsAtBottom] = useState(true);
 
