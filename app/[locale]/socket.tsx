@@ -1,15 +1,12 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import io from 'socket.io-client';
 import Typeriter from './typewriter';
 import { Textarea } from '@nextui-org/input';
 import { Button } from '@nextui-org/button';
 import Motion, { MotionWhileHover } from './motion';
 import { useTranslations } from "next-intl";
 import getDomain from './domain';
-
-let socket: any;
 
 export default function ChatBot() {
     const t = useTranslations("chatBot");
@@ -37,29 +34,24 @@ export default function ChatBot() {
     ]);
 
     useEffect(() => {
-        const setupSocket = async () => {
-            const domain = await getDomain();
-            if (!socket) { // Ensure only one socket connection
-                socket = io(domain, {
-                    path: "/socket.io",
-                });
+        const fetchMessages = async () => {
+            try {
+                const domain = await getDomain();
+                const response = await fetch(`${domain}/api/socket`);
+                const data = await response.json();
 
-                socket.on("response", (content: any) => {
-                    console.log("Response received:", content);
-                    setMessages((prev) => [...prev, { sender: "bot", text: content }]);
+                if (data.message) {
+                    setMessages((prev) => [...prev, { sender: "bot", text: data.message }]);
                     setIsThinking(false);
-                });
+                }
+            } catch (error) {
+                console.error("Error fetching messages:", error);
             }
         };
 
-        setupSocket();
+        const interval = setInterval(fetchMessages, 60 * 1000); // Run every minute
 
-        return () => {
-            if (socket) {
-                socket.disconnect();
-                socket = null; // Reset socket on unmount
-            }
-        };
+        return () => clearInterval(interval); // Cleanup on unmount
     }, []);
 
     const chatboxRef = useRef(null);
@@ -77,7 +69,9 @@ export default function ChatBot() {
         };
 
         // Add scroll event listener
-        chatbox.addEventListener('scroll', handleScroll);
+        if (chatbox) {
+            chatbox.addEventListener('scroll', handleScroll);
+        }
 
         const interval = setInterval(() => {
             if (isAtBottom && chatbox) {
@@ -90,35 +84,51 @@ export default function ChatBot() {
 
         return () => {
             clearInterval(interval);
-            chatbox.removeEventListener('scroll', handleScroll); // Cleanup
+            if (chatbox) {
+                chatbox.removeEventListener('scroll', handleScroll); // Cleanup
+            }
         };
     }, [messages, isAtBottom]);
 
-    const sendMessage = () => {
-        const userMessage = message || promptMessage;
+    const sendMessage = async (msg: string) => {
+        const userMessage = msg.trim();
+        if (!userMessage) return;
 
-        console.log("Sending message:", userMessage);
         setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
-        socket.emit("message", userMessage);
         setIsThinking(true);
+
+        try {
+            const domain = await getDomain();
+            const response = await fetch(`${domain}/api/chatbot`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            const result = await response.json();
+            const content = result.content;
+            setMessages((prev) => [...prev, { sender: "bot", text: content }]);
+            setIsThinking(false);
+        } catch (error) {
+            console.error("Error sending message:", error);
+        }
+    };
+
+    const handlePromptClick = async (prompt: string) => {
+        setPromptMessage(prompt);
+        const filteredPrompts = predefinedPrompts.filter(
+            (p) => p.label !== prompt
+        );
+        setPredefinedPrompts(filteredPrompts);
+        await sendMessage(prompt);
+    };
+
+    const handleSendMessage = async () => {
+        await sendMessage(message);
         setMessage("");
     };
-
-    const handlePromptClick = (prompt: string) => {
-        setPromptMessage(prompt);
-        setIsThinking(true);
-    };
-
-    useEffect(() => {
-        if (promptMessage) {
-            sendMessage();
-            const filteredPrompts = predefinedPrompts.filter(
-                (prompt) => prompt.label !== promptMessage
-            );
-
-            setPredefinedPrompts(filteredPrompts);
-        }
-    }, [promptMessage]);
 
     const renderPrompts = () => {
         return (
@@ -152,22 +162,17 @@ export default function ChatBot() {
             <div ref={chatboxRef} className="chatbox h-[550px] max-h-[750px] border-default-500 border-2 w-full px-3 py-3 rounded-lg overflow-y-auto">
                 {messages.map((msg, index) => (
                     <div key={index} className="w-full flex flex-col mb-8">
-                        {/* Sender Label */}
                         {msg.sender !== "user" && <div className="text-sm text-gray-500">{t("aiAssistant")}</div>}
-
-                        {/* Message Bubble */}
                         <div className={`border-2 p-3 flex items-center max-w-xs 
-                            ${msg.sender === "user" 
-                                ? "bg-blue-500 text-white border-blue-500 self-end rounded-tl-2xl rounded-br-2xl rounded-bl-2xl"  
-                                : "bg-gray-200 text-gray-800 border-gray-300 self-start rounded-tr-2xl rounded-br-2xl rounded-bl-2xl"  
+                            ${msg.sender === "user"
+                                ? "bg-blue-500 text-white border-blue-500 self-end rounded-tl-2xl rounded-br-2xl rounded-bl-2xl"
+                                : "bg-gray-200 text-gray-800 border-gray-300 self-start rounded-tr-2xl rounded-br-2xl rounded-bl-2xl"
                             }`}
                         >
                             <Typeriter text={msg.text} />
                         </div>
                     </div>
                 ))}
-
-                {/* Show Typing Indicator if AI is Thinking */}
                 {isThinking && (
                     <div className="w-full flex flex-col mb-8">
                         <div className="text-sm text-gray-500">{t("aiAssistant")}</div>
@@ -193,22 +198,21 @@ export default function ChatBot() {
                     className='w-full'
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
-                            e.preventDefault(); // Prevents new line
-                            sendMessage(); // Calls the send function
+                            e.preventDefault();
+                            handleSendMessage();
                         }
                     }}
                     endContent={
                         <Button
-                            size='sm' 
+                            size='sm'
                             isIconOnly
-                            onClick={sendMessage}
+                            onClick={handleSendMessage}
                             variant='light'
                             className='mb-2'
                         >
                             <Motion>
                                 {isThinking ? <Think /> : message.length > 0 && <Send />}
                             </Motion>
-                            
                         </Button>
                     }
                 />
