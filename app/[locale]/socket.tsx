@@ -7,9 +7,9 @@ import { Textarea } from '@nextui-org/input';
 import { Button } from '@nextui-org/button';
 import Motion, { MotionWhileHover } from './motion';
 import { useTranslations } from "next-intl";
+import getDomain from './domain';
 
 let socket: any;
-const domain = process.env.DOMAIN || "http://localhost:3000";
 
 export default function ChatBot() {
     const t = useTranslations("chatBot");
@@ -37,20 +37,28 @@ export default function ChatBot() {
     ]);
 
     useEffect(() => {
-        // if (!socket) {
-            socket = io(domain, {
-                path: "/socket.io"
-            });
+        const setupSocket = async () => {
+            const domain = await getDomain();
+            if (!socket) { // Ensure only one socket connection
+                socket = io(domain, {
+                    path: "/socket.io",
+                });
 
-            socket.on("response", (content: any) => {
-                console.log("Response received:", content);
-                setMessages((prev) => [...prev, { sender: "bot", text: content }]);
-                setIsThinking(false);
-            });
-        // }
+                socket.on("response", (content: any) => {
+                    console.log("Response received:", content);
+                    setMessages((prev) => [...prev, { sender: "bot", text: content }]);
+                    setIsThinking(false);
+                });
+            }
+        };
+
+        setupSocket();
 
         return () => {
-            socket.disconnect();
+            if (socket) {
+                socket.disconnect();
+                socket = null; // Reset socket on unmount
+            }
         };
     }, []);
 

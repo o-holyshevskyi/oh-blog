@@ -6,14 +6,14 @@ import { AIICon } from "@/components/icons";
 import { Modal, ModalBody, ModalContent, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import ChatBot from "./socket";
-
-const domain = process.env.DOMAIN || "http://localhost:3000";
+import getDomain from "./domain";
 
 export default function AskAI() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const t = useTranslations("chatBot");
     
 	const handleClick = async () => {
+        const domain = await getDomain();
 		await fetch(`${domain}/api/socket`, {
             method: "GET",
             headers: {

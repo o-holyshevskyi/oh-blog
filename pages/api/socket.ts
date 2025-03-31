@@ -1,9 +1,28 @@
+import getDomain from "@/app/[locale]/domain";
 import { Server } from "socket.io";
 
-const domain = process.env.DOMAIN || "http://localhost:3000";
+export default async function handler(req: any, res: any) {
+    // if (!res.socket.server.io) {
+    //     const io = new Server(res.socket.server);
+    //     res.socket.server.io = io;
 
-export default function handler(req: any, res: any) {
+    //     io.on("connection", (socket) => {
+    //         console.log("Client connected");
+
+    //         socket.on("message", (message) => {
+    //             console.log("Received message:", message);
+    //             socket.emit("response", "Server received: " + message);
+    //         });
+
+    //         socket.on("disconnect", () => {
+    //             console.log("Client disconnected");
+    //         });
+    //     });
+    // }
+
+    // res.end();
     if (!res.socket.server.io) {
+        const domain = await getDomain();
         const io = new Server(res.socket.server, {
             cors: {
                 origin: domain, // Your frontend's address (if different from backend)
