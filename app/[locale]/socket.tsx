@@ -117,19 +117,21 @@ export default function ChatBot() {
             <div className='mt-5 px-2'>
                 <div className='flex flex-row gap-3'>
                     {predefinedPrompts.map((prompt, index) => (
-                        <MotionWhileHover scale={1.04}>
-                            <div
-                                key={index}
-                                role='button'
-                                onClick={() => handlePromptClick(prompt.label)}
-                                className='w-auto text-left p-2 text-default-500 border-2 rounded-lg'
-                            >
-                                <div className='flex items-center flex-row gap-3'>
-                                    {prompt.icon}
-                                    {prompt.label}
+                        <div key={index}>
+                            <MotionWhileHover scale={1.04}>
+                                <div
+                                    key={index}
+                                    role='button'
+                                    onClick={() => handlePromptClick(prompt.label)}
+                                    className='w-auto text-left p-2 text-default-500 border-2 rounded-lg'
+                                >
+                                    <div className='flex items-center flex-row gap-3'>
+                                        {prompt.icon}
+                                        {prompt.label}
+                                    </div>
                                 </div>
-                            </div>
-                        </MotionWhileHover>
+                            </MotionWhileHover>
+                        </div>
                     ))}
                 </div>
             </div>
