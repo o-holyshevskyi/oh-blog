@@ -44,7 +44,7 @@ export default function AskAI() {
                 classNames={{
                     backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
                 }}
-                className="fixed bottom-[-20] w-full h-[845px] overflow-y-auto"
+                className="fixed bottom-[-20] w-full md:h-[845px] overflow-y-auto"
                 onOpenChange={onOpenChange}
             >
                 <ModalContent>
@@ -53,7 +53,7 @@ export default function AskAI() {
                             <ModalBody>
                                 <ChatBot />
                             </ModalBody>
-                            <ModalFooter className="absolute bottom-0">
+                            <ModalFooter className="md:absolute relative bottom-14 md:bottom-0">
                                 <p className="text-tiny text-default-400">{t("askAiFooter")}</p>
                             </ModalFooter>
                         </div>  

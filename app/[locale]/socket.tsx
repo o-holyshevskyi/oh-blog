@@ -111,16 +111,16 @@ export default function ChatBot() {
 
     const renderPrompts = () => {
         return (
-            <div className='mt-5 px-2'>
-                <div className='flex flex-row gap-3'>
+            <div className='mt-3 px-2'> {/* Removed md:mt-5 for mobile */}
+                <div className='flex md:flex-row gap-2 sm:flex-col'> {/* Added flex-wrap for mobile */}
                     {predefinedPrompts.map((prompt, index) => (
-                        <div key={index}>
+                        <div key={index} className="w-full sm:w-auto"> {/* Adjusted width for mobile */}
                             <MotionWhileHover scale={1.04}>
                                 <div
                                     key={index}
                                     role='button'
                                     onClick={() => handlePromptClick(prompt.label)}
-                                    className='w-auto text-left p-2 text-default-500 border-2 rounded-lg'
+                                    className='w-full text-left p-2 text-default-500 border-2 rounded-lg mb-2' // Added mb-2 for spacing
                                 >
                                     <div className='flex items-center flex-row gap-3'>
                                         {prompt.icon}
@@ -136,9 +136,9 @@ export default function ChatBot() {
     }
 
     return (
-        <div className='flex flex-col items-start justify-between'>
+        <div className='flex flex-col items-center justify-between'>
             <h1 className="text-xl text-default-500 font-bold mb-2">{t("askAiTitle")}</h1>
-            <div ref={chatboxRef} className="chatbox h-[550px] max-h-[750px] border-default-500 border-2 w-full px-3 py-3 rounded-lg overflow-y-auto">
+            <div ref={chatboxRef} className="chatbox h-[50vh] md:h-[550px] md:max-h-[750px] border-default-500 border-2 w-full px-3 py-3 rounded-lg overflow-y-auto"> {/* Adjusted chatbox height for mobile */}
                 {messages.map((msg, index) => (
                     <div key={index} className="w-full flex flex-col mb-8">
                         {msg.sender !== "user" && <div className="text-sm text-gray-500">{t("aiAssistant")}</div>}
@@ -162,11 +162,11 @@ export default function ChatBot() {
                 )}
             </div>
             <div>{renderPrompts()}</div>
-            <div className='absolute bottom-20 w-[95%] items-center gap-3'>
+            <div className='w-[95%] items-center gap-3 mt-4 md:absolute md:bottom-20'> {/* Added mt-4 for mobile spacing */}
                 <Textarea
                     classNames={{
                         base: "max-w",
-                        input: "max-h-[25px]",
+                        input: "md:max-h-[25px] h-[15px]",
                     }}
                     placeholder={t("askMeAnythingPlaceholder")}
                     value={message}
