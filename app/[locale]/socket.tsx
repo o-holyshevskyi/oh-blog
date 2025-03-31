@@ -9,7 +9,7 @@ import Motion, { MotionWhileHover } from './motion';
 import { useTranslations } from "next-intl";
 
 let socket: any;
-
+const domain = process.env.DOMAIN || "http://localhost:3000";
 
 export default function ChatBot() {
     const t = useTranslations("chatBot");
@@ -38,7 +38,7 @@ export default function ChatBot() {
 
     useEffect(() => {
         // if (!socket) {
-            socket = io("http://localhost:3000", {
+            socket = io(domain, {
                 path: "/socket.io"
             });
 

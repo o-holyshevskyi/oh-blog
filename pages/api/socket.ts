@@ -1,10 +1,12 @@
 import { Server } from "socket.io";
 
+const domain = process.env.DOMAIN || "http://localhost:3000";
+
 export default function handler(req: any, res: any) {
     if (!res.socket.server.io) {
         const io = new Server(res.socket.server, {
             cors: {
-                origin: "http://localhost:3001", // Your frontend's address (if different from backend)
+                origin: domain, // Your frontend's address (if different from backend)
                 methods: ["GET", "POST"],
             },
             path: "/socket.io", // Ensure that the correct path is set here
@@ -18,7 +20,7 @@ export default function handler(req: any, res: any) {
                 console.log("Message received from client:", message);
 
                 try {
-                    const response = await fetch("http://localhost:3000/api/chatbot", {
+                    const response = await fetch(`${domain}/api/chatbot`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

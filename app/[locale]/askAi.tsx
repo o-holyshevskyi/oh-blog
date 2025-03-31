@@ -7,12 +7,14 @@ import { Modal, ModalBody, ModalContent, ModalFooter, useDisclosure } from "@nex
 import { useTranslations } from "next-intl";
 import ChatBot from "./socket";
 
+const domain = process.env.DOMAIN || "http://localhost:3000";
+
 export default function AskAI() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const t = useTranslations("chatBot");
     
 	const handleClick = async () => {
-		await fetch("http://localhost:3000/api/socket", {
+		await fetch(`${domain}/api/socket`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
