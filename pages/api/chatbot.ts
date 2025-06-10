@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const apiKey = process.env.OPEN_AI_KEY;
 const openai = new OpenAI({ apiKey });
 
