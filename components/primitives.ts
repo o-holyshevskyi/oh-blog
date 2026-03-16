@@ -48,7 +48,38 @@ export const subtitle = tv({
 			true: "!w-full",
 		},
 	},
-  	defaultVariants:{
-    	fullWidth: true
-  	}
+	defaultVariants:{
+		fullWidth: true
+	}
+});
+
+export const sectionTitle = tv({
+	base: "text-3xl md:text-4xl font-bold tracking-tight",
+	variants: {
+		color: {
+			blue: "bg-clip-text text-transparent bg-gradient-to-r from-[#5EA2EF] to-[#0072F5]",
+			default: "",
+		},
+		align: {
+			center: "text-center",
+			left: "text-left",
+		},
+	},
+	defaultVariants: {
+		color: "default",
+		align: "center",
+	},
+});
+
+export const sectionSubtitle = tv({
+	base: "text-default-500 text-lg mt-2 max-w-2xl",
+	variants: {
+		align: {
+			center: "text-center mx-auto",
+			left: "text-left",
+		},
+	},
+	defaultVariants: {
+		align: "center",
+	},
 });

@@ -22,8 +22,8 @@ module.exports = {
       }),
       keyframes: {
         typewriter: {
-          '0%': { maxWidth: '0' },  /* Start with 0 width */
-          '100%': { maxWidth: '100%' }, /* Expand fully */
+          '0%': { maxWidth: '0' },
+          '100%': { maxWidth: '100%' },
         },
         caret: {
           '50%': { opacity: '0' },
@@ -33,11 +33,36 @@ module.exports = {
           '0%, 80%, 100%': { opacity: 0 },
           '40%': { opacity: 1 },
         },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        bounceDown: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(8px)' },
+        },
       },
       animation: {
         typewriter: 'typewriter 3.5s steps(40, end) forwards',
         caret: 'blink 1s steps(1) infinite',
         typingDots: 'typingDots 1.5s infinite ease-in-out',
+        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+        'fade-in-left': 'fadeInLeft 0.6s ease-out forwards',
+        'fade-in-right': 'fadeInRight 0.6s ease-out forwards',
+        'float': 'float 3s ease-in-out infinite',
+        'bounce-down': 'bounceDown 1.5s ease-in-out infinite',
       },
     },
   },

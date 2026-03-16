@@ -8,6 +8,11 @@
     --default: #949099;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
 *::-webkit-scrollbar {
     width: 3px;
 }
@@ -20,57 +25,27 @@
     background-color: var(--default);
     border-radius: 10px;
 }
-  
+
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--default);
 }
 
 @keyframes blink {
     50% { opacity: 0; }
-  }
-  
+}
+
 .animate-caret {
-    display: inline-block; /* Ensure it moves with text */
-    width: 0.6em; /* Adjust cursor width */
+    display: inline-block;
+    width: 0.6em;
     animation: blink 0.75s steps(1) infinite;
 }
 
-@media (max-width: 768px) {
-    /* Adjust the card layout for smaller screens */
-    #hero {
-        width: 90% !important; /* Make the card responsive */
-        height: auto !important;
+@layer utilities {
+    .section-container {
+        @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
     }
 
-    #hero-card-header {
-        font-size: 1.25rem; /* Adjust the text size for smaller screens */
-        text-align: center;
-    }
-
-    #hero-card-body {
-        font-size: 0.9rem; /* Reduce text size for better readability */
-        padding: 10px;
-    }
-
-    #hero-personal-info {
-        flex-direction: column; /* Stack personal info on mobile */
-        align-items: center;
-        text-align: center;
-    }
-
-    #hero-description {
-        font-size: 0.9rem; /* Slightly smaller text for mobile */
-        text-align: center;
-    }
-
-    #hero-card-footer {
-        flex-direction: column;
-        gap: 8px;
-        padding: 10px;
-    }
-
-    #hero-card-footer div {
-        justify-content: center;
-        text-align: center;
+    .section-padding {
+        @apply py-16 md:py-24;
     }
 }
