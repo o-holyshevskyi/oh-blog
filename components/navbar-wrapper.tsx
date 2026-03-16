@@ -45,10 +45,8 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 	const { scrollYProgress } = useScroll();
 	const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-	const handleNavClick = useCallback((item: { label: string; href: string; isRoute?: boolean }) => {
-		if (item.isRoute) {
-			router.push(item.href);
-		} else if (isHomePage) {
+	const handleNavClick = useCallback((item: { label: string; href: string }) => {
+		if (isHomePage) {
 			const el = document.querySelector(item.href);
 			if (el) {
 				el.scrollIntoView({ behavior: 'smooth' });
@@ -63,7 +61,6 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 		if (!isHomePage) return;
 
 		const sectionIds = siteConfig.navItems
-			.filter(item => !item.isRoute)
 			.map(item => item.href.replace('#', ''));
 
 		const observer = new IntersectionObserver(
@@ -85,10 +82,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 		return () => observer.disconnect();
 	}, [isHomePage]);
 
-	const isActive = (item: { label: string; href: string; isRoute?: boolean }) => {
-		if (item.isRoute) {
-			return pathname?.includes(item.href.replace('/', ''));
-		}
+	const isActive = (item: { label: string; href: string }) => {
 		return activeSection === item.href.replace('#', '');
 	};
 

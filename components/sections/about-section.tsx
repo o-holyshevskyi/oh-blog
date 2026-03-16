@@ -4,8 +4,6 @@ import { useTranslations } from 'next-intl';
 import { sectionTitle } from '@/components/primitives';
 import ScrollReveal from '@/components/motion/scroll-reveal';
 import CountUp from '@/components/motion/count-up';
-import DownloadCv from '@/components/about/download-cv/download-cv';
-import { Avatar } from '@nextui-org/react';
 import { Card, CardBody } from '@nextui-org/card';
 
 const stats = [
@@ -25,30 +23,11 @@ export default function AboutSection() {
           <h2 className={sectionTitle({ color: 'blue' })}>{t('heading')}</h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
-          <ScrollReveal direction="left">
-            <div className="flex justify-center">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-sm opacity-50" />
-                <Avatar
-                  src="/avatars/hero-photo.jpg"
-                  className="w-48 h-48 md:w-64 md:h-64 relative"
-                  isBordered
-                  color="primary"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="right">
-            <div>
-              <p className="text-default-600 text-base md:text-lg leading-relaxed">
-                {t('summary')}
-              </p>
-              <div className="mt-6">
-                <DownloadCv />
-              </div>
-            </div>
+        <div className="mt-12">
+          <ScrollReveal>
+            <p className="text-default-600 text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+              {t('summary')}
+            </p>
           </ScrollReveal>
         </div>
 

@@ -7,14 +7,12 @@ export const siteConfig = {
 		{ label: "about", href: "#about" },
 		{ label: "experience", href: "#experience" },
 		{ label: "skills", href: "#skills" },
-		{ label: "blog", href: "/blog", isRoute: true },
 		{ label: "contact", href: "#contact" },
 	],
 	navMenuItems: [
 		{ label: "about", href: "#about" },
 		{ label: "experience", href: "#experience" },
 		{ label: "skills", href: "#skills" },
-		{ label: "blog", href: "/blog", isRoute: true },
 		{ label: "contact", href: "#contact" },
 	],
 	links: {

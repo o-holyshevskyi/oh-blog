@@ -41,7 +41,7 @@ export default function Footer() {
 							{siteConfig.navItems.map((item) => (
 								<li key={item.label}>
 									<Link
-										href={item.isRoute ? item.href : `/${item.href}`}
+										href={`/${item.href}`}
 										className="text-default-500 hover:text-primary text-sm transition-colors"
 									>
 										{t(`links.${item.label}`)}
