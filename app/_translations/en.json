@@ -3,6 +3,17 @@
   "hero": {
     "name": "Oleksandr Holyshevskyi",
     "position": "Senior QA Engineer",
+    "greeting": "Hello, I'm",
+    "tagline": "Ensuring software quality with 7+ years of expertise in test automation, specializing in Playwright, Selenium, C#, and TypeScript.",
+    "roles": {
+      "role1": "Senior QA Engineer",
+      "role2": "Test Automation Expert",
+      "role3": "ISTQB Certified Tester"
+    },
+    "cta": {
+      "contact": "Get in Touch",
+      "work": "View My Work"
+    },
     "personalInfo": {
       "location": "Prague, Prague, Czechia",
       "phoneNumber": "+420 775 161 467",
@@ -10,19 +21,149 @@
     },
     "description": "As a dedicated QA Engineer, I am passionate about leveraging technology to deliver exceptional results for my clients. My expertise lies in designing, developing, and executing automated tests to ensure the highest standards of software quality. My commitment to excellence is evident in my work, where I strive to enhance user experiences through meticulous testing and continuous improvement. I bring unwavering energy and a collaborative spirit to every project, making me a reliable and valuable asset to any team. By focusing on precision and efficiency, I help organizations achieve their goals and deliver outstanding products."
   },
-  "chatBot": {
-    "askAi": "Ask me",
-    "askAiTitle": "Chat with my AI Assistant",
-    "aiAssistant": "AI Assistant:",
-    "askMeAnythingPlaceholder": "Ask me anything...",
-    "aiFirstMessage": "Hi there! I'm Oleksandr's AI assistant. How can I assist you today?",
-    "prompts": {
-      "prompt_1": "What technologies does he use?",
-      "prompt_2": "How can I contact him?",
-      "prompt_3": "What are his skills?",
-      "prompt_4": "Tell me more about his experience"
+  "aboutSection": {
+    "heading": "About Me",
+    "summary": "As a dedicated Senior QA Engineer with over 7 years of experience, I am passionate about leveraging technology to deliver exceptional results. My expertise lies in designing, developing, and executing automated tests using Playwright, Selenium, C#, and TypeScript to ensure the highest standards of software quality. I bring unwavering energy and a collaborative spirit to every project, mentoring junior engineers and contributing to team success through technical expertise and attention to detail.",
+    "stats": {
+      "years": "Years Experience",
+      "repos": "Repositories",
+      "certified": "Certified",
+      "languages": "Languages Spoken"
+    }
+  },
+  "experienceSection": {
+    "heading": "Career Journey",
+    "present": "Present",
+    "companies": {
+      "AdvantISSJob": {
+        "company": "AdvantISS",
+        "role": "Test Automation Engineer",
+        "description": "Specializing in C# and TypeScript to create automated test scripts using Playwright and Selenium libraries. Building customized test frameworks tailored to project needs. Mentoring junior team members, sharing knowledge and ensuring high-quality results. Excelling in test case design and execution, contributing to project success through technical expertise and attention to detail."
+      },
+      "PasynSoftJob": {
+        "company": "PasynSoft LLC",
+        "role": "QA Engineer",
+        "description": "Extensive experience on web application projects with strong proficiency in C# and TypeScript for writing automated tests. Expert in Selenium and Playwright library, creating comprehensive test suites. Proficient in JavaScript, Node.js, SQL, Git, and Azure DevOps, effectively integrating tests into larger development workflows."
+      },
+      "TechStudioJob": {
+        "company": "TechStudio",
+        "role": "QA Engineer",
+        "description": "QA Engineer on the IPTV project for mobile platforms iOS and Android. Created test cases and testing artifacts, responsible for testing both frontend and backend. Started developing automated tests for the API using C#. Mentored newcomers in the team, contributing to the growth and success of the company."
+      }
+    }
+  },
+  "skillsSection": {
+    "heading": "Skills & Expertise",
+    "categories": {
+      "languages": "Languages & Frameworks",
+      "testing": "Testing & QA",
+      "devops": "DevOps & Tools",
+      "methodologies": "Methodologies"
     },
-    "askAiFooter": "Please note that while I strive to provide accurate and helpful information, I may occasionally make mistakes. If you notice any errors or have doubts about my responses, feel free to ask for clarification or double-check with other sources."
+    "skills": {
+      "c#": "Expert in C# for creating robust and efficient automated test scripts and test frameworks.",
+      "typescript": "Expert in TypeScript for building type-safe automated test scripts and tools.",
+      "javascript": "Proficient in JavaScript for web testing and automation scripting.",
+      "nodejs": "Leveraging Node.js to enhance automation scripts and testing frameworks.",
+      "playwright": "Expert in Playwright for reliable, cross-browser end-to-end testing.",
+      "selenium": "Expert in Selenium for web application test automation across browsers.",
+      "api": "Hands-on experience with API testing, verifying RESTful services and endpoints.",
+      "postman": "Proficient in Postman for creating and executing API requests and testing.",
+      "git": "Effective use of Git for version control and collaborative development.",
+      "docker": "Practical experience with Docker for containerized test environments.",
+      "sql": "Working with SQL for database testing and data integrity validation.",
+      "jira": "Proficient in Jira for tracking tasks, defects, and user stories.",
+      "scrum": "Working within Agile Scrum methodologies for efficient project management.",
+      "staticTesting": "Contributing to static testing efforts to identify defects early.",
+      "softwareTesting": "Improving software quality through systematic testing approaches."
+    }
+  },
+  "projectsSection": {
+    "heading": "Featured Projects",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo",
+    "projects": {
+      "ohBlog": {
+        "description": "A personal portfolio and blog platform built with Next.js, featuring MDX blog posts, multi-language support (EN/UK/CZ), dark mode, and a modern responsive design."
+      },
+      "folderSync": {
+        "description": "A C# utility for synchronizing folders efficiently. Handles file comparison, copying, and deletion to keep directories in sync."
+      },
+      "clariSpend": {
+        "description": "A React Native expense tracking mobile application built with Expo and TypeScript for managing personal finances on the go."
+      }
+    }
+  },
+  "blogPreview": {
+    "heading": "Latest from the Blog",
+    "viewAll": "View All Posts",
+    "minRead": "min read"
+  },
+  "testimonials": {
+    "heading": "What Colleagues Say",
+    "recommendations": {
+      "3rd": {
+        "name": "Andrii Yermakov",
+        "position": "Andrii reported directly to me",
+        "text": "I am delighted to provide a strong recommendation for Oleksandr as a mentor in manual and automated testing. He showcased exemplary proficiency, dedication, and a deep understanding of testing methodologies. His comprehensive grasp of testing techniques, effective communication, and commendable prowess in test automation make him an exceptional mentor. His sincere commitment to professional advancement of mentees and strong problem-solving acumen are truly noteworthy."
+      },
+      "1st": {
+        "name": "Denys Hannych",
+        "position": "Denys worked with me on the same team",
+        "text": "Sasha is a dedicated and highly skilled professional in automated testing. His expertise in creating and executing test scripts has been instrumental in improving our software development processes. His attention to detail, problem-solving abilities, and proactive identification of critical defects are truly commendable. Beyond technical skills, he is an excellent team player and communicator who significantly improved the overall quality of our projects."
+      },
+      "2nd": {
+        "name": "Yana Kyrychenko",
+        "position": "Yana managed me directly",
+        "text": "Alex is highly skilled as a QA and eager to learn new areas and acquire new tools. He's good at keeping the product on the decent level and is really meticulous to detail, which is essential for a QA professional."
+      }
+    }
+  },
+  "contactSection": {
+    "heading": "Get in Touch",
+    "subtitle": "Let's Connect",
+    "description": "I'm always open to discussing new projects, opportunities, or collaborations in QA and test automation. Feel free to reach out!",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "locationLabel": "Location"
+    }
+  },
+  "header": {
+    "name": "Oleksandr Holyshevskyi",
+    "navItems": {
+      "home": "Home",
+      "about": "About",
+      "experience": "Experience",
+      "skills": "Skills",
+      "projects": "Projects",
+      "blog": "Blog",
+      "contact": "Contact",
+      "newPostBadge": "new"
+    }
+  },
+  "footer": {
+    "tagline": "Senior QA Engineer based in Prague, Czech Republic",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact",
+    "copyright": "All rights reserved.",
+    "builtWith": "Built with Next.js & NextUI",
+    "links": {
+      "about": "About",
+      "experience": "Experience",
+      "skills": "Skills",
+      "projects": "Projects",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "powered": "Powered by",
+    "deployed": "deployed on",
+    "designed": "designed with"
   },
   "homePage": {
     "name": "Hi, my name is Oleksandr Holyshevskyi",
@@ -101,20 +242,6 @@
     "allPosts": "All posts",
     "noPosts": "No posts were found."
   },
-  "header": {
-    "name": "Oleksandr Holyshevskyi",
-    "navItems": {
-      "home": "Home",
-      "about": "About",
-      "blog": "Blog",
-      "newPostBadge": "new"
-    }
-  },
-  "footer": {
-    "powered": "Powered by",
-    "deployed": "deployed on",
-    "designed": "designed with"
-  },
   "postCards": {
     "minRead": "min read",
     "inThePost": "In the post",
@@ -138,7 +265,7 @@
     "title": "osts filtered by: "
   },
   "metadata": {
-    "homePage": "Oleksandr Holyshevskyi",
+    "homePage": "Oleksandr Holyshevskyi | Senior QA Engineer",
     "aboutPage": "About",
     "blogPage": "Blog",
     "filteredPage": "All by - {tag}"
@@ -161,19 +288,19 @@
   "statistic": {
     "title": "Annual statistic",
     "bugReports": {
-      "title": "Total bug reports created", 
+      "title": "Total bug reports created",
       "tooltip": "Deployed bugs with fixed defects"
     },
     "tasks": {
-      "title": "Total tasks completed", 
+      "title": "Total tasks completed",
       "tooltip": "Tasks tested/verified/delivered"
     },
     "commits": {
-      "title": "Total commits", 
+      "title": "Total commits",
       "tooltip": "Commit messages in test frameworks"
     },
     "tests": {
-      "title": "Total tests created", 
+      "title": "Total tests created",
       "tooltip": "Completed e2e/integration tests"
     }
   }

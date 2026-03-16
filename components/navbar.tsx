@@ -3,6 +3,7 @@ import { Post, getAllPostsMetaWithLang } from "@/app/lib/posts";
 import NavbarWrapper from "./navbar-wrapper";
 
 const getDaysDifference = (posts: Post[]): number => {
+    if (posts.length === 0) return 999;
     const latestPost = posts.reduce((prev, current) =>
         new Date(current.meta.date) > new Date(prev.meta.date) ? current : prev
     );
@@ -18,9 +19,9 @@ const getDaysDifference = (posts: Post[]): number => {
 export default async function Navbar({ locale } : { locale: string }) {
     const posts = await getAllPostsMetaWithLang(locale);
 	const daysDifference = getDaysDifference(posts);
-	
+
 	return (
-		<NavbarWrapper 
+		<NavbarWrapper
 			daysDifference={daysDifference}
 			posts={posts}
             locale={locale}

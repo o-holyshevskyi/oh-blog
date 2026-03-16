@@ -3,6 +3,17 @@
   "hero": {
     "name": "Oleksandr Holyshevskyi",
     "position": "Senior QA Engineer",
+    "greeting": "Ahoj, jsem",
+    "tagline": "Zajištění kvality softwaru s více než 7 lety zkušeností v automatizaci testování, specializace na Playwright, Selenium, C# a TypeScript.",
+    "roles": {
+      "role1": "Senior QA Engineer",
+      "role2": "Expert na automatizaci testů",
+      "role3": "ISTQB certifikovaný tester"
+    },
+    "cta": {
+      "contact": "Kontaktujte mě",
+      "work": "Moje projekty"
+    },
     "personalInfo": {
       "location": "Praha, Praha, Česko",
       "phoneNumber": "+420 775 161 467",
@@ -10,33 +21,164 @@
     },
     "description": "Jako oddaný QA inženýr jsem nadšený využíváním technologií k dosažení vynikajících výsledků pro své klienty. Moje odbornost spočívá v navrhování, vývoji a provádění automatizovaných testů k zajištění nejvyšších standardů kvality softwaru. Mé odhodlání k dokonalosti se odráží v mé práci, kde se snažím zlepšovat uživatelské zkušenosti prostřednictvím pečlivého testování a neustálého zlepšování. Do každého projektu přináším neochvějnou energii a týmového ducha, díky čemuž jsem spolehlivým a cenným členem týmu. Zaměřením na přesnost a efektivitu pomáhám organizacím dosahovat jejich cílů a dodávat vynikající produkty."
   },
-  "chatBot": {
-    "askAi": "Zeptej se mě",
-    "askAiTitle": "Chat s mým AI asistentem",
-    "aiAssistant": "AI asistent:",
-    "askMeAnythingPlaceholder": "Zeptejte se na cokoli...",
-    "aiFirstMessage": "Ahoj! Jsem AI asistent Oleksandra. Jak vám mohu pomoci?",
-    "prompts": {
-      "prompt_1": "Jaké technologie používá?",
-      "prompt_2": "Jak ho mohu kontaktovat?",
-      "prompt_3": "Jaké má dovednosti?",
-      "prompt_4": "Povězte mi více o jeho zkušenostech"
+  "aboutSection": {
+    "heading": "O mně",
+    "summary": "Jako oddaný Senior QA inženýr s více než 7 lety zkušeností jsem nadšený využíváním technologií k dosažení vynikajících výsledků. Moje odbornost spočívá v navrhování, vývoji a provádění automatizovaných testů pomocí Playwright, Selenium, C# a TypeScript. Přináším neochvějnou energii a týmového ducha, mentoruji juniorní inženýry a přispívám k úspěchu týmu technickou expertízou a pozorností k detailům.",
+    "stats": {
+      "years": "Let zkušeností",
+      "repos": "Repozitářů",
+      "certified": "Certifikovaný",
+      "languages": "Jazyků"
     }
   },
+  "experienceSection": {
+    "heading": "Profesní cesta",
+    "present": "Současnost",
+    "companies": {
+      "AdvantISSJob": {
+        "company": "AdvantISS",
+        "role": "Test Automation Engineer",
+        "description": "Specializace na C# a TypeScript pro tvorbu automatizovaných testovacích skriptů pomocí knihoven Playwright a Selenium. Vytváření vlastních testovacích frameworků přizpůsobených potřebám projektu. Mentoring juniorních členů týmu, sdílení znalostí a zajištění kvalitních výsledků."
+      },
+      "PasynSoftJob": {
+        "company": "PasynSoft LLC",
+        "role": "QA Engineer",
+        "description": "Rozsáhlé zkušenosti s projekty webových aplikací s odborností v C# a TypeScript. Expert na Selenium a Playwright pro tvorbu komplexních testovacích sad. Znalost JavaScript, Node.js, SQL, Git a Azure DevOps."
+      },
+      "TechStudioJob": {
+        "company": "TechStudio",
+        "role": "QA Engineer",
+        "description": "QA inženýr na projektu IPTV pro mobilní platformy iOS a Android. Tvorba testovacích případů a artefaktů, testování frontendu i backendu. Vývoj automatizovaných testů pro API pomocí C#. Mentoring nových členů týmu."
+      }
+    }
+  },
+  "skillsSection": {
+    "heading": "Dovednosti a expertíza",
+    "categories": {
+      "languages": "Jazyky a frameworky",
+      "testing": "Testování a QA",
+      "devops": "DevOps a nástroje",
+      "methodologies": "Metodologie"
+    },
+    "skills": {
+      "c#": "Expert v C# pro tvorbu robustních automatizovaných testovacích skriptů a frameworků.",
+      "typescript": "Expert v TypeScript pro tvorbu typově bezpečných automatizovaných testů.",
+      "javascript": "Znalost JavaScriptu pro webové testování a automatizaci.",
+      "nodejs": "Využití Node.js pro vylepšení automatizačních skriptů.",
+      "playwright": "Expert v Playwright pro spolehlivé cross-browser e2e testování.",
+      "selenium": "Expert v Selenium pro automatizaci testování webových aplikací.",
+      "api": "Praktické zkušenosti s API testováním a ověřováním RESTful služeb.",
+      "postman": "Znalost Postman pro tvorbu a provádění API požadavků.",
+      "git": "Efektivní využití Git pro správu verzí a spolupráci.",
+      "docker": "Praktické zkušenosti s Docker pro kontejnerizovaná testovací prostředí.",
+      "sql": "Práce s SQL pro testování databází a validaci integrity dat.",
+      "jira": "Znalost Jira pro sledování úkolů, defektů a user stories.",
+      "scrum": "Práce s Agile Scrum metodologiemi pro efektivní řízení projektů.",
+      "staticTesting": "Účast na statickém testování pro včasné odhalení defektů.",
+      "softwareTesting": "Zlepšování kvality softwaru systematickými přístupy k testování."
+    }
+  },
+  "projectsSection": {
+    "heading": "Vybrané projekty",
+    "viewCode": "Kód",
+    "liveDemo": "Demo",
+    "projects": {
+      "ohBlog": {
+        "description": "Osobní portfolio a blogová platforma na Next.js s MDX články, podporou jazyků (EN/UK/CZ), tmavým režimem a moderním responzivním designem."
+      },
+      "folderSync": {
+        "description": "Utilita v C# pro synchronizaci složek. Zpracovává porovnání souborů, kopírování a mazání pro udržení adresářů v aktuálním stavu."
+      },
+      "clariSpend": {
+        "description": "Mobilní aplikace pro sledování výdajů v React Native s Expo a TypeScript pro správu osobních financí."
+      }
+    }
+  },
+  "blogPreview": {
+    "heading": "Nejnovější příspěvky",
+    "viewAll": "Všechny příspěvky",
+    "minRead": "min čtení"
+  },
+  "testimonials": {
+    "heading": "Co říkají kolegové",
+    "recommendations": {
+      "3rd": {
+        "name": "Andrii Yermakov",
+        "position": "Andrii reportoval přímo mně",
+        "text": "Rád doporučuji Oleksandra jako mentora v manuálním a automatizovaném testování. Prokázal vzornou odbornost, oddanost a hluboké porozumění testovacím metodologiím. Jeho komplexní znalost testovacích technik, efektivní komunikace a pozoruhodné dovednosti v automatizaci testů z něj dělají výjimečného mentora."
+      },
+      "1st": {
+        "name": "Denys Hannych",
+        "position": "Denys pracoval se mnou v jednom týmu",
+        "text": "Sasha je oddaný a vysoce kvalifikovaný profesionál v automatizovaném testování. Jeho expertíza v tvorbě a provádění testovacích skriptů byla klíčová pro zlepšení našich vývojových procesů. Jeho pozornost k detailům, schopnost řešit problémy a proaktivní identifikace kritických defektů jsou skutečně obdivuhodné."
+      },
+      "2nd": {
+        "name": "Yana Kyrychenko",
+        "position": "Yana mě přímo řídila",
+        "text": "Alex je vysoce kvalifikovaný jako QA a dychtivý učit se nové oblasti a osvojovat si nové nástroje. Je dobrý v udržování produktu na slušné úrovni a je opravdu pečlivý k detailům, což je pro QA profesionála nezbytné."
+      }
+    }
+  },
+  "contactSection": {
+    "heading": "Kontakt",
+    "subtitle": "Pojďme se spojit",
+    "description": "Jsem vždy otevřený diskuzi o nových projektech, příležitostech nebo spolupráci v oblasti QA a automatizace testování. Neváhejte mě kontaktovat!",
+    "form": {
+      "name": "Vaše jméno",
+      "email": "Váš email",
+      "subject": "Předmět",
+      "message": "Vaše zpráva",
+      "submit": "Odeslat zprávu",
+      "emailLabel": "Email",
+      "phoneLabel": "Telefon",
+      "locationLabel": "Místo"
+    }
+  },
+  "header": {
+    "name": "Oleksandr Holyshevskyi",
+    "navItems": {
+      "home": "Domů",
+      "about": "O mně",
+      "experience": "Zkušenosti",
+      "skills": "Dovednosti",
+      "projects": "Projekty",
+      "blog": "Blog",
+      "contact": "Kontakt",
+      "newPostBadge": "nové"
+    }
+  },
+  "footer": {
+    "tagline": "Senior QA inženýr, Praha, Česká republika",
+    "quickLinks": "Rychlé odkazy",
+    "contactInfo": "Kontakt",
+    "copyright": "Všechna práva vyhrazena.",
+    "builtWith": "Vytvořeno s Next.js a NextUI",
+    "links": {
+      "about": "O mně",
+      "experience": "Zkušenosti",
+      "skills": "Dovednosti",
+      "projects": "Projekty",
+      "blog": "Blog",
+      "contact": "Kontakt"
+    },
+    "powered": "Poháněno",
+    "deployed": "nasazeno na",
+    "designed": "navrženo s"
+  },
   "homePage": {
-    "name": "Вітаю, мене звати Олександр Голишевський",
-    "about": "Я - сертифікований інженер з автоматизації тестування, проживаю в Україні. Я відданий справі покращення досвіду як людей, так і клієнтів, використовуючи свої навички для досягнення першокласних результатів, які сприяють успіху.",
+    "name": "Ahoj, jmenuji se Oleksandr Holyshevskyi",
+    "about": "Jsem certifikovaný inženýr automatizace testování žijící v České republice. Jsem oddaný zlepšování zkušeností jak lidí, tak zákazníků, využívám své dovednosti k dosažení prvotřídních výsledků.",
     "recentPosts": {
-      "later_1": "О",
-      "title": "станні публікації",
-      "minRead": "хв читання",
-      "readMore": "Читати"
+      "later_1": "N",
+      "title": "ejnovější příspěvky",
+      "minRead": "min čtení",
+      "readMore": "Číst více"
     }
   },
   "about": {
-    "later_1": "П",
-    "title": "ро мене",
-    "aboutMe": "Як інженер з автоматизації випробувань я маю сильну пристрасть як до технологій, так і до обслуговування своїх клієнтів. Моя непохитна енергія та відданість справі забезпечення найкращого досвіду для моїх клієнтів відображена в моїй роботі як кваліфікованого професіонала, який проектує, розробляє та виконує автоматизовані тести для підвищення якості програмного забезпечення. Оскільки я зосереджений на досягненні найвищих результатів, я є цінним активом для будь-якої команди.",
+    "later_1": "O",
+    "title": " mně",
+    "aboutMe": "Jako inženýr automatizace testování mám silnou vášeň jak pro technologie, tak pro služby svým klientům. Moje neochvějná energie a oddanost zajištění nejlepší zkušenosti pro mé zákazníky se odráží v mé práci jako kvalifikovaného profesionála, který navrhuje, vyvíjí a provádí automatizované testy pro zvýšení kvality softwaru.",
     "downloadCV": {
       "download": "Stáhnout CV",
       "downloading": "Stahování...",
@@ -44,136 +186,122 @@
     },
     "aboutAccordion": {
       "experience": {
-        "title": "Мій досвід",
+        "title": "Moje zkušenosti",
         "TechStudioJob": {
           "companyName": "TechStudio",
-          "occupation": "Як інженер із забезпечення якості в проекті IPTV для мобільних платформ iOS і Android, я відточив свої навички щодо забезпечення якості та тестування. Я створював тестові приклади та інші артефакти тестування, і відповідав за тестування інтерфейсу, і серверу програми. Крім того, я вжив заходів для підвищення ефективності наших процесів тестування, почавши розробляти автоматизовані тести для API за допомогою C#. Мій досвід роботи на цій посаді також дозволив мені ділитися своїми знаннями та наставляти новачків у команді, сприяючи зростанню та успіху компанії."
+          "occupation": "Jako QA inženýr na projektu IPTV pro mobilní platformy iOS a Android jsem zdokonalil své dovednosti v zajišťování kvality a testování. Vytvářel jsem testovací případy a další testovací artefakty, zodpovídal za testování frontendu i backendu aplikace. Začal jsem vyvíjet automatizované testy pro API pomocí C#. Mentoroval jsem nové členy týmu."
         },
         "PasynSoftJob": {
           "companyName": "PasynSoft LLC",
-          "occupation": "Великий досвід роботи над проектами веб-додатків, я вношу сильні технічні знання. Мій досвід використання C# і TypeScript для написання автоматизованих тестів дозволив мені ефективно тестувати та перевіряти функціональність програмного забезпечення. Крім того, мій досвід роботи з Selenium і бібліотекою Playwright дав мені інструменти та навички, необхідні для створення комплексних наборів тестів і забезпечення найвищого рівня якості програмного забезпечення. Окрім моїх сильних навичок у C# та TypeScript, я також добре знаю низку інших технологій, зокрема JavaScript, NodeJS, SQL, Git та Azure DevOps. Ці технічні знання дозволили мені ефективно проектувати, розробляти та виконувати автоматичні тести для веб-додатків, а також дали мені можливість інтегрувати свої тести в більший робочий процес розробки."
+          "occupation": "Rozsáhlé zkušenosti s projekty webových aplikací. Znalost C# a TypeScript pro psaní automatizovaných testů. Zkušenosti se Selenium a knihovnou Playwright pro tvorbu komplexních testovacích sad. Znalost JavaScriptu, Node.js, SQL, Git a Azure DevOps."
         },
         "AdvantISSJob": {
           "companyName": "AdvantISS",
-          "occupation": "Як інженер з автоматизації тестування я спеціалізуюся на C# та TypeScript для створення сценаріїв автоматизованого тестування за допомогою бібліотек Playwright і Selenium. Мої сильні сторони включають створення індивідуальних тестових інфраструктур, адаптованих до потреб проекту. Я працював над різноманітними проектами, отримавши адаптивність і глибокі знання процесів розробки програмного забезпечення. Крім того, я наставляв молодших членів команди, ділився знаннями та забезпечував високоякісні результати. Я чудово виконую важливі завдання, такі як розробка та виконання тестів, сприяю успіху проекту завдяки технічним знанням і уважності до деталей."
+          "occupation": "Jako inženýr automatizace testování se specializuji na C# a TypeScript pro tvorbu automatizovaných testovacích skriptů pomocí knihoven Playwright a Selenium. Mé silné stránky zahrnují budování přizpůsobených testovacích frameworků. Mentoroval jsem juniorní členy týmu, sdílel znalosti a zajišťoval kvalitní výsledky."
         }
       },
       "education": {
-        "title": "Освіта",
-        "university": "Сумський Державний університет (СумДУ)",
-        "masterDegree": "Магістр, матеріалознавство",
-        "bachelorDegree": "Ступінь бакалавра, Матеріалознавство"
+        "title": "Vzdělání",
+        "university": "Sumská státní univerzita",
+        "masterDegree": "Magisterský titul, Materiálové vědy",
+        "bachelorDegree": "Bakalářský titul, Materiálové vědy"
       },
       "skills": {
-        "title": "Навички",
+        "title": "Dovednosti",
         "skillsDescription": {
-          "c#": "Я відточив свій досвід у використанні мов програмування C# і TypeScript для створення надійних і ефективних автоматизованих сценаріїв тестування",
-          "typescript": "Я відточив свій досвід у використанні мов програмування C# і TypeScript для створення надійних і ефективних автоматизованих сценаріїв тестування",
-          "playwright": "Моя робота полягає в тому, щоб забезпечити надійність і точність програмного забезпечення за допомогою бібліотек Playwright і Selenium",
-          "selenium": "Моя робота полягає в тому, щоб забезпечити надійність і точність програмного забезпечення за допомогою бібліотек Playwright і Selenium",
-          "git": "Я ефективно використовую Git для контролю версій, забезпечення спільної розробки та відстеження змін у кодовій базі автоматизації тестування",
-          "api": "Я маю практичний досвід тестування API за допомогою таких інструментів, як POSTMAN, що дозволяє ретельно перевіряти служби RESTful і кінцеві точки API",
-          "postman": "Postman дозволяє мені створювати та виконувати запити API, зокрема GET, POST, PUT, DELETE тощо, що корисно під час тестування API",
-          "sql": "Моя роль включає роботу з SQL для тестування бази даних, перевірки цілісності даних і забезпечення правильної взаємодії програми з базами даних",
-          "nodejs": "Я використовую Node.js для вдосконалення сценаріїв автоматизації та тестових інфраструктур, покращуючи їх ефективність і продуктивність",
-          "docker": "У мене є практичний досвід роботи з Docker, який дозволяє мені створювати та керувати контейнерними середовищами для тестування, сприяючи узгодженості та повторюваності в налаштуваннях тестування",
-          "scrum": "Працюю із методологіями Agile Scrum, сприяючи плануванню спринтів, уточненню резервів і щоденним зустрічам для ефективного управління проектами",
-          "jira": "Досвідчене володіння Jira для відстеження та керування проектними завданнями, дефектами та історіями користувачів, забезпечуючи узгодженість із цілями проекту",
-          "staticTesting": "Я брав участь у статичному тестуванні, виявляв і документував дефекти на ранніх стадіях розробки, що призвело до зниження витрат на обслуговування програмного забезпечення та покращення загальної якості",
-          "softwareTesting": "Сприяв загальному покращенню якості програмного забезпечення шляхом виявлення дефектів і проблем, зменшення зусиль на тестування вручну та забезпечення своєчасної доставки високоякісних програмних продуктів"
+          "c#": "Zdokonalil jsem své odborné znalosti v využívání programovacích jazyků C# a TypeScript pro tvorbu robustních a efektivních automatizovaných testovacích skriptů",
+          "typescript": "Zdokonalil jsem své odborné znalosti v využívání programovacích jazyků C# a TypeScript pro tvorbu robustních a efektivních automatizovaných testovacích skriptů",
+          "playwright": "Moje práce se zaměřuje na zajištění spolehlivosti a přesnosti softwarových aplikací pomocí knihoven Playwright a Selenium",
+          "selenium": "Moje práce se zaměřuje na zajištění spolehlivosti a přesnosti softwarových aplikací pomocí knihoven Playwright a Selenium",
+          "git": "Efektivně využívám Git pro správu verzí, zajištění spolupráce při vývoji a sledování změn",
+          "api": "Mám praktické zkušenosti s API testováním pomocí nástrojů jako POSTMAN",
+          "postman": "Postman mi umožňuje vytvářet a provádět API požadavky",
+          "sql": "Pracuji s SQL pro testování databází a validaci integrity dat",
+          "nodejs": "Využívám Node.js pro vylepšení automatizačních skriptů a testovacích frameworků",
+          "docker": "Mám praktické zkušenosti s Dockerem pro tvorbu kontejnerizovaných testovacích prostředí",
+          "scrum": "Pracuji s Agile Scrum metodologiemi pro efektivní řízení projektů",
+          "jira": "Zkušenosti s Jira pro sledování úkolů, defektů a user stories",
+          "staticTesting": "Přispívám ke statickému testování, identifikuji defekty v raných fázích vývoje",
+          "softwareTesting": "Přispívám k celkovému zlepšení kvality softwaru identifikací defektů a problémů"
         }
       },
       "certificates": {
-        "title": "Сертифікати",
-        "id": "Ідентифікатор",
-        "skills": "Навички"
+        "title": "Certifikáty",
+        "id": "ID certifikátu",
+        "skills": "Dovednosti"
       }
     }
   },
   "blogPage": {
-    "later_1": "Б",
-    "title": "лог",
-    "searchInputPlaceholder": "Пошук публікації...",
-    "all": "Всі",
-    "filterByTags": "Фільтрувати за тегами",
-    "resetFilter": "Скинути фільтр",
-    "allPosts": "Всі публікації",
-    "noPosts": "Публікацій не знайдено."
-  },
-  "header": {
-    "name": "Олександр Голишевський",
-    "navItems": {
-      "home": "Додому",
-      "about": "Про мене",
-      "blog": "Блог",
-      "newPostBadge": "нове"
-    }
-  },
-  "footer": {
-    "powered": "Працює на",
-    "deployed": "розгорнуто на",
-    "designed": "розроблено за допомогою"
+    "later_1": "B",
+    "title": "log",
+    "searchInputPlaceholder": "Hledat příspěvek...",
+    "all": "Vše",
+    "filterByTags": "Filtrovat podle tagů",
+    "resetFilter": "Resetovat filtr",
+    "allPosts": "Všechny příspěvky",
+    "noPosts": "Nebyly nalezeny žádné příspěvky."
   },
   "postCards": {
-    "minRead": "хв читання",
-    "inThePost": "В публікації",
-    "readMore": "Читати",
+    "minRead": "min čtení",
+    "inThePost": "V příspěvku",
+    "readMore": "Číst více",
     "views": {
-      "single": "перегляд",
-      "plural": "переглядів"
+      "single": "zobrazení",
+      "plural": "zobrazení"
     }
   },
   "postPage": {
-    "tocHeader": "Зміст",
-    "sharedLinks": "Поділитись в ",
-    "copyLink": "Копіювати посилання",
-    "later_1": "С",
-    "relatedPosts": "хожі публікації",
-    "backToHome": "Додому",
-    "toTop": "Вверх"
+    "tocHeader": "V tomto článku",
+    "sharedLinks": "Sdílet na ",
+    "copyLink": "Kopírovat odkaz",
+    "later_1": "S",
+    "relatedPosts": "ouvisející témata",
+    "backToHome": "Domů",
+    "toTop": "Nahoru"
   },
   "filteredPosts": {
-    "later_1": "В",
-    "title": "ідфільтровані публікації по: "
+    "later_1": "P",
+    "title": "říspěvky filtrované podle: "
   },
   "metadata": {
-    "homePage": "Олександр Голишевський",
-    "aboutPage": "Про мене",
-    "blogPage": "Блог",
-    "filteredPage": "Всe по - {tag}"
+    "homePage": "Oleksandr Holyshevskyi | Senior QA Engineer",
+    "aboutPage": "O mně",
+    "blogPage": "Blog",
+    "filteredPage": "Vše podle - {tag}"
   },
   "recommendations": {
-    "title": "Рекомендації",
+    "title": "Doporučení",
     "1st": {
-      "name": "Денис Ганнич",
-      "position": "Денис працював зі мною в одній команді"
+      "name": "Denys Hannych",
+      "position": "Denys pracoval se mnou v jednom týmu"
     },
     "2nd": {
-      "name": "Яна Кириченко",
-      "position": "Яна керувала безпосередньо мною"
+      "name": "Yana Kyrychenko",
+      "position": "Yana mě přímo řídila"
     },
     "3rd": {
-      "name": "Андрій Єрмаков",
-      "position": "Андрій звітував безпосередньо мені"
+      "name": "Andrii Yermakov",
+      "position": "Andrii reportoval přímo mně"
     }
   },
   "statistic": {
-    "title": "Річна статистика",
+    "title": "Roční statistiky",
     "bugReports": {
-      "title": "Cтворені звіти про помилки", 
-      "tooltip": "Помилки з виправленими дефектами"
+      "title": "Vytvořené hlášení chyb",
+      "tooltip": "Chyby s opravenými defekty"
     },
     "tasks": {
-      "title": "Усього виконано завдань", 
-      "tooltip": "Завдання перевірено/перевірено/здано"
+      "title": "Celkem dokončených úkolů",
+      "tooltip": "Úkoly otestované/ověřené/dodané"
     },
     "commits": {
-      "title": "Кількість commit`ів", 
-      "tooltip": "Коміти повідомлень у тестових фреймворках"
+      "title": "Celkem commitů",
+      "tooltip": "Commity v testovacích frameworcích"
     },
     "tests": {
-      "title": "Всього створено тестів", 
-      "tooltip": "Завершені e2e/інтеграційні тести"
+      "title": "Celkem vytvořených testů",
+      "tooltip": "Dokončené e2e/integrační testy"
     }
   }
 }

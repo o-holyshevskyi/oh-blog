@@ -50,6 +50,9 @@ export const getPostBySlug = async (slug: string, locale: string) => {
 
 export const getAllPostsMetaWithLang = async (locale: string) => {
   const postsDirectory = path.join(process.cwd(), 'app', 'posts', locale);
+  if (!fs.existsSync(postsDirectory)) {
+    return [];
+  }
   const files = fs.readdirSync(postsDirectory);
 
   let posts = [];

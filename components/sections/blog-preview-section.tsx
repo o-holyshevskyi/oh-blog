@@ -1,4 +1,5 @@
 import { getAllPostsMetaWithLang } from '@/app/lib/posts';
+import { timeToRead } from '@/app/lib/time-to-read';
 import { getTranslator } from 'next-intl/server';
 import BlogPreviewClient from './blog-preview-client';
 
@@ -14,10 +15,10 @@ export default async function BlogPreviewSection({ locale }: BlogPreviewSectionP
   const postsData = latestPosts.map((post) => ({
     slug: post.meta.slug,
     title: post.meta.title,
-    description: post.meta.description,
+    description: post.description,
     date: post.meta.date,
     tags: post.meta.tags,
-    timeToRead: post.meta.timeToRead,
+    timeToRead: timeToRead(post.fileContent),
   }));
 
   return (

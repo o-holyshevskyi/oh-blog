@@ -41,6 +41,7 @@ export default function Home({
 
 	return (
 		<>
+			{/* @ts-ignore Async Server Component */}
 			<Navbar locale={locale} />
 			<main>
 				<HeroSection />
