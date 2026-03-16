@@ -31,7 +31,7 @@ export default function AboutSection() {
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-sm opacity-50" />
                 <Avatar
-                  src="/avatars/avatar-3.jfif"
+                  src="/avatars/hero-photo.jpg"
                   className="w-48 h-48 md:w-64 md:h-64 relative"
                   isBordered
                   color="primary"

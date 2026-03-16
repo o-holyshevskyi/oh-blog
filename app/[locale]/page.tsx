@@ -5,9 +5,6 @@ import HeroSection from '@/components/sections/hero-section';
 import AboutSection from '@/components/sections/about-section';
 import ExperienceTimeline from '@/components/sections/experience-timeline';
 import SkillsSection from '@/components/sections/skills-section';
-import ProjectsSection from '@/components/sections/projects-section';
-import BlogPreviewSection from '@/components/sections/blog-preview-section';
-import TestimonialsSection from '@/components/sections/testimonials-section';
 import ContactSection from '@/components/sections/contact-section';
 import { locales } from '@/i18nconfig';
 import { Metadata } from 'next';
@@ -43,15 +40,11 @@ export default function Home({
 		<>
 			{/* @ts-ignore Async Server Component */}
 			<Navbar locale={locale} />
-			<main>
+			<main className="snap-scroll">
 				<HeroSection />
 				<AboutSection />
 				<ExperienceTimeline locale={locale} />
 				<SkillsSection />
-				<ProjectsSection />
-				{/* @ts-ignore Async Server Component */}
-				<BlogPreviewSection locale={locale} />
-				<TestimonialsSection locale={locale} />
 				<ContactSection />
 			</main>
 			<Footer />

@@ -99,7 +99,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 as={Link}
-                href="#projects"
+                href="#experience"
                 variant="bordered"
                 size="lg"
                 radius="full"

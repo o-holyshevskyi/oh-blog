@@ -13,6 +13,26 @@ html {
     scroll-padding-top: 5rem;
 }
 
+/* Magnetic snap scroll for main portfolio sections */
+main.snap-scroll {
+    scroll-snap-type: y proximity;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+main.snap-scroll > section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+@media (max-width: 768px) {
+    main.snap-scroll {
+        scroll-snap-type: none;
+        overflow-y: visible;
+        height: auto;
+    }
+}
+
 *::-webkit-scrollbar {
     width: 3px;
 }
