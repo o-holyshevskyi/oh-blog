@@ -60,7 +60,7 @@ export const experienceData: ExperienceItem[] = [
     translationKey: "NDAJob",
     startDate: "2024-07-01",
     endDate: null,
-    icon: "mdi:briefcase-lock",
+    icon: "mdi:shield-lock",
   },
   {
     company: "AdvantISS",

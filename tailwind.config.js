@@ -53,6 +53,10 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(8px)' },
         },
+        shimmer: {
+          '0%': { backgroundPosition: '200% center' },
+          '100%': { backgroundPosition: '-200% center' },
+        },
       },
       animation: {
         typewriter: 'typewriter 3.5s steps(40, end) forwards',
@@ -63,6 +67,7 @@ module.exports = {
         'fade-in-right': 'fadeInRight 0.6s ease-out forwards',
         'float': 'float 3s ease-in-out infinite',
         'bounce-down': 'bounceDown 1.5s ease-in-out infinite',
+        'shimmer': 'shimmer 3s ease-in-out infinite',
       },
     },
   },

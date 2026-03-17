@@ -143,7 +143,7 @@ export default function AnimatedBackground() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = dark
-          ? `rgba(168, 130, 255, ${p.opacity})`
+          ? `rgba(192, 132, 252, ${p.opacity})`
           : `rgba(79, 70, 229, ${p.opacity * 0.6})`;
         ctx.fill();
       }
@@ -158,7 +158,7 @@ export default function AnimatedBackground() {
           if (dist < connectionDist) {
             const alpha = (1 - dist / connectionDist) * (dark ? 0.15 : 0.08);
             ctx.strokeStyle = dark
-              ? `rgba(168, 130, 255, ${alpha})`
+              ? `rgba(192, 132, 252, ${alpha})`
               : `rgba(79, 70, 229, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
