@@ -6,7 +6,7 @@ export const title = tv({
 		color: {
 			violet: "from-[#FF1CF7] to-[#b249f8]",
 			yellow: "from-[#FF705B] to-[#FFB457]",
-			blue: "from-[#5EA2EF] to-[#0072F5]",
+			blue: "from-[#5EA2EF] to-[#0072F5] dark:from-[#c084fc] dark:to-[#a855f7]",
 			cyan: "from-[#00b7fa] to-[#01cfea]",
 			green: "from-[#6FEE8D] to-[#17c964]",
 			pink: "from-[#FF72E1] to-[#F54C7A]",
@@ -57,7 +57,7 @@ export const sectionTitle = tv({
 	base: "text-3xl md:text-4xl font-bold tracking-tight",
 	variants: {
 		color: {
-			blue: "bg-clip-text text-transparent bg-gradient-to-r from-[#5EA2EF] to-[#0072F5]",
+			blue: "bg-clip-text text-transparent bg-gradient-to-r from-[#5EA2EF] to-[#0072F5] dark:from-[#c084fc] dark:to-[#a855f7]",
 			default: "",
 		},
 		align: {
