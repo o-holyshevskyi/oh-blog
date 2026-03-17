@@ -37,8 +37,8 @@ export default function AnimatedBackground() {
       y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.3,
       vy: (Math.random() - 0.5) * 0.3,
-      radius: Math.random() * 1.5 + 0.5,
-      opacity: Math.random() * 0.5 + 0.15,
+      radius: Math.random() * 2 + 1,
+      opacity: Math.random() * 0.4 + 0.25,
     }));
 
     orbsRef.current = [
@@ -149,14 +149,14 @@ export default function AnimatedBackground() {
       }
 
       // Draw connections
-      ctx.lineWidth = 0.5;
+      ctx.lineWidth = 0.7;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < connectionDist) {
-            const alpha = (1 - dist / connectionDist) * (dark ? 0.15 : 0.08);
+            const alpha = (1 - dist / connectionDist) * (dark ? 0.2 : 0.1);
             ctx.strokeStyle = dark
               ? `rgba(192, 132, 252, ${alpha})`
               : `rgba(79, 70, 229, ${alpha})`;

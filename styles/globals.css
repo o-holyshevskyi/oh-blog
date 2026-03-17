@@ -8,6 +8,11 @@
     --default: #949099;
 }
 
+.dark {
+    --primary: #a855f7;
+    --secondary: #c084fc;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;

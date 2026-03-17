@@ -49,7 +49,7 @@ export default function HeroSection() {
           {/* @ts-ignore */}
           <MotionWrapper {...itemProps}>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-3 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5EA2EF] via-[#0072F5] to-[#5EA2EF] bg-[length:200%_auto] animate-shimmer">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5EA2EF] via-[#0072F5] to-[#5EA2EF] dark:from-[#c084fc] dark:via-[#a855f7] dark:to-[#c084fc] bg-[length:200%_auto] animate-shimmer">
                 {t('name')}
               </span>
             </h1>
