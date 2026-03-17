@@ -31,20 +31,20 @@ export default function AnimatedBackground() {
   const sizeRef = useRef({ w: 0, h: 0 });
 
   const initParticles = useCallback((w: number, h: number) => {
-    const count = Math.min(Math.floor((w * h) / 18000), 80);
+    const count = Math.min(Math.floor((w * h) / 8000), 180);
     particlesRef.current = Array.from({ length: count }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.3,
       vy: (Math.random() - 0.5) * 0.3,
       radius: Math.random() * 1.5 + 0.5,
-      opacity: Math.random() * 0.4 + 0.1,
+      opacity: Math.random() * 0.5 + 0.15,
     }));
 
     orbsRef.current = [
-      { x: w * 0.2, y: h * 0.3, vx: 0.15, vy: 0.1, radius: w * 0.15, hue: 210 },
-      { x: w * 0.7, y: h * 0.6, vx: -0.1, vy: 0.12, radius: w * 0.12, hue: 260 },
-      { x: w * 0.5, y: h * 0.8, vx: 0.08, vy: -0.14, radius: w * 0.1, hue: 190 },
+      { x: w * 0.2, y: h * 0.3, vx: 0.15, vy: 0.1, radius: w * 0.15, hue: 270 },
+      { x: w * 0.7, y: h * 0.6, vx: -0.1, vy: 0.12, radius: w * 0.12, hue: 280 },
+      { x: w * 0.5, y: h * 0.8, vx: 0.08, vy: -0.14, radius: w * 0.1, hue: 250 },
     ];
   }, []);
 
@@ -99,9 +99,9 @@ export default function AnimatedBackground() {
         if (orb.y > h + orb.radius) orb.y = -orb.radius;
 
         const gradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
-        const alpha = dark ? 0.06 : 0.04;
+        const alpha = dark ? 0.025 : 0.018;
         gradient.addColorStop(0, `hsla(${orb.hue}, 80%, ${dark ? 60 : 50}%, ${alpha})`);
-        gradient.addColorStop(0.5, `hsla(${orb.hue}, 70%, ${dark ? 50 : 40}%, ${alpha * 0.5})`);
+        gradient.addColorStop(0.5, `hsla(${orb.hue}, 70%, ${dark ? 50 : 40}%, ${alpha * 0.4})`);
         gradient.addColorStop(1, 'transparent');
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -112,7 +112,7 @@ export default function AnimatedBackground() {
       const particles = particlesRef.current;
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
-      const connectionDist = 120;
+      const connectionDist = 140;
 
       // Update and draw particles
       for (const p of particles) {
@@ -139,12 +139,12 @@ export default function AnimatedBackground() {
         if (p.y < 0) p.y = h;
         if (p.y > h) p.y = 0;
 
-        // Draw particle
+        // Draw particle — purple in dark, indigo in light
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = dark
-          ? `rgba(100, 160, 255, ${p.opacity})`
-          : `rgba(0, 112, 240, ${p.opacity * 0.6})`;
+          ? `rgba(168, 130, 255, ${p.opacity})`
+          : `rgba(79, 70, 229, ${p.opacity * 0.6})`;
         ctx.fill();
       }
 
@@ -156,10 +156,10 @@ export default function AnimatedBackground() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < connectionDist) {
-            const alpha = (1 - dist / connectionDist) * (dark ? 0.12 : 0.06);
+            const alpha = (1 - dist / connectionDist) * (dark ? 0.15 : 0.08);
             ctx.strokeStyle = dark
-              ? `rgba(100, 160, 255, ${alpha})`
-              : `rgba(0, 112, 240, ${alpha})`;
+              ? `rgba(168, 130, 255, ${alpha})`
+              : `rgba(79, 70, 229, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
