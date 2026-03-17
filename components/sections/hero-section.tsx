@@ -36,13 +36,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex items-center overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-primary/3 rounded-full blur-2xl animate-float" style={{ animationDelay: '0.8s' }} />
-      </div>
-
       <div className="section-container w-full relative z-10">
         {/* @ts-ignore */}
         <MotionWrapper {...motionProps} className="max-w-3xl">

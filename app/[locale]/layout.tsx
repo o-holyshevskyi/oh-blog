@@ -8,6 +8,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { locales } from "@/i18nconfig";
 import { notFound } from "next/navigation";
 import {unstable_setRequestLocale} from 'next-intl/server';
+import AnimatedBackground from '@/components/motion/animated-background';
 
 export const metadata: Metadata = {
 	title: {
@@ -53,6 +54,7 @@ export  default async function RootLayout({
 			>
 				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+						<AnimatedBackground />
 						{children}
 					</Providers>
 					<Analytics />
