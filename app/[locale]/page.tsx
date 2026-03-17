@@ -1,6 +1,6 @@
 import { getTranslator, unstable_setRequestLocale } from 'next-intl/server';
 import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+
 import HeroSection from '@/components/sections/hero-section';
 import AboutSection from '@/components/sections/about-section';
 import ExperienceTimeline from '@/components/sections/experience-timeline';
@@ -47,7 +47,6 @@ export default function Home({
 				<SkillsSection />
 				<ContactSection />
 			</main>
-			<Footer />
 		</>
 	);
 }
