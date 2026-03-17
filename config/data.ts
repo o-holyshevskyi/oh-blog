@@ -66,7 +66,7 @@ export const experienceData: ExperienceItem[] = [
     company: "AdvantISS",
     translationKey: "AdvantISSJob",
     startDate: "2022-08-01",
-    endDate: null,
+    endDate: "2024-07-31",
     icon: "mdi:briefcase",
   },
   {
