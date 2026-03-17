@@ -35,6 +35,11 @@
     "heading": "Profesní cesta",
     "present": "Současnost",
     "companies": {
+      "NDAJob": {
+        "company": "NDA",
+        "role": "Senior QA Engineer",
+        "description": "Specializace na procesy integrace, verifikace, validace a kvalifikace (IVVQ) pro desktopové produkty. Řízení IVVQ týmu a definování testovací strategie řešení. Vedení vývoje a realizace testovacích strategií, testovacích případů a automatizačních frameworků pro desktopové aplikace. Spolupráce s cross-funkčními týmy na identifikaci a řešení defektů v raných fázích vývoje."
+      },
       "AdvantISSJob": {
         "company": "AdvantISS",
         "role": "Test Automation Engineer",

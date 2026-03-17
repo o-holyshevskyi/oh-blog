@@ -35,6 +35,11 @@
     "heading": "Career Journey",
     "present": "Present",
     "companies": {
+      "NDAJob": {
+        "company": "NDA",
+        "role": "Senior QA Engineer",
+        "description": "Specializing in Integration, Verification, Validation, and Qualification (IVVQ) processes for desktop products. Managing the IVVQ team and defining the test strategy of the solution. Leading the development and execution of test strategies, test cases, and automation frameworks tailored to desktop applications. Collaborating with cross-functional teams to identify, analyze, and resolve defects during early development phases. Driving continuous improvements in QA methodologies and processes."
+      },
       "AdvantISSJob": {
         "company": "AdvantISS",
         "role": "Test Automation Engineer",

@@ -56,6 +56,13 @@ export interface RecommendationItem {
 
 export const experienceData: ExperienceItem[] = [
   {
+    company: "NDA",
+    translationKey: "NDAJob",
+    startDate: "2024-07-01",
+    endDate: null,
+    icon: "mdi:briefcase-lock",
+  },
+  {
     company: "AdvantISS",
     translationKey: "AdvantISSJob",
     startDate: "2022-08-01",
