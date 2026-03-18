@@ -8,35 +8,16 @@ export default function FloatingScrollTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const snapMain = document.querySelector('main.snap-scroll');
-
     const handleScroll = () => {
-      const scrollTarget = snapMain && snapMain.scrollHeight > window.innerHeight
-        ? snapMain
-        : document.documentElement;
-      setVisible(scrollTarget.scrollTop > 400);
+      setVisible(document.documentElement.scrollTop > 400 || window.scrollY > 400);
     };
 
-    if (snapMain) {
-      snapMain.addEventListener('scroll', handleScroll, { passive: true });
-    }
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      if (snapMain) {
-        snapMain.removeEventListener('scroll', handleScroll);
-      }
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    const snapMain = document.querySelector('main.snap-scroll');
-    if (snapMain && snapMain.scrollHeight > window.innerHeight) {
-      snapMain.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -49,7 +30,7 @@ export default function FloatingScrollTop() {
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-110 transition-transform"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-sm bg-ink dark:bg-cream text-cream dark:text-ink shadow-sm hover:shadow-md hover:scale-105 transition-all"
         >
           <Icon icon="mdi:chevron-up" width={24} />
         </motion.button>

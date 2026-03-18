@@ -42,7 +42,7 @@ export default function Home({
 			{/* @ts-ignore Async Server Component */}
 			<Navbar locale={locale} />
 			<FloatingScrollTop />
-			<main className="snap-scroll relative z-10">
+			<main className="relative z-10">
 				<HeroSection />
 				<AboutSection />
 				<ExperienceTimeline locale={locale} />

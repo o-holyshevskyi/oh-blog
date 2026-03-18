@@ -1,6 +1,13 @@
 "use client";
 
-import { FC } from "react";
+// View Transitions API type (not yet in all TS libs)
+declare global {
+	interface Document {
+		startViewTransition?: (callback: () => void) => { finished: Promise<void> };
+	}
+}
+
+import { FC, useCallback, useRef } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
@@ -15,15 +22,34 @@ export interface ThemeSwitchProps {
 	classNames?: SwitchProps["classNames"];
 }
 
+export function startSlideTransition(callback: () => void) {
+	if (!document.startViewTransition) {
+		callback();
+		return;
+	}
+	document.startViewTransition(callback);
+}
+
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({
 	className,
 	classNames,
 }) => {
 	const { theme, setTheme } = useTheme();
   	const isSSR = useIsSSR();
+	const audioRef = useRef<HTMLAudioElement | null>(null);
+
+	const applyTheme = useCallback(() => {
+		theme === "light" ? setTheme("dark") : setTheme("light");
+	}, [theme, setTheme]);
 
 	const onChange = () => {
-		theme === "light" ? setTheme("dark") : setTheme("light");
+		if (!audioRef.current) {
+			audioRef.current = new Audio('/drawer-closing.mp3');
+		}
+		audioRef.current.currentTime = 0;
+		audioRef.current.play().catch(() => {});
+
+		startSlideTransition(applyTheme);
 	};
 
 	const {
