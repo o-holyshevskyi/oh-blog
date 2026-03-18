@@ -3,46 +3,19 @@
 @tailwind utilities;
 
 :root {
-    --primary: #0070F0;
-    --secondary: #9455D3;
-    --default: #949099;
+    --primary: #d97757;
+    --secondary: #D4A574;
+    --default: #b0aea5;
 }
 
 .dark {
-    --primary: #a855f7;
-    --secondary: #c084fc;
+    --primary: #d97757;
+    --secondary: #D4A574;
 }
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-}
-
-/* Magnetic snap scroll for main portfolio sections */
-main.snap-scroll {
-    scroll-snap-type: y mandatory;
-    overflow-y: auto;
-    height: 100vh;
-}
-
-main.snap-scroll > section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    height: 100vh;
-    overflow-y: auto;
-}
-
-@media (max-width: 768px) {
-    main.snap-scroll {
-        scroll-snap-type: none;
-        overflow-y: visible;
-        height: auto;
-    }
-
-    main.snap-scroll > section {
-        height: auto;
-        overflow-y: visible;
-    }
 }
 
 *::-webkit-scrollbar {
@@ -60,16 +33,6 @@ main.snap-scroll > section {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--default);
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
-.animate-caret {
-    display: inline-block;
-    width: 0.6em;
-    animation: blink 0.75s steps(1) infinite;
 }
 
 @layer utilities {

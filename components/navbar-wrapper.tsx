@@ -89,7 +89,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 	return (
 		<>
 			<motion.div
-				className="fixed top-0 left-0 right-0 h-[2px] bg-primary z-[60] origin-left"
+				className="fixed top-0 left-0 right-0 h-[1px] bg-terracotta z-[60] origin-left"
 				style={{ scaleX }}
 			/>
 			<NextUINavbar
@@ -98,7 +98,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 				onMenuOpenChange={setIsMenuOpen}
 				position="sticky"
 				classNames={{
-					wrapper: "backdrop-blur-lg bg-background/70",
+					wrapper: "bg-cream/95 dark:bg-[#1a1918]/95 backdrop-blur-sm",
 					item: [
 						"flex",
 						"relative",

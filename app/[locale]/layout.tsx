@@ -8,7 +8,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { locales } from "@/i18nconfig";
 import { notFound } from "next/navigation";
 import {unstable_setRequestLocale} from 'next-intl/server';
-import AnimatedBackground from '@/components/motion/animated-background';
 
 export const metadata: Metadata = {
 	title: {
@@ -48,13 +47,12 @@ export  default async function RootLayout({
 			<head />
 			<body
 				className={clsx(
-					"min-h-screen bg-background antialiased",
+					"min-h-screen bg-cream dark:bg-[#1a1918] text-ink dark:text-cream antialiased",
 				)}
-				style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}
+				style={{ fontFamily: 'Georgia, ui-serif, Cambria, "Palatino Linotype", "Times New Roman", Times, serif' }}
 			>
 				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-						<AnimatedBackground />
 						{children}
 					</Providers>
 					<Analytics />

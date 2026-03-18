@@ -1,16 +1,16 @@
 import { tv } from "tailwind-variants";
 
 export const title = tv({
-	base: "tracking-tight inline font-semibold",
+	base: "tracking-tight inline font-serif font-semibold",
 	variants: {
 		color: {
-			violet: "from-[#FF1CF7] to-[#b249f8]",
-			yellow: "from-[#FF705B] to-[#FFB457]",
-			blue: "from-[#5EA2EF] to-[#0072F5] dark:from-[#c084fc] dark:to-[#a855f7]",
-			cyan: "from-[#00b7fa] to-[#01cfea]",
-			green: "from-[#6FEE8D] to-[#17c964]",
-			pink: "from-[#FF72E1] to-[#F54C7A]",
-			foreground: "dark:from-[#FFFFFF] dark:to-[#4B4B4B]",
+			violet: "text-warmtan",
+			yellow: "text-terracotta",
+			blue: "text-terracotta",
+			cyan: "text-mutedblue",
+			green: "text-sage",
+			pink: "text-terracotta",
+			foreground: "text-ink dark:text-cream",
 		},
 		size: {
 			xs: "text-lg lg:text-xl",
@@ -25,24 +25,10 @@ export const title = tv({
 	defaultVariants: {
 		size: "md",
 	},
-	compoundVariants: [
-		{
-			color: [
-				"violet",
-				"yellow",
-				"blue",
-				"cyan",
-				"green",
-				"pink",
-				"foreground",
-			],
-			class: "bg-clip-text text-transparent bg-gradient-to-b",
-		},
-	],
 });
 
 export const subtitle = tv({
-	base: "w-full md:w-1/2 my-2 text-lg lg:text-xl text-default-600 block max-w-full",
+	base: "w-full md:w-1/2 my-2 text-lg lg:text-xl text-midgray block max-w-full",
 	variants: {
 		fullWidth: {
 			true: "!w-full",
@@ -54,11 +40,11 @@ export const subtitle = tv({
 });
 
 export const sectionTitle = tv({
-	base: "text-3xl md:text-4xl font-bold tracking-tight",
+	base: "text-3xl md:text-4xl font-serif font-semibold tracking-tight",
 	variants: {
 		color: {
-			blue: "bg-clip-text text-transparent bg-gradient-to-r from-[#5EA2EF] to-[#0072F5] dark:from-[#c084fc] dark:to-[#a855f7]",
-			default: "",
+			blue: "text-ink dark:text-cream",
+			default: "text-ink dark:text-cream",
 		},
 		align: {
 			center: "text-center",
@@ -72,7 +58,7 @@ export const sectionTitle = tv({
 });
 
 export const sectionSubtitle = tv({
-	base: "text-default-500 text-lg mt-2 max-w-2xl",
+	base: "text-midgray text-lg mt-2 max-w-2xl",
 	variants: {
 		align: {
 			center: "text-center mx-auto",

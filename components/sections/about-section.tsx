@@ -34,7 +34,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
           {stats.map((stat, index) => (
             <ScrollReveal key={stat.labelKey} delay={index * 0.1}>
-              <Card className="bg-default-50 dark:bg-default-100/50">
+              <Card className="bg-warmgray/30 dark:bg-warmgray/5 border border-warmgray/50 dark:border-warmgray/10 shadow-none">
                 <CardBody className="text-center py-6">
                   <div className="text-3xl md:text-4xl font-bold text-primary">
                     <CountUp

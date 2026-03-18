@@ -12,16 +12,16 @@ export default function CurrentStatus() {
   if (!currentJob) return null;
 
   return (
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success-50/80 dark:bg-success-100/10 border border-success-200 dark:border-success-200/20 backdrop-blur-sm">
-      <span className="relative flex h-2.5 w-2.5">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-400 opacity-75" />
-        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-success-500" />
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-warmgray/30 dark:bg-warmgray/5 border border-warmgray/50 dark:border-warmgray/10">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-75" />
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-sage" />
       </span>
-      <span className="text-sm text-success-700 dark:text-success-400 font-medium">
+      <span className="text-sm text-sage font-medium font-sans">
         {t('currentlyWorking')}
       </span>
-      <Icon icon={currentJob.icon} className="text-success-600 dark:text-success-400" width={16} />
-      <span className="text-sm text-default-600 dark:text-default-400">
+      <Icon icon={currentJob.icon} className="text-midgray" width={16} />
+      <span className="text-sm text-midgray">
         {t(`companies.${currentJob.translationKey}.role`)} @ {t(`companies.${currentJob.translationKey}.company`)}
       </span>
     </div>

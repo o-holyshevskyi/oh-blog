@@ -18,7 +18,7 @@ export default function ExperienceTimeline({ locale }: ExperienceTimelineProps) 
   const t = useTranslations('experienceSection');
 
   return (
-    <section id="experience" className="section-padding bg-default-50/50 dark:bg-default-100/20">
+    <section id="experience" className="section-padding bg-warmgray/20 dark:bg-warmgray/5">
       <div className="section-container">
         <ScrollReveal>
           <h2 className={sectionTitle({ color: 'blue' })}>{t('heading')}</h2>
@@ -26,7 +26,7 @@ export default function ExperienceTimeline({ locale }: ExperienceTimelineProps) 
 
         <div className="relative mt-12">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/30 md:-translate-x-px" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-warmgray dark:bg-warmgray/20 md:-translate-x-px" />
 
           {experienceData.map((exp, index) => {
             const isLeft = index % 2 === 0;
