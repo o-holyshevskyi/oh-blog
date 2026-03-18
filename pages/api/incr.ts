@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
 
-const url = process.env.UPSTASH_REDIS_REST_URL as string;
-const token = process.env.UPSTASH_REDIS_REST_TOKEN as string;
+const url = process.env.UPSTASH_REDIS_REST_URL || '';
+const token = process.env.UPSTASH_REDIS_REST_TOKEN || '';
 
-export const redis = new Redis({
-   url: url,
-   token: token,
-});
+export const redis = url && token ? new Redis({ url, token }) : null;
+
 export const config = {
   runtime: "edge",
 };
@@ -20,6 +18,10 @@ export default async function incr(req: NextRequest): Promise<NextResponse> {
     return new NextResponse("must be json", { status: 400 });
   }
 
+  if (!redis) {
+    return new NextResponse(null, { status: 202 });
+  }
+
   const body = await req.json();
   let slug: string | undefined = undefined;
   if ("slug" in body) {
@@ -30,7 +32,6 @@ export default async function incr(req: NextRequest): Promise<NextResponse> {
   }
   const ip = req.ip;
   if (ip) {
-    // Hash the IP in order to not store it directly in your db.
     const buf = await crypto.subtle.digest(
       "SHA-256",
       new TextEncoder().encode(ip),
@@ -39,7 +40,6 @@ export default async function incr(req: NextRequest): Promise<NextResponse> {
       .map((b) => b.toString(16).padStart(2, "0"))
       .join("");
 
-    // deduplicate the ip for each slug
     const isNew = await redis.set(["deduplicate", hash, slug].join(":"), true, {
       nx: true,
       ex: 24 * 60 * 60,
@@ -48,7 +48,7 @@ export default async function incr(req: NextRequest): Promise<NextResponse> {
       return new NextResponse(null, { status: 202 });
     }
   }
-  
+
   await redis.incr(["pageviews", "projects", slug].join(":"));
   return new NextResponse(null, { status: 202 });
 }

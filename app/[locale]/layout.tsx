@@ -8,13 +8,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { locales } from "@/i18nconfig";
 import { notFound } from "next/navigation";
 import {unstable_setRequestLocale} from 'next-intl/server';
-import { Roboto_Mono } from "next/font/google";
-
-const robotoMono = Roboto_Mono({
-	subsets: ["latin", "cyrillic"],
-	variable: "--font-roboto-mono",
-	weight: ['400', '700'],
-});
+import AnimatedBackground from '@/components/motion/animated-background';
 
 export const metadata: Metadata = {
 	title: {
@@ -22,10 +16,6 @@ export const metadata: Metadata = {
 		template: `%s - ${siteConfig.name}`,
 	},
 	description: siteConfig.description,
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
 	icons: {
 		icon: "/favicon.ico",
 	},
@@ -55,19 +45,17 @@ export  default async function RootLayout({
 
 	return (
 		<html lang={locale} suppressHydrationWarning className="scroll-smooth">
-			<head  />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+			<head />
 			<body
 				className={clsx(
-					"min-h-screen bg-background font-mono antialiased",
-					robotoMono.variable
+					"min-h-screen bg-background antialiased",
 				)}
+				style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}
 			>
 				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-						<main>
-							{children}
-						</main>
+						<AnimatedBackground />
+						{children}
 					</Providers>
 					<Analytics />
 				</NextIntlClientProvider>
