@@ -31,7 +31,12 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setScrolled(window.scrollY > 80);
+			const y = window.scrollY;
+			setScrolled(y > 80);
+			// Clear active section when at the top (hero area)
+			if (y < 200) {
+				setActiveSection("");
+			}
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		return () => window.removeEventListener('scroll', handleScroll);
