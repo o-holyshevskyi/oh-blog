@@ -8,6 +8,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { locales } from "@/i18nconfig";
 import { notFound } from "next/navigation";
 import {unstable_setRequestLocale} from 'next-intl/server';
+import ThemeEffectPicker from "@/components/theme-effect-picker";
 
 export const metadata: Metadata = {
 	title: {
@@ -54,6 +55,7 @@ export  default async function RootLayout({
 				<NextIntlClientProvider messages={messages} locale={locale}>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 						{children}
+						<ThemeEffectPicker />
 					</Providers>
 					<Analytics />
 				</NextIntlClientProvider>

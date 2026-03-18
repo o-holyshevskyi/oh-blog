@@ -44,3 +44,68 @@ html {
         @apply py-16 md:py-24;
     }
 }
+
+/* ── Theme transition: Circular reveal ── */
+::view-transition-group(root) {
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+}
+
+html.theme-transition-circle::view-transition-old(root) {
+    animation: none;
+    z-index: 1;
+}
+
+html.theme-transition-circle::view-transition-new(root) {
+    animation: circle-reveal 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+}
+
+@keyframes circle-reveal {
+    from {
+        clip-path: circle(0% at var(--tx, 50%) var(--ty, 50%));
+    }
+    to {
+        clip-path: circle(150% at var(--tx, 50%) var(--ty, 50%));
+    }
+}
+
+/* ── Theme transition: Crossfade ── */
+html.theme-transition-fade::view-transition-old(root) {
+    animation: fade-out 0.35s ease forwards;
+}
+
+html.theme-transition-fade::view-transition-new(root) {
+    animation: fade-in 0.35s ease forwards;
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ── Theme transition: Slide / wipe ── */
+html.theme-transition-slide::view-transition-old(root) {
+    animation: slide-out 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 1;
+}
+
+html.theme-transition-slide::view-transition-new(root) {
+    animation: slide-in 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 9999;
+}
+
+@keyframes slide-out {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+}
+
+@keyframes slide-in {
+    from { transform: translateX(100%); }
+    to   { transform: translateX(0); }
+}
