@@ -1,18 +1,7 @@
 'use client';
 
-import {
-	Navbar as NextUINavbar,
-	NavbarContent,
-	NavbarMenu,
-	NavbarMenuToggle,
-	NavbarBrand,
-	NavbarItem,
-	NavbarMenuItem,
-} from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
-import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
-import clsx from "clsx";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
 	DevIcon,
@@ -26,7 +15,7 @@ import { Post } from "@/app/lib/posts";
 import LanguageSwitch from "./language-switch";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next-intl/client";
-import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarWrapperProps {
 	daysDifference: number;
@@ -35,16 +24,13 @@ interface NavbarWrapperProps {
 }
 
 export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarWrapperProps) {
-	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	const [mobileOpen, setMobileOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<string>("");
 	const [scrolled, setScrolled] = useState(false);
 	const t = useTranslations("header");
 	const router = useRouter();
 	const pathname = usePathname();
 	const isHomePage = pathname === '/' || pathname === '';
-
-	const { scrollYProgress } = useScroll();
-	const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -63,7 +49,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 		} else {
 			router.push('/' + item.href);
 		}
-		setIsMenuOpen(false);
+		setMobileOpen(false);
 	}, [isHomePage, router]);
 
 	useEffect(() => {
@@ -91,6 +77,16 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 		return () => observer.disconnect();
 	}, [isHomePage]);
 
+	// Lock body scroll when mobile menu is open
+	useEffect(() => {
+		if (mobileOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+		return () => { document.body.style.overflow = ''; };
+	}, [mobileOpen]);
+
 	const isActive = (item: { label: string; href: string }) => {
 		return activeSection === item.href.replace('#', '');
 	};
@@ -104,145 +100,156 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 	};
 
 	return (
-		<>
-			<motion.div
-				className="fixed top-0 left-0 right-0 h-[1px] bg-terracotta z-[60] origin-left"
-				style={{ scaleX }}
-			/>
-			<NextUINavbar
-				maxWidth="xl"
-				isMenuOpen={isMenuOpen}
-				onMenuOpenChange={setIsMenuOpen}
-				position="sticky"
-				classNames={{
-					wrapper: "bg-cream/95 dark:bg-[#1a1918]/95 backdrop-blur-sm",
-					item: [
-						"flex",
-						"relative",
-						"h-full",
-						"items-center",
-						"data-[active=true]:after:content-['']",
-						"data-[active=true]:after:absolute",
-						"data-[active=true]:after:left-0",
-						"data-[active=true]:after:right-0",
-						"data-[active=true]:after:h-[1px]",
-						"data-[active=true]:after:rounded-[1px]",
-						"data-[active=true]:after:bg-terracotta",
-						"data-[active=true]:after:mt-[50px]",
-					],
-				}}
-			>
-				<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-					<NavbarBrand as="li" className="gap-3 max-w-fit">
-						<Link
-							className={clsx(
-								linkStyles({ color: "foreground" }),
-								"cursor-pointer relative"
-							)}
-							onClick={handleLogoClick}
-						>
-							<div className="relative h-[42px] flex items-center overflow-hidden">
-								<AnimatePresence mode="wait" initial={false}>
-									{!scrolled ? (
-										<motion.div
-											key="logo"
-											initial={{ opacity: 0, y: -12 }}
-											animate={{ opacity: 1, y: 0 }}
-											exit={{ opacity: 0, y: 12 }}
-											transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-										>
-											<Logo size={42} />
-										</motion.div>
-									) : (
-										<motion.span
-											key="name"
-											initial={{ opacity: 0, y: -12 }}
-											animate={{ opacity: 1, y: 0 }}
-											exit={{ opacity: 0, y: 12 }}
-											transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-											className="font-serif text-base font-semibold tracking-tight whitespace-nowrap text-ink dark:text-cream"
-										>
-											{t('name')}
-										</motion.span>
-									)}
-								</AnimatePresence>
-							</div>
-						</Link>
-					</NavbarBrand>
-					<ul className="hidden lg:flex gap-4 justify-start ml-2">
-						{siteConfig.navItems.map((item) => (
-							<NavbarItem key={item.href} isActive={isActive(item)}>
-								<Link
-									className={clsx(
-										linkStyles({ color: "foreground" }),
-										"data-[active=true]:text-terracotta data-[active=true]:font-medium cursor-pointer text-sm font-sans"
-									)}
-									color="foreground"
-									onClick={() => handleNavClick(item)}
-								>
-									{t(`navItems.${item.label}`)}
-								</Link>
-							</NavbarItem>
-						))}
-					</ul>
-				</NavbarContent>
-
-				<NavbarContent
-					className="hidden sm:flex basis-1/5 sm:basis-full"
-					justify="end"
+		<header
+			className={`sticky top-0 z-50 transition-colors duration-300 ${
+				scrolled
+					? 'bg-cream/90 dark:bg-[#1a1918]/90 backdrop-blur-md border-b border-warmgray/40 dark:border-warmgray/10'
+					: 'bg-cream dark:bg-[#1a1918] border-b border-transparent'
+			}`}
+		>
+			<div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+				{/* Left: Logo / Name */}
+				<button
+					onClick={handleLogoClick}
+					className="relative h-10 flex items-center focus:outline-none cursor-pointer"
 				>
-					<NavbarItem className="hidden sm:flex gap-2">
+					<AnimatePresence mode="wait" initial={false}>
+						{!scrolled ? (
+							<motion.div
+								key="logo"
+								initial={{ opacity: 0, y: -10 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: 10 }}
+								transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+							>
+								<Logo size={36} />
+							</motion.div>
+						) : (
+							<motion.span
+								key="name"
+								initial={{ opacity: 0, y: -10 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: 10 }}
+								transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+								className="font-serif text-[15px] font-semibold tracking-tight whitespace-nowrap text-ink dark:text-cream"
+							>
+								{t('name')}
+							</motion.span>
+						)}
+					</AnimatePresence>
+				</button>
+
+				{/* Center: Desktop nav */}
+				<nav className="hidden lg:flex items-center gap-8">
+					{siteConfig.navItems.map((item) => (
+						<button
+							key={item.href}
+							onClick={() => handleNavClick(item)}
+							className={`relative text-[13px] font-sans tracking-wide uppercase transition-colors duration-200 cursor-pointer focus:outline-none ${
+								isActive(item)
+									? 'text-terracotta'
+									: 'text-midgray hover:text-ink dark:hover:text-cream'
+							}`}
+						>
+							{t(`navItems.${item.label}`)}
+							{isActive(item) && (
+								<motion.div
+									layoutId="nav-underline"
+									className="absolute -bottom-1 left-0 right-0 h-px bg-terracotta"
+									transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+								/>
+							)}
+						</button>
+					))}
+				</nav>
+
+				{/* Right: Icons & controls */}
+				<div className="flex items-center gap-3">
+					<div className="hidden sm:flex items-center gap-2">
 						<Link isExternal href={siteConfig.links.linkedIn} aria-label="LinkedIn">
-							<LinkedInIcon className="text-default-500" />
+							<LinkedInIcon className="text-midgray hover:text-ink dark:hover:text-cream transition-colors" />
 						</Link>
 						<Link isExternal href={siteConfig.links.github} aria-label="Github">
-							<GithubIcon className="text-default-500" />
+							<GithubIcon className="text-midgray hover:text-ink dark:hover:text-cream transition-colors" />
 						</Link>
 						<Link isExternal href={siteConfig.links.dev} aria-label="Dev">
-							<DevIcon className="text-default-500" />
+							<DevIcon className="text-midgray hover:text-ink dark:hover:text-cream transition-colors" />
 						</Link>
-						<ThemeSwitch />
-						<LanguageSwitch locale={locale} />
-						{daysDifference < 7 && posts.length > 0 && (
-							<Bell latestPostId={posts[0].meta.slug} />
-						)}
-					</NavbarItem>
-				</NavbarContent>
-
-				<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+					</div>
+					<div className="hidden sm:block w-px h-4 bg-warmgray/40 dark:bg-warmgray/15 mx-1" />
 					<ThemeSwitch />
 					<LanguageSwitch locale={locale} />
-					<NavbarMenuToggle />
-				</NavbarContent>
+					{daysDifference < 7 && posts.length > 0 && (
+						<Bell latestPostId={posts[0].meta.slug} />
+					)}
 
-				<NavbarMenu className="pt-6">
-					<div className="mx-4 mt-2 flex flex-col gap-4">
-						{siteConfig.navMenuItems.map((item, index) => (
-							<NavbarMenuItem key={`${item.label}-${index}`}>
-								<Link
-									className="w-full text-lg cursor-pointer"
-									color={isActive(item) ? "primary" : "foreground"}
-									size="lg"
+					{/* Mobile hamburger */}
+					<button
+						onClick={() => setMobileOpen(!mobileOpen)}
+						className="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px] focus:outline-none cursor-pointer"
+						aria-label="Toggle menu"
+					>
+						<motion.span
+							animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+							transition={{ duration: 0.2 }}
+							className="block w-5 h-px bg-ink dark:bg-cream origin-center"
+						/>
+						<motion.span
+							animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+							transition={{ duration: 0.15 }}
+							className="block w-5 h-px bg-ink dark:bg-cream"
+						/>
+						<motion.span
+							animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+							transition={{ duration: 0.2 }}
+							className="block w-5 h-px bg-ink dark:bg-cream origin-center"
+						/>
+					</button>
+				</div>
+			</div>
+
+			{/* Mobile menu */}
+			<AnimatePresence>
+				{mobileOpen && (
+					<motion.div
+						initial={{ opacity: 0, height: 0 }}
+						animate={{ opacity: 1, height: 'auto' }}
+						exit={{ opacity: 0, height: 0 }}
+						transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+						className="lg:hidden overflow-hidden bg-cream dark:bg-[#1a1918] border-t border-warmgray/30 dark:border-warmgray/10"
+					>
+						<nav className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+							{siteConfig.navMenuItems.map((item, index) => (
+								<motion.button
+									key={item.href}
+									initial={{ opacity: 0, x: -12 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: index * 0.05, duration: 0.2 }}
 									onClick={() => handleNavClick(item)}
+									className={`text-left text-lg font-serif cursor-pointer focus:outline-none ${
+										isActive(item)
+											? 'text-terracotta'
+											: 'text-ink dark:text-cream'
+									}`}
 								>
 									{t(`navItems.${item.label}`)}
+								</motion.button>
+							))}
+							<div className="flex gap-4 pt-4 border-t border-warmgray/30 dark:border-warmgray/10 mt-2">
+								<Link isExternal href={siteConfig.links.linkedIn} aria-label="LinkedIn">
+									<LinkedInIcon className="text-midgray" />
 								</Link>
-							</NavbarMenuItem>
-						))}
-					</div>
-					<div className="mx-4 mt-8 flex gap-4">
-						<Link isExternal href={siteConfig.links.linkedIn} aria-label="LinkedIn">
-							<LinkedInIcon className="text-default-500" />
-						</Link>
-						<Link isExternal href={siteConfig.links.github} aria-label="Github">
-							<GithubIcon className="text-default-500" />
-						</Link>
-						<Link isExternal href={siteConfig.links.dev} aria-label="Dev">
-							<DevIcon className="text-default-500" />
-						</Link>
-					</div>
-				</NavbarMenu>
-			</NextUINavbar>
-		</>
+								<Link isExternal href={siteConfig.links.github} aria-label="Github">
+									<GithubIcon className="text-midgray" />
+								</Link>
+								<Link isExternal href={siteConfig.links.dev} aria-label="Dev">
+									<DevIcon className="text-midgray" />
+								</Link>
+							</div>
+						</nav>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</header>
 	);
 }
