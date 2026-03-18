@@ -80,7 +80,11 @@
       "jira": "Proficient in Jira for tracking tasks, defects, and user stories.",
       "scrum": "Working within Agile Scrum methodologies for efficient project management.",
       "staticTesting": "Contributing to static testing efforts to identify defects early.",
-      "softwareTesting": "Improving software quality through systematic testing approaches."
+      "softwareTesting": "Improving software quality through systematic testing approaches.",
+      "dotnet": "Building test automation frameworks and tools using the .NET platform with C#.",
+      "mobileTesting": "Testing mobile applications on iOS and Android platforms, including IPTV solutions.",
+      "azureDevops": "Managing CI/CD pipelines, test plans, and development workflows with Azure DevOps.",
+      "ivvq": "Integration, Verification, Validation, and Qualification processes for desktop products."
     }
   },
   "projectsSection": {

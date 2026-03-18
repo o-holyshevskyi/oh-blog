@@ -116,6 +116,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "TypeScript", icon: "skill-icons:typescript", translationKey: "typescript" },
       { name: "JavaScript", icon: "skill-icons:javascript", translationKey: "javascript" },
       { name: "Node.js", icon: "skill-icons:nodejs-light", translationKey: "nodejs" },
+      { name: ".NET", icon: "skill-icons:dotnet", translationKey: "dotnet" },
     ],
   },
   {
@@ -126,6 +127,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Selenium", icon: "skill-icons:selenium", translationKey: "selenium" },
       { name: "API Testing", icon: "mdi:api", translationKey: "api" },
       { name: "Postman", icon: "skill-icons:postman", translationKey: "postman" },
+      { name: "Mobile Testing", icon: "mdi:cellphone-check", translationKey: "mobileTesting" },
     ],
   },
   {
@@ -136,6 +138,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Docker", icon: "skill-icons:docker", translationKey: "docker" },
       { name: "SQL", icon: "vscode-icons:file-type-sql", translationKey: "sql" },
       { name: "Jira", icon: "devicon:jira", translationKey: "jira" },
+      { name: "Azure DevOps", icon: "devicon:azuredevops", translationKey: "azureDevops" },
     ],
   },
   {
@@ -145,6 +148,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Scrum", icon: "iconoir:agile", translationKey: "scrum" },
       { name: "Static Testing", icon: "fluent-mdl2:test-plan", translationKey: "staticTesting" },
       { name: "Software Testing", icon: "fluent-mdl2:test-auto-solid", translationKey: "softwareTesting" },
+      { name: "IVVQ", icon: "mdi:clipboard-check-outline", translationKey: "ivvq" },
     ],
   },
 ];

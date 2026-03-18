@@ -80,7 +80,11 @@
       "jira": "Znalost Jira pro sledování úkolů, defektů a user stories.",
       "scrum": "Práce s Agile Scrum metodologiemi pro efektivní řízení projektů.",
       "staticTesting": "Účast na statickém testování pro včasné odhalení defektů.",
-      "softwareTesting": "Zlepšování kvality softwaru systematickými přístupy k testování."
+      "softwareTesting": "Zlepšování kvality softwaru systematickými přístupy k testování.",
+      "dotnet": "Vytváření frameworků a nástrojů pro automatizaci testování na platformě .NET s C#.",
+      "mobileTesting": "Testování mobilních aplikací na platformách iOS a Android, včetně IPTV řešení.",
+      "azureDevops": "Správa CI/CD pipeline, testovacích plánů a vývojových procesů v Azure DevOps.",
+      "ivvq": "Procesy integrace, verifikace, validace a kvalifikace pro desktopové produkty."
     }
   },
   "projectsSection": {
