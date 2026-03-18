@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
@@ -21,8 +21,14 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
 }) => {
 	const { theme, setTheme } = useTheme();
   	const isSSR = useIsSSR();
+	const audioRef = useRef<HTMLAudioElement | null>(null);
 
 	const onChange = () => {
+		if (!audioRef.current) {
+			audioRef.current = new Audio('/drawer-closing.mp3');
+		}
+		audioRef.current.currentTime = 0;
+		audioRef.current.play().catch(() => {});
 		theme === "light" ? setTheme("dark") : setTheme("light");
 	};
 
