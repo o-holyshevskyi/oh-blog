@@ -26,7 +26,7 @@ import { Post } from "@/app/lib/posts";
 import LanguageSwitch from "./language-switch";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next-intl/client";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 
 interface NavbarWrapperProps {
 	daysDifference: number;
@@ -37,6 +37,7 @@ interface NavbarWrapperProps {
 export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarWrapperProps) {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 	const [activeSection, setActiveSection] = useState<string>("");
+	const [scrolled, setScrolled] = useState(false);
 	const t = useTranslations("header");
 	const router = useRouter();
 	const pathname = usePathname();
@@ -44,6 +45,14 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 
 	const { scrollYProgress } = useScroll();
 	const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrolled(window.scrollY > 80);
+		};
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	const handleNavClick = useCallback((item: { label: string; href: string }) => {
 		if (isHomePage) {
@@ -86,6 +95,14 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 		return activeSection === item.href.replace('#', '');
 	};
 
+	const handleLogoClick = () => {
+		if (isHomePage) {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		} else {
+			router.push('/');
+		}
+	};
+
 	return (
 		<>
 			<motion.div
@@ -108,11 +125,10 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 						"data-[active=true]:after:absolute",
 						"data-[active=true]:after:left-0",
 						"data-[active=true]:after:right-0",
-						"data-[active=true]:after:h-[2px]",
-						"data-[active=true]:after:rounded-[2px]",
-						"data-[active=true]:after:bg-primary",
+						"data-[active=true]:after:h-[1px]",
+						"data-[active=true]:after:rounded-[1px]",
+						"data-[active=true]:after:bg-terracotta",
 						"data-[active=true]:after:mt-[50px]",
-						"data-[active=true]:opacity-70",
 					],
 				}}
 			>
@@ -121,17 +137,36 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 						<Link
 							className={clsx(
 								linkStyles({ color: "foreground" }),
-								"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer"
+								"cursor-pointer relative"
 							)}
-							onClick={() => {
-								if (isHomePage) {
-									window.scrollTo({ top: 0, behavior: 'smooth' });
-								} else {
-									router.push('/');
-								}
-							}}
+							onClick={handleLogoClick}
 						>
-							<Logo size={42} />
+							<div className="relative h-[42px] flex items-center overflow-hidden">
+								<AnimatePresence mode="wait" initial={false}>
+									{!scrolled ? (
+										<motion.div
+											key="logo"
+											initial={{ opacity: 0, y: -12 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 12 }}
+											transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+										>
+											<Logo size={42} />
+										</motion.div>
+									) : (
+										<motion.span
+											key="name"
+											initial={{ opacity: 0, y: -12 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 12 }}
+											transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+											className="font-serif text-base font-semibold tracking-tight whitespace-nowrap text-ink dark:text-cream"
+										>
+											{t('name')}
+										</motion.span>
+									)}
+								</AnimatePresence>
+							</div>
 						</Link>
 					</NavbarBrand>
 					<ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -140,7 +175,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 								<Link
 									className={clsx(
 										linkStyles({ color: "foreground" }),
-										"data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer text-sm"
+										"data-[active=true]:text-terracotta data-[active=true]:font-medium cursor-pointer text-sm font-sans"
 									)}
 									color="foreground"
 									onClick={() => handleNavClick(item)}
