@@ -17,7 +17,7 @@ import clsx from "clsx";
 import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
 import { MotionWhileHover } from "@/app/[locale]/motion";
 
-export type ThemeEffect = "circle" | "fade" | "slide";
+export type ThemeEffect = "circle" | "fade" | "slide" | "paper";
 
 export interface ThemeSwitchProps {
 	className?: string;

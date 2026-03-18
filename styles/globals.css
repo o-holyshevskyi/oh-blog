@@ -109,3 +109,29 @@ html.theme-transition-slide::view-transition-new(root) {
     from { transform: translateX(100%); }
     to   { transform: translateX(0); }
 }
+
+/* ── Theme transition: Paper peel from bottom-right ── */
+html.theme-transition-paper::view-transition-old(root) {
+    animation: none;
+    z-index: 1;
+}
+
+html.theme-transition-paper::view-transition-new(root) {
+    animation: paper-peel 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 9999;
+}
+
+@keyframes paper-peel {
+    0% {
+        clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+    }
+    30% {
+        clip-path: polygon(100% 100%, 100% 60%, 60% 100%);
+    }
+    60% {
+        clip-path: polygon(100% 100%, 100% 0%, 0% 100%);
+    }
+    100% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}

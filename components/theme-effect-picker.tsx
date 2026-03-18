@@ -7,6 +7,7 @@ const effects: { id: ThemeEffect; label: string; icon: string }[] = [
 	{ id: "circle", label: "Circle reveal", icon: "◎" },
 	{ id: "fade", label: "Crossfade", icon: "◐" },
 	{ id: "slide", label: "Slide", icon: "▸" },
+	{ id: "paper", label: "Paper peel", icon: "📄" },
 ];
 
 export default function ThemeEffectPicker() {
