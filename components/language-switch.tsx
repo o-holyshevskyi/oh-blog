@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next-intl/client";
 import { locales } from "../i18nconfig";
 import React, { useEffect, useRef, useState } from "react";
+import { startSlideTransition } from "./theme-switch";
 
 const localeLabels: Record<string, string> = {
     en: 'EN',
@@ -29,7 +30,9 @@ export default function LanguageSwitch({ locale }: { locale: string }) {
     const handleSelect = (loc: string) => {
         setOpen(false);
         if (loc !== locale) {
-            router.push(pathName, { locale: loc });
+            startSlideTransition(() => {
+                router.push(pathName, { locale: loc });
+            });
         }
     };
 
