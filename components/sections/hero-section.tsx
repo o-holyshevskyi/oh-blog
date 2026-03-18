@@ -6,6 +6,7 @@ import { Link } from '@nextui-org/link';
 import { useTranslations } from 'next-intl';
 import { Typewriter } from 'react-simple-typewriter';
 import { Icon } from '@iconify/react';
+import CurrentStatus from '@/components/current-status';
 
 const container = {
   hidden: { opacity: 0 },
@@ -41,7 +42,12 @@ export default function HeroSection() {
         <MotionWrapper {...motionProps} className="max-w-3xl">
           {/* @ts-ignore */}
           <MotionWrapper {...itemProps}>
-            <span className="text-primary text-sm md:text-base font-medium tracking-wider uppercase">
+            <CurrentStatus />
+          </MotionWrapper>
+
+          {/* @ts-ignore */}
+          <MotionWrapper {...itemProps}>
+            <span className="text-primary text-sm md:text-base font-medium tracking-wider uppercase mt-4 inline-block">
               {t('greeting')}
             </span>
           </MotionWrapper>

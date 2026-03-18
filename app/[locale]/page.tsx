@@ -6,6 +6,7 @@ import AboutSection from '@/components/sections/about-section';
 import ExperienceTimeline from '@/components/sections/experience-timeline';
 import SkillsSection from '@/components/sections/skills-section';
 import ContactSection from '@/components/sections/contact-section';
+import FloatingScrollTop from '@/components/floating-scroll-top';
 import { locales } from '@/i18nconfig';
 import { Metadata } from 'next';
 
@@ -40,6 +41,7 @@ export default function Home({
 		<>
 			{/* @ts-ignore Async Server Component */}
 			<Navbar locale={locale} />
+			<FloatingScrollTop />
 			<main className="snap-scroll relative z-10">
 				<HeroSection />
 				<AboutSection />

@@ -34,6 +34,7 @@
   "experienceSection": {
     "heading": "Кар'єрний шлях",
     "present": "Теперішній час",
+    "currentlyWorking": "Зараз",
     "companies": {
       "NDAJob": {
         "company": "NDA",
