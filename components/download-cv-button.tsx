@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Button } from '@nextui-org/button';
 import { Icon } from '@iconify/react';
 
 export default function DownloadCVButton() {
@@ -27,21 +28,16 @@ export default function DownloadCVButton() {
   }, [tHero, tExperience, tSkills, tAbout]);
 
   return (
-    <button
+    <Button
       onClick={handleDownload}
-      disabled={loading}
-      className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-sans font-medium tracking-wide
-        text-midgray hover:text-ink dark:hover:text-cream
-        border border-warmgray/40 dark:border-warmgray/15 rounded-[4px]
-        hover:border-terracotta dark:hover:border-terracotta
-        transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-wait"
+      isLoading={loading}
+      variant="bordered"
+      size="lg"
+      radius="sm"
+      className="font-medium font-sans border-warmgray dark:border-warmgray/30 text-ink dark:text-cream"
+      startContent={!loading && <Icon icon="mdi:file-download-outline" width={18} />}
     >
-      <Icon
-        icon={loading ? 'mdi:loading' : 'mdi:file-download-outline'}
-        width={18}
-        className={loading ? 'animate-spin' : ''}
-      />
       {loading ? 'Generating...' : 'Download CV'}
-    </button>
+    </Button>
   );
 }
