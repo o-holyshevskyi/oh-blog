@@ -12,8 +12,6 @@ export default function BlogPostLoading() {
 					<div className="h-3 bg-warmgray/15 dark:bg-warmgray/10 rounded-sm w-28" />
 					<div className="w-1 h-1 rounded-full bg-warmgray/20" />
 					<div className="h-3 bg-warmgray/15 dark:bg-warmgray/10 rounded-sm w-20" />
-					<div className="w-1 h-1 rounded-full bg-warmgray/20" />
-					<div className="h-3 bg-warmgray/15 dark:bg-warmgray/10 rounded-sm w-16" />
 				</div>
 			</div>
 

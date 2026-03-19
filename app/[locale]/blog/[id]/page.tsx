@@ -7,7 +7,6 @@ import { getHeadings } from "@/app/lib/mdx-headings";
 import ScrollBar from "@/components/blog-items/scroll";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { ReportView } from "./view";
-import { redis } from "@/pages/api/incr";
 
 const getPageContent = async (slug: string, locale: string) => {
   const { meta, content, fileContent, description } = await getPostBySlug(slug, locale);
@@ -29,18 +28,6 @@ export default async function BlogPost({ params } : { params: { id: string; loca
   const relatedPosts = await getRelatedPosts(params.id, params.locale);
   const headings = await getHeadings(params.id, params.locale);
 
-  let views = 0;
-  try {
-    if (redis) {
-      const viewsPromise = redis.get<number>(["pageviews", "projects", params.id].join(":"));
-      const timeout = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000));
-      const v = await Promise.race([viewsPromise, timeout]);
-      views = (v as number) ?? 0;
-    }
-  } catch (error) {
-    console.error(error);
-  }
-
   return (
     <article>
       <ScrollBar />
@@ -50,7 +37,6 @@ export default async function BlogPost({ params } : { params: { id: string; loca
         fileContent={fileContent}
         nodes={headings}
         locale={params.locale}
-        views={views}
       />
       <Tags tags={meta.tags} />
 

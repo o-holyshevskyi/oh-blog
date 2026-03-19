@@ -14,14 +14,12 @@ export default function PostBody({
     fileContent,
     nodes,
     locale,
-    views
 } : {
     content: ReactElement<any, string | JSXElementConstructor<any>>;
     meta: PostMeta;
     fileContent: string;
     nodes: any;
     locale: string;
-    views: number;
 }) {
     const t = useTranslations("postCards");
 
@@ -47,11 +45,6 @@ export default function PostBody({
                     <span className="flex items-center gap-1.5">
                         <Icon icon="mdi:book-open-outline" width={14} />
                         {timeToReadValue} {t("minRead")}
-                    </span>
-                    <span className="w-1 h-1 rounded-full bg-warmgray" />
-                    <span className="flex items-center gap-1.5">
-                        <Icon icon="carbon:view" width={14} />
-                        {views} {views === 1 ? t("views.single") : t("views.plural")}
                     </span>
                 </div>
             </header>

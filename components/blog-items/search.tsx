@@ -22,7 +22,7 @@ export default function Search() {
             replace(`${pathname}?${params.toString()}`);
         }
         
-    }, 1000);
+    }, 300);
 
     return (
         <SearchInput handleSearch={handleSearch} />
