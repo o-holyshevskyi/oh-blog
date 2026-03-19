@@ -40,17 +40,24 @@ export default async function BlogPost({ params } : { params: { id: string; loca
   let likes = 0;
   try {
     if (redis) {
-      views = await redis.get<number>(["pageviews", "projects", params.id].join(":")) ?? 0;
-      likes = await redis.get<number>(["postLikes", "projects", params.id].join(":")) ?? 0;
+      const viewsPromise = redis.get<number>(["pageviews", "projects", params.id].join(":"));
+      const likesPromise = redis.get<number>(["postLikes", "projects", params.id].join(":"));
+      const timeout = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000));
+      const [v, l] = await Promise.all([
+        Promise.race([viewsPromise, timeout]),
+        Promise.race([likesPromise, timeout]),
+      ]);
+      views = (v as number) ?? 0;
+      likes = (l as number) ?? 0;
     }
   } catch (error) {
     console.error(error);
   }
-  
+
   return (
     <article>
       <ScrollBar />
-      <PostBody 
+      <PostBody
         meta={meta}
         content={content}
         fileContent={fileContent}
@@ -58,37 +65,38 @@ export default async function BlogPost({ params } : { params: { id: string; loca
         locale={params.locale}
         views={views}
       />
-      <Tags
-        tags={meta.tags}
-      />
-      <div className="items-center flex justify-center">
-				<hr className="w-[50%] mt-10" />
-			</div>
-      <div className="md:flex md:justify-between justify-center m-10">
-        <LikePost 
-          slug={meta.slug}
-          likes={likes}
-        />
-        <NoSSR 
-          slug={meta.slug}
-          title={meta.title}
-          domain={domain}
-          description={description}
-          locale={params.locale}
-        />
+      <Tags tags={meta.tags} />
+
+      <div className="border-t border-warmgray/30 dark:border-warmgray/10 mt-10 pt-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6">
+          <LikePost
+            slug={meta.slug}
+            likes={likes}
+          />
+          <NoSSR
+            slug={meta.slug}
+            title={meta.title}
+            domain={domain}
+            description={description}
+            locale={params.locale}
+          />
+        </div>
       </div>
+
       <Comments />
-      <div className="items-center flex justify-center">
+
+      <div className="mt-12">
         <RelatedPosts
           relatedPosts={relatedPosts}
           locale={params.locale}
         />
       </div>
-      <NavigationButtons />
-      <div className="items-center flex justify-center mt-10">
-				<hr className="w-[50%]" />
-			</div>
+
+      <div className="mt-10">
+        <NavigationButtons />
+      </div>
+
       <ReportView slug={params.id} />
-    </article>      
+    </article>
   );
 }

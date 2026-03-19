@@ -8,12 +8,14 @@ export const siteConfig = {
 		{ label: "experience", href: "#experience" },
 		{ label: "skills", href: "#skills" },
 		{ label: "contact", href: "#contact" },
+		{ label: "blog", href: "/blog" },
 	],
 	navMenuItems: [
 		{ label: "about", href: "#about" },
 		{ label: "experience", href: "#experience" },
 		{ label: "skills", href: "#skills" },
 		{ label: "contact", href: "#contact" },
+		{ label: "blog", href: "/blog" },
 	],
 	links: {
 		github: "https://github.com/o-holyshevskyi",

@@ -43,7 +43,9 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 	}, []);
 
 	const handleNavClick = useCallback((item: { label: string; href: string }) => {
-		if (isHomePage) {
+		if (item.href.startsWith('/')) {
+			router.push(item.href);
+		} else if (isHomePage) {
 			const el = document.querySelector(item.href);
 			if (el) {
 				el.scrollIntoView({ behavior: 'smooth' });
@@ -58,6 +60,7 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 		if (!isHomePage) return;
 
 		const sectionIds = siteConfig.navItems
+			.filter(item => item.href.startsWith('#'))
 			.map(item => item.href.replace('#', ''));
 
 		const observer = new IntersectionObserver(
@@ -89,6 +92,9 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 	}, [mobileOpen]);
 
 	const isActive = (item: { label: string; href: string }) => {
+		if (item.href.startsWith('/')) {
+			return pathname.startsWith(item.href);
+		}
 		return activeSection === item.href.replace('#', '');
 	};
 

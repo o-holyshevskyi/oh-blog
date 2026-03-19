@@ -1,25 +1,15 @@
-import { Chip } from "@nextui-org/chip";
-import { ArrowTopInSquareIcon } from "../icons";
 import { Link } from "@nextui-org/link";
 
 export default function Tags({ tags } : { tags: string[] }) {
     return (
-        <div className="flex-col items-center justify-center mt-10 w-full">
+        <div className="flex flex-wrap gap-2 mt-10">
             {tags.map((tag, index) => (
-                <Link 
+                <Link
                     key={index}
                     href={`/blog/filtered/${tag.replace('#', '').toLowerCase()}`}
+                    className="text-[11px] font-sans tracking-wider uppercase px-3 py-1 border border-warmgray/30 dark:border-warmgray/10 rounded-sm text-midgray hover:border-terracotta hover:text-terracotta transition-colors"
                 >
-                    <Chip 
-                        color="primary"
-                        variant="shadow"
-                        key={index}
-                        size='lg'
-                        startContent={<ArrowTopInSquareIcon className="items-center" size={19} />}
-                        className="cursor-pointer m-2"
-                    >
-                        {tag}
-                    </Chip>    
+                    {tag}
                 </Link>
             ))}
         </div>
