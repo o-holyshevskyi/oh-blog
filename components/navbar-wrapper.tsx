@@ -1,6 +1,5 @@
 'use client';
 
-import { Link } from "@nextui-org/link";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Logo } from "@/components/icons";
@@ -11,6 +10,7 @@ import LanguageSwitch from "./language-switch";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next-intl/client";
 import { motion, AnimatePresence } from "framer-motion";
+import NextLink from "next/link";
 
 interface NavbarWrapperProps {
 	daysDifference: number;
@@ -171,26 +171,40 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 
 				{/* Center: Desktop nav */}
 				<nav className="hidden lg:flex items-center justify-center flex-1 gap-8">
-					{siteConfig.navItems.map((item) => (
-						<button
-							key={item.href}
-							onClick={() => handleNavClick(item)}
-							className={`relative text-[13px] font-sans tracking-wide uppercase transition-colors duration-200 cursor-pointer focus:outline-none ${
-								isActive(item)
-									? 'text-terracotta'
-									: 'text-midgray hover:text-ink dark:hover:text-cream'
-							}`}
-						>
-							{t(`navItems.${item.label}`)}
-							{isActive(item) && (
-								<motion.div
-									layoutId="nav-underline"
-									className="absolute -bottom-1 left-0 right-0 h-px bg-terracotta"
-									transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-								/>
-							)}
-						</button>
-					))}
+					{siteConfig.navItems.map((item) => {
+						const navClass = `relative text-[13px] font-sans tracking-wide uppercase transition-colors duration-200 cursor-pointer focus:outline-none ${
+							isActive(item)
+								? 'text-terracotta'
+								: 'text-midgray hover:text-ink dark:hover:text-cream'
+						}`;
+						const underline = isActive(item) && (
+							<motion.div
+								layoutId="nav-underline"
+								className="absolute -bottom-1 left-0 right-0 h-px bg-terracotta"
+								transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+							/>
+						);
+
+						if (item.href.startsWith('/')) {
+							return (
+								<NextLink key={item.href} href={item.href} className={navClass}>
+									{t(`navItems.${item.label}`)}
+									{underline}
+								</NextLink>
+							);
+						}
+
+						return (
+							<button
+								key={item.href}
+								onClick={() => handleNavClick(item)}
+								className={navClass}
+							>
+								{t(`navItems.${item.label}`)}
+								{underline}
+							</button>
+						);
+					})}
 				</nav>
 
 				{/* Right: Icons & controls */}
@@ -278,22 +292,43 @@ export default function NavbarWrapper({ daysDifference, posts, locale }: NavbarW
 						className="lg:hidden overflow-hidden bg-cream dark:bg-[#1a1918] border-t border-warmgray/30 dark:border-warmgray/10"
 					>
 						<nav className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
-							{siteConfig.navMenuItems.map((item, index) => (
-								<motion.button
-									key={item.href}
-									initial={{ opacity: 0, x: -12 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{ delay: index * 0.05, duration: 0.2 }}
-									onClick={() => handleNavClick(item)}
-									className={`text-left text-lg font-serif cursor-pointer focus:outline-none ${
-										isActive(item)
-											? 'text-terracotta'
-											: 'text-ink dark:text-cream'
-									}`}
-								>
-									{t(`navItems.${item.label}`)}
-								</motion.button>
-							))}
+							{siteConfig.navMenuItems.map((item, index) => {
+								const mobileClass = `text-left text-lg font-serif cursor-pointer focus:outline-none ${
+									isActive(item) ? 'text-terracotta' : 'text-ink dark:text-cream'
+								}`;
+
+								if (item.href.startsWith('/')) {
+									return (
+										<motion.div
+											key={item.href}
+											initial={{ opacity: 0, x: -12 }}
+											animate={{ opacity: 1, x: 0 }}
+											transition={{ delay: index * 0.05, duration: 0.2 }}
+										>
+											<NextLink
+												href={item.href}
+												onClick={() => setMobileOpen(false)}
+												className={mobileClass}
+											>
+												{t(`navItems.${item.label}`)}
+											</NextLink>
+										</motion.div>
+									);
+								}
+
+								return (
+									<motion.button
+										key={item.href}
+										initial={{ opacity: 0, x: -12 }}
+										animate={{ opacity: 1, x: 0 }}
+										transition={{ delay: index * 0.05, duration: 0.2 }}
+										onClick={() => handleNavClick(item)}
+										className={mobileClass}
+									>
+										{t(`navItems.${item.label}`)}
+									</motion.button>
+								);
+							})}
 							<div className="flex gap-4 pt-4 border-t border-warmgray/30 dark:border-warmgray/10 mt-2">
 								<a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="text-midgray">
 									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

@@ -1,8 +1,8 @@
 import { Post } from "@/app/lib/posts";
 import { timeToRead } from "@/app/lib/time-to-read";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next-intl/client";
 import Date from "./date/date";
+import Link from "next/link";
 
 export default function PostCards({
     displayedItems,
@@ -12,15 +12,14 @@ export default function PostCards({
     locale: string;
 }) {
     const t = useTranslations("postCards");
-    const router = useRouter();
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {displayedItems.map((post, index) => (
-                <article
+                <Link
                     key={index}
-                    onClick={() => router.push(`/blog/${post.meta.slug}`)}
-                    className="group cursor-pointer border border-warmgray/30 dark:border-warmgray/10 rounded-sm overflow-hidden hover:border-terracotta/50 dark:hover:border-terracotta/30 transition-colors"
+                    href={`/blog/${post.meta.slug}`}
+                    className="group border border-warmgray/30 dark:border-warmgray/10 rounded-sm overflow-hidden hover:border-terracotta/50 dark:hover:border-terracotta/30 transition-colors"
                 >
                     {post.meta.img && (
                         <div className="aspect-[16/9] overflow-hidden bg-warmgray/10">
@@ -58,7 +57,7 @@ export default function PostCards({
                             ))}
                         </div>
                     </div>
-                </article>
+                </Link>
             ))}
         </div>
     );

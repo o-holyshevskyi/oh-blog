@@ -2,17 +2,11 @@
 
 import { PostMeta } from "@/app/lib/posts";
 import { timeToRead } from "@/app/lib/time-to-read";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Link } from "@nextui-org/link";
-import { title } from "../primitives";
-import { Image } from '@nextui-org/image';
-import { BookIcon } from "../icons";
 import { useTranslations } from "next-intl";
 import Date from "../date/date";
-import { useRouter } from "next-intl/client";
+import Link from "next/link";
 
-export default function RelatedPosts({ relatedPosts, locale } : { 
+export default function RelatedPosts({ relatedPosts, locale } : {
     relatedPosts: {
         meta: PostMeta;
         fileContent: string;
@@ -22,57 +16,49 @@ export default function RelatedPosts({ relatedPosts, locale } : {
 }) {
     const t = useTranslations("postPage");
     const tr = useTranslations("postCards");
-    const router = useRouter();
-    
+
+    if (relatedPosts.length === 0) return null;
+
     return (
         <section>
-            <div className="inline-block md:max-w-6xl text-center justify-center">
-                {
-                relatedPosts.length > 0 && <div className="mt-8">
-                    <p className={title({ color: "blue", size: 'sm' })}>{t("later_1")}</p>
-                    <p className={title({ size: 'sm' })}>{t("relatedPosts")}</p>
-                </div>
-                }
-                <div>
-                    <ul className="mt-10 md:flex justify-between gap-6 text-start">
-                        {relatedPosts.map((post, index) => (
-                            <Card className="py-4 md:w-[50%] mb-10" key={index}>
-                                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                                    <div className="flex items-start items-center">
-                                        <BookIcon/>
-                                        <p className="text-tiny uppercase font-bold ml-1">{timeToRead(post.fileContent)} {tr("minRead")}</p>
-                                    </div>
-                                    <Date 
-                                        dateString={post.meta.date} 
-                                        className="text-default-500"   
-                                        formatDate="LLLL d, yyyy"
-                                        locale={locale}
-                                    />
-                                    <h4 className="font-bold text-large">{post.meta.title}</h4>
-                                </CardHeader>
-                                <CardBody className="overflow-visible py-2">
-                                    <Image
-                                        alt="Card background"
-                                        className="object-cover rounded-xl w-full"
-                                        src={post.meta.img}
-                                    />
-                                    <div className="mt-2 flex-col items-start">
-                                        <small className="text-default-500">{tr("inThePost")}</small>
-                                        <p>{post.description}</p>
-                                    </div>
-                                </CardBody>
-                                <CardFooter className="bottom-0 z-10 justify-end">
-                                    <Link 
-                                        onClick={() => router.push(`/blog/${post.meta.slug}`)}
-                                        className={`${buttonStyles({ radius: "full", color: "primary", size: 'sm' })} cursor-pointer`}
-                                    >
-                                        {tr("readMore")}
-                                    </Link>
-                                </CardFooter>
-                            </Card>
-                        ))}
-                    </ul>
-                </div>
+            <h2 className="text-xs font-sans tracking-wider uppercase text-midgray mb-6">
+                {t("relatedPosts")}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {relatedPosts.map((post, index) => (
+                    <Link
+                        key={index}
+                        href={`/blog/${post.meta.slug}`}
+                        className="group border border-warmgray/30 dark:border-warmgray/10 rounded-sm overflow-hidden hover:border-terracotta/50 dark:hover:border-terracotta/30 transition-colors"
+                    >
+                        {post.meta.img && (
+                            <div className="aspect-[16/9] overflow-hidden bg-warmgray/10">
+                                <img
+                                    src={post.meta.img}
+                                    alt={post.meta.title}
+                                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                                />
+                            </div>
+                        )}
+                        <div className="p-5">
+                            <div className="flex items-center gap-3 text-xs text-midgray font-sans tracking-wide uppercase">
+                                <Date
+                                    dateString={post.meta.date}
+                                    formatDate="LLLL d, yyyy"
+                                    locale={locale}
+                                />
+                                <span className="w-1 h-1 rounded-full bg-warmgray" />
+                                <span>{timeToRead(post.fileContent)} {tr("minRead")}</span>
+                            </div>
+                            <h3 className="mt-2 text-lg font-serif font-semibold text-ink dark:text-cream group-hover:text-terracotta transition-colors leading-snug">
+                                {post.meta.title}
+                            </h3>
+                            <p className="mt-2 text-sm text-midgray leading-relaxed line-clamp-2">
+                                {post.description}
+                            </p>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </section>
     )
