@@ -1,78 +1,76 @@
 ---
-title: '🔍 Exploring the PageObject Pattern for Automation Testing 🤖'
+title: 'Exploring the PageObject Pattern for Automation Testing'
 date: '2023-10-13'
 tags: ['#AutomationTesting', '#Playwright', '#PageObjectPattern', '#CodeExamples', '#QualityAssurance', '#TypeScript']
 img: 'https://o-holyshevskyi.github.io/blog-pic/images/posts/PlaywrightPageObject.png'
 locale: 'en'
 ---
 
-Are you a software tester looking to optimize your automation tests and make them more maintainable and readable? If so, then the PageObject pattern might be your secret weapon! 🛠️
+Are you a software tester looking to optimize your automation tests and make them more maintainable and readable? If so, then the PageObject pattern might be your secret weapon!
 
-The PageObject pattern is a design pattern that enhances the organization and structure of your automation tests. It abstracts the user interface into separate classes or objects, making your test code cleaner, more modular, and easier to maintain. Let's delve into this pattern with a simple example using [**Playwright**](https://playwright.dev/) and [**TypeScript**](https://www.typescriptlang.org/).
+The PageObject pattern is a design pattern that enhances the organization and structure of your automation tests. It abstracts the user interface into separate classes or objects, making your test code cleaner, more modular, and easier to maintain. Let's explore this pattern with a simple example using [**Playwright**](https://playwright.dev/) and [**TypeScript**](https://www.typescriptlang.org/).
 
-In this post, I will guide you step by step, starting from scratch, on how to set up your first Playwright project. I'll show you how to create a Page Object-oriented pattern and how to write your first test using the Page Object. Let's begin with the basic setup.
+In this post, I will guide you step by step, starting from scratch, on how to set up your first Playwright project. I will show you how to create a Page Object-oriented pattern and how to write your first test using a Page Object. Let's begin with the basic setup.
 
-# Step 1: Basic setup
+# Step 1: Basic Setup
 <a name="step-1-basic-setup" id="step-1-basic-setup" />
 
 ## Node.js
 <a name="nodejs" id="nodejs" />
 
-First of all, ensure that you have Node.js installed on your workstation. Open the command prompt and execute the following command:
+First, ensure that you have Node.js installed on your workstation. Open the command prompt and execute the following command:
 
 ```bash:cmd
 node -v
 ```
 
-The result should display the version of Node.js installed on your local machine. If it doesn't, please make sure to [**install**](https://nodejs.org/en/download) Node.js on your computer.
+The result should display the version of Node.js installed on your local machine. If it does not, please [**install**](https://nodejs.org/en/download) Node.js on your computer.
 
 ## Playwright
 <a name="playwright" id="playwright" />
 
-For more detailed information on various methods to install Playwright on your local machine, you can refer to the [**documentation**](https://playwright.dev/docs/intro#installing-playwright). However, I'll demonstrate the basic approach using npm packages.
+For more detailed information on various methods to install Playwright on your local machine, you can refer to the [**documentation**](https://playwright.dev/docs/intro#installing-playwright). However, I will demonstrate the basic approach using npm packages.
 
-## Create a directory
+## Create a Directory
 <a name="create-a-directory" id="create-a-directory" />
 
 To create a root directory for your project using the command prompt, follow these steps:
 
 1. Open the command prompt.
-2. Navigate to the location where you want to create the project directory. You can use the cd command to change your current working directory.
-3. Create a new directory using the mkdir command. For example, to create a directory named "my-playwright-project," you can use:
+2. Navigate to the location where you want to create the project directory using the `cd` command.
+3. Create a new directory using the `mkdir` command. For example, to create a directory named "my-playwright-project":
 
 ```bash:cmd
 mkdir my-playwright-project
 ```
 
-This will create a directory with the specified name in your current location. You can then navigate into this directory using 
-the cd command to start setting up your Playwright project within it.
+This creates a directory with the specified name in your current location. Navigate into it using the `cd` command to start setting up your Playwright project.
 
 ```bash:cmd
 cd .\my-playwright-project\
 ```
 
-## Install the Playwright
+## Install Playwright
 <a name="install-the-playwright" id="install-the-playwright" />
 
-You can install Playwright using the npm command. Run the following command in your command prompt:
+You can install Playwright using the npm command:
 
 ```bash:cmd
 npm init playwright@latest
 ```
 
-Follow the instructions that appear during the execution of this command to complete the installation process.
-If you chose the false option for installing browsers and want to install Chromium, please run the following command:
+Follow the instructions that appear during the execution of this command to complete the installation process. If you chose not to install browsers and want to install Chromium, run the following command:
 
 ```bash:cmd
 npx playwright install chromium
 ```
 
-This will install the Chromium browser for your Playwright project.
+This installs the Chromium browser for your Playwright project.
 
-## Config the Playwright project
+## Configure the Playwright Project
 <a name="config-the-playwright-project" id="config-the-playwright-project" />
 
-Let's perform a simple configuration for our Playwright project. Navigate to the **playwright.config.ts** file and make the following changes:
+Let's perform a simple configuration for our Playwright project. Navigate to the `playwright.config.ts` file and make the following changes:
 
 ```ts:playwright.config.ts
 import { defineConfig, devices } from '@playwright/test';
@@ -96,16 +94,15 @@ export default defineConfig({
 });
 ```
 
-In this updated configuration file, we have simplified it by removing comments, setting just one worker for now (we'll enable parallel running later), 
-and removing unnecessary projects that we won't be using. These changes should make your Playwright configuration more straightforward.
+In this updated configuration file, we have simplified it by removing comments, setting a single worker for now (we will enable parallel execution later), and removing unnecessary projects. These changes make your Playwright configuration more straightforward.
 
-Now you can run your first tests using the following command:
+Now you can run your first tests:
 
 ```bash:cmd
 npx playwright test
 ```
 
-This command will execute your Playwright tests based on the configuration you've set up in the **playwright.config.ts** file.
+This command executes your Playwright tests based on the configuration in the `playwright.config.ts` file.
 
 ```bash:output
 Running 2 tests using 1 worker
@@ -115,8 +112,7 @@ Running 2 tests using 1 worker
 # Step 2: Page Object Pattern
 <a name="step-2-page-object-pattern" id="step-2-page-object-pattern" />
 
-Let's examine the default structure that Playwright provides out of the box. Open the **./tests/example.spec.ts** file to see how a 
-typical Playwright test is structured.
+Let's examine the default structure that Playwright provides out of the box. Open the `./tests/example.spec.ts` file to see how a typical Playwright test is structured.
 
 ```ts:./tests/example.spec.ts
 import { test, expect } from '@playwright/test';
@@ -139,50 +135,44 @@ test('get started link', async ({ page }) => {
 });
 ```
 
-The default test structure in Playwright may have some weaknesses:
+The default test structure in Playwright has some weaknesses:
 
-1. Code Duplication: It's common to see duplicate code for interacting with the same elements across multiple tests, which can lead to maintenance challenges.
-2. Fragile Tests: If an element's locator or behavior changes, you need to update it in multiple places, making the tests more fragile and prone to breaking.
-3. Limited Reusability: There's limited reusability of code for interacting with elements, making it difficult to share interaction logic across different tests.
+1. **Code Duplication** — It is common to see duplicate code for interacting with the same elements across multiple tests, leading to maintenance challenges.
+2. **Fragile Tests** — If an element's locator or behavior changes, you need to update it in multiple places, making the tests more fragile and prone to breaking.
+3. **Limited Reusability** — There is limited reusability of code for interacting with elements, making it difficult to share interaction logic across tests.
 
-This is where the Page Object Pattern comes in to address these issues. The Page Object Pattern provides several benefits:
+This is where the Page Object Pattern comes in. It provides several benefits:
 
-1. Abstraction: It abstracts the UI interactions and locators into separate classes, making the tests more readable and maintainable.
-2. Code Reusability: You can reuse these Page Object classes across multiple tests, reducing duplication and improving consistency.
-3. Easy Maintenance: If an element's locator or behavior changes, you only need to update it in one place, the Page Object class, which will automatically propagate 
-the change to all tests using that Page Object.
-4. Improved Collaboration: Teams can work more effectively by separating the responsibilities between test code and Page Object code, enabling parallel development.
+1. **Abstraction** — It abstracts UI interactions and locators into separate classes, making the tests more readable and maintainable.
+2. **Code Reusability** — You can reuse Page Object classes across multiple tests, reducing duplication and improving consistency.
+3. **Easy Maintenance** — If an element's locator or behavior changes, you only need to update it in one place — the Page Object class — and the change propagates automatically to all tests using that Page Object.
+4. **Improved Collaboration** — Teams can work more effectively by separating test code from Page Object code, enabling parallel development.
 
-In the next steps, we will explore how to implement the Page Object Pattern in your Playwright tests to realize these benefits.
+In the next steps, we will explore how to implement the Page Object Pattern in your Playwright tests.
 
-## Page Object Realization
+## Page Object Implementation
 <a name="page-object-realization" id="page-object-realization" />
 
-To implement the Page Object Pattern effectively, it's crucial to first understand the web application you'll be automating. Let's review the demo website you 
-intend to cover with your automation tests, which is https://demo.playwright.dev/todomvc/#/.
+To implement the Page Object Pattern effectively, it is crucial to first understand the web application you will be automating. Let's review the demo website: https://demo.playwright.dev/todomvc/#/.
 
-Upon visiting the website, it appears to be a TodoMVC application, a common example for web automation testing. Here are some of the elements and functionalities 
-you might consider testing:
+This is a TodoMVC application, a common example for web automation testing. Here are some of the elements and functionalities you might consider testing:
 
-* Todo Input Field: This is where you can enter new tasks.
-* Add Button: Clicking this button should add the entered task to the list.
-* Task List: This is a list of tasks where you can mark tasks as complete or delete them.
-* Checkbox: You can check/uncheck a task to mark it as complete or incomplete.
-* Clear Completed Button: This button allows you to clear all completed tasks from the list.
-* Counter: It shows the number of tasks in the list.
-* Filters: The website offers filters to view All, Active, or Completed tasks.
+* **Todo Input Field** — Where you can enter new tasks.
+* **Add Button** — Clicking this button adds the entered task to the list.
+* **Task List** — A list of tasks where you can mark tasks as complete or delete them.
+* **Checkbox** — Check or uncheck a task to mark it as complete or incomplete.
+* **Clear Completed Button** — Clears all completed tasks from the list.
+* **Counter** — Shows the number of tasks in the list.
+* **Filters** — View All, Active, or Completed tasks.
 
-To implement the Page Object Pattern, you'll create separate Page Object classes for each of these elements or functionalities. Each Page Object class 
-should encapsulate the interactions and methods related to that specific part of the page.
+To implement the Page Object Pattern, you create separate Page Object classes for each of these elements or functionalities. Each Page Object class encapsulates the interactions and methods related to that specific part of the page.
 
-This structured approach will make your tests more modular, maintainable, and reusable. In the next steps, we can look at how to create Page Object 
-classes for these elements and write tests using the Page Object Pattern.
+This structured approach makes your tests more modular, maintainable, and reusable.
 
 ### Create the BasePage
 <a name="create-the-basepage" id="create-the-basepage" />
 
-Creating a base page class is a good practice when implementing the Page Object Pattern. This base page class will contain common methods and elements 
-that are shared across multiple pages in your web application. Let's start by creating a base page for your TodoMVC application.
+Creating a base page class is a good practice when implementing the Page Object Pattern. This base page class contains common methods and elements shared across multiple pages. Let's create a base page for the TodoMVC application.
 
 ```ts:./src/pages/base-page.ts
 import { Page, Response } from '@playwright/test';
@@ -200,14 +190,13 @@ class BasePage {
     }
 
     goto = (): Promise<Response | null> => this.page.goto(this.url);
-    
+
 }
 
 export default BasePage;
 ```
 
-Now that we have a basic page that contains an action method for opening our page via a URL, as well as two properties to retrieve the page's title and the current URL, 
-let's create tests to verify the title and the URL. We're going to implement two tests because we're verifying different criteria.
+Now that we have a base page containing an action method for opening the page via URL, along with two properties for retrieving the page's title and current URL, let's create tests to verify them.
 
 ```ts:./tests/example.spec.ts
 import { test, expect } from '@playwright/test';
@@ -216,22 +205,21 @@ import BasePage from '../src/pages/base-page';
 test('has title', async ({ page }) => {
   const basePage = new BasePage(page);
   await basePage.goto();
-  
+
   expect(await basePage.title).toBe('React • TodoMVC');
 });
 
 test('get current url', async ({ page }) => {
   const basePage = new BasePage(page);
   await basePage.goto();
-  
+
   expect(basePage.pageUrl).toContain('demo.playwright.dev');
 });
 ```
 
-To run these tests, use the command prompt and check whether they pass or fail. Hopefully, they will pass. 
+To run these tests, use the command prompt and check whether they pass.
 
-However, we still have some duplications here. Let's simplify the tests to avoid redundancy.
-Let's utilize the beforeEach hook provided by Playwright under the hood.
+However, we still have some duplication here. Let's simplify the tests by utilizing the `beforeEach` hook provided by Playwright.
 
 ```ts:./tests/example.spec.ts
 import { test, expect } from '@playwright/test';
@@ -244,19 +232,18 @@ test.describe('my first page object pattern tests', () => {
     basePage = new BasePage(page);
     await basePage.goto();
   });
-  
+
   test('has title', async () => expect(await basePage.title).toBe('React • TodoMVC'));
-  test('get current url', async () => expect(basePage.pageUrl).toContain('demo.playwright.dev'));  
+  test('get current url', async () => expect(basePage.pageUrl).toContain('demo.playwright.dev'));
 });
 ```
 
-As you can see, our tests are now written in a more concise format with just one line for each test, which is an improvement over what we had before.
+Our tests are now written in a more concise format — just one line each — which is a significant improvement.
 
 ### Create TodoPage
 <a name="create-todopage" id="create-todopage" />
 
-Let's consider a scenario where our web application consists of multiple pages. To manage this complexity, each page should be represented by a different class. 
-The code provided below demonstrates the Page Object for the main todo page.
+Let's consider a scenario where our web application consists of multiple pages. Each page should be represented by a different class. The code below demonstrates the Page Object for the main todo page.
 
 ```ts:./src/pages/todo-page/todo-page.ts
 import { Page } from "@playwright/test";
@@ -271,24 +258,19 @@ class TodoPage extends BasePage {
 export default TodoPage;
 ```
 
-In this code snippet, we're extending the Page Object Pattern to create a dedicated Page Object class for the main todo page in our web application.
-This helps organize our code and provides a clean separation of concerns.
+Here is what's happening in the code:
 
-Here's what's happening in the code:
+1. We import the necessary modules and dependencies, including the `Page` class and our `BasePage` class.
+2. We create a new class `TodoPage` that extends `BasePage`. This allows `TodoPage` to inherit common methods and elements from the `BasePage` class.
+3. In the constructor, we pass a `Page` instance to the `super()` method to initialize the `BasePage`.
+4. By extending `BasePage`, we can add specific methods and elements related to the main todo page, making it easier to write tests for this specific part of our web application.
 
-1. We import the necessary modules and dependencies, including the Page class and your BasePage class.
-2. We create a new class TodoPage that extends the BasePage. This allows TodoPage to inherit common methods and elements from the BasePage class.
-3. In the constructor, we pass a Page instance to the super() method to initialize the BasePage.
-4. By extending BasePage, we can add specific methods and elements related to the main todo page, making it easier to write tests for this specific part of our web application.
+This approach promotes code reusability and maintainability, as we can create separate Page Object classes for different pages while keeping our test code clean and organized.
 
-This approach promotes code reusability and maintainability as we can create separate Page Object classes for different pages in our application, 
-keeping our test code clean and organized.
-
-### Create Todo page elements
+### Create Todo Page Elements
 <a name="create-todo-page-elements" id="create-todo-page-elements" />
 
-As mentioned earlier, it's a good practice to create separate Page Object classes for each element or functionality in your web application.
-Let's start by creating the Page Object class for the "TodoApp" element.
+As mentioned earlier, it is a good practice to create separate Page Object classes for each element or functionality. Let's create the Page Object class for the "TodoApp" element.
 
 ```ts:./src/pages/todo-page/page-elements/todo-app.ts
 import { Locator, Page } from "@playwright/test";
@@ -319,20 +301,18 @@ export class TodoApp {
 export default TodoApp;
 ```
 
-We've created a Page Object class for the "TodoApp" element in our web application, which is a great way to encapsulate the interactions and methods 
-related to this specific element. Let's recap the key points in the code:
+Let's recap the key points:
 
-1. We've defined the TodoApp class, which represents the "TodoApp" element.
-2. Inside the constructor, we've initialized two Locators, newTodoItem and leftTodoItems, which are used to locate specific elements within the "TodoApp."
-3. We've created methods for interacting with the "TodoApp" element:
-* addNewItem allows us to add a new item to the todo list by filling in the input field and pressing Enter.
-* addNewItems is a utility method for adding multiple items by calling addNewItem iteratively.
-* getLeftTodoItems retrieves the count of remaining todo items, which is useful for checking if items are being added and marked as complete.
+1. We define the `TodoApp` class, which represents the "TodoApp" element.
+2. Inside the constructor, we initialize two `Locator` objects — `newTodoItem` and `leftTodoItems` — used to locate specific elements within the "TodoApp."
+3. We create methods for interacting with the element:
+   * `addNewItem` — Adds a new item to the todo list by filling in the input field and pressing Enter.
+   * `addNewItems` — A utility method for adding multiple items by calling `addNewItem` iteratively.
+   * `getLeftTodoItems` — Retrieves the count of remaining todo items.
 
-This Page Object class effectively encapsulates the interactions with the "TodoApp" element and provides a clean and modular way to write 
-tests for this part of your web application. It's a good practice for maintaining readable and maintainable automation tests.
+This Page Object class effectively encapsulates interactions with the "TodoApp" element and provides a clean, modular way to write tests.
 
-Let's include this "TodoApp" into our "TodoPage", follow the below code:
+Let's include this "TodoApp" in our "TodoPage":
 
 ```ts:/src/pages/todo-page/todo-page.ts
 import { Locator, Page } from "@playwright/test";
@@ -351,19 +331,12 @@ class TodoPage extends BasePage {
 export default TodoPage;
 ```
 
-We've successfully included the "TodoApp" Page Object into our "TodoPage." Here's a summary of the changes in the code:
+With these changes, we now have access to the methods and elements defined in the `TodoApp` class from within our `TodoPage`.
 
-1. We've imported the TodoApp Page Object class.
-2. We've created a public property todoApp and initialized it with a new instance of the TodoApp Page Object in the constructor.
-
-With these changes, we now have access to the methods and elements defined in the TodoApp class from within our TodoPage. 
-This makes our code more organized and follows the Page Object Pattern, allowing us to interact with the "TodoApp" element within the context of the main todo page.
-
-### Write a test after changes
+### Write a Test After Changes
 <a name="write-a-test-after-changes" id="write-a-test-after-changes" />
 
-To write a new test after the changes, you can create a new test file with a name that ends in .spec.ts to indicate that it's a test file. 
-Here's an example of how to create a test for your "TodoPage" using Playwright:
+To write a new test after the changes, create a new test file with a name that ends in `.spec.ts`. Here is an example:
 
 ```ts:./tests/add-new-todo-items.spec.ts
 import { test, expect } from '@playwright/test';
@@ -376,7 +349,7 @@ test.describe('my first page object pattern tests', () => {
     todoPage = new TodoPage(page);
     await todoPage.goto();
   });
-  
+
   test('add single todo item', async () => {
     await todoPage.todoApp.addNewItem('newTodoItem');
     const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
@@ -388,24 +361,13 @@ test.describe('my first page object pattern tests', () => {
     await todoPage.todoApp.addNewItems(newItems);
     const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
     expect(leftTodoItems).toBe(newItems.length);
-  });  
+  });
 });
 ```
 
-We've created a test file using the .spec.ts naming convention and organized our tests using the describe and test.beforeEach hooks. 
-This structure is following the Page Object Pattern and makes our tests more organized and modular.
+We have organized our tests using the `describe` and `test.beforeEach` hooks, following the Page Object Pattern.
 
-Here's a summary of our test code:
-
-1. We import the necessary modules, including test and expect from Playwright, as well as the describe function.
-2. We create a TodoPage instance to use in our tests, and we use the test.beforeEach hook to navigate to the page before each test.
-3. We've organized our tests into a describe block, which helps group related tests together.
-4. In the first test, we add a single todo item, verify that it's added, and check the count of remaining todo items.
-5. In the second test, we add multiple todo items, verify that they are added, and check the count of remaining todo items.
-
-This structure is an excellent way to implement the Page Object Pattern and ensures our tests are maintainable and modular.
-
-Hold on! We still have some duplicated code here through two our tests files:
+However, we still have duplicated code across our two test files:
 
 ```ts:example.spec.ts
 var basePage: BasePage;
@@ -425,11 +387,9 @@ test.beforeEach(async ({ page }) => {
 });
 ```
 
-We still can simplify it to use the [**fixtures**](https://playwright.dev/docs/test-fixtures#introduction).
+We can simplify this further by using [**fixtures**](https://playwright.dev/docs/test-fixtures#introduction).
 
-Test fixtures are used to establish environment for each test, giving the test everything it needs and nothing else. Therefore, how we can simplify our two files with fixtures.
-
-Let's create a new file **./tests/fixtures/fixture.ts** in our **tests** folder:
+Test fixtures establish an environment for each test, giving it everything it needs and nothing else. Let's create a fixture file at `./tests/fixtures/fixture.ts`:
 
 ```ts:./tests/fixtures/fixture.ts
 import { test as base } from '@playwright/test';
@@ -451,20 +411,16 @@ export default test;
 export { expect } from '@playwright/test';
 ```
 
-We've created a fixture file to simplify our test setup, which is a great approach to eliminate duplication. Let's go through the changes:
+Here is a breakdown of the fixture:
 
-In our ./tests/fixtures/fixture.ts file:
+1. We import `test` from Playwright to define our test.
+2. We define a `Fixture` type that specifies what the fixture provides — in this case, a `todoPage` instance.
+3. We create a test extension function that sets up the `todoPage` and passes it to the test via the `use` function.
+4. We export the test fixture and the `expect` function from Playwright for use in our tests.
 
-1. We import test from Playwright to define our test.
-2. We define a Fixture type to specify what the fixture provides. In this case, it provides a todoPage instance of TodoPage.
-3. We create a test extension function that sets up the todoPage and passes it to the test.
-4. The use function is used to provide the todoPage instance to the test.
-5. We export the test fixture and the expect function from Playwright for use in our tests.
+With this setup, our test code becomes significantly cleaner:
 
-With this setup, our test code is simplified. This approach adheres to best practices and improves the maintainability of your test code.
-Let's see how it works.
-
-then
+**Before:**
 ```ts:example.spec.ts
 import { test, expect } from '@playwright/test';
 import BasePage from '../src/pages/base-page';
@@ -476,21 +432,23 @@ test.describe('my first page object pattern tests', () => {
     basePage = new BasePage(page);
     await basePage.goto();
   });
-  
+
   test('has title', async () => expect(await basePage.title).toBe('React • TodoMVC'));
-  test('get current url', async () => expect(basePage.pageUrl).toContain('demo.playwright.dev'));  
+  test('get current url', async () => expect(basePage.pageUrl).toContain('demo.playwright.dev'));
 });
 ```
-now
+
+**After:**
 ```ts:example.spec.ts
 import test, { expect } from './fixtures/fixture';
 
 test.describe('my first page object pattern tests', () => {
   test('has title', async ({ todoPage }) => expect(await todoPage.title).toBe('React • TodoMVC'));
-  test('get current url', async ({ todoPage }) => expect(todoPage.pageUrl).toContain('demo.playwright.dev'));  
+  test('get current url', async ({ todoPage }) => expect(todoPage.pageUrl).toContain('demo.playwright.dev'));
 });
 ```
-then
+
+**Before:**
 ```ts:add-new-todo-items.spec.ts
 import { test, expect } from '@playwright/test';
 import TodoPage from '../src/pages/todo-page/todo-page';
@@ -502,7 +460,7 @@ test.describe('my first page object pattern tests', () => {
     todoPage = new TodoPage(page);
     await todoPage.goto();
   });
-  
+
   test('add single todo item', async () => {
     await todoPage.todoApp.addNewItem('newTodoItem');
     const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
@@ -514,14 +472,15 @@ test.describe('my first page object pattern tests', () => {
     await todoPage.todoApp.addNewItems(newItems);
     const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
     expect(leftTodoItems).toBe(newItems.length);
-  });  
+  });
 });
 ```
-now
+
+**After:**
 ```ts:add-new-todo-items.spec.ts
 import test, { expect } from './fixtures/fixture';
 
-test.describe('my first page object pattern tests', () => {  
+test.describe('my first page object pattern tests', () => {
   test('add single todo item', async ({ todoPage }) => {
     await todoPage.todoApp.addNewItem('newTodoItem');
     const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
@@ -533,35 +492,24 @@ test.describe('my first page object pattern tests', () => {
     await todoPage.todoApp.addNewItems(newItems);
     const leftTodoItems = await todoPage.todoApp.getLeftTodoItems();
     expect(leftTodoItems).toBe(newItems.length);
-  });  
+  });
 });
 ```
 
-We've made significant improvements by using fixtures to simplify our test setup. Here's how it works:
-
-1. We've created a fixture that sets up the todoPage instance, eliminating the need to create it within each test and thus reducing duplication.
-2. We've used the test function from our fixture in our test files, and the todoPage is automatically provided to each test.
-3. We test files have become cleaner and more focused on the actual test scenarios, making them more readable and maintainable.
-
-By applying these changes, we've improved the structure of our tests, adhered to best practices, and made our test code more maintainable. 
-This is a great example of how to effectively implement the Page Object Pattern and streamline your testing process.
+By applying these changes, we have improved the structure of our tests, adhered to best practices, and made our test code more maintainable. The `todoPage` is automatically provided to each test, eliminating duplication and keeping the tests focused on the actual scenarios.
 
 # Conclusion
 <a name="conclusion" id="conclusion" />
 
-I've provided a detailed guide on implementing the Page Object Pattern in automation testing using Playwright and TypeScript. 
-This pattern is indeed a valuable tool for improving test code organization, reusability, and maintainability. 
-This step-by-step instructions make it easy for testers, especially those new to the concept, to understand and apply the Page Object Pattern effectively.
+This guide has walked through implementing the Page Object Pattern in automation testing using Playwright and TypeScript. This pattern is a valuable tool for improving test code organization, reusability, and maintainability. The step-by-step instructions make it accessible for testers at any level to understand and apply the Page Object Pattern effectively.
 
-The addition of fixtures is an excellent improvement, reducing code duplication and simplifying test setup. 
-This approach enhances the clarity and maintainability of test files.
+The addition of fixtures further reduces code duplication and simplifies test setup, enhancing the clarity and maintainability of test files.
 
-This guide is a valuable resource for those looking to create efficient and well-structured automated tests using Playwright and TypeScript. 
-It highlights best practices and provides a clear path for implementing the Page Object Pattern successfully. Great job!
+This guide serves as a resource for creating efficient and well-structured automated tests using Playwright and TypeScript, highlighting best practices and providing a clear path for implementing the Page Object Pattern successfully.
 
 # Resources
 <a name="resources" id="resources" />
 
-* [1] full repo with [**code**](https://github.com/o-holyshevskyi/my-playwright-project);
-* [2] typescript [**documentation**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html);
-* [3] playwright [**documentation**](https://playwright.dev/docs/intro);
+* [1] Full repository with [**code**](https://github.com/o-holyshevskyi/my-playwright-project);
+* [2] TypeScript [**documentation**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html);
+* [3] Playwright [**documentation**](https://playwright.dev/docs/intro);
