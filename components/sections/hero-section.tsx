@@ -6,6 +6,7 @@ import { Link } from '@nextui-org/link';
 import { useTranslations } from 'next-intl';
 import { Icon } from '@iconify/react';
 import CurrentStatus from '@/components/current-status';
+import DownloadCVButton from '@/components/download-cv-button';
 
 const container = {
   hidden: { opacity: 0 },
@@ -89,6 +90,7 @@ export default function HeroSection() {
               >
                 {t('cta.work')}
               </Button>
+              <DownloadCVButton />
             </div>
           </MotionWrapper>
         </MotionWrapper>
