@@ -31,6 +31,7 @@ export function generateCV(t: {
   hero: TranslationGetter;
   experience: TranslationGetter;
   skills: TranslationGetter;
+  aboutSection: TranslationGetter;
   about: TranslationGetter;
 }) {
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
@@ -95,7 +96,7 @@ export function generateCV(t: {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(...COLORS.ink);
-  const summaryLines = doc.splitTextToSize(t.about('summary'), CONTENT_WIDTH);
+  const summaryLines = doc.splitTextToSize(t.aboutSection('summary'), CONTENT_WIDTH);
   doc.text(summaryLines, MARGIN_LEFT, y);
   y += summaryLines.length * 4 + 4;
 

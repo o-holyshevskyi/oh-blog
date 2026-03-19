@@ -10,7 +10,8 @@ export default function DownloadCVButton() {
   const tHero = useTranslations('hero');
   const tExperience = useTranslations('experienceSection');
   const tSkills = useTranslations('skillsSection');
-  const tAbout = useTranslations('aboutSection');
+  const tAboutSection = useTranslations('aboutSection');
+  const tAbout = useTranslations('about');
 
   const handleDownload = useCallback(async () => {
     setLoading(true);
@@ -20,12 +21,13 @@ export default function DownloadCVButton() {
         hero: (key: string) => tHero(key as any),
         experience: (key: string) => tExperience(key as any),
         skills: (key: string) => tSkills(key as any),
+        aboutSection: (key: string) => tAboutSection(key as any),
         about: (key: string) => tAbout(key as any),
       });
     } finally {
       setLoading(false);
     }
-  }, [tHero, tExperience, tSkills, tAbout]);
+  }, [tHero, tExperience, tSkills, tAboutSection, tAbout]);
 
   return (
     <Button
