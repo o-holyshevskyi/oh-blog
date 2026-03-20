@@ -8,6 +8,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Post } from "@/app/lib/posts";
 import { useTranslations } from "next-intl";
 import PostCards from "../cards";
+import SleepingCat from "./sleeping-cat";
 
 export default function BlogTags({ allPosts, page, locale } : { allPosts: Post[]; page: number; locale: string; }) {
     const t = useTranslations("blogPage");
@@ -115,8 +116,10 @@ export default function BlogTags({ allPosts, page, locale } : { allPosts: Post[]
                     )}
                 </div>
             ) : (
-                <div className="flex flex-col items-center justify-center py-20">
-                    <p className="text-midgray text-lg font-serif">{t("noPosts")}</p>
+                <div className="flex flex-col items-center justify-center py-16">
+                    <SleepingCat className="w-48 h-36 mb-6" />
+                    <p className="text-ink dark:text-cream text-xl font-serif mb-2">{t("noPosts")}</p>
+                    <p className="text-midgray text-sm font-sans">{t("noPostsSubtitle")}</p>
                 </div>
             )}
         </section>

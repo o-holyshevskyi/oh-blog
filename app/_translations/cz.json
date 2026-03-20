@@ -252,7 +252,8 @@
     "filterByTags": "Filtrovat podle tagů",
     "resetFilter": "Resetovat filtr",
     "allPosts": "Všechny příspěvky",
-    "noPosts": "Nebyly nalezeny žádné příspěvky."
+    "noPosts": "Zatím zde nejsou žádné příspěvky...",
+    "noPostsSubtitle": "Kočka spí, zatímco připravujeme obsah pro tento jazyk."
   },
   "postCards": {
     "minRead": "min čtení",

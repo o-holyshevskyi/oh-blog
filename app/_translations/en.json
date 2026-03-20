@@ -252,7 +252,8 @@
     "filterByTags": "Filter by tags",
     "resetFilter": "Reset filter",
     "allPosts": "All posts",
-    "noPosts": "No posts were found."
+    "noPosts": "No posts here yet...",
+    "noPostsSubtitle": "The cat is napping while we prepare content for this language."
   },
   "postCards": {
     "minRead": "min read",
