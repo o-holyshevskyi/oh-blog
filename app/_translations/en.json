@@ -19,7 +19,9 @@
       "phoneNumber": "+420 775 161 467",
       "email": "holyshevskyi.a@gmail.com"
     },
-    "description": "As a dedicated QA Engineer, I am passionate about leveraging technology to deliver exceptional results for my clients. My expertise lies in designing, developing, and executing automated tests to ensure the highest standards of software quality. My commitment to excellence is evident in my work, where I strive to enhance user experiences through meticulous testing and continuous improvement. I bring unwavering energy and a collaborative spirit to every project, making me a reliable and valuable asset to any team. By focusing on precision and efficiency, I help organizations achieve their goals and deliver outstanding products."
+    "description": "As a dedicated QA Engineer, I am passionate about leveraging technology to deliver exceptional results for my clients. My expertise lies in designing, developing, and executing automated tests to ensure the highest standards of software quality. My commitment to excellence is evident in my work, where I strive to enhance user experiences through meticulous testing and continuous improvement. I bring unwavering energy and a collaborative spirit to every project, making me a reliable and valuable asset to any team. By focusing on precision and efficiency, I help organizations achieve their goals and deliver outstanding products.",
+    "downloadCV": "Download CV",
+    "generatingCV": "Generating..."
   },
   "aboutSection": {
     "heading": "About Me",

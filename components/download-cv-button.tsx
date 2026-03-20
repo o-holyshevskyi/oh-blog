@@ -39,7 +39,7 @@ export default function DownloadCVButton() {
       className="font-medium font-sans border-warmgray dark:border-warmgray/30 text-ink dark:text-cream"
       startContent={!loading && <Icon icon="mdi:file-download-outline" width={18} />}
     >
-      {loading ? 'Generating...' : 'Download CV'}
+      {loading ? tHero('generatingCV') : tHero('downloadCV')}
     </Button>
   );
 }
