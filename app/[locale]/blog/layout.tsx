@@ -15,11 +15,13 @@ export default async function BlogLayout({
 		<>
 			{/* @ts-ignore Async Server Component */}
 			<Navbar locale={locale} />
-			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-				<div className="w-full px-4 md:max-w-6xl">
-					{children}
-				</div>
-			</section>
+			<main className="relative z-10">
+				<section className="section-padding">
+					<div className="section-container">
+						{children}
+					</div>
+				</section>
+			</main>
 			<Footer />
 		</>
 	);

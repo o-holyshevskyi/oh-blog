@@ -11,6 +11,9 @@ export default function ScrollBar() {
     });
 
     return (
-        <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left rounded-full z-50" style={{ scaleX }} />
+        <motion.div
+            className="fixed top-0 left-0 right-0 h-[2px] bg-terracotta origin-left z-[60]"
+            style={{ scaleX }}
+        />
     );
 }
