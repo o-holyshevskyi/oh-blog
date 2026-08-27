@@ -1,3 +1,4 @@
+import { CopyCommand } from "@/components/copy-command";
 import Link from "next/link";
 
 export default function Home() {
@@ -83,31 +84,39 @@ export default function Home() {
                         TypeScript, C#, Playwright, NUnit/xUnit, Azure DevOps GitLab CI, Docker, MS SQL, Claude Code, Cline
                     </p>
                 </section>
-                <footer className="flex gap-6 text-sm text-neutral-500 pt-4">
-                    <a 
-                        href="mailto:holyshevskyi.a@gmail.com"
-                        className="hover:text-neutral-300 transition-colors"
-                    >
-                        email
-                    </a>
-                    <a 
-                        href="https://github.com/o-holyshevskyi"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-neutral-300 transition-colors group"
-                    >
-                        github
-                        <span className="text-neutral-600 group-hover:text-white">↗</span>
-                    </a>
-                    <a 
-                        href="https://www.linkedin.com/in/oleksandr-holyshevskyi/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-neutral-300 transition-colors group"    
-                    >
-                        linkedin
-                        <span className="text-neutral-600 group-hover:text-white">↗</span>
-                    </a>
+                <footer className="flex flex-col gap-8 pt-4">
+                    <div className="flex gap-6 text-sm text-neutral-500">
+                        <a 
+                            href="mailto:holyshevskyi.a@gmail.com"
+                            className="hover:text-neutral-300 transition-colors"
+                        >
+                            email
+                        </a>
+                        <a 
+                            href="https://github.com/o-holyshevskyi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-neutral-300 transition-colors group"
+                        >
+                            github
+                            <span className="text-neutral-600 group-hover:text-white">↗</span>
+                        </a>
+                        <a 
+                            href="https://www.linkedin.com/in/oleksandr-holyshevskyi/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-neutral-300 transition-colors group"    
+                        >
+                            linkedin
+                            <span className="text-neutral-600 group-hover:text-white">↗</span>
+                        </a>
+                    </div>
+                    <div className="flex flex-col gap-2 mt-4 border-t border-neutral-900 pt-6">
+                        <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
+                            # For developers: fetch new resume
+                        </span>
+                        <CopyCommand />
+                    </div>
                 </footer>
             </div>
         </main>

@@ -7,8 +7,8 @@ export function WorkImpact({ impacts }: { impacts: ReactNode[] }) {
                 The Impact
             </h2>
             <ul className="flex flex-col gap-3 text-sm text-neutral-400 list-disc pl-4">
-                {impacts.map((impact) => (
-                    <li>{impact}</li>
+                {impacts.map((impact, index) => (
+                    <li key={index}>{impact}</li>
                 ))}
             </ul>
         </section>
