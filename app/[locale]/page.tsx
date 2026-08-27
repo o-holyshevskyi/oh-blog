@@ -106,9 +106,7 @@ export default function Home() {
                         <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
                             # System Status
                         </span>
-                        {/* @ts-expect-error Async Server Component */}
                         <PipelineStatus />
-                        {/* @ts-expect-error Async Server Component */}
                         <TestLogs />
                     </div>
                 </footer>

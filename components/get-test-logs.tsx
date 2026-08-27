@@ -1,18 +1,37 @@
-export async function TestLogs() {
-    let logs = "[ fetching test logs... ]";
-    try {
-        const res = await fetch('https://gist.githubusercontent.com/o-holyshevskyi/6f7760e182b7cb05c0b69c2b32fb4217/raw/test-results.log', {
-            next: { revalidate: 60 } 
-        });
-        if (res.ok) {
-            logs = await res.text();
-        }
-    } catch (e) {
-        logs = "[ failed to load test logs ]";
-    }
+"use client";
+
+import { useState, useEffect } from "react";
+
+export function TestLogs() {
+    const [logs, setLogs] = useState<string>("[ click to fetch test logs... ]");
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const fetchLogs = async () => {
+            try {
+                const res = await fetch("/api/test-logs");
+                const data = await res.json();
+                setLogs(data.logs || "[ empty log ]");
+            } catch (error) {
+                setLogs("[ error parsing logs ]");
+            }
+        };
+
+        setLogs("[ fetching latest logs... ]");
+        fetchLogs();
+
+        const interval = setInterval(fetchLogs, 15000);
+
+        return () => clearInterval(interval);
+    }, [isOpen]);
 
     return (
-        <details className="mt-2 group cursor-pointer">
+        <details 
+            className="mt-2 group cursor-pointer"
+            onToggle={(e) => setIsOpen((e.target as HTMLDetailsElement).open)}
+        >
             <summary className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-300 transition-colors list-none flex items-center gap-2 select-none [&::-webkit-details-marker]:hidden">
                 Live E2E Verification <span className="text-neutral-700 group-open:rotate-180 transition-transform duration-200">▼</span>
             </summary>
