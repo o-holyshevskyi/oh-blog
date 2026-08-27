@@ -118,6 +118,7 @@ export default function Home() {
                         </span>
                         <CopyCommand />
                     </div>
+                    {/* @ts-expect-error Async Server Component */}
                     <PipelineStatus />
                 </footer>
             </div>
