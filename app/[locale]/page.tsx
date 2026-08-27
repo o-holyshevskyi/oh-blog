@@ -1,4 +1,5 @@
 import { CopyCommand } from "@/components/copy-command";
+import { PipelineStatus } from "@/components/pipeline-status";
 import Link from "next/link";
 
 export default function Home() {
@@ -117,6 +118,7 @@ export default function Home() {
                         </span>
                         <CopyCommand />
                     </div>
+                    <PipelineStatus />
                 </footer>
             </div>
         </main>
