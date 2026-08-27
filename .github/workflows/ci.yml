@@ -10,6 +10,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      GIST_ID: "8e770c205db74ff086cf7b67c6beb3e9"
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,23 +35,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
         
-      - name: Run Playwright E2E Tests
-        run: npx playwright test --project=chromium
-
-      - name: Run Playwright E2E Tests & Capture Log
-        id: playwright-tests
+      - name: Run E2E Tests & Capture Log
         run: |
-          # Запускаємо тести з list репортером і записуємо в лог. Якщо падає - ловимо помилку, але не зупиняємо скрипт
           npx playwright test --project=chromium --reporter=list > test-results.log || echo "TEST_FAILED=true" >> $GITHUB_ENV
-          
-          # Оновлюємо Gist через GitHub CLI
-          gh gist edit ${{ secrets.GIST_ID }} -a test-results.log
+          gh gist edit $GIST_ID -a test-results.log
         env:
           GH_TOKEN: ${{ secrets.GIST_TOKEN }}
-
-      - name: Fail pipeline if tests failed
-        if: env.TEST_FAILED == 'true'
-        run: exit 1
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
@@ -57,3 +49,25 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+      - name: Fail pipeline if tests failed
+        if: env.TEST_FAILED == 'true'
+        run: exit 1
+
+      - name: Wait for Vercel Deployment
+        if: github.event_name == 'push'
+        run: |
+          echo "Waiting 75 seconds for Vercel to finish deploying the new version..."
+          sleep 75
+
+      - name: Run Lighthouse Audit
+        run: |
+          npx lighthouse https://oholyshevskyi.com --output=json --output-path=report.json --chrome-flags="--headless"
+
+      - name: Parse Metrics & Push to Gist
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+        run: |
+          jq '{ perf: (.categories.performance.score * 100 | round), a11y: (.categories.accessibility.score * 100 | round), seo: (.categories.seo.score * 100 | round) }' report.json > metrics.json
+          cat metrics.json 
+          gh gist edit $GIST_ID metrics.json -a metrics.json

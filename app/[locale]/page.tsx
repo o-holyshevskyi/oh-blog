@@ -2,6 +2,7 @@ import { CopyCommand } from "@/components/copy-command";
 import { PipelineStatus } from "@/components/pipeline-status";
 import Link from "next/link";
 import { TestLogs } from "@/components/get-test-logs";
+import { SystemMetrics } from "@/components/metrics";
 
 export default function Home() {
     return (
@@ -106,6 +107,7 @@ export default function Home() {
                         <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
                             # System Status
                         </span>
+                        <SystemMetrics />
                         <PipelineStatus />
                         <TestLogs />
                     </div>
