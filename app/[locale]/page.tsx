@@ -86,43 +86,31 @@ export default function Home() {
                         TypeScript, C#, Playwright, NUnit/xUnit, Azure DevOps GitLab CI, Docker, MS SQL, Claude Code, Cline
                     </p>
                 </section>
-                <footer className="flex flex-col gap-8 pt-4">
+                <footer className="flex flex-col gap-10 pt-4 pb-12">
                     <div className="flex gap-6 text-sm text-neutral-500">
-                        <a 
-                            href="mailto:holyshevskyi.a@gmail.com"
-                            className="hover:text-neutral-300 transition-colors"
-                        >
-                            email
+                        <a href="mailto:holyshevskyi.a@gmail.com" className="hover:text-neutral-300 transition-colors">email</a>
+                        <a href="https://github.com/o-holyshevskyi" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-300 transition-colors group">
+                            github <span className="text-neutral-600 group-hover:text-white">↗</span>
                         </a>
-                        <a 
-                            href="https://github.com/o-holyshevskyi"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-neutral-300 transition-colors group"
-                        >
-                            github
-                            <span className="text-neutral-600 group-hover:text-white">↗</span>
-                        </a>
-                        <a 
-                            href="https://www.linkedin.com/in/oleksandr-holyshevskyi/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-neutral-300 transition-colors group"    
-                        >
-                            linkedin
-                            <span className="text-neutral-600 group-hover:text-white">↗</span>
+                        <a href="https://www.linkedin.com/in/oleksandr-holyshevskyi/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-300 transition-colors group">
+                            linkedin <span className="text-neutral-600 group-hover:text-white">↗</span>
                         </a>
                     </div>
-                    <div className="flex flex-col gap-2 mt-4 border-t border-neutral-900 pt-6">
+                    <div className="flex flex-col gap-3">
                         <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
                             # For developers: fetch new resume
                         </span>
                         <CopyCommand />
                     </div>
-                    {/* @ts-expect-error Async Server Component */}
-                    <PipelineStatus />
-                    {/* @ts-expect-error Async Server Component */}
-                    <TestLogs />
+                    <div className="flex flex-col gap-3">
+                        <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
+                            # System Status
+                        </span>
+                        {/* @ts-expect-error Async Server Component */}
+                        <PipelineStatus />
+                        {/* @ts-expect-error Async Server Component */}
+                        <TestLogs />
+                    </div>
                 </footer>
             </div>
         </main>
