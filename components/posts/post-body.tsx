@@ -7,6 +7,7 @@ import { PostMeta } from '@/app/lib/posts';
 import TOCComponent from './table-of-contents';
 import { useTranslations } from 'next-intl';
 import { Icon } from '@iconify/react';
+import Image from 'next/image';
 
 export default function PostBody({
     content,
@@ -52,10 +53,11 @@ export default function PostBody({
             {/* Post image */}
             {meta.img && (
                 <div className='w-full mb-10 rounded-sm overflow-hidden'>
-                    <img
+                    <Image
                         src={meta.img}
                         alt={meta.title}
                         className="w-full object-cover"
+                        width={500} height={300}
                     />
                 </div>
             )}

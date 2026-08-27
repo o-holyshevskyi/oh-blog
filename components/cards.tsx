@@ -3,6 +3,7 @@ import { timeToRead } from "@/app/lib/time-to-read";
 import { useTranslations } from "next-intl";
 import Date from "./date/date";
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function PostCards({
     displayedItems,
@@ -23,10 +24,11 @@ export default function PostCards({
                 >
                     {post.meta.img && (
                         <div className="aspect-[16/9] overflow-hidden bg-warmgray/10">
-                            <img
+                            <Image
                                 src={post.meta.img}
                                 alt={post.meta.title}
                                 className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                                width={500} height={300}
                             />
                         </div>
                     )}
