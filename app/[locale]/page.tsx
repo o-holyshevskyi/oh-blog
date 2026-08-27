@@ -121,6 +121,7 @@ export default function Home() {
                     </div>
                     {/* @ts-expect-error Async Server Component */}
                     <PipelineStatus />
+                    {/* @ts-expect-error Async Server Component */}
                     <TestLogs />
                 </footer>
             </div>
