@@ -78,6 +78,7 @@
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/rss": "^0.0.32"
   },
