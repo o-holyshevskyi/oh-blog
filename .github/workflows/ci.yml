@@ -35,6 +35,21 @@ jobs:
       - name: Run Playwright E2E Tests
         run: npx playwright test --project=chromium
 
+      - name: Run Playwright E2E Tests & Capture Log
+        id: playwright-tests
+        run: |
+          # Запускаємо тести з list репортером і записуємо в лог. Якщо падає - ловимо помилку, але не зупиняємо скрипт
+          npx playwright test --project=chromium --reporter=list > test-results.log || echo "TEST_FAILED=true" >> $GITHUB_ENV
+          
+          # Оновлюємо Gist через GitHub CLI
+          gh gist edit ${{ secrets.GIST_ID }} -a test-results.log
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+
+      - name: Fail pipeline if tests failed
+        if: env.TEST_FAILED == 'true'
+        run: exit 1
+
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: always()
