@@ -1,6 +1,7 @@
 import { CopyCommand } from "@/components/copy-command";
 import { PipelineStatus } from "@/components/pipeline-status";
 import Link from "next/link";
+import { TestLogs } from "@/components/get-test-logs";
 
 export default function Home() {
     return (

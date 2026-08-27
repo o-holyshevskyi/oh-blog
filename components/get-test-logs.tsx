@@ -1,9 +1,9 @@
 // Додай цю функцію поруч з іншими компонентами
-async function TestLogs() {
+export async function TestLogs() {
     let logs = "[ fetching test logs... ]";
     try {
         // ВАЖЛИВО: Заміни GIST_ID на свій реальний ID
-        const res = await fetch('https://gist.githubusercontent.com/o-holyshevskyi/6f7760e182b7cb05c0b69c2b32fb4217/raw/portfolio-tests.log', {
+        const res = await fetch('https://gist.githubusercontent.com/o-holyshevskyi/6f7760e182b7cb05c0b69c2b32fb4217/raw/test-results.log', {
             next: { revalidate: 60 } 
         });
         if (res.ok) {
