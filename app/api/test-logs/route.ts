@@ -31,7 +31,7 @@ export async function GET(req: Request) {
             rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
         }
 
-        const url = `https://gist.githubusercontent.com/o-holyshevskyi/6f7760e182b7cb05c0b69c2b32fb4217/raw/test-results.log?t=${Date.now()}`;
+        const url = `https://gist.githubusercontent.com/o-holyshevskyi/8e770c205db74ff086cf7b67c6beb3e9/raw/test-results.log?t=${Date.now()}`;
         
         const res = await fetch(url, { cache: 'no-store' });
 
