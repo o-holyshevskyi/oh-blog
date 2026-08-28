@@ -22,60 +22,63 @@ export default function Home() {
                     <h2 className="text-[10px] uppercase tracking-[0.2em] text-neutral-400">
                         Impact & Milestones
                     </h2>
-                    <ul className="flex flex-col gap-3">
+                    <ul className="flex flex-col gap-5 sm:gap-3">
                         <li className="w-full">
                             <Link
                                 href={"/work/biometrics"}
-                                className="flex justify-between items-baseline gap-4 text-sm group"
+                                className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 text-sm group"
                             >
-                                <span className="shrink-0 text-neutral-300 group-hover:text-white transition-colors">
+                                {/* ДОДАНО: sm:shrink-0. На мобілці переноситься, на десктопі - жорстко один рядок */}
+                                <span className="text-neutral-300 group-hover:text-white transition-colors leading-relaxed sm:shrink-0">
                                     Architected hardware mocks for biometric scanners
                                 </span>
-                                <span className="w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
-                                <span className="shrink-0 text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+                                <span className="hidden sm:block w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
+                                <span className="text-neutral-500 sm:text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors sm:shrink-0">
                                     C# / .NET
-                                    <span className="text-neutral-400 group-hover:text-white">↗</span>
+                                    <span className="text-neutral-500 sm:text-neutral-400 group-hover:text-white">↗</span>
                                 </span>
                             </Link>
                         </li>
                         <li className="w-full">
                             <Link
                                 href={"/work/playwright-migration"}
-                                className="flex justify-between items-baseline gap-4 text-sm group"
+                                className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 text-sm group"
                             >
-                                <span className="shrink-0 text-neutral-300 group-hover:text-white transition-colors">
+                                <span className="text-neutral-300 group-hover:text-white transition-colors leading-relaxed sm:shrink-0">
                                     Enterprise migration from Selenium to Playwright
                                 </span>
-                                <span className="w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
-                                <span className="shrink-0 text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+                                <span className="hidden sm:block w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
+                                <span className="text-neutral-500 sm:text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors sm:shrink-0">
                                     70+ engineers
-                                    <span className="text-neutral-400 group-hover:text-white">↗</span>
+                                    <span className="text-neutral-500 sm:text-neutral-400 group-hover:text-white">↗</span>
                                 </span>
                             </Link>
                         </li>
                         <li className="w-full">
                             <Link
                                 href={"/work/cicd-quality-gates"}
-                                className="flex justify-between items-baseline gap-4 text-sm group"
+                                className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 text-sm group"
                             >
-                                <span  className="shrink-0 text-neutral-300 group-hover:text-neutral-100 transition-colors">
+                                <span className="text-neutral-300 group-hover:text-neutral-100 transition-colors leading-relaxed sm:shrink-0">
                                     Architected CI/CD Quality Gates
                                 </span>
-                                <span className="w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
-                                <span className="shrink-0 text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+                                <span className="hidden sm:block w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
+                                <span className="text-neutral-500 sm:text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors sm:shrink-0">
                                     Azure / GitLab
-                                    <span className="text-neutral-400 group-hover:text-white">↗</span>
+                                    <span className="text-neutral-500 sm:text-neutral-400 group-hover:text-white">↗</span>
                                 </span>
                             </Link>
                         </li>
-                        <li className="flex justify-between items-baseline gap-4 text-sm group">
-                            <span className="shrink-0 text-neutral-300 group-hover:text-neutral-100 transition-colors">
-                                Reduced deployment times & regression cycles
-                            </span>
-                            <span className="w-full border-b border-dashed border-neutral-700 relative -top-1"/>
-                            <span className="shrink-0 text-neutral-400 text-xs">
-                                -50% / -80%
-                            </span>
+                        <li className="w-full">
+                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 text-sm group">
+                                <span className="text-neutral-300 group-hover:text-neutral-100 transition-colors leading-relaxed sm:shrink-0">
+                                    Reduced deployment times & regression cycles
+                                </span>
+                                <span className="hidden sm:block w-full border-b border-dashed border-neutral-700 relative -top-1"/>
+                                <span className="text-neutral-500 sm:text-neutral-400 text-xs sm:shrink-0">
+                                    -50% / -80%
+                                </span>
+                            </div>
                         </li>
                     </ul>
                 </section>

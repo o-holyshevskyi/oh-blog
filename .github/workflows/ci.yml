@@ -58,11 +58,11 @@ jobs:
         if: github.event_name == 'push'
         run: |
           echo "Waiting 75 seconds for Vercel to finish deploying the new version..."
-          sleep 75
+          sleep 180
 
       - name: Run Lighthouse Audit
         run: |
-          npx lighthouse https://oholyshevskyi.com --output=json --output-path=report.json --chrome-flags="--headless"
+          npx lighthouse https://oholyshevskyi.com --output=json --output-path=report.json --chrome-flags="--headless" --preset=desktop
 
       - name: Parse Metrics & Push to Gist
         env:
