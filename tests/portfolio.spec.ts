@@ -36,4 +36,46 @@ test.describe('Portfolio E2E & API Contract', () => {
     expect(Array.isArray(data.experience)).toBeTruthy();
     expect(data.experience.length).toBeGreaterThan(0);
   });
+
+  test('Security & Resilience: Rate Limiter blocks excessive requests and updates UI', async ({ page }) => {
+    await page.goto('/');
+    
+    const logsAccordion = page.locator('details').filter({ hasText: 'Live E2E Verification' });
+    const summary = logsAccordion.locator('summary');
+    
+    for (let i = 0; i < 5; i++) {
+      await summary.click();
+      await page.waitForTimeout(100); 
+      if (i < 4) await summary.click(); 
+    }
+
+    const isOpen = await logsAccordion.getAttribute('open') !== null;
+    if (!isOpen) await summary.click();
+
+    const securityFaultText = page.locator('text=[ SECURITY FAULT ]');
+    await expect(securityFaultText).toBeVisible({ timeout: 5000 });
+    
+    const rateLimitMessage = page.locator('text=RATE LIMIT EXCEEDED FOR IP');
+    await expect(rateLimitMessage).toBeVisible();
+  });
+
+  test('Event-Driven Architecture: Command Palette triggers global state changes', async ({ page }) => {
+    await page.goto('/');
+    
+    const modifier = process.platform === 'darwin' ? 'Meta' : 'Control';
+    await page.keyboard.press(`${modifier}+k`);
+    
+    const cmdInput = page.locator('input[type="text"]');
+    await expect(cmdInput).toBeFocused();
+    
+    await cmdInput.fill('toggle_logs');
+    await page.keyboard.press('Enter');
+    
+    const terminalOutput = page.locator('text=Signal \'toggle-e2e-logs\' dispatched');
+    await expect(terminalOutput).toBeVisible();
+    
+    const logsAccordion = page.locator('details').filter({ hasText: 'Live E2E Verification' });
+    
+    await expect(logsAccordion).toHaveAttribute('open', '');
+  });
 });
