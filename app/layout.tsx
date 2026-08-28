@@ -1,6 +1,7 @@
-import "@/styles/globals.css";
+// CSS is loaded for its side effects and resolved by Next.js at build time.
+// @ts-ignore TypeScript may not have a declaration for CSS side-effect imports.
+import "../styles/globals.css";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { Providers } from "./providers";
 import { clsx } from "clsx";
 import { Analytics } from '@vercel/analytics/react';
@@ -8,14 +9,15 @@ import { CommandPalette } from "@/components/command-palette";
 
 export const metadata: Metadata = {
     title: {
-        default: siteConfig.name,
-        template: `%s - ${siteConfig.name}`,
+        default: "Oleksandr Holyshevskyi | Senior SDET",
+        template: `%s - "Oleksandr Holyshevskyi | Senior SDET"`,
     },
-    description: siteConfig.description,
+    description: `Senior SDET with 7+ years of experience architecting test automation frameworks (Playwright, C#/TS). 
+                Proven track record of transforming QA processes: reduced deployment times by 50%, 
+                cut regression testing by up to 80%, and embedded strict quality gates into CI/CD pipelines.`,
     icons: {
         icon: "/favicon.ico",
     },
-    // Встановлюємо жорсткий канонічний URL, hreflang більше не потрібен
     alternates: {
         canonical: process.env.NEXT_PUBLIC_BASE_URL || "https://oholyshevskyi.com",
     },
@@ -32,9 +34,8 @@ export default function RootLayout({
             <head />
             <body
                 className={clsx(
-                    "min-h-screen bg-cream dark:bg-[#1a1918] text-ink dark:text-cream antialiased",
+                    "min-h-screen bg-[#0a0a0a] text-neutral-300 font-mono antialiased"
                 )}
-                style={{ fontFamily: 'Georgia, ui-serif, Cambria, "Palatino Linotype", "Times New Roman", Times, serif' }}
             >
                 <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
                     {children}

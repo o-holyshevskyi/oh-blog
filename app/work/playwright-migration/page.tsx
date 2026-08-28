@@ -1,3 +1,4 @@
+import { WorkFooter } from "@/components/work-footer";
 import { WorkHeader } from "@/components/work-header";
 import { WorkImpact } from "@/components/work-impact";
 import { WorkSection } from "@/components/work-section";
@@ -45,6 +46,7 @@ Test <===== WebSocket (Events) =====> Browser
                 <WorkImpact
                     impacts={impacts}
                 />
+                <WorkFooter />
             </div>
         </main>
     );
