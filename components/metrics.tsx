@@ -35,7 +35,7 @@ export function SystemMetrics() {
     }, []);
 
     if (status === "loading") {
-        return <div className="text-[10px] uppercase font-mono text-neutral-600 mt-2">[ fetching telemetry... ]</div>;
+        return <div className="text-[10px] uppercase font-mono text-neutral-400 mt-2">[ fetching telemetry... ]</div>;
     }
 
     if (status === "error" || !metrics) {
@@ -44,22 +44,22 @@ export function SystemMetrics() {
 
     const getColor = (score: number) => {
         if (score >= 90) return "text-green-500";
-        if (score >= 50) return "text-yellow-500";
+        if (score >= 50) return "text-neutral-400";
         return "text-red-500";
     };
 
     return (
         <div className="flex flex-col gap-2 text-[10px] uppercase tracking-[0.1em] font-mono mt-1">
-            <span className="text-neutral-600">Live Telemetry (Lighthouse CI):</span>
+            <span className="text-neutral-400">Live Telemetry (Lighthouse CI):</span>
             <div className="flex gap-4">
                 <span>
-                    <span className="text-neutral-500">PERF:</span> <span className={getColor(metrics.perf)}>[ {metrics.perf} ]</span>
+                    <span className="text-neutral-400">PERF:</span> <span className={getColor(metrics.perf)}>[ {metrics.perf} ]</span>
                 </span>
                 <span>
-                    <span className="text-neutral-500">A11Y:</span> <span className={getColor(metrics.a11y)}>[ {metrics.a11y} ]</span>
+                    <span className="text-neutral-400">A11Y:</span> <span className={getColor(metrics.a11y)}>[ {metrics.a11y} ]</span>
                 </span>
                 <span>
-                    <span className="text-neutral-500">SEO:</span> <span className={getColor(metrics.seo)}>[ {metrics.seo} ]</span>
+                    <span className="text-neutral-400">SEO:</span> <span className={getColor(metrics.seo)}>[ {metrics.seo} ]</span>
                 </span>
             </div>
         </div>

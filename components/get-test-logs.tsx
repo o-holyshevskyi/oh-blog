@@ -41,12 +41,25 @@ export function TestLogs() {
         return () => clearInterval(interval);
     }, [isOpen]);
 
+    useEffect(() => {
+        const handleToggleLogs = () => {
+            setIsOpen((prev) => !prev);
+        }
+
+        window.addEventListener("toggle-e2e-logs", handleToggleLogs);
+
+        return () => {
+            window.removeEventListener("toggle-e2e-logs", handleToggleLogs);
+        }
+    }, []);
+
     return (
         <details 
             className="mt-2 group cursor-pointer"
+            open={isOpen}
             onToggle={(e) => setIsOpen((e.target as HTMLDetailsElement).open)}
         >
-            <summary className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-300 transition-colors list-none flex items-center gap-2 select-none [&::-webkit-details-marker]:hidden">
+            <summary className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 hover:text-neutral-300 transition-colors list-none flex items-center gap-2 select-none [&::-webkit-details-marker]:hidden">
                 Live E2E Verification <span className="text-neutral-700 group-open:rotate-180 transition-transform duration-200">▼</span>
             </summary>
             <div className={`mt-3 p-4 bg-[#0d0d0d] border rounded-sm transition-colors duration-300 ${isRateLimited ? 'border-red-900/50' : 'border-neutral-900'}`}>

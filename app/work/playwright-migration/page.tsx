@@ -30,7 +30,7 @@ export default function CaseStudy() {
                         I eradicated thousands of lines of explicit waits by leveraging built-in auto-waiting, and implemented web-first assertions 
                         directly on locators. This not only sped up execution but fundamentally transformed how 70+ engineers debugged failed pipelines."
                     content={
-                        <pre className="bg-[#111] p-4 rounded-sm text-xs text-neutral-500 overflow-x-auto border border-neutral-800 mt-2">
+                        <pre className="bg-[#111] p-4 rounded-sm text-xs text-neutral-400 overflow-x-auto border border-neutral-800 mt-2">
                             <code>{`
 [Legacy: Selenium]
 Test -> HTTP Request -> Browser Driver -> HTTP Response -> Test

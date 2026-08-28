@@ -30,7 +30,7 @@ export default function CaseStudy() {
                         injects mock scanner payloads during test execution. This allows the pipeline to programmatically simulate complex edge cases 
                         (e.g., spoofed reads, hardware disconnects, corrupted biometric data) that are extremely difficult to reproduce manually."
                     content={
-                        <pre className="bg-[#111] p-4 rounded-sm text-xs text-neutral-500 overflow-x-auto border border-neutral-800 mt-2">
+                        <pre className="bg-[#111] p-4 rounded-sm text-xs text-neutral-400 overflow-x-auto border border-neutral-800 mt-2">
                             <code>
                                 {`
     [Physical Scanner] ---X (Decoupled)

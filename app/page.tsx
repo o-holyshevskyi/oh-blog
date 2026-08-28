@@ -32,9 +32,9 @@ export default function Home() {
                                     Architected hardware mocks for biometric scanners
                                 </span>
                                 <span className="w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
-                                <span className="shrink-0 text-neutral-500 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+                                <span className="shrink-0 text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
                                     C# / .NET
-                                    <span className="text-neutral-600 group-hover:text-white">↗</span>
+                                    <span className="text-neutral-400 group-hover:text-white">↗</span>
                                 </span>
                             </Link>
                         </li>
@@ -47,9 +47,9 @@ export default function Home() {
                                     Enterprise migration from Selenium to Playwright
                                 </span>
                                 <span className="w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
-                                <span className="shrink-0 text-neutral-500 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+                                <span className="shrink-0 text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
                                     70+ engineers
-                                    <span className="text-neutral-600 group-hover:text-white">↗</span>
+                                    <span className="text-neutral-400 group-hover:text-white">↗</span>
                                 </span>
                             </Link>
                         </li>
@@ -62,9 +62,9 @@ export default function Home() {
                                     Architected CI/CD Quality Gates
                                 </span>
                                 <span className="w-full border-b border-dashed border-neutral-700 group-hover:border-neutral-500 transition-colors relative -top-1"/>
-                                <span className="shrink-0 text-neutral-500 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+                                <span className="shrink-0 text-neutral-400 text-xs flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
                                     Azure / GitLab
-                                    <span className="text-neutral-600 group-hover:text-white">↗</span>
+                                    <span className="text-neutral-400 group-hover:text-white">↗</span>
                                 </span>
                             </Link>
                         </li>
@@ -73,7 +73,7 @@ export default function Home() {
                                 Reduced deployment times & regression cycles
                             </span>
                             <span className="w-full border-b border-dashed border-neutral-700 relative -top-1"/>
-                            <span className="shrink-0 text-neutral-500 text-xs">
+                            <span className="shrink-0 text-neutral-400 text-xs">
                                 -50% / -80%
                             </span>
                         </li>
@@ -88,28 +88,39 @@ export default function Home() {
                     </p>
                 </section>
                 <footer className="flex flex-col gap-10 pt-4 pb-12">
-                    <div className="flex gap-6 text-sm text-neutral-500">
+                    <div className="flex gap-6 text-sm text-neutral-400">
                         <a href="mailto:holyshevskyi.a@gmail.com" className="hover:text-neutral-300 transition-colors">email</a>
                         <a href="https://github.com/o-holyshevskyi" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-300 transition-colors group">
-                            github <span className="text-neutral-600 group-hover:text-white">↗</span>
+                            github <span className="text-neutral-400 group-hover:text-white">↗</span>
                         </a>
                         <a href="https://www.linkedin.com/in/oleksandr-holyshevskyi/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-300 transition-colors group">
-                            linkedin <span className="text-neutral-600 group-hover:text-white">↗</span>
+                            linkedin <span className="text-neutral-400 group-hover:text-white">↗</span>
                         </a>
                     </div>
                     <div className="flex flex-col gap-3">
-                        <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
+                        <span className="text-neutral-400 text-[10px] uppercase tracking-[0.1em]">
                             # For developers: fetch new resume
                         </span>
                         <CopyCommand />
                     </div>
                     <div className="flex flex-col gap-3">
-                        <span className="text-neutral-600 text-[10px] uppercase tracking-[0.1em]">
+                        <span className="text-neutral-400 text-[10px] uppercase tracking-[0.1em]">
                             # System Status
                         </span>
                         <SystemMetrics />
                         <PipelineStatus />
                         <TestLogs />
+                    </div>
+                    <div className="mt-8 pt-8 border-t border-neutral-900 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[10px] text-neutral-400 font-mono uppercase tracking-widest">
+                        <span>oh-os v1.0.0</span>
+                        <span className="flex items-center gap-2">
+                            <span>System Terminal:</span>
+                            <span className="flex items-center gap-1">
+                                <kbd className="bg-[#1a1a1a] border border-neutral-800 px-1.5 py-0.5 rounded-sm text-neutral-300 font-sans text-[9px] shadow-sm">CTRL</kbd>
+                                <span>+</span>
+                                <kbd className="bg-[#1a1a1a] border border-neutral-800 px-1.5 py-0.5 rounded-sm text-neutral-300 font-sans text-[9px] shadow-sm">K</kbd>
+                            </span>
+                        </span>
                     </div>
                 </footer>
             </div>

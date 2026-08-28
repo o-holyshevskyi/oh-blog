@@ -29,7 +29,7 @@ export default function CaseStudy() {
                     regression with robust automated pipelines. No pull request could be merged, and no release deployed, without successfully passing 
                     this continuous quality monitoring layer."
                     content={
-                        <pre className="bg-[#111] p-4 rounded-sm text-xs text-neutral-500 overflow-x-auto border border-neutral-800 mt-2">
+                        <pre className="bg-[#111] p-4 rounded-sm text-xs text-neutral-400 overflow-x-auto border border-neutral-800 mt-2">
                             <code>{`
 [Developer PR] -> [Trigger CI Pipeline]
                 |
