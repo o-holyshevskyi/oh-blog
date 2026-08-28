@@ -119,9 +119,9 @@ export default function Home() {
                         <span className="flex items-center gap-2">
                             <span>System Terminal:</span>
                             <span className="flex items-center gap-1">
-                                <kbd className="bg-[#1a1a1a] border border-neutral-800 px-1.5 py-0.5 rounded-sm text-neutral-300 font-sans text-[9px] shadow-sm">CTRL</kbd>
+                                <kbd className="bg-[#1a1a1a] border border-neutral-800 px-1.5 py-0.5 rounded-sm text-neutral-400 font-sans text-[10px] shadow-sm">CTRL</kbd>
                                 <span>+</span>
-                                <kbd className="bg-[#1a1a1a] border border-neutral-800 px-1.5 py-0.5 rounded-sm text-neutral-300 font-sans text-[9px] shadow-sm">K</kbd>
+                                <kbd className="bg-[#1a1a1a] border border-neutral-800 px-1.5 py-0.5 rounded-sm text-neutral-400 font-sans text-[10px] shadow-sm">K</kbd>
                             </span>
                         </span>
                     </div>
