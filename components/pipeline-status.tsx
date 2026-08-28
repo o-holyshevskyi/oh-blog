@@ -30,7 +30,7 @@ export function PipelineStatus() {
         <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.1em] font-mono mt-1">
             <span className="text-neutral-400">CI/CD Pipeline:</span>
             {isRunning ? (
-                <span className="text-neutral-400 animate-pulse">[ {status} ]</span>
+                <span className="text-yellow-400 animate-pulse">[ {status} ]</span>
             ) : (
                 <span className={isSuccess ? "text-green-800" : "text-red-500"}>
                     [ {status} ]
